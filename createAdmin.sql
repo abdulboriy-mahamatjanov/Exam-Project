@@ -8,10 +8,8 @@ CREATE TABLE Users (
     password VARCHAR(255) NOT NULL,
     role UserRole NOT NULL,
     status VARCHAR(20) NOT NULL DEFAULT  'ACTIVE',
-    avatar VARCHAR(255) NOT NULL,
-    dataCompanyId UUID,
-    contactsId UUID
+    avatar VARCHAR(255) NOT NULL
 )
 
-INSERT INTO Users (fullName, phone, password, role, status, avatar, dataCompanyId, contactsId) VALUES
-('Abdulboriy Mahamatjanov', '+998507525150', 'Admin12345', 'ADMIN', 'ACTIVE', '', '', '')
+INSERT INTO Users (fullName, phone, password, role, status, avatar) VALUES
+('Abdulboriy Mahamatjanov', '+998507525150', 'Admin12345', 'ADMIN', 'ACTIVE', '')

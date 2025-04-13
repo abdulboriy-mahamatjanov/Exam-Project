@@ -6,10 +6,14 @@ import {
 import { CreateRegionDto } from './dto/create-region.dto';
 import { UpdateRegionDto } from './dto/update-region.dto';
 import { PrismaService } from '../prisma/prisma.service';
+import { EskizService } from 'src/eskiz/eskiz.service';
 
 @Injectable()
 export class RegionService {
-  constructor(private prisma: PrismaService) {}
+  constructor(
+    private prisma: PrismaService,
+    private readonly eskizService: EskizService,
+  ) {}
 
   async findRegion(id: string) {
     try {
