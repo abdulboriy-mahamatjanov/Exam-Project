@@ -1,0 +1,304 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Regions {
+  id        String   @id @default(uuid())
+  name      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  Users     Users[]
+}
+
+model Contacts {
+  id        String   @id @default(uuid())
+  nameUz    String
+  nameRu    String
+  nameEn    String
+  surNameUz String
+  surNameRu String
+  surNameEn String
+  phone     String   @unique
+  address   String
+  message   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  Users     Users[]
+}
+
+model DataAboutCompany {
+  id        String   @id @default(uuid())
+  INN       String
+  MFO       String
+  R_or_C    String
+  bankCode  String   @unique
+  Oked      String
+  location  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  Users     Users[]
+}
+
+enum UserRole {
+  ADMIN
+  SUPER_ADMIN
+  VIEWER_ADMIN
+  USER_FIZ
+  USER_YUR
+}
+
+enum UserStatus {
+  ACTIVE
+  INACTIVE
+}
+
+model Users {
+  id                 String           @id @default(uuid())
+  fullNameUz         String
+  fullNameRu         String
+  fullNameEn         String
+  phone              String           @unique
+  password           String
+  role               UserRole
+  status             UserStatus       @default(INACTIVE)
+  avatar             String
+  regionId           String
+  region             Regions          @relation(fields: [regionId], references: [id])
+  dataAboutCompanyId String
+  dataAboutCompany   DataAboutCompany @relation(fields: [dataAboutCompanyId], references: [id])
+  contactsId         String
+  contacts           Contacts         @relation(fields: [contactsId], references: [id])
+  createdAt          DateTime         @default(now())
+  updatedAt          DateTime         @updatedAt
+}
+
+model Sessions {
+  id         String   @id @default(uuid())
+  userId     String
+  ipAddress  String
+  deviceInfo String
+  createdAt  DateTime @default(now())
+}
+
+model ShowCases {
+  id            String   @id @default(uuid())
+  nameUz        String
+  nameRu        String
+  nameEn        String
+  descriptionUz String
+  descriptionRu String
+  descriptionEn String
+  images        String[]
+  links         String[]
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+model FAQ {
+  id        String   @id @default(uuid())
+  question  String
+  answer    String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model AboutOurPage {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  phone     String   @unique
+  links     String[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Partners {
+  id        String   @id @default(uuid())
+  nameUz    String
+  nameRu    String
+  nameEn    String
+  images    String[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Comments {
+  id        String    @id @default(uuid())
+  message   String
+  star      Float
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  Orders    Orders[]
+  Masters   Masters[]
+}
+
+model Levels {
+  id                String              @id @default(uuid())
+  nameUz            String
+  nameRu            String
+  nameEn            String
+  createdAt         DateTime            @default(now())
+  updatedAt         DateTime            @updatedAt
+  Masters           Masters[]
+  Products          Products[]
+  OrderWithProducts OrderWithProducts[]
+}
+
+model Capacity {
+  id        String   @id @default(uuid())
+  nameUz    String
+  nameRu    String
+  nameEn    String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  Tools     Tools[]
+}
+
+model Sizes {
+  id        String   @id @default(uuid())
+  nameUz    String
+  nameRu    String
+  nameEn    String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  Tools     Tools[]
+}
+
+model Brands {
+  id        String   @id @default(uuid())
+  nameUz    String
+  nameRu    String
+  nameEn    String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  Tools     Tools[]
+}
+
+enum ToolStatus {
+  PENDING
+  ACCEPTED
+  REJECTED
+}
+
+model Tools {
+  id                String              @id @default(uuid())
+  nameUz            String
+  nameRu            String
+  nameEn            String
+  descriptionUz     String
+  descriptionRu     String
+  descriptionEn     String
+  price             Decimal
+  quantity          Int
+  brandId           String
+  brand             Brands              @relation(fields: [brandId], references: [id])
+  status            ToolStatus
+  capacityId        String
+  capacity          Capacity            @relation(fields: [capacityId], references: [id])
+  sizeId            String
+  size              Sizes               @relation(fields: [sizeId], references: [id])
+  image             String
+  createdAt         DateTime            @default(now())
+  updatedAt         DateTime            @updatedAt
+  OrderWithProducts OrderWithProducts[]
+}
+
+enum OrderPaymentType {
+  PAYME
+  CLICK
+  CAHS
+  CARD
+}
+
+model Orders {
+  id                String              @id @default(uuid())
+  totalPrice        Decimal
+  location          String
+  address           String
+  date              DateTime
+  paymentType       OrderPaymentType
+  withDelivery      Boolean
+  status            Boolean
+  commentId         String
+  comment           Comments            @relation(fields: [commentId], references: [id])
+  createdAt         DateTime            @default(now())
+  updatedAt         DateTime            @updatedAt
+  OrderWithProducts OrderWithProducts[]
+}
+
+model Products {
+  id                String              @id @default(uuid())
+  nameUz            String
+  nameRu            String
+  nameEn            String
+  image             String
+  minWorkHours      DateTime
+  levelId           String
+  level             Levels              @relation(fields: [levelId], references: [id])
+  priceHourly       Decimal
+  priceDaily        Decimal
+  toolId            String
+  createdAt         DateTime            @default(now())
+  updatedAt         DateTime            @updatedAt
+  Masters           Masters[]
+  OrderWithProducts OrderWithProducts[]
+}
+
+model Masters {
+  id            String   @id @default(uuid())
+  fullNameUz    String
+  fullNameRu    String
+  fullNameEn    String
+  phone         String   @unique
+  status        Boolean
+  dateOfBirth   DateTime
+  avatar        String
+  passportImage String
+  productId     String
+  product       Products @relation(fields: [productId], references: [id])
+  levelId       String
+  level         Levels   @relation(fields: [levelId], references: [id])
+  priceHourly   Decimal
+  priceDaily    Decimal
+  experience    Int
+  minWorkHours  DateTime
+  commentId     String
+  comment       Comments @relation(fields: [commentId], references: [id])
+  about         String
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+enum MeasureType {
+  HOUR
+  DAY
+}
+
+model OrderWithProducts {
+  id        String      @id @default(uuid())
+  orderId   String
+  order     Orders      @relation(fields: [orderId], references: [id])
+  productId String
+  product   Products    @relation(fields: [productId], references: [id])
+  levelId   String
+  level     Levels      @relation(fields: [levelId], references: [id])
+  count     Int
+  quantity  Float
+  measure   MeasureType
+  toolId    String
+  tool      Tools       @relation(fields: [toolId], references: [id])
+  toolCount Int
+  createdAt DateTime    @default(now())
+  updatedAt DateTime    @updatedAt
+}

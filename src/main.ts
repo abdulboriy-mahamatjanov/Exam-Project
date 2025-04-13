@@ -8,7 +8,7 @@ async function bootstrap() {
 
   const config = new DocumentBuilder()
     .setTitle('Exam project')
-    .setDescription('The exam-projct REST API description')
+    .setDescription('The exam-project REST API description')
     .setVersion('1.0')
     .addSecurityRequirements('bearer', ['bearer'])
     .addBearerAuth()
@@ -19,7 +19,7 @@ async function bootstrap() {
   app.useGlobalPipes(new ValidationPipe({ transform: true }));
 
   await app.listen(process.env.PORT ?? 3000, () =>
-    console.log(`Server started on port: ${process.env.PORT}`),
+    console.log(`Server has been started successfully on port: ${process.env.PORT}`),
   );
 }
 
