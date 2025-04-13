@@ -1,0 +1,136 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Regions {
+  id        String   @id @default(uuid())
+  nameUz    String
+  nameRu    String
+  nameEn    String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  Users     Users[]
+}
+
+model Contacts {
+  id        String   @id @default(uuid())
+  nameUz    String
+  nameRu    String
+  nameEn    String
+  surNameUz String
+  surNameRu String
+  surNameEn String
+  phone     String   @unique
+  address   String
+  message   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  Users     Users[]
+}
+
+model DataAboutCompany {
+  id        String   @id @default(uuid())
+  INN       String
+  MFO       String
+  R_or_C    String
+  bankCode  String   @unique
+  Oked      String
+  location  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  Users     Users[]
+}
+
+enum UserRole {
+  ADMIN
+  SUPER_ADMIN
+  VIEWER_ADMIN
+  USER_FIZ
+  USER_YUR
+}
+
+enum UserStatus {
+  ACTIVE
+  INACTIVE
+}
+
+model Users {
+  id                 String           @id @default(uuid())
+  fullNameUz         String
+  fullNameRu         String
+  fullNameEn         String
+  phone              String           @unique
+  password           String
+  role               UserRole
+  status             UserStatus       @default(INACTIVE)
+  avatar             String
+  regionId           String
+  region             Regions          @relation(fields: [regionId], references: [id])
+  dataAboutCompanyId String
+  dataAboutCompany   DataAboutCompany @relation(fields: [dataAboutCompanyId], references: [id])
+  contactsId         String
+  contacts           Contacts         @relation(fields: [contactsId], references: [id])
+  createdAt          DateTime         @default(now())
+  updatedAt          DateTime         @updatedAt
+}
+
+model Sessions {
+  id         String   @id @default(uuid())
+  userId     String
+  ipAddress  String
+  deviceInfo String
+  createdAt  DateTime @default(now())
+}
+
+model ShowCases {
+  id            String   @id @default(uuid())
+  nameUz        String
+  nameRu        String
+  nameEn        String
+  descriptionUz String
+  descriptionRu String
+  descriptionEn String
+  images        String[]
+  links         String[]
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+model FAQ {
+  id        String   @id @default(uuid())
+  question  String
+  answer    String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model AboutOurPage {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  phone     String   @unique
+  links     String[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Partners {
+  id        String   @id @default(uuid())
+  nameUz    String
+  nameRu    String
+  nameEn    String
+  images    String[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
