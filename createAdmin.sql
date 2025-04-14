@@ -12,4 +12,4 @@ CREATE TABLE Users (
 )
 
 INSERT INTO Users (fullName, phone, password, role, status, avatar) VALUES
-('Abdulboriy Mahamatjanov', '+998507525150', 'Admin12345', 'ADMIN', 'ACTIVE', '')
+('Abdulboriy Mahamatjanov', '+998507525150', 'Admin12345', 'ADMIN', 'ACTIVE', 'http://res.cloudinary.com/dnle8xg73/image/upload/v1744607283/h3avie8voqhhdwc25uri.jpg')

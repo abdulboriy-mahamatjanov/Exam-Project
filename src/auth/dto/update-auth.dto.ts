@@ -7,25 +7,33 @@ export class UpdateAuthDto extends PartialType(CreateAuthDto) {
   @ApiProperty({ example: "Ro'zimuhammad Yusupov" })
   @IsString()
   @IsNotEmpty()
-  fullName: string;
+  fullName?: string;
 
   @ApiProperty({ example: '+998932512624' })
   @IsPhoneNumber()
   @IsNotEmpty()
-  phone: string;
+  phone?: string;
 
   @ApiProperty({ example: 'theyusupov' })
   @IsString()
   @IsNotEmpty()
-  password: string;
+  password?: string;
 
   @ApiProperty({ enum: UserRole, example: UserRole.SUPER_ADMIN })
   @IsString()
   @IsNotEmpty()
-  role: UserRole;
+  role?: UserRole;
 
-  @ApiProperty({ example: '' })
+  @ApiProperty({
+    example:
+      'http://res.cloudinary.com/dnle8xg73/image/upload/v1744607283/h3avie8voqhhdwc25uri.jpg',
+  })
   @IsString()
   @IsNotEmpty()
-  avatar: string;
+  avatar?: string;
+
+  @ApiProperty({ example: 'e21e4ce2-8ef4-4d98-ae75-350951c7be58' })
+  @IsString()
+  @IsNotEmpty()
+  regionId?: string;
 }

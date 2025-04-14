@@ -16,36 +16,9 @@ datasource db {
 
 model Regions {
   id        String   @id @default(uuid())
-  name      String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  Users     Users[]
-}
-
-model Contacts {
-  id        String   @id @default(uuid())
   nameUz    String
   nameRu    String
   nameEn    String
-  surNameUz String
-  surNameRu String
-  surNameEn String
-  phone     String   @unique
-  address   String
-  message   String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  Users     Users[]
-}
-
-model DataAboutCompany {
-  id        String   @id @default(uuid())
-  INN       String
-  MFO       String
-  R_or_C    String
-  bankCode  String   @unique
-  Oked      String
-  location  String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   Users     Users[]
@@ -65,23 +38,17 @@ enum UserStatus {
 }
 
 model Users {
-  id                 String           @id @default(uuid())
-  fullNameUz         String
-  fullNameRu         String
-  fullNameEn         String
-  phone              String           @unique
-  password           String
-  role               UserRole
-  status             UserStatus       @default(INACTIVE)
-  avatar             String
-  regionId           String
-  region             Regions          @relation(fields: [regionId], references: [id])
-  dataAboutCompanyId String
-  dataAboutCompany   DataAboutCompany @relation(fields: [dataAboutCompanyId], references: [id])
-  contactsId         String
-  contacts           Contacts         @relation(fields: [contactsId], references: [id])
-  createdAt          DateTime         @default(now())
-  updatedAt          DateTime         @updatedAt
+  id        String     @id @default(uuid())
+  fullName  String
+  phone     String     @unique
+  password  String
+  role      UserRole
+  status    UserStatus @default(INACTIVE)
+  avatar    String
+  regionId  String
+  region    Regions    @relation(fields: [regionId], references: [id])
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
 }
 
 model Sessions {
@@ -92,6 +59,29 @@ model Sessions {
   createdAt  DateTime @default(now())
 }
 
+model Contacts {
+  id        String   @id @default(uuid())
+  name      String
+  surName   String
+  phone     String   @unique
+  address   String
+  message   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model DataAboutCompany {
+  id        String   @id @default(uuid())
+  INN       String
+  MFO       String
+  R_or_C    String
+  bankCode  String
+  Oked      String
+  address   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
 model ShowCases {
   id            String   @id @default(uuid())
   nameUz        String
@@ -100,8 +90,8 @@ model ShowCases {
   descriptionUz String
   descriptionRu String
   descriptionEn String
-  images        String[]
-  links         String[]
+  image         String
+  link          String
   createdAt     DateTime @default(now())
   updatedAt     DateTime @updatedAt
 }
@@ -118,7 +108,7 @@ model AboutOurPage {
   id        String   @id @default(uuid())
   email     String   @unique
   phone     String   @unique
-  links     String[]
+  links     String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
@@ -128,7 +118,7 @@ model Partners {
   nameUz    String
   nameRu    String
   nameEn    String
-  images    String[]
+  images    String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }

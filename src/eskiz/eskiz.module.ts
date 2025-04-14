@@ -3,6 +3,8 @@ import { EskizService } from './eskiz.service';
 
 @Global()
 @Module({
+  imports: [],
+  controllers: [],
   providers: [EskizService],
   exports: [EskizService],
 })

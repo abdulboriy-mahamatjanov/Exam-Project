@@ -3,10 +3,10 @@ import axios from 'axios';
 
 @Injectable()
 export class EskizService {
-  private url = 'https://notify.eskiz.uz/api';
-  private token;
+  private token = process.env.ESKIZ_TOKEN;
+  private url = process.env.BASE_URL;
   private email = process.env.ESKIZ_EMAIL;
-  private secret = process.env.ESKIZ_SECRET;
+  private password = process.env.ESKIZ_SECRET;
 
   constructor() {
     this.auth();
@@ -16,10 +16,10 @@ export class EskizService {
     try {
       const { data: response } = await axios.post(`${this.url}/auth/login`, {
         email: this.email,
-        password: this.secret,
+        password: this.password,
       });
-      const token = response?.data?.token;
-      return token;
+
+      this.token = response?.data?.token;
     } catch (error) {
       throw new BadRequestException(error.message);
     }
@@ -27,10 +27,12 @@ export class EskizService {
 
   async sendSMS(message: string, phone: string) {
     try {
+      if (!this.token) await this.auth();
+
       const { data: response } = await axios.post(
         `${this.url}/message/sms/send`,
         {
-          mobile_phone: phone,
+          mobile_phone: phone.replace('+', ''),
           message: 'Bu Eskiz dan test',
           from: '4546',
         },
@@ -40,12 +42,9 @@ export class EskizService {
           },
         },
       );
-
-      console.log(response);
-
       return response;
     } catch (error) {
-      await this.auth();
+      // await this.auth();
       await this.sendSMS(message, phone);
       throw new BadRequestException(error.message);
     }

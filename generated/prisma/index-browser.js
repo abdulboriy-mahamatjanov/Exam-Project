@@ -126,14 +126,31 @@ exports.Prisma.RegionsScalarFieldEnum = {
   updatedAt: 'updatedAt'
 };
 
+exports.Prisma.UsersScalarFieldEnum = {
+  id: 'id',
+  fullName: 'fullName',
+  phone: 'phone',
+  password: 'password',
+  role: 'role',
+  status: 'status',
+  avatar: 'avatar',
+  regionId: 'regionId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.SessionsScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  ipAddress: 'ipAddress',
+  deviceInfo: 'deviceInfo',
+  createdAt: 'createdAt'
+};
+
 exports.Prisma.ContactsScalarFieldEnum = {
   id: 'id',
-  nameUz: 'nameUz',
-  nameRu: 'nameRu',
-  nameEn: 'nameEn',
-  surNameUz: 'surNameUz',
-  surNameRu: 'surNameRu',
-  surNameEn: 'surNameEn',
+  name: 'name',
+  surName: 'surName',
   phone: 'phone',
   address: 'address',
   message: 'message',
@@ -148,34 +165,9 @@ exports.Prisma.DataAboutCompanyScalarFieldEnum = {
   R_or_C: 'R_or_C',
   bankCode: 'bankCode',
   Oked: 'Oked',
-  location: 'location',
+  address: 'address',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
-};
-
-exports.Prisma.UsersScalarFieldEnum = {
-  id: 'id',
-  fullNameUz: 'fullNameUz',
-  fullNameRu: 'fullNameRu',
-  fullNameEn: 'fullNameEn',
-  phone: 'phone',
-  password: 'password',
-  role: 'role',
-  status: 'status',
-  avatar: 'avatar',
-  regionId: 'regionId',
-  dataAboutCompanyId: 'dataAboutCompanyId',
-  contactsId: 'contactsId',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
-};
-
-exports.Prisma.SessionsScalarFieldEnum = {
-  id: 'id',
-  userId: 'userId',
-  ipAddress: 'ipAddress',
-  deviceInfo: 'deviceInfo',
-  createdAt: 'createdAt'
 };
 
 exports.Prisma.ShowCasesScalarFieldEnum = {
@@ -186,8 +178,8 @@ exports.Prisma.ShowCasesScalarFieldEnum = {
   descriptionUz: 'descriptionUz',
   descriptionRu: 'descriptionRu',
   descriptionEn: 'descriptionEn',
-  images: 'images',
-  links: 'links',
+  image: 'image',
+  link: 'link',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
@@ -389,10 +381,10 @@ exports.MeasureType = exports.$Enums.MeasureType = {
 
 exports.Prisma.ModelName = {
   Regions: 'Regions',
-  Contacts: 'Contacts',
-  DataAboutCompany: 'DataAboutCompany',
   Users: 'Users',
   Sessions: 'Sessions',
+  Contacts: 'Contacts',
+  DataAboutCompany: 'DataAboutCompany',
   ShowCases: 'ShowCases',
   FAQ: 'FAQ',
   AboutOurPage: 'AboutOurPage',
