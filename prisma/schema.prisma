@@ -55,7 +55,7 @@ model Sessions {
   id         String   @id @default(uuid())
   userId     String
   ipAddress  String
-  deviceInfo String
+  deviceInfo Json
   createdAt  DateTime @default(now())
 }
 
@@ -108,7 +108,7 @@ model AboutOurPage {
   id        String   @id @default(uuid())
   email     String   @unique
   phone     String   @unique
-  links     String
+  links     Json
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
