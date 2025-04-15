@@ -5,29 +5,29 @@ import axios from 'axios';
 export class EskizService {
   private token = process.env.ESKIZ_TOKEN;
   private url = process.env.BASE_URL;
-  private email = process.env.ESKIZ_EMAIL;
-  private password = process.env.ESKIZ_SECRET;
+  // private email = process.env.ESKIZ_EMAIL;
+  // private password = process.env.ESKIZ_SECRET;
 
-  constructor() {
-    this.auth();
-  }
+  // constructor() {
+  //   this.auth();
+  // }
 
-  async auth() {
-    try {
-      const { data: response } = await axios.post(`${this.url}/auth/login`, {
-        email: this.email,
-        password: this.password,
-      });
+  // async auth() {
+  //   try {
+  //     const { data: response } = await axios.post(`${this.url}/auth/login`, {
+  //       email: this.email,
+  //       password: this.password,
+  //     });
 
-      this.token = response?.data?.token;
-    } catch (error) {
-      throw new BadRequestException(error.message);
-    }
-  }
+  //     this.token = response?.data?.token;
+  //   } catch (error) {
+  //     throw new BadRequestException(error.message);
+  //   }
+  // }
 
   async sendSMS(message: string, phone: string) {
     try {
-      if (!this.token) await this.auth();
+      // if (!this.token) await this.auth();
 
       const { data: response } = await axios.post(
         `${this.url}/message/sms/send`,
