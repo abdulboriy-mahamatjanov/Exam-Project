@@ -5112,7 +5112,6 @@ export namespace Prisma {
     id: string | null
     userId: string | null
     ipAddress: string | null
-    deviceInfo: string | null
     createdAt: Date | null
   }
 
@@ -5120,7 +5119,6 @@ export namespace Prisma {
     id: string | null
     userId: string | null
     ipAddress: string | null
-    deviceInfo: string | null
     createdAt: Date | null
   }
 
@@ -5138,7 +5136,6 @@ export namespace Prisma {
     id?: true
     userId?: true
     ipAddress?: true
-    deviceInfo?: true
     createdAt?: true
   }
 
@@ -5146,7 +5143,6 @@ export namespace Prisma {
     id?: true
     userId?: true
     ipAddress?: true
-    deviceInfo?: true
     createdAt?: true
   }
 
@@ -5235,7 +5231,7 @@ export namespace Prisma {
     id: string
     userId: string
     ipAddress: string
-    deviceInfo: string
+    deviceInfo: JsonValue
     createdAt: Date
     _count: SessionsCountAggregateOutputType | null
     _min: SessionsMinAggregateOutputType | null
@@ -5297,7 +5293,7 @@ export namespace Prisma {
       id: string
       userId: string
       ipAddress: string
-      deviceInfo: string
+      deviceInfo: Prisma.JsonValue
       createdAt: Date
     }, ExtArgs["result"]["sessions"]>
     composites: {}
@@ -5725,7 +5721,7 @@ export namespace Prisma {
     readonly id: FieldRef<"Sessions", 'String'>
     readonly userId: FieldRef<"Sessions", 'String'>
     readonly ipAddress: FieldRef<"Sessions", 'String'>
-    readonly deviceInfo: FieldRef<"Sessions", 'String'>
+    readonly deviceInfo: FieldRef<"Sessions", 'Json'>
     readonly createdAt: FieldRef<"Sessions", 'DateTime'>
   }
     
@@ -10256,7 +10252,6 @@ export namespace Prisma {
     id: string | null
     email: string | null
     phone: string | null
-    links: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -10265,7 +10260,6 @@ export namespace Prisma {
     id: string | null
     email: string | null
     phone: string | null
-    links: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -10285,7 +10279,6 @@ export namespace Prisma {
     id?: true
     email?: true
     phone?: true
-    links?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -10294,7 +10287,6 @@ export namespace Prisma {
     id?: true
     email?: true
     phone?: true
-    links?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -10385,7 +10377,7 @@ export namespace Prisma {
     id: string
     email: string
     phone: string
-    links: string
+    links: JsonValue
     createdAt: Date
     updatedAt: Date
     _count: AboutOurPageCountAggregateOutputType | null
@@ -10452,7 +10444,7 @@ export namespace Prisma {
       id: string
       email: string
       phone: string
-      links: string
+      links: Prisma.JsonValue
       createdAt: Date
       updatedAt: Date
     }, ExtArgs["result"]["aboutOurPage"]>
@@ -10881,7 +10873,7 @@ export namespace Prisma {
     readonly id: FieldRef<"AboutOurPage", 'String'>
     readonly email: FieldRef<"AboutOurPage", 'String'>
     readonly phone: FieldRef<"AboutOurPage", 'String'>
-    readonly links: FieldRef<"AboutOurPage", 'String'>
+    readonly links: FieldRef<"AboutOurPage", 'Json'>
     readonly createdAt: FieldRef<"AboutOurPage", 'DateTime'>
     readonly updatedAt: FieldRef<"AboutOurPage", 'DateTime'>
   }
@@ -24322,12 +24314,28 @@ export namespace Prisma {
   export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder]
 
 
+  export const JsonNullValueInput: {
+    JsonNull: typeof JsonNull
+  };
+
+  export type JsonNullValueInput = (typeof JsonNullValueInput)[keyof typeof JsonNullValueInput]
+
+
   export const QueryMode: {
     default: 'default',
     insensitive: 'insensitive'
   };
 
   export type QueryMode = (typeof QueryMode)[keyof typeof QueryMode]
+
+
+  export const JsonNullValueFilter: {
+    DbNull: typeof DbNull,
+    JsonNull: typeof JsonNull,
+    AnyNull: typeof AnyNull
+  };
+
+  export type JsonNullValueFilter = (typeof JsonNullValueFilter)[keyof typeof JsonNullValueFilter]
 
 
   /**
@@ -24388,6 +24396,20 @@ export namespace Prisma {
    * Reference to a field of type 'UserStatus[]'
    */
   export type ListEnumUserStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'UserStatus[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'Json'
+   */
+  export type JsonFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Json'>
+    
+
+
+  /**
+   * Reference to a field of type 'QueryMode'
+   */
+  export type EnumQueryModeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'QueryMode'>
     
 
 
@@ -24632,7 +24654,7 @@ export namespace Prisma {
     id?: StringFilter<"Sessions"> | string
     userId?: StringFilter<"Sessions"> | string
     ipAddress?: StringFilter<"Sessions"> | string
-    deviceInfo?: StringFilter<"Sessions"> | string
+    deviceInfo?: JsonFilter<"Sessions">
     createdAt?: DateTimeFilter<"Sessions"> | Date | string
   }
 
@@ -24651,7 +24673,7 @@ export namespace Prisma {
     NOT?: SessionsWhereInput | SessionsWhereInput[]
     userId?: StringFilter<"Sessions"> | string
     ipAddress?: StringFilter<"Sessions"> | string
-    deviceInfo?: StringFilter<"Sessions"> | string
+    deviceInfo?: JsonFilter<"Sessions">
     createdAt?: DateTimeFilter<"Sessions"> | Date | string
   }, "id">
 
@@ -24673,7 +24695,7 @@ export namespace Prisma {
     id?: StringWithAggregatesFilter<"Sessions"> | string
     userId?: StringWithAggregatesFilter<"Sessions"> | string
     ipAddress?: StringWithAggregatesFilter<"Sessions"> | string
-    deviceInfo?: StringWithAggregatesFilter<"Sessions"> | string
+    deviceInfo?: JsonWithAggregatesFilter<"Sessions">
     createdAt?: DateTimeWithAggregatesFilter<"Sessions"> | Date | string
   }
 
@@ -24957,7 +24979,7 @@ export namespace Prisma {
     id?: StringFilter<"AboutOurPage"> | string
     email?: StringFilter<"AboutOurPage"> | string
     phone?: StringFilter<"AboutOurPage"> | string
-    links?: StringFilter<"AboutOurPage"> | string
+    links?: JsonFilter<"AboutOurPage">
     createdAt?: DateTimeFilter<"AboutOurPage"> | Date | string
     updatedAt?: DateTimeFilter<"AboutOurPage"> | Date | string
   }
@@ -24978,7 +25000,7 @@ export namespace Prisma {
     AND?: AboutOurPageWhereInput | AboutOurPageWhereInput[]
     OR?: AboutOurPageWhereInput[]
     NOT?: AboutOurPageWhereInput | AboutOurPageWhereInput[]
-    links?: StringFilter<"AboutOurPage"> | string
+    links?: JsonFilter<"AboutOurPage">
     createdAt?: DateTimeFilter<"AboutOurPage"> | Date | string
     updatedAt?: DateTimeFilter<"AboutOurPage"> | Date | string
   }, "id" | "email" | "phone">
@@ -25002,7 +25024,7 @@ export namespace Prisma {
     id?: StringWithAggregatesFilter<"AboutOurPage"> | string
     email?: StringWithAggregatesFilter<"AboutOurPage"> | string
     phone?: StringWithAggregatesFilter<"AboutOurPage"> | string
-    links?: StringWithAggregatesFilter<"AboutOurPage"> | string
+    links?: JsonWithAggregatesFilter<"AboutOurPage">
     createdAt?: DateTimeWithAggregatesFilter<"AboutOurPage"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"AboutOurPage"> | Date | string
   }
@@ -26074,7 +26096,7 @@ export namespace Prisma {
     id?: string
     userId: string
     ipAddress: string
-    deviceInfo: string
+    deviceInfo: JsonNullValueInput | InputJsonValue
     createdAt?: Date | string
   }
 
@@ -26082,7 +26104,7 @@ export namespace Prisma {
     id?: string
     userId: string
     ipAddress: string
-    deviceInfo: string
+    deviceInfo: JsonNullValueInput | InputJsonValue
     createdAt?: Date | string
   }
 
@@ -26090,7 +26112,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
     ipAddress?: StringFieldUpdateOperationsInput | string
-    deviceInfo?: StringFieldUpdateOperationsInput | string
+    deviceInfo?: JsonNullValueInput | InputJsonValue
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -26098,7 +26120,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
     ipAddress?: StringFieldUpdateOperationsInput | string
-    deviceInfo?: StringFieldUpdateOperationsInput | string
+    deviceInfo?: JsonNullValueInput | InputJsonValue
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -26106,7 +26128,7 @@ export namespace Prisma {
     id?: string
     userId: string
     ipAddress: string
-    deviceInfo: string
+    deviceInfo: JsonNullValueInput | InputJsonValue
     createdAt?: Date | string
   }
 
@@ -26114,7 +26136,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
     ipAddress?: StringFieldUpdateOperationsInput | string
-    deviceInfo?: StringFieldUpdateOperationsInput | string
+    deviceInfo?: JsonNullValueInput | InputJsonValue
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -26122,7 +26144,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
     ipAddress?: StringFieldUpdateOperationsInput | string
-    deviceInfo?: StringFieldUpdateOperationsInput | string
+    deviceInfo?: JsonNullValueInput | InputJsonValue
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -26445,7 +26467,7 @@ export namespace Prisma {
     id?: string
     email: string
     phone: string
-    links: string
+    links: JsonNullValueInput | InputJsonValue
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -26454,7 +26476,7 @@ export namespace Prisma {
     id?: string
     email: string
     phone: string
-    links: string
+    links: JsonNullValueInput | InputJsonValue
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -26463,7 +26485,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
-    links?: StringFieldUpdateOperationsInput | string
+    links?: JsonNullValueInput | InputJsonValue
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -26472,7 +26494,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
-    links?: StringFieldUpdateOperationsInput | string
+    links?: JsonNullValueInput | InputJsonValue
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -26481,7 +26503,7 @@ export namespace Prisma {
     id?: string
     email: string
     phone: string
-    links: string
+    links: JsonNullValueInput | InputJsonValue
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -26490,7 +26512,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
-    links?: StringFieldUpdateOperationsInput | string
+    links?: JsonNullValueInput | InputJsonValue
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -26499,7 +26521,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
-    links?: StringFieldUpdateOperationsInput | string
+    links?: JsonNullValueInput | InputJsonValue
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -27678,6 +27700,29 @@ export namespace Prisma {
     _min?: NestedEnumUserStatusFilter<$PrismaModel>
     _max?: NestedEnumUserStatusFilter<$PrismaModel>
   }
+  export type JsonFilter<$PrismaModel = never> =
+    | PatchUndefined<
+        Either<Required<JsonFilterBase<$PrismaModel>>, Exclude<keyof Required<JsonFilterBase<$PrismaModel>>, 'path'>>,
+        Required<JsonFilterBase<$PrismaModel>>
+      >
+    | OptionalFlat<Omit<Required<JsonFilterBase<$PrismaModel>>, 'path'>>
+
+  export type JsonFilterBase<$PrismaModel = never> = {
+    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    path?: string[]
+    mode?: QueryMode | EnumQueryModeFieldRefInput<$PrismaModel>
+    string_contains?: string | StringFieldRefInput<$PrismaModel>
+    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
+    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
+    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+  }
 
   export type SessionsCountOrderByAggregateInput = {
     id?: SortOrder
@@ -27691,7 +27736,6 @@ export namespace Prisma {
     id?: SortOrder
     userId?: SortOrder
     ipAddress?: SortOrder
-    deviceInfo?: SortOrder
     createdAt?: SortOrder
   }
 
@@ -27699,8 +27743,33 @@ export namespace Prisma {
     id?: SortOrder
     userId?: SortOrder
     ipAddress?: SortOrder
-    deviceInfo?: SortOrder
     createdAt?: SortOrder
+  }
+  export type JsonWithAggregatesFilter<$PrismaModel = never> =
+    | PatchUndefined<
+        Either<Required<JsonWithAggregatesFilterBase<$PrismaModel>>, Exclude<keyof Required<JsonWithAggregatesFilterBase<$PrismaModel>>, 'path'>>,
+        Required<JsonWithAggregatesFilterBase<$PrismaModel>>
+      >
+    | OptionalFlat<Omit<Required<JsonWithAggregatesFilterBase<$PrismaModel>>, 'path'>>
+
+  export type JsonWithAggregatesFilterBase<$PrismaModel = never> = {
+    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    path?: string[]
+    mode?: QueryMode | EnumQueryModeFieldRefInput<$PrismaModel>
+    string_contains?: string | StringFieldRefInput<$PrismaModel>
+    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
+    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
+    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedJsonFilter<$PrismaModel>
+    _max?: NestedJsonFilter<$PrismaModel>
   }
 
   export type ContactsCountOrderByAggregateInput = {
@@ -27851,7 +27920,6 @@ export namespace Prisma {
     id?: SortOrder
     email?: SortOrder
     phone?: SortOrder
-    links?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -27860,7 +27928,6 @@ export namespace Prisma {
     id?: SortOrder
     email?: SortOrder
     phone?: SortOrder
-    links?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -29457,6 +29524,29 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedEnumUserStatusFilter<$PrismaModel>
     _max?: NestedEnumUserStatusFilter<$PrismaModel>
+  }
+  export type NestedJsonFilter<$PrismaModel = never> =
+    | PatchUndefined<
+        Either<Required<NestedJsonFilterBase<$PrismaModel>>, Exclude<keyof Required<NestedJsonFilterBase<$PrismaModel>>, 'path'>>,
+        Required<NestedJsonFilterBase<$PrismaModel>>
+      >
+    | OptionalFlat<Omit<Required<NestedJsonFilterBase<$PrismaModel>>, 'path'>>
+
+  export type NestedJsonFilterBase<$PrismaModel = never> = {
+    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    path?: string[]
+    mode?: QueryMode | EnumQueryModeFieldRefInput<$PrismaModel>
+    string_contains?: string | StringFieldRefInput<$PrismaModel>
+    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
+    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
+    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
   }
 
   export type NestedFloatFilter<$PrismaModel = never> = {
