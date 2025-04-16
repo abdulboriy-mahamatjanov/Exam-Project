@@ -15,6 +15,11 @@ import { FrequentlyAskedQuestionsModule } from './frequently_asked_questions/fre
 import { AboutPageModule } from './about-page/about-page.module';
 import { DataCompanyModule } from './data-company/data-company.module';
 import { LevelsModule } from './levels/levels.module';
+import { CapacityModule } from './capacity/capacity.module';
+import { BrandsModule } from './brands/brands.module';
+import { SizesModule } from './sizes/sizes.module';
+import { CommentsModule } from './comments/comments.module';
+import { JwtModule } from '@nestjs/jwt';
 
 @Module({
   imports: [
@@ -41,9 +46,17 @@ import { LevelsModule } from './levels/levels.module';
     AboutPageModule,
     DataCompanyModule,
     LevelsModule,
+    CapacityModule,
+    BrandsModule,
+    SizesModule,
+    CommentsModule,
+    JwtModule.register({
+      global: true,
+      secret: process.env.JWTSECRET_KEY,
+      signOptions: { expiresIn: '50m' },
+    }),
   ],
   controllers: [],
   providers: [],
 })
-
 export class AppModule {}

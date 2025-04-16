@@ -124,25 +124,26 @@ model Partners {
 }
 
 model Comments {
-  id        String    @id @default(uuid())
+  id        String   @id @default(uuid())
   message   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Stars {
+  id        String   @id @default(uuid())
   star      Float
-  createdAt DateTime  @default(now())
-  updatedAt DateTime  @updatedAt
-  Orders    Orders[]
-  Masters   Masters[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
 model Levels {
-  id                String              @id @default(uuid())
-  nameUz            String
-  nameRu            String
-  nameEn            String
-  createdAt         DateTime            @default(now())
-  updatedAt         DateTime            @updatedAt
-  Masters           Masters[]
-  Products          Products[]
-  OrderWithProducts OrderWithProducts[]
+  id        String   @id @default(uuid())
+  nameUz    String
+  nameRu    String
+  nameEn    String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
 model Capacity {
@@ -152,7 +153,6 @@ model Capacity {
   nameEn    String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  Tools     Tools[]
 }
 
 model Sizes {
@@ -162,7 +162,6 @@ model Sizes {
   nameEn    String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  Tools     Tools[]
 }
 
 model Brands {
@@ -172,123 +171,4 @@ model Brands {
   nameEn    String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  Tools     Tools[]
-}
-
-enum ToolStatus {
-  PENDING
-  ACCEPTED
-  REJECTED
-}
-
-model Tools {
-  id                String              @id @default(uuid())
-  nameUz            String
-  nameRu            String
-  nameEn            String
-  descriptionUz     String
-  descriptionRu     String
-  descriptionEn     String
-  price             Decimal
-  quantity          Int
-  brandId           String
-  brand             Brands              @relation(fields: [brandId], references: [id])
-  status            ToolStatus
-  capacityId        String
-  capacity          Capacity            @relation(fields: [capacityId], references: [id])
-  sizeId            String
-  size              Sizes               @relation(fields: [sizeId], references: [id])
-  image             String
-  createdAt         DateTime            @default(now())
-  updatedAt         DateTime            @updatedAt
-  OrderWithProducts OrderWithProducts[]
-}
-
-enum OrderPaymentType {
-  PAYME
-  CLICK
-  CAHS
-  CARD
-}
-
-model Orders {
-  id                String              @id @default(uuid())
-  totalPrice        Decimal
-  location          String
-  address           String
-  date              DateTime
-  paymentType       OrderPaymentType
-  withDelivery      Boolean
-  status            Boolean
-  commentId         String
-  comment           Comments            @relation(fields: [commentId], references: [id])
-  createdAt         DateTime            @default(now())
-  updatedAt         DateTime            @updatedAt
-  OrderWithProducts OrderWithProducts[]
-}
-
-model Products {
-  id                String              @id @default(uuid())
-  nameUz            String
-  nameRu            String
-  nameEn            String
-  image             String
-  minWorkHours      DateTime
-  levelId           String
-  level             Levels              @relation(fields: [levelId], references: [id])
-  priceHourly       Decimal
-  priceDaily        Decimal
-  toolId            String
-  createdAt         DateTime            @default(now())
-  updatedAt         DateTime            @updatedAt
-  Masters           Masters[]
-  OrderWithProducts OrderWithProducts[]
-}
-
-model Masters {
-  id            String   @id @default(uuid())
-  fullNameUz    String
-  fullNameRu    String
-  fullNameEn    String
-  phone         String   @unique
-  status        Boolean
-  dateOfBirth   DateTime
-  avatar        String
-  passportImage String
-  productId     String
-  product       Products @relation(fields: [productId], references: [id])
-  levelId       String
-  level         Levels   @relation(fields: [levelId], references: [id])
-  priceHourly   Decimal
-  priceDaily    Decimal
-  experience    Int
-  minWorkHours  DateTime
-  commentId     String
-  comment       Comments @relation(fields: [commentId], references: [id])
-  about         String
-  createdAt     DateTime @default(now())
-  updatedAt     DateTime @updatedAt
-}
-
-enum MeasureType {
-  HOUR
-  DAY
-}
-
-model OrderWithProducts {
-  id        String      @id @default(uuid())
-  orderId   String
-  order     Orders      @relation(fields: [orderId], references: [id])
-  productId String
-  product   Products    @relation(fields: [productId], references: [id])
-  levelId   String
-  level     Levels      @relation(fields: [levelId], references: [id])
-  count     Int
-  quantity  Float
-  measure   MeasureType
-  toolId    String
-  tool      Tools       @relation(fields: [toolId], references: [id])
-  toolCount Int
-  createdAt DateTime    @default(now())
-  updatedAt DateTime    @updatedAt
 }
