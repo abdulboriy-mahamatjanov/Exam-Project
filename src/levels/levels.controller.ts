@@ -6,11 +6,12 @@ import {
   Patch,
   Param,
   Delete,
+  Query,
 } from '@nestjs/common';
 import { LevelsService } from './levels.service';
 import { CreateLevelDto } from './dto/create-level.dto';
 import { UpdateLevelDto } from './dto/update-level.dto';
-import { ApiOperation } from '@nestjs/swagger';
+import { ApiOperation, ApiQuery } from '@nestjs/swagger';
 
 @Controller('levels')
 export class LevelsController {
@@ -23,9 +24,13 @@ export class LevelsController {
   }
 
   @ApiOperation({ summary: 'Get all Levels' })
+  @ApiQuery({ name: 'page', required: false, type: Number })
+  @ApiQuery({ name: 'limit', required: false, type: Number })
+  @ApiQuery({ name: 'search', required: false, type: String })
+  @ApiQuery({name: 'order', required: false, type: String, enum: ['asc', 'desc']})
   @Get()
-  findAll() {
-    return this.levelsService.findAll();
+  findAll(@Query() query: any) {
+    return this.levelsService.findAll(query);
   }
 
   @ApiOperation({ summary: 'Get one Level By ID' })

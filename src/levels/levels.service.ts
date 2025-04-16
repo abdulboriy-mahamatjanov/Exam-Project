@@ -23,10 +23,44 @@ export class LevelsService {
     }
   }
 
-  async findAll() {
+  async findAll(query: any) {
     try {
-      const Levels = await this.prisma.levels.findMany();
+      const { page = 1, limit = 10, search = '', order } = query;
+      const Levels = await this.prisma.levels.findMany({
+        where: {
+          OR: [
+            {
+              nameUz: {
+                contains: search,
+                mode: 'insensitive',
+              },
+            },
+            {
+              nameRu: {
+                contains: search,
+                mode: 'insensitive',
+              },
+            },
+            {
+              nameEn: {
+                contains: search,
+                mode: 'insensitive',
+              },
+            },
+          ],
+        },
+
+        skip: (page - 1) * limit,
+        take: Number(limit),
+
+        orderBy: {
+          nameUz: order,
+        },
+      });
+
       if (!Levels.length) return { message: 'No Levels found' };
+
+      return { Levels };
     } catch (error) {
       throw new BadRequestException(error.message);
     }
