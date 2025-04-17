@@ -14,11 +14,6 @@ export class UpdateAuthDto extends PartialType(CreateAuthDto) {
   @IsNotEmpty()
   phone?: string;
 
-  @ApiProperty({ example: 'theyusupov' })
-  @IsString()
-  @IsNotEmpty()
-  password?: string;
-
   @ApiProperty({ enum: UserRole, example: UserRole.SUPER_ADMIN })
   @IsString()
   @IsNotEmpty()

@@ -3,6 +3,7 @@ import {
   ForbiddenException,
   Injectable,
   NotFoundException,
+  UnauthorizedException,
 } from '@nestjs/common';
 import { PrismaService } from 'src/prisma/prisma.service';
 import * as bcrypt from 'bcrypt';
@@ -14,6 +15,7 @@ import { LoginDto } from './dto/login-user.dto';
 import { JwtService } from '@nestjs/jwt';
 import { Request } from 'express';
 import * as DeviceDetector from 'device-detector-js';
+import { CloudinaryService } from 'src/uploads/uploads.service';
 
 totp.options = { digits: 6, step: 1800 };
 
@@ -25,6 +27,7 @@ export class AuthService {
     private readonly prisma: PrismaService,
     private readonly eskizService: EskizService,
     private readonly jwtService: JwtService,
+    private cloudinaryService: CloudinaryService,
   ) {}
 
   async findUser(phone: string) {
@@ -46,6 +49,12 @@ export class AuthService {
       });
 
       if (!checkRegion) throw new NotFoundException('Region not found ❗');
+
+      const publicId = this.cloudinaryService.getPublicId(createAuthDto.avatar);
+
+      const checkImage = await this.cloudinaryService.checkImage(publicId);
+      if (!checkImage)
+        throw new BadRequestException('Image is not available yet ❗');
 
       const hashPass = bcrypt.hashSync(createAuthDto.password, 10);
 
@@ -75,6 +84,12 @@ export class AuthService {
         where: { id: registerDto.regionId },
       });
       if (!checkRegion) throw new NotFoundException('Region not found ❗');
+
+      const publicId = this.cloudinaryService.getPublicId(registerDto.avatar);
+      const checkAvatar = await this.cloudinaryService.checkImage(publicId);
+
+      if (!checkAvatar)
+        throw new BadRequestException('Avatar is not available yet ❗');
 
       const hashPass = bcrypt.hashSync(registerDto.password, 10);
 
@@ -112,7 +127,7 @@ export class AuthService {
         throw new BadRequestException('Wrong PhoneNumber ❗');
 
       const checkOtp = totp.verify({
-        token: `${otp}`,
+        token: otp,
         secret: `${process.env.REGISTER_SECRET_KEY}_${phone}`,
       });
 
@@ -140,7 +155,9 @@ export class AuthService {
       if (!chechkPhoneNumber)
         throw new BadRequestException('Wrong PhoneNumber ❗');
 
-      const NewOTP = totp.generate(`${process.env.RECENT_OTP_KEY}_${phone}`);
+      const NewOTP = totp.generate(
+        `${process.env.REGISTER_SECRET_KEY}_${phone}`,
+      );
 
       return { NewOTP };
     } catch (error) {
@@ -151,20 +168,19 @@ export class AuthService {
   async login(loginDto: LoginDto, req: Request) {
     try {
       const checkUser = await this.findUser(loginDto.phone);
-      if (!checkUser) throw new BadRequestException('Wrong PhoneNumber ❗');
-
-      const checkPassword = bcrypt.compare(
-        checkUser.password,
-        loginDto.password,
-      );
-
-      if (!checkPassword) throw new BadRequestException('Wrong Password ❗');
+      if (!checkUser) throw new BadRequestException('User not found ❗');
 
       if (checkUser.status == 'INACTIVE')
         throw new ForbiddenException('You should activate your account ❗');
 
+      const checkPassword = bcrypt.compareSync(
+        loginDto.password,
+        checkUser.password,
+      );
+      if (!checkPassword) throw new BadRequestException('Wrong Password ❗');
+
       const sessions = await this.prisma.sessions.findFirst({
-        where: { ipAddress: req.ip, userId: checkUser.id,},
+        where: { ipAddress: req.ip, userId: checkUser.id },
       });
 
       if (!sessions) {
@@ -215,6 +231,41 @@ export class AuthService {
     }
   }
 
+  async deleteSessions(req: Request, id: string) {
+    try {
+      const findSession = await this.prisma.sessions.findFirst({
+        where: { id },
+      });
+      if (!findSession) throw new NotFoundException('Session not found ❗');
+
+      await this.prisma.sessions.delete({ where: { id } });
+      return { message: 'Session is successfully deleted ✅' };
+    } catch (error) {
+      throw new BadRequestException(error.message);
+    }
+  }
+
+  async myPage(req: Request) {
+    try {
+      const id = req['user'].id;
+
+      const checkSessions = await this.prisma.sessions.findFirst({
+        where: { ipAddress: req.ip, userId: id },
+      });
+      if (!checkSessions) throw new UnauthorizedException();
+
+      const myData = await this.prisma.users.findFirst({
+        where: { id },
+        include: { region: true },
+      });
+      if (!myData) throw new NotFoundException('Data not found ❗');
+
+      return { myData };
+    } catch (error) {
+      throw new BadRequestException(error.message);
+    }
+  }
+
   async refreshToken(request: Request) {
     const user = request['user'];
     try {
@@ -224,6 +275,13 @@ export class AuthService {
       });
 
       return { access_token };
+    } catch (error) {
+      throw new BadRequestException(error.message);
+    }
+  }
+
+  async resetPassword() {
+    try {
     } catch (error) {
       throw new BadRequestException(error.message);
     }

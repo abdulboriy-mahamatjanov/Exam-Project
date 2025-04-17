@@ -1,4 +1,13 @@
-import { Body, Controller, Get, Post, Req, UseGuards } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Post,
+  Req,
+  UseGuards,
+} from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { CreateAuthDto } from './dto/create-auth.dto';
 import { ApiBody, ApiOperation, ApiTags } from '@nestjs/swagger';
@@ -71,9 +80,29 @@ export class AuthController {
     return this.authService.sessions(req);
   }
 
+  @ApiOperation({ summary: 'Delete sessions' })
+  @UseGuards(AuthGuard)
+  @Delete('/delete-sessions/:id')
+  deleteSessions(@Req() req: Request, @Param('id') id: string) {
+    return this.authService.deleteSessions(req, id);
+  }
+
+  @ApiOperation({ summary: 'Get My Data' })
+  @UseGuards(AuthGuard)
+  @Get('/myPage')
+  myPage(@Req() req: Request) {
+    return this.authService.myPage(req);
+  }
+
   @ApiOperation({ summary: 'Get a new AccessToken with RefreshToken' })
   @Post('/refresh-token')
   refreshToken(@Body() refreshToken: RefreshTokenDto, @Req() request: Request) {
     return this.authService.refreshToken(request);
+  }
+
+  @ApiOperation({ summary: 'Get a new Password with PhoneNumber' })
+  @Post('/reset-password')
+  resetPassword() {
+    return this.authService.resetPassword();
   }
 }

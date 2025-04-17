@@ -24,7 +24,7 @@ export class CreateAuthDto {
   })
   @IsString()
   @IsNotEmpty()
-  @IsIn([UserRole.SUPER_ADMIN], {
+  @IsIn([UserRole.SUPER_ADMIN, UserRole.VIEWER_ADMIN], {
     message: `You are not allowed to assign this role ❗`,
   })
   role: UserRole;
