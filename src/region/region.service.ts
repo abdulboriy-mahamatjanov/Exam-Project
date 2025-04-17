@@ -76,7 +76,8 @@ export class RegionService {
         orderBy: { [orders]: order },
       });
 
-      if (!Regions.length) return { message: 'No Regions found' };
+      if (!Regions.length)
+        return { message: 'Regions are not available yet ❗' };
 
       return { Regions };
     } catch (error) {
