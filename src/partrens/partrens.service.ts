@@ -6,13 +6,25 @@ import {
 import { CreatePartrenDto } from './dto/create-partren.dto';
 import { UpdatePartrenDto } from './dto/update-partren.dto';
 import { PrismaService } from 'src/prisma/prisma.service';
+import { CloudinaryService } from 'src/uploads/uploads.service';
 
 @Injectable()
 export class PartrensService {
-  constructor(private readonly prisma: PrismaService) {}
+  constructor(
+    private readonly prisma: PrismaService,
+    private readonly cloudinaryService: CloudinaryService,
+  ) {}
 
   async create(createPartrenDto: CreatePartrenDto) {
     try {
+      const publicId = this.cloudinaryService.getPublicId(
+        createPartrenDto.images,
+      );
+
+      const checkImage = await this.cloudinaryService.checkImage(publicId);
+      if (!checkImage)
+        throw new BadRequestException('Image is not available yet ❗');
+
       const NewPartners = await this.prisma.partners.create({
         data: createPartrenDto,
       });
@@ -89,6 +101,23 @@ export class PartrensService {
       const partner = await this.findOne(id);
       if (!partner) throw new NotFoundException('Partner not found ❗');
 
+      const oldPubliceId = this.cloudinaryService.getPublicId(
+        partner.Partner.images,
+      );
+      let newPublicId: string | null = null;
+
+      if (updatePartrenDto.images) {
+        newPublicId = this.cloudinaryService.getPublicId(oldPubliceId);
+
+        const checkImage = await this.cloudinaryService.checkImage(newPublicId);
+        if (!checkImage)
+          throw new BadRequestException('Image is not available yet ❗');
+
+        if (oldPubliceId !== newPublicId) {
+          await this.cloudinaryService.deleteImage(oldPubliceId);
+        }
+      }
+
       const NewPartners = await this.prisma.partners.update({
         data: updatePartrenDto,
         where: { id },
@@ -104,6 +133,15 @@ export class PartrensService {
     try {
       const partner = await this.findOne(id);
       if (!partner) throw new NotFoundException('Partner not found ❗');
+
+      const publicId = this.cloudinaryService.getPublicId(
+        partner.Partner.images,
+      );
+      
+      const checkImage = await this.cloudinaryService.checkImage(publicId);
+      if (checkImage) {
+        await this.cloudinaryService.deleteImage(publicId);
+      }
 
       await this.prisma.partners.delete({ where: { id } });
       return { message: 'Partner is successfully deleted ✅' };
