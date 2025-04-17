@@ -6,7 +6,6 @@ import { RegionModule } from './region/region.module';
 import { UploadsModule } from './uploads/uploads.module';
 import { CloudinaryModule } from 'nestjs-cloudinary';
 import { UserModule } from './user/user.module';
-import { EskizService } from './eskiz/eskiz.service';
 import { EskizModule } from './eskiz/eskiz.module';
 import { ShowCasesModule } from './show-cases/show-cases.module';
 import { PartrensModule } from './partrens/partrens.module';
@@ -19,7 +18,7 @@ import { CapacityModule } from './capacity/capacity.module';
 import { BrandsModule } from './brands/brands.module';
 import { SizesModule } from './sizes/sizes.module';
 import { CommentsModule } from './comments/comments.module';
-import { JwtModule } from '@nestjs/jwt';
+import { MasterModule } from './master/master.module';
 
 @Module({
   imports: [
@@ -50,13 +49,10 @@ import { JwtModule } from '@nestjs/jwt';
     BrandsModule,
     SizesModule,
     CommentsModule,
-    JwtModule.register({
-      global: true,
-      secret: process.env.JWTSECRET_KEY,
-      signOptions: { expiresIn: '50m' },
-    }),
+    MasterModule,
   ],
   controllers: [],
   providers: [],
 })
+
 export class AppModule {}
