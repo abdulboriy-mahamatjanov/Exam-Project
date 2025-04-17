@@ -88,6 +88,51 @@ export type Sizes = $Result.DefaultSelection<Prisma.$SizesPayload>
  * 
  */
 export type Brands = $Result.DefaultSelection<Prisma.$BrandsPayload>
+/**
+ * Model Masters
+ * 
+ */
+export type Masters = $Result.DefaultSelection<Prisma.$MastersPayload>
+/**
+ * Model Professions
+ * 
+ */
+export type Professions = $Result.DefaultSelection<Prisma.$ProfessionsPayload>
+/**
+ * Model MasterProfessions
+ * 
+ */
+export type MasterProfessions = $Result.DefaultSelection<Prisma.$MasterProfessionsPayload>
+/**
+ * Model ProfessionLevels
+ * 
+ */
+export type ProfessionLevels = $Result.DefaultSelection<Prisma.$ProfessionLevelsPayload>
+/**
+ * Model Tools
+ * 
+ */
+export type Tools = $Result.DefaultSelection<Prisma.$ToolsPayload>
+/**
+ * Model ProfessionTools
+ * 
+ */
+export type ProfessionTools = $Result.DefaultSelection<Prisma.$ProfessionToolsPayload>
+/**
+ * Model Backet
+ * 
+ */
+export type Backet = $Result.DefaultSelection<Prisma.$BacketPayload>
+/**
+ * Model Orders
+ * 
+ */
+export type Orders = $Result.DefaultSelection<Prisma.$OrdersPayload>
+/**
+ * Model OrderItems
+ * 
+ */
+export type OrderItems = $Result.DefaultSelection<Prisma.$OrderItemsPayload>
 
 /**
  * Enums
@@ -111,6 +156,39 @@ export const UserStatus: {
 
 export type UserStatus = (typeof UserStatus)[keyof typeof UserStatus]
 
+
+export const BacketMeasure: {
+  DAY: 'DAY',
+  HOUR: 'HOUR'
+};
+
+export type BacketMeasure = (typeof BacketMeasure)[keyof typeof BacketMeasure]
+
+
+export const PaymentType: {
+  CARD: 'CARD',
+  CASH: 'CASH'
+};
+
+export type PaymentType = (typeof PaymentType)[keyof typeof PaymentType]
+
+
+export const OrderStatus: {
+  PENDING: 'PENDING',
+  ACTIVATED: 'ACTIVATED',
+  REJECTED: 'REJECTED'
+};
+
+export type OrderStatus = (typeof OrderStatus)[keyof typeof OrderStatus]
+
+
+export const OrderItemMeasure: {
+  DAY: 'DAY',
+  HOUR: 'HOUR'
+};
+
+export type OrderItemMeasure = (typeof OrderItemMeasure)[keyof typeof OrderItemMeasure]
+
 }
 
 export type UserRole = $Enums.UserRole
@@ -120,6 +198,22 @@ export const UserRole: typeof $Enums.UserRole
 export type UserStatus = $Enums.UserStatus
 
 export const UserStatus: typeof $Enums.UserStatus
+
+export type BacketMeasure = $Enums.BacketMeasure
+
+export const BacketMeasure: typeof $Enums.BacketMeasure
+
+export type PaymentType = $Enums.PaymentType
+
+export const PaymentType: typeof $Enums.PaymentType
+
+export type OrderStatus = $Enums.OrderStatus
+
+export const OrderStatus: typeof $Enums.OrderStatus
+
+export type OrderItemMeasure = $Enums.OrderItemMeasure
+
+export const OrderItemMeasure: typeof $Enums.OrderItemMeasure
 
 /**
  * ##  Prisma Client ʲˢ
@@ -395,6 +489,96 @@ export class PrismaClient<
     * ```
     */
   get brands(): Prisma.BrandsDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.masters`: Exposes CRUD operations for the **Masters** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Masters
+    * const masters = await prisma.masters.findMany()
+    * ```
+    */
+  get masters(): Prisma.MastersDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.professions`: Exposes CRUD operations for the **Professions** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Professions
+    * const professions = await prisma.professions.findMany()
+    * ```
+    */
+  get professions(): Prisma.ProfessionsDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.masterProfessions`: Exposes CRUD operations for the **MasterProfessions** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more MasterProfessions
+    * const masterProfessions = await prisma.masterProfessions.findMany()
+    * ```
+    */
+  get masterProfessions(): Prisma.MasterProfessionsDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.professionLevels`: Exposes CRUD operations for the **ProfessionLevels** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more ProfessionLevels
+    * const professionLevels = await prisma.professionLevels.findMany()
+    * ```
+    */
+  get professionLevels(): Prisma.ProfessionLevelsDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.tools`: Exposes CRUD operations for the **Tools** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Tools
+    * const tools = await prisma.tools.findMany()
+    * ```
+    */
+  get tools(): Prisma.ToolsDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.professionTools`: Exposes CRUD operations for the **ProfessionTools** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more ProfessionTools
+    * const professionTools = await prisma.professionTools.findMany()
+    * ```
+    */
+  get professionTools(): Prisma.ProfessionToolsDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.backet`: Exposes CRUD operations for the **Backet** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Backets
+    * const backets = await prisma.backet.findMany()
+    * ```
+    */
+  get backet(): Prisma.BacketDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.orders`: Exposes CRUD operations for the **Orders** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Orders
+    * const orders = await prisma.orders.findMany()
+    * ```
+    */
+  get orders(): Prisma.OrdersDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.orderItems`: Exposes CRUD operations for the **OrderItems** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more OrderItems
+    * const orderItems = await prisma.orderItems.findMany()
+    * ```
+    */
+  get orderItems(): Prisma.OrderItemsDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -849,7 +1033,16 @@ export namespace Prisma {
     Levels: 'Levels',
     Capacity: 'Capacity',
     Sizes: 'Sizes',
-    Brands: 'Brands'
+    Brands: 'Brands',
+    Masters: 'Masters',
+    Professions: 'Professions',
+    MasterProfessions: 'MasterProfessions',
+    ProfessionLevels: 'ProfessionLevels',
+    Tools: 'Tools',
+    ProfessionTools: 'ProfessionTools',
+    Backet: 'Backet',
+    Orders: 'Orders',
+    OrderItems: 'OrderItems'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -868,7 +1061,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "regions" | "users" | "sessions" | "contacts" | "dataAboutCompany" | "showCases" | "fAQ" | "aboutOurPage" | "partners" | "comments" | "stars" | "levels" | "capacity" | "sizes" | "brands"
+      modelProps: "regions" | "users" | "sessions" | "contacts" | "dataAboutCompany" | "showCases" | "fAQ" | "aboutOurPage" | "partners" | "comments" | "stars" | "levels" | "capacity" | "sizes" | "brands" | "masters" | "professions" | "masterProfessions" | "professionLevels" | "tools" | "professionTools" | "backet" | "orders" | "orderItems"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -1982,6 +2175,672 @@ export namespace Prisma {
           }
         }
       }
+      Masters: {
+        payload: Prisma.$MastersPayload<ExtArgs>
+        fields: Prisma.MastersFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.MastersFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MastersPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.MastersFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MastersPayload>
+          }
+          findFirst: {
+            args: Prisma.MastersFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MastersPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.MastersFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MastersPayload>
+          }
+          findMany: {
+            args: Prisma.MastersFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MastersPayload>[]
+          }
+          create: {
+            args: Prisma.MastersCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MastersPayload>
+          }
+          createMany: {
+            args: Prisma.MastersCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.MastersCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MastersPayload>[]
+          }
+          delete: {
+            args: Prisma.MastersDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MastersPayload>
+          }
+          update: {
+            args: Prisma.MastersUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MastersPayload>
+          }
+          deleteMany: {
+            args: Prisma.MastersDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.MastersUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.MastersUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MastersPayload>[]
+          }
+          upsert: {
+            args: Prisma.MastersUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MastersPayload>
+          }
+          aggregate: {
+            args: Prisma.MastersAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateMasters>
+          }
+          groupBy: {
+            args: Prisma.MastersGroupByArgs<ExtArgs>
+            result: $Utils.Optional<MastersGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.MastersCountArgs<ExtArgs>
+            result: $Utils.Optional<MastersCountAggregateOutputType> | number
+          }
+        }
+      }
+      Professions: {
+        payload: Prisma.$ProfessionsPayload<ExtArgs>
+        fields: Prisma.ProfessionsFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.ProfessionsFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfessionsPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.ProfessionsFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfessionsPayload>
+          }
+          findFirst: {
+            args: Prisma.ProfessionsFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfessionsPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.ProfessionsFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfessionsPayload>
+          }
+          findMany: {
+            args: Prisma.ProfessionsFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfessionsPayload>[]
+          }
+          create: {
+            args: Prisma.ProfessionsCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfessionsPayload>
+          }
+          createMany: {
+            args: Prisma.ProfessionsCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.ProfessionsCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfessionsPayload>[]
+          }
+          delete: {
+            args: Prisma.ProfessionsDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfessionsPayload>
+          }
+          update: {
+            args: Prisma.ProfessionsUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfessionsPayload>
+          }
+          deleteMany: {
+            args: Prisma.ProfessionsDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.ProfessionsUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.ProfessionsUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfessionsPayload>[]
+          }
+          upsert: {
+            args: Prisma.ProfessionsUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfessionsPayload>
+          }
+          aggregate: {
+            args: Prisma.ProfessionsAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateProfessions>
+          }
+          groupBy: {
+            args: Prisma.ProfessionsGroupByArgs<ExtArgs>
+            result: $Utils.Optional<ProfessionsGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.ProfessionsCountArgs<ExtArgs>
+            result: $Utils.Optional<ProfessionsCountAggregateOutputType> | number
+          }
+        }
+      }
+      MasterProfessions: {
+        payload: Prisma.$MasterProfessionsPayload<ExtArgs>
+        fields: Prisma.MasterProfessionsFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.MasterProfessionsFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MasterProfessionsPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.MasterProfessionsFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MasterProfessionsPayload>
+          }
+          findFirst: {
+            args: Prisma.MasterProfessionsFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MasterProfessionsPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.MasterProfessionsFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MasterProfessionsPayload>
+          }
+          findMany: {
+            args: Prisma.MasterProfessionsFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MasterProfessionsPayload>[]
+          }
+          create: {
+            args: Prisma.MasterProfessionsCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MasterProfessionsPayload>
+          }
+          createMany: {
+            args: Prisma.MasterProfessionsCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.MasterProfessionsCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MasterProfessionsPayload>[]
+          }
+          delete: {
+            args: Prisma.MasterProfessionsDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MasterProfessionsPayload>
+          }
+          update: {
+            args: Prisma.MasterProfessionsUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MasterProfessionsPayload>
+          }
+          deleteMany: {
+            args: Prisma.MasterProfessionsDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.MasterProfessionsUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.MasterProfessionsUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MasterProfessionsPayload>[]
+          }
+          upsert: {
+            args: Prisma.MasterProfessionsUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MasterProfessionsPayload>
+          }
+          aggregate: {
+            args: Prisma.MasterProfessionsAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateMasterProfessions>
+          }
+          groupBy: {
+            args: Prisma.MasterProfessionsGroupByArgs<ExtArgs>
+            result: $Utils.Optional<MasterProfessionsGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.MasterProfessionsCountArgs<ExtArgs>
+            result: $Utils.Optional<MasterProfessionsCountAggregateOutputType> | number
+          }
+        }
+      }
+      ProfessionLevels: {
+        payload: Prisma.$ProfessionLevelsPayload<ExtArgs>
+        fields: Prisma.ProfessionLevelsFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.ProfessionLevelsFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfessionLevelsPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.ProfessionLevelsFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfessionLevelsPayload>
+          }
+          findFirst: {
+            args: Prisma.ProfessionLevelsFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfessionLevelsPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.ProfessionLevelsFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfessionLevelsPayload>
+          }
+          findMany: {
+            args: Prisma.ProfessionLevelsFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfessionLevelsPayload>[]
+          }
+          create: {
+            args: Prisma.ProfessionLevelsCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfessionLevelsPayload>
+          }
+          createMany: {
+            args: Prisma.ProfessionLevelsCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.ProfessionLevelsCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfessionLevelsPayload>[]
+          }
+          delete: {
+            args: Prisma.ProfessionLevelsDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfessionLevelsPayload>
+          }
+          update: {
+            args: Prisma.ProfessionLevelsUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfessionLevelsPayload>
+          }
+          deleteMany: {
+            args: Prisma.ProfessionLevelsDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.ProfessionLevelsUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.ProfessionLevelsUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfessionLevelsPayload>[]
+          }
+          upsert: {
+            args: Prisma.ProfessionLevelsUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfessionLevelsPayload>
+          }
+          aggregate: {
+            args: Prisma.ProfessionLevelsAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateProfessionLevels>
+          }
+          groupBy: {
+            args: Prisma.ProfessionLevelsGroupByArgs<ExtArgs>
+            result: $Utils.Optional<ProfessionLevelsGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.ProfessionLevelsCountArgs<ExtArgs>
+            result: $Utils.Optional<ProfessionLevelsCountAggregateOutputType> | number
+          }
+        }
+      }
+      Tools: {
+        payload: Prisma.$ToolsPayload<ExtArgs>
+        fields: Prisma.ToolsFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.ToolsFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ToolsPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.ToolsFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ToolsPayload>
+          }
+          findFirst: {
+            args: Prisma.ToolsFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ToolsPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.ToolsFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ToolsPayload>
+          }
+          findMany: {
+            args: Prisma.ToolsFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ToolsPayload>[]
+          }
+          create: {
+            args: Prisma.ToolsCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ToolsPayload>
+          }
+          createMany: {
+            args: Prisma.ToolsCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.ToolsCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ToolsPayload>[]
+          }
+          delete: {
+            args: Prisma.ToolsDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ToolsPayload>
+          }
+          update: {
+            args: Prisma.ToolsUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ToolsPayload>
+          }
+          deleteMany: {
+            args: Prisma.ToolsDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.ToolsUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.ToolsUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ToolsPayload>[]
+          }
+          upsert: {
+            args: Prisma.ToolsUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ToolsPayload>
+          }
+          aggregate: {
+            args: Prisma.ToolsAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateTools>
+          }
+          groupBy: {
+            args: Prisma.ToolsGroupByArgs<ExtArgs>
+            result: $Utils.Optional<ToolsGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.ToolsCountArgs<ExtArgs>
+            result: $Utils.Optional<ToolsCountAggregateOutputType> | number
+          }
+        }
+      }
+      ProfessionTools: {
+        payload: Prisma.$ProfessionToolsPayload<ExtArgs>
+        fields: Prisma.ProfessionToolsFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.ProfessionToolsFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfessionToolsPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.ProfessionToolsFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfessionToolsPayload>
+          }
+          findFirst: {
+            args: Prisma.ProfessionToolsFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfessionToolsPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.ProfessionToolsFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfessionToolsPayload>
+          }
+          findMany: {
+            args: Prisma.ProfessionToolsFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfessionToolsPayload>[]
+          }
+          create: {
+            args: Prisma.ProfessionToolsCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfessionToolsPayload>
+          }
+          createMany: {
+            args: Prisma.ProfessionToolsCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.ProfessionToolsCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfessionToolsPayload>[]
+          }
+          delete: {
+            args: Prisma.ProfessionToolsDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfessionToolsPayload>
+          }
+          update: {
+            args: Prisma.ProfessionToolsUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfessionToolsPayload>
+          }
+          deleteMany: {
+            args: Prisma.ProfessionToolsDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.ProfessionToolsUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.ProfessionToolsUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfessionToolsPayload>[]
+          }
+          upsert: {
+            args: Prisma.ProfessionToolsUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfessionToolsPayload>
+          }
+          aggregate: {
+            args: Prisma.ProfessionToolsAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateProfessionTools>
+          }
+          groupBy: {
+            args: Prisma.ProfessionToolsGroupByArgs<ExtArgs>
+            result: $Utils.Optional<ProfessionToolsGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.ProfessionToolsCountArgs<ExtArgs>
+            result: $Utils.Optional<ProfessionToolsCountAggregateOutputType> | number
+          }
+        }
+      }
+      Backet: {
+        payload: Prisma.$BacketPayload<ExtArgs>
+        fields: Prisma.BacketFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.BacketFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BacketPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.BacketFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BacketPayload>
+          }
+          findFirst: {
+            args: Prisma.BacketFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BacketPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.BacketFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BacketPayload>
+          }
+          findMany: {
+            args: Prisma.BacketFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BacketPayload>[]
+          }
+          create: {
+            args: Prisma.BacketCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BacketPayload>
+          }
+          createMany: {
+            args: Prisma.BacketCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.BacketCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BacketPayload>[]
+          }
+          delete: {
+            args: Prisma.BacketDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BacketPayload>
+          }
+          update: {
+            args: Prisma.BacketUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BacketPayload>
+          }
+          deleteMany: {
+            args: Prisma.BacketDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.BacketUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.BacketUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BacketPayload>[]
+          }
+          upsert: {
+            args: Prisma.BacketUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BacketPayload>
+          }
+          aggregate: {
+            args: Prisma.BacketAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateBacket>
+          }
+          groupBy: {
+            args: Prisma.BacketGroupByArgs<ExtArgs>
+            result: $Utils.Optional<BacketGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.BacketCountArgs<ExtArgs>
+            result: $Utils.Optional<BacketCountAggregateOutputType> | number
+          }
+        }
+      }
+      Orders: {
+        payload: Prisma.$OrdersPayload<ExtArgs>
+        fields: Prisma.OrdersFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.OrdersFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OrdersPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.OrdersFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OrdersPayload>
+          }
+          findFirst: {
+            args: Prisma.OrdersFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OrdersPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.OrdersFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OrdersPayload>
+          }
+          findMany: {
+            args: Prisma.OrdersFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OrdersPayload>[]
+          }
+          create: {
+            args: Prisma.OrdersCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OrdersPayload>
+          }
+          createMany: {
+            args: Prisma.OrdersCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.OrdersCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OrdersPayload>[]
+          }
+          delete: {
+            args: Prisma.OrdersDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OrdersPayload>
+          }
+          update: {
+            args: Prisma.OrdersUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OrdersPayload>
+          }
+          deleteMany: {
+            args: Prisma.OrdersDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.OrdersUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.OrdersUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OrdersPayload>[]
+          }
+          upsert: {
+            args: Prisma.OrdersUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OrdersPayload>
+          }
+          aggregate: {
+            args: Prisma.OrdersAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateOrders>
+          }
+          groupBy: {
+            args: Prisma.OrdersGroupByArgs<ExtArgs>
+            result: $Utils.Optional<OrdersGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.OrdersCountArgs<ExtArgs>
+            result: $Utils.Optional<OrdersCountAggregateOutputType> | number
+          }
+        }
+      }
+      OrderItems: {
+        payload: Prisma.$OrderItemsPayload<ExtArgs>
+        fields: Prisma.OrderItemsFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.OrderItemsFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OrderItemsPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.OrderItemsFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OrderItemsPayload>
+          }
+          findFirst: {
+            args: Prisma.OrderItemsFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OrderItemsPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.OrderItemsFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OrderItemsPayload>
+          }
+          findMany: {
+            args: Prisma.OrderItemsFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OrderItemsPayload>[]
+          }
+          create: {
+            args: Prisma.OrderItemsCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OrderItemsPayload>
+          }
+          createMany: {
+            args: Prisma.OrderItemsCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.OrderItemsCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OrderItemsPayload>[]
+          }
+          delete: {
+            args: Prisma.OrderItemsDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OrderItemsPayload>
+          }
+          update: {
+            args: Prisma.OrderItemsUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OrderItemsPayload>
+          }
+          deleteMany: {
+            args: Prisma.OrderItemsDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.OrderItemsUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.OrderItemsUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OrderItemsPayload>[]
+          }
+          upsert: {
+            args: Prisma.OrderItemsUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OrderItemsPayload>
+          }
+          aggregate: {
+            args: Prisma.OrderItemsAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateOrderItems>
+          }
+          groupBy: {
+            args: Prisma.OrderItemsGroupByArgs<ExtArgs>
+            result: $Utils.Optional<OrderItemsGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.OrderItemsCountArgs<ExtArgs>
+            result: $Utils.Optional<OrderItemsCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -2081,6 +2940,15 @@ export namespace Prisma {
     capacity?: CapacityOmit
     sizes?: SizesOmit
     brands?: BrandsOmit
+    masters?: MastersOmit
+    professions?: ProfessionsOmit
+    masterProfessions?: MasterProfessionsOmit
+    professionLevels?: ProfessionLevelsOmit
+    tools?: ToolsOmit
+    professionTools?: ProfessionToolsOmit
+    backet?: BacketOmit
+    orders?: OrdersOmit
+    orderItems?: OrderItemsOmit
   }
 
   /* Types for Logging */
@@ -2198,6 +3066,415 @@ export namespace Prisma {
    */
   export type RegionsCountOutputTypeCountUsersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: UsersWhereInput
+  }
+
+
+  /**
+   * Count Type UsersCountOutputType
+   */
+
+  export type UsersCountOutputType = {
+    Backet: number
+    Comments: number
+    Sessions: number
+  }
+
+  export type UsersCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    Backet?: boolean | UsersCountOutputTypeCountBacketArgs
+    Comments?: boolean | UsersCountOutputTypeCountCommentsArgs
+    Sessions?: boolean | UsersCountOutputTypeCountSessionsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * UsersCountOutputType without action
+   */
+  export type UsersCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UsersCountOutputType
+     */
+    select?: UsersCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * UsersCountOutputType without action
+   */
+  export type UsersCountOutputTypeCountBacketArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: BacketWhereInput
+  }
+
+  /**
+   * UsersCountOutputType without action
+   */
+  export type UsersCountOutputTypeCountCommentsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CommentsWhereInput
+  }
+
+  /**
+   * UsersCountOutputType without action
+   */
+  export type UsersCountOutputTypeCountSessionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: SessionsWhereInput
+  }
+
+
+  /**
+   * Count Type CommentsCountOutputType
+   */
+
+  export type CommentsCountOutputType = {
+    Orders: number
+  }
+
+  export type CommentsCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    Orders?: boolean | CommentsCountOutputTypeCountOrdersArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * CommentsCountOutputType without action
+   */
+  export type CommentsCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CommentsCountOutputType
+     */
+    select?: CommentsCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * CommentsCountOutputType without action
+   */
+  export type CommentsCountOutputTypeCountOrdersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: OrdersWhereInput
+  }
+
+
+  /**
+   * Count Type LevelsCountOutputType
+   */
+
+  export type LevelsCountOutputType = {
+    MasterProfessions: number
+    Backet: number
+    OrderItems: number
+    ProfessionLevels: number
+  }
+
+  export type LevelsCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    MasterProfessions?: boolean | LevelsCountOutputTypeCountMasterProfessionsArgs
+    Backet?: boolean | LevelsCountOutputTypeCountBacketArgs
+    OrderItems?: boolean | LevelsCountOutputTypeCountOrderItemsArgs
+    ProfessionLevels?: boolean | LevelsCountOutputTypeCountProfessionLevelsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * LevelsCountOutputType without action
+   */
+  export type LevelsCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LevelsCountOutputType
+     */
+    select?: LevelsCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * LevelsCountOutputType without action
+   */
+  export type LevelsCountOutputTypeCountMasterProfessionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: MasterProfessionsWhereInput
+  }
+
+  /**
+   * LevelsCountOutputType without action
+   */
+  export type LevelsCountOutputTypeCountBacketArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: BacketWhereInput
+  }
+
+  /**
+   * LevelsCountOutputType without action
+   */
+  export type LevelsCountOutputTypeCountOrderItemsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: OrderItemsWhereInput
+  }
+
+  /**
+   * LevelsCountOutputType without action
+   */
+  export type LevelsCountOutputTypeCountProfessionLevelsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ProfessionLevelsWhereInput
+  }
+
+
+  /**
+   * Count Type CapacityCountOutputType
+   */
+
+  export type CapacityCountOutputType = {
+    Tools: number
+  }
+
+  export type CapacityCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    Tools?: boolean | CapacityCountOutputTypeCountToolsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * CapacityCountOutputType without action
+   */
+  export type CapacityCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CapacityCountOutputType
+     */
+    select?: CapacityCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * CapacityCountOutputType without action
+   */
+  export type CapacityCountOutputTypeCountToolsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ToolsWhereInput
+  }
+
+
+  /**
+   * Count Type SizesCountOutputType
+   */
+
+  export type SizesCountOutputType = {
+    Tools: number
+  }
+
+  export type SizesCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    Tools?: boolean | SizesCountOutputTypeCountToolsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * SizesCountOutputType without action
+   */
+  export type SizesCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SizesCountOutputType
+     */
+    select?: SizesCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * SizesCountOutputType without action
+   */
+  export type SizesCountOutputTypeCountToolsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ToolsWhereInput
+  }
+
+
+  /**
+   * Count Type BrandsCountOutputType
+   */
+
+  export type BrandsCountOutputType = {
+    Tools: number
+  }
+
+  export type BrandsCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    Tools?: boolean | BrandsCountOutputTypeCountToolsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * BrandsCountOutputType without action
+   */
+  export type BrandsCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BrandsCountOutputType
+     */
+    select?: BrandsCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * BrandsCountOutputType without action
+   */
+  export type BrandsCountOutputTypeCountToolsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ToolsWhereInput
+  }
+
+
+  /**
+   * Count Type MastersCountOutputType
+   */
+
+  export type MastersCountOutputType = {
+    MasterProfessions: number
+  }
+
+  export type MastersCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    MasterProfessions?: boolean | MastersCountOutputTypeCountMasterProfessionsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * MastersCountOutputType without action
+   */
+  export type MastersCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MastersCountOutputType
+     */
+    select?: MastersCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * MastersCountOutputType without action
+   */
+  export type MastersCountOutputTypeCountMasterProfessionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: MasterProfessionsWhereInput
+  }
+
+
+  /**
+   * Count Type ProfessionsCountOutputType
+   */
+
+  export type ProfessionsCountOutputType = {
+    MasterProfessions: number
+    Backet: number
+    OrderItems: number
+    ProfessionLevels: number
+    ProfessionTools: number
+  }
+
+  export type ProfessionsCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    MasterProfessions?: boolean | ProfessionsCountOutputTypeCountMasterProfessionsArgs
+    Backet?: boolean | ProfessionsCountOutputTypeCountBacketArgs
+    OrderItems?: boolean | ProfessionsCountOutputTypeCountOrderItemsArgs
+    ProfessionLevels?: boolean | ProfessionsCountOutputTypeCountProfessionLevelsArgs
+    ProfessionTools?: boolean | ProfessionsCountOutputTypeCountProfessionToolsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * ProfessionsCountOutputType without action
+   */
+  export type ProfessionsCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProfessionsCountOutputType
+     */
+    select?: ProfessionsCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * ProfessionsCountOutputType without action
+   */
+  export type ProfessionsCountOutputTypeCountMasterProfessionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: MasterProfessionsWhereInput
+  }
+
+  /**
+   * ProfessionsCountOutputType without action
+   */
+  export type ProfessionsCountOutputTypeCountBacketArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: BacketWhereInput
+  }
+
+  /**
+   * ProfessionsCountOutputType without action
+   */
+  export type ProfessionsCountOutputTypeCountOrderItemsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: OrderItemsWhereInput
+  }
+
+  /**
+   * ProfessionsCountOutputType without action
+   */
+  export type ProfessionsCountOutputTypeCountProfessionLevelsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ProfessionLevelsWhereInput
+  }
+
+  /**
+   * ProfessionsCountOutputType without action
+   */
+  export type ProfessionsCountOutputTypeCountProfessionToolsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ProfessionToolsWhereInput
+  }
+
+
+  /**
+   * Count Type ToolsCountOutputType
+   */
+
+  export type ToolsCountOutputType = {
+    Backet: number
+    OrderItems: number
+    ProfessionTools: number
+  }
+
+  export type ToolsCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    Backet?: boolean | ToolsCountOutputTypeCountBacketArgs
+    OrderItems?: boolean | ToolsCountOutputTypeCountOrderItemsArgs
+    ProfessionTools?: boolean | ToolsCountOutputTypeCountProfessionToolsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * ToolsCountOutputType without action
+   */
+  export type ToolsCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ToolsCountOutputType
+     */
+    select?: ToolsCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * ToolsCountOutputType without action
+   */
+  export type ToolsCountOutputTypeCountBacketArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: BacketWhereInput
+  }
+
+  /**
+   * ToolsCountOutputType without action
+   */
+  export type ToolsCountOutputTypeCountOrderItemsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: OrderItemsWhereInput
+  }
+
+  /**
+   * ToolsCountOutputType without action
+   */
+  export type ToolsCountOutputTypeCountProfessionToolsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ProfessionToolsWhereInput
+  }
+
+
+  /**
+   * Count Type OrdersCountOutputType
+   */
+
+  export type OrdersCountOutputType = {
+    OrderItems: number
+  }
+
+  export type OrdersCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    OrderItems?: boolean | OrdersCountOutputTypeCountOrderItemsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * OrdersCountOutputType without action
+   */
+  export type OrdersCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the OrdersCountOutputType
+     */
+    select?: OrdersCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * OrdersCountOutputType without action
+   */
+  export type OrdersCountOutputTypeCountOrderItemsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: OrderItemsWhereInput
   }
 
 
@@ -3493,6 +4770,10 @@ export namespace Prisma {
     createdAt?: boolean
     updatedAt?: boolean
     region?: boolean | RegionsDefaultArgs<ExtArgs>
+    Backet?: boolean | Users$BacketArgs<ExtArgs>
+    Comments?: boolean | Users$CommentsArgs<ExtArgs>
+    Sessions?: boolean | Users$SessionsArgs<ExtArgs>
+    _count?: boolean | UsersCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["users"]>
 
   export type UsersSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -3539,6 +4820,10 @@ export namespace Prisma {
   export type UsersOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "fullName" | "phone" | "password" | "role" | "status" | "avatar" | "regionId" | "createdAt" | "updatedAt", ExtArgs["result"]["users"]>
   export type UsersInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     region?: boolean | RegionsDefaultArgs<ExtArgs>
+    Backet?: boolean | Users$BacketArgs<ExtArgs>
+    Comments?: boolean | Users$CommentsArgs<ExtArgs>
+    Sessions?: boolean | Users$SessionsArgs<ExtArgs>
+    _count?: boolean | UsersCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type UsersIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     region?: boolean | RegionsDefaultArgs<ExtArgs>
@@ -3551,6 +4836,9 @@ export namespace Prisma {
     name: "Users"
     objects: {
       region: Prisma.$RegionsPayload<ExtArgs>
+      Backet: Prisma.$BacketPayload<ExtArgs>[]
+      Comments: Prisma.$CommentsPayload<ExtArgs>[]
+      Sessions: Prisma.$SessionsPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -3958,6 +5246,9 @@ export namespace Prisma {
   export interface Prisma__UsersClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     region<T extends RegionsDefaultArgs<ExtArgs> = {}>(args?: Subset<T, RegionsDefaultArgs<ExtArgs>>): Prisma__RegionsClient<$Result.GetResult<Prisma.$RegionsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    Backet<T extends Users$BacketArgs<ExtArgs> = {}>(args?: Subset<T, Users$BacketArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BacketPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    Comments<T extends Users$CommentsArgs<ExtArgs> = {}>(args?: Subset<T, Users$CommentsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CommentsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    Sessions<T extends Users$SessionsArgs<ExtArgs> = {}>(args?: Subset<T, Users$SessionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SessionsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -4393,6 +5684,78 @@ export namespace Prisma {
   }
 
   /**
+   * Users.Backet
+   */
+  export type Users$BacketArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Backet
+     */
+    select?: BacketSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Backet
+     */
+    omit?: BacketOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BacketInclude<ExtArgs> | null
+    where?: BacketWhereInput
+    orderBy?: BacketOrderByWithRelationInput | BacketOrderByWithRelationInput[]
+    cursor?: BacketWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: BacketScalarFieldEnum | BacketScalarFieldEnum[]
+  }
+
+  /**
+   * Users.Comments
+   */
+  export type Users$CommentsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Comments
+     */
+    select?: CommentsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Comments
+     */
+    omit?: CommentsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CommentsInclude<ExtArgs> | null
+    where?: CommentsWhereInput
+    orderBy?: CommentsOrderByWithRelationInput | CommentsOrderByWithRelationInput[]
+    cursor?: CommentsWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: CommentsScalarFieldEnum | CommentsScalarFieldEnum[]
+  }
+
+  /**
+   * Users.Sessions
+   */
+  export type Users$SessionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Sessions
+     */
+    select?: SessionsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Sessions
+     */
+    omit?: SessionsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SessionsInclude<ExtArgs> | null
+    where?: SessionsWhereInput
+    orderBy?: SessionsOrderByWithRelationInput | SessionsOrderByWithRelationInput[]
+    cursor?: SessionsWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: SessionsScalarFieldEnum | SessionsScalarFieldEnum[]
+  }
+
+  /**
    * Users without action
    */
   export type UsersDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -4571,6 +5934,7 @@ export namespace Prisma {
     ipAddress?: boolean
     deviceInfo?: boolean
     createdAt?: boolean
+    user?: boolean | UsersDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["sessions"]>
 
   export type SessionsSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -4579,6 +5943,7 @@ export namespace Prisma {
     ipAddress?: boolean
     deviceInfo?: boolean
     createdAt?: boolean
+    user?: boolean | UsersDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["sessions"]>
 
   export type SessionsSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -4587,6 +5952,7 @@ export namespace Prisma {
     ipAddress?: boolean
     deviceInfo?: boolean
     createdAt?: boolean
+    user?: boolean | UsersDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["sessions"]>
 
   export type SessionsSelectScalar = {
@@ -4598,10 +5964,21 @@ export namespace Prisma {
   }
 
   export type SessionsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "ipAddress" | "deviceInfo" | "createdAt", ExtArgs["result"]["sessions"]>
+  export type SessionsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UsersDefaultArgs<ExtArgs>
+  }
+  export type SessionsIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UsersDefaultArgs<ExtArgs>
+  }
+  export type SessionsIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UsersDefaultArgs<ExtArgs>
+  }
 
   export type $SessionsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Sessions"
-    objects: {}
+    objects: {
+      user: Prisma.$UsersPayload<ExtArgs>
+    }
     scalars: $Extensions.GetPayloadResult<{
       id: string
       userId: string
@@ -5002,6 +6379,7 @@ export namespace Prisma {
    */
   export interface Prisma__SessionsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    user<T extends UsersDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UsersDefaultArgs<ExtArgs>>): Prisma__UsersClient<$Result.GetResult<Prisma.$UsersPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -5053,6 +6431,10 @@ export namespace Prisma {
      */
     omit?: SessionsOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SessionsInclude<ExtArgs> | null
+    /**
      * Filter, which Sessions to fetch.
      */
     where: SessionsWhereUniqueInput
@@ -5071,6 +6453,10 @@ export namespace Prisma {
      */
     omit?: SessionsOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SessionsInclude<ExtArgs> | null
+    /**
      * Filter, which Sessions to fetch.
      */
     where: SessionsWhereUniqueInput
@@ -5088,6 +6474,10 @@ export namespace Prisma {
      * Omit specific fields from the Sessions
      */
     omit?: SessionsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SessionsInclude<ExtArgs> | null
     /**
      * Filter, which Sessions to fetch.
      */
@@ -5137,6 +6527,10 @@ export namespace Prisma {
      */
     omit?: SessionsOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SessionsInclude<ExtArgs> | null
+    /**
      * Filter, which Sessions to fetch.
      */
     where?: SessionsWhereInput
@@ -5185,6 +6579,10 @@ export namespace Prisma {
      */
     omit?: SessionsOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SessionsInclude<ExtArgs> | null
+    /**
      * Filter, which Sessions to fetch.
      */
     where?: SessionsWhereInput
@@ -5228,6 +6626,10 @@ export namespace Prisma {
      */
     omit?: SessionsOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SessionsInclude<ExtArgs> | null
+    /**
      * The data needed to create a Sessions.
      */
     data: XOR<SessionsCreateInput, SessionsUncheckedCreateInput>
@@ -5261,6 +6663,10 @@ export namespace Prisma {
      */
     data: SessionsCreateManyInput | SessionsCreateManyInput[]
     skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SessionsIncludeCreateManyAndReturn<ExtArgs> | null
   }
 
   /**
@@ -5275,6 +6681,10 @@ export namespace Prisma {
      * Omit specific fields from the Sessions
      */
     omit?: SessionsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SessionsInclude<ExtArgs> | null
     /**
      * The data needed to update a Sessions.
      */
@@ -5327,6 +6737,10 @@ export namespace Prisma {
      * Limit how many Sessions to update.
      */
     limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SessionsIncludeUpdateManyAndReturn<ExtArgs> | null
   }
 
   /**
@@ -5341,6 +6755,10 @@ export namespace Prisma {
      * Omit specific fields from the Sessions
      */
     omit?: SessionsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SessionsInclude<ExtArgs> | null
     /**
      * The filter to search for the Sessions to update in case it exists.
      */
@@ -5367,6 +6785,10 @@ export namespace Prisma {
      * Omit specific fields from the Sessions
      */
     omit?: SessionsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SessionsInclude<ExtArgs> | null
     /**
      * Filter which Sessions to delete.
      */
@@ -5399,6 +6821,10 @@ export namespace Prisma {
      * Omit specific fields from the Sessions
      */
     omit?: SessionsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SessionsInclude<ExtArgs> | null
   }
 
 
@@ -11589,6 +13015,7 @@ export namespace Prisma {
   export type CommentsMinAggregateOutputType = {
     id: string | null
     message: string | null
+    userId: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -11596,6 +13023,7 @@ export namespace Prisma {
   export type CommentsMaxAggregateOutputType = {
     id: string | null
     message: string | null
+    userId: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -11603,6 +13031,7 @@ export namespace Prisma {
   export type CommentsCountAggregateOutputType = {
     id: number
     message: number
+    userId: number
     createdAt: number
     updatedAt: number
     _all: number
@@ -11612,6 +13041,7 @@ export namespace Prisma {
   export type CommentsMinAggregateInputType = {
     id?: true
     message?: true
+    userId?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -11619,6 +13049,7 @@ export namespace Prisma {
   export type CommentsMaxAggregateInputType = {
     id?: true
     message?: true
+    userId?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -11626,6 +13057,7 @@ export namespace Prisma {
   export type CommentsCountAggregateInputType = {
     id?: true
     message?: true
+    userId?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
@@ -11706,6 +13138,7 @@ export namespace Prisma {
   export type CommentsGroupByOutputType = {
     id: string
     message: string
+    userId: string
     createdAt: Date
     updatedAt: Date
     _count: CommentsCountAggregateOutputType | null
@@ -11730,39 +13163,63 @@ export namespace Prisma {
   export type CommentsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     message?: boolean
+    userId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    user?: boolean | UsersDefaultArgs<ExtArgs>
+    Orders?: boolean | Comments$OrdersArgs<ExtArgs>
+    _count?: boolean | CommentsCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["comments"]>
 
   export type CommentsSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     message?: boolean
+    userId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    user?: boolean | UsersDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["comments"]>
 
   export type CommentsSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     message?: boolean
+    userId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    user?: boolean | UsersDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["comments"]>
 
   export type CommentsSelectScalar = {
     id?: boolean
     message?: boolean
+    userId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type CommentsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "message" | "createdAt" | "updatedAt", ExtArgs["result"]["comments"]>
+  export type CommentsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "message" | "userId" | "createdAt" | "updatedAt", ExtArgs["result"]["comments"]>
+  export type CommentsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UsersDefaultArgs<ExtArgs>
+    Orders?: boolean | Comments$OrdersArgs<ExtArgs>
+    _count?: boolean | CommentsCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type CommentsIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UsersDefaultArgs<ExtArgs>
+  }
+  export type CommentsIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UsersDefaultArgs<ExtArgs>
+  }
 
   export type $CommentsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Comments"
-    objects: {}
+    objects: {
+      user: Prisma.$UsersPayload<ExtArgs>
+      Orders: Prisma.$OrdersPayload<ExtArgs>[]
+    }
     scalars: $Extensions.GetPayloadResult<{
       id: string
       message: string
+      userId: string
       createdAt: Date
       updatedAt: Date
     }, ExtArgs["result"]["comments"]>
@@ -12159,6 +13616,8 @@ export namespace Prisma {
    */
   export interface Prisma__CommentsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    user<T extends UsersDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UsersDefaultArgs<ExtArgs>>): Prisma__UsersClient<$Result.GetResult<Prisma.$UsersPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    Orders<T extends Comments$OrdersArgs<ExtArgs> = {}>(args?: Subset<T, Comments$OrdersArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$OrdersPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -12190,6 +13649,7 @@ export namespace Prisma {
   interface CommentsFieldRefs {
     readonly id: FieldRef<"Comments", 'String'>
     readonly message: FieldRef<"Comments", 'String'>
+    readonly userId: FieldRef<"Comments", 'String'>
     readonly createdAt: FieldRef<"Comments", 'DateTime'>
     readonly updatedAt: FieldRef<"Comments", 'DateTime'>
   }
@@ -12209,6 +13669,10 @@ export namespace Prisma {
      */
     omit?: CommentsOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CommentsInclude<ExtArgs> | null
+    /**
      * Filter, which Comments to fetch.
      */
     where: CommentsWhereUniqueInput
@@ -12227,6 +13691,10 @@ export namespace Prisma {
      */
     omit?: CommentsOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CommentsInclude<ExtArgs> | null
+    /**
      * Filter, which Comments to fetch.
      */
     where: CommentsWhereUniqueInput
@@ -12244,6 +13712,10 @@ export namespace Prisma {
      * Omit specific fields from the Comments
      */
     omit?: CommentsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CommentsInclude<ExtArgs> | null
     /**
      * Filter, which Comments to fetch.
      */
@@ -12293,6 +13765,10 @@ export namespace Prisma {
      */
     omit?: CommentsOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CommentsInclude<ExtArgs> | null
+    /**
      * Filter, which Comments to fetch.
      */
     where?: CommentsWhereInput
@@ -12341,6 +13817,10 @@ export namespace Prisma {
      */
     omit?: CommentsOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CommentsInclude<ExtArgs> | null
+    /**
      * Filter, which Comments to fetch.
      */
     where?: CommentsWhereInput
@@ -12384,6 +13864,10 @@ export namespace Prisma {
      */
     omit?: CommentsOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CommentsInclude<ExtArgs> | null
+    /**
      * The data needed to create a Comments.
      */
     data: XOR<CommentsCreateInput, CommentsUncheckedCreateInput>
@@ -12417,6 +13901,10 @@ export namespace Prisma {
      */
     data: CommentsCreateManyInput | CommentsCreateManyInput[]
     skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CommentsIncludeCreateManyAndReturn<ExtArgs> | null
   }
 
   /**
@@ -12431,6 +13919,10 @@ export namespace Prisma {
      * Omit specific fields from the Comments
      */
     omit?: CommentsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CommentsInclude<ExtArgs> | null
     /**
      * The data needed to update a Comments.
      */
@@ -12483,6 +13975,10 @@ export namespace Prisma {
      * Limit how many Comments to update.
      */
     limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CommentsIncludeUpdateManyAndReturn<ExtArgs> | null
   }
 
   /**
@@ -12497,6 +13993,10 @@ export namespace Prisma {
      * Omit specific fields from the Comments
      */
     omit?: CommentsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CommentsInclude<ExtArgs> | null
     /**
      * The filter to search for the Comments to update in case it exists.
      */
@@ -12524,6 +14024,10 @@ export namespace Prisma {
      */
     omit?: CommentsOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CommentsInclude<ExtArgs> | null
+    /**
      * Filter which Comments to delete.
      */
     where: CommentsWhereUniqueInput
@@ -12544,6 +14048,30 @@ export namespace Prisma {
   }
 
   /**
+   * Comments.Orders
+   */
+  export type Comments$OrdersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Orders
+     */
+    select?: OrdersSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Orders
+     */
+    omit?: OrdersOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OrdersInclude<ExtArgs> | null
+    where?: OrdersWhereInput
+    orderBy?: OrdersOrderByWithRelationInput | OrdersOrderByWithRelationInput[]
+    cursor?: OrdersWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: OrdersScalarFieldEnum | OrdersScalarFieldEnum[]
+  }
+
+  /**
    * Comments without action
    */
   export type CommentsDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -12555,6 +14083,10 @@ export namespace Prisma {
      * Omit specific fields from the Comments
      */
     omit?: CommentsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CommentsInclude<ExtArgs> | null
   }
 
 
@@ -13746,6 +15278,11 @@ export namespace Prisma {
     nameEn?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    MasterProfessions?: boolean | Levels$MasterProfessionsArgs<ExtArgs>
+    Backet?: boolean | Levels$BacketArgs<ExtArgs>
+    OrderItems?: boolean | Levels$OrderItemsArgs<ExtArgs>
+    ProfessionLevels?: boolean | Levels$ProfessionLevelsArgs<ExtArgs>
+    _count?: boolean | LevelsCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["levels"]>
 
   export type LevelsSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -13776,10 +15313,24 @@ export namespace Prisma {
   }
 
   export type LevelsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "nameUz" | "nameRu" | "nameEn" | "createdAt" | "updatedAt", ExtArgs["result"]["levels"]>
+  export type LevelsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    MasterProfessions?: boolean | Levels$MasterProfessionsArgs<ExtArgs>
+    Backet?: boolean | Levels$BacketArgs<ExtArgs>
+    OrderItems?: boolean | Levels$OrderItemsArgs<ExtArgs>
+    ProfessionLevels?: boolean | Levels$ProfessionLevelsArgs<ExtArgs>
+    _count?: boolean | LevelsCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type LevelsIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type LevelsIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
 
   export type $LevelsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Levels"
-    objects: {}
+    objects: {
+      MasterProfessions: Prisma.$MasterProfessionsPayload<ExtArgs>[]
+      Backet: Prisma.$BacketPayload<ExtArgs>[]
+      OrderItems: Prisma.$OrderItemsPayload<ExtArgs>[]
+      ProfessionLevels: Prisma.$ProfessionLevelsPayload<ExtArgs>[]
+    }
     scalars: $Extensions.GetPayloadResult<{
       id: string
       nameUz: string
@@ -14181,6 +15732,10 @@ export namespace Prisma {
    */
   export interface Prisma__LevelsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    MasterProfessions<T extends Levels$MasterProfessionsArgs<ExtArgs> = {}>(args?: Subset<T, Levels$MasterProfessionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MasterProfessionsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    Backet<T extends Levels$BacketArgs<ExtArgs> = {}>(args?: Subset<T, Levels$BacketArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BacketPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    OrderItems<T extends Levels$OrderItemsArgs<ExtArgs> = {}>(args?: Subset<T, Levels$OrderItemsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$OrderItemsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    ProfessionLevels<T extends Levels$ProfessionLevelsArgs<ExtArgs> = {}>(args?: Subset<T, Levels$ProfessionLevelsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProfessionLevelsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -14233,6 +15788,10 @@ export namespace Prisma {
      */
     omit?: LevelsOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LevelsInclude<ExtArgs> | null
+    /**
      * Filter, which Levels to fetch.
      */
     where: LevelsWhereUniqueInput
@@ -14251,6 +15810,10 @@ export namespace Prisma {
      */
     omit?: LevelsOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LevelsInclude<ExtArgs> | null
+    /**
      * Filter, which Levels to fetch.
      */
     where: LevelsWhereUniqueInput
@@ -14268,6 +15831,10 @@ export namespace Prisma {
      * Omit specific fields from the Levels
      */
     omit?: LevelsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LevelsInclude<ExtArgs> | null
     /**
      * Filter, which Levels to fetch.
      */
@@ -14317,6 +15884,10 @@ export namespace Prisma {
      */
     omit?: LevelsOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LevelsInclude<ExtArgs> | null
+    /**
      * Filter, which Levels to fetch.
      */
     where?: LevelsWhereInput
@@ -14365,6 +15936,10 @@ export namespace Prisma {
      */
     omit?: LevelsOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LevelsInclude<ExtArgs> | null
+    /**
      * Filter, which Levels to fetch.
      */
     where?: LevelsWhereInput
@@ -14407,6 +15982,10 @@ export namespace Prisma {
      * Omit specific fields from the Levels
      */
     omit?: LevelsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LevelsInclude<ExtArgs> | null
     /**
      * The data needed to create a Levels.
      */
@@ -14455,6 +16034,10 @@ export namespace Prisma {
      * Omit specific fields from the Levels
      */
     omit?: LevelsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LevelsInclude<ExtArgs> | null
     /**
      * The data needed to update a Levels.
      */
@@ -14522,6 +16105,10 @@ export namespace Prisma {
      */
     omit?: LevelsOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LevelsInclude<ExtArgs> | null
+    /**
      * The filter to search for the Levels to update in case it exists.
      */
     where: LevelsWhereUniqueInput
@@ -14548,6 +16135,10 @@ export namespace Prisma {
      */
     omit?: LevelsOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LevelsInclude<ExtArgs> | null
+    /**
      * Filter which Levels to delete.
      */
     where: LevelsWhereUniqueInput
@@ -14568,6 +16159,102 @@ export namespace Prisma {
   }
 
   /**
+   * Levels.MasterProfessions
+   */
+  export type Levels$MasterProfessionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MasterProfessions
+     */
+    select?: MasterProfessionsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MasterProfessions
+     */
+    omit?: MasterProfessionsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MasterProfessionsInclude<ExtArgs> | null
+    where?: MasterProfessionsWhereInput
+    orderBy?: MasterProfessionsOrderByWithRelationInput | MasterProfessionsOrderByWithRelationInput[]
+    cursor?: MasterProfessionsWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: MasterProfessionsScalarFieldEnum | MasterProfessionsScalarFieldEnum[]
+  }
+
+  /**
+   * Levels.Backet
+   */
+  export type Levels$BacketArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Backet
+     */
+    select?: BacketSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Backet
+     */
+    omit?: BacketOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BacketInclude<ExtArgs> | null
+    where?: BacketWhereInput
+    orderBy?: BacketOrderByWithRelationInput | BacketOrderByWithRelationInput[]
+    cursor?: BacketWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: BacketScalarFieldEnum | BacketScalarFieldEnum[]
+  }
+
+  /**
+   * Levels.OrderItems
+   */
+  export type Levels$OrderItemsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the OrderItems
+     */
+    select?: OrderItemsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the OrderItems
+     */
+    omit?: OrderItemsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OrderItemsInclude<ExtArgs> | null
+    where?: OrderItemsWhereInput
+    orderBy?: OrderItemsOrderByWithRelationInput | OrderItemsOrderByWithRelationInput[]
+    cursor?: OrderItemsWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: OrderItemsScalarFieldEnum | OrderItemsScalarFieldEnum[]
+  }
+
+  /**
+   * Levels.ProfessionLevels
+   */
+  export type Levels$ProfessionLevelsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProfessionLevels
+     */
+    select?: ProfessionLevelsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProfessionLevels
+     */
+    omit?: ProfessionLevelsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfessionLevelsInclude<ExtArgs> | null
+    where?: ProfessionLevelsWhereInput
+    orderBy?: ProfessionLevelsOrderByWithRelationInput | ProfessionLevelsOrderByWithRelationInput[]
+    cursor?: ProfessionLevelsWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ProfessionLevelsScalarFieldEnum | ProfessionLevelsScalarFieldEnum[]
+  }
+
+  /**
    * Levels without action
    */
   export type LevelsDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -14579,6 +16266,10 @@ export namespace Prisma {
      * Omit specific fields from the Levels
      */
     omit?: LevelsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LevelsInclude<ExtArgs> | null
   }
 
 
@@ -14754,6 +16445,8 @@ export namespace Prisma {
     nameEn?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    Tools?: boolean | Capacity$ToolsArgs<ExtArgs>
+    _count?: boolean | CapacityCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["capacity"]>
 
   export type CapacitySelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -14784,10 +16477,18 @@ export namespace Prisma {
   }
 
   export type CapacityOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "nameUz" | "nameRu" | "nameEn" | "createdAt" | "updatedAt", ExtArgs["result"]["capacity"]>
+  export type CapacityInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    Tools?: boolean | Capacity$ToolsArgs<ExtArgs>
+    _count?: boolean | CapacityCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type CapacityIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type CapacityIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
 
   export type $CapacityPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Capacity"
-    objects: {}
+    objects: {
+      Tools: Prisma.$ToolsPayload<ExtArgs>[]
+    }
     scalars: $Extensions.GetPayloadResult<{
       id: string
       nameUz: string
@@ -15189,6 +16890,7 @@ export namespace Prisma {
    */
   export interface Prisma__CapacityClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    Tools<T extends Capacity$ToolsArgs<ExtArgs> = {}>(args?: Subset<T, Capacity$ToolsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ToolsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -15241,6 +16943,10 @@ export namespace Prisma {
      */
     omit?: CapacityOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CapacityInclude<ExtArgs> | null
+    /**
      * Filter, which Capacity to fetch.
      */
     where: CapacityWhereUniqueInput
@@ -15259,6 +16965,10 @@ export namespace Prisma {
      */
     omit?: CapacityOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CapacityInclude<ExtArgs> | null
+    /**
      * Filter, which Capacity to fetch.
      */
     where: CapacityWhereUniqueInput
@@ -15276,6 +16986,10 @@ export namespace Prisma {
      * Omit specific fields from the Capacity
      */
     omit?: CapacityOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CapacityInclude<ExtArgs> | null
     /**
      * Filter, which Capacity to fetch.
      */
@@ -15325,6 +17039,10 @@ export namespace Prisma {
      */
     omit?: CapacityOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CapacityInclude<ExtArgs> | null
+    /**
      * Filter, which Capacity to fetch.
      */
     where?: CapacityWhereInput
@@ -15373,6 +17091,10 @@ export namespace Prisma {
      */
     omit?: CapacityOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CapacityInclude<ExtArgs> | null
+    /**
      * Filter, which Capacities to fetch.
      */
     where?: CapacityWhereInput
@@ -15415,6 +17137,10 @@ export namespace Prisma {
      * Omit specific fields from the Capacity
      */
     omit?: CapacityOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CapacityInclude<ExtArgs> | null
     /**
      * The data needed to create a Capacity.
      */
@@ -15463,6 +17189,10 @@ export namespace Prisma {
      * Omit specific fields from the Capacity
      */
     omit?: CapacityOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CapacityInclude<ExtArgs> | null
     /**
      * The data needed to update a Capacity.
      */
@@ -15530,6 +17260,10 @@ export namespace Prisma {
      */
     omit?: CapacityOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CapacityInclude<ExtArgs> | null
+    /**
      * The filter to search for the Capacity to update in case it exists.
      */
     where: CapacityWhereUniqueInput
@@ -15556,6 +17290,10 @@ export namespace Prisma {
      */
     omit?: CapacityOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CapacityInclude<ExtArgs> | null
+    /**
      * Filter which Capacity to delete.
      */
     where: CapacityWhereUniqueInput
@@ -15576,6 +17314,30 @@ export namespace Prisma {
   }
 
   /**
+   * Capacity.Tools
+   */
+  export type Capacity$ToolsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Tools
+     */
+    select?: ToolsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Tools
+     */
+    omit?: ToolsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ToolsInclude<ExtArgs> | null
+    where?: ToolsWhereInput
+    orderBy?: ToolsOrderByWithRelationInput | ToolsOrderByWithRelationInput[]
+    cursor?: ToolsWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ToolsScalarFieldEnum | ToolsScalarFieldEnum[]
+  }
+
+  /**
    * Capacity without action
    */
   export type CapacityDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -15587,6 +17349,10 @@ export namespace Prisma {
      * Omit specific fields from the Capacity
      */
     omit?: CapacityOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CapacityInclude<ExtArgs> | null
   }
 
 
@@ -15762,6 +17528,8 @@ export namespace Prisma {
     nameEn?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    Tools?: boolean | Sizes$ToolsArgs<ExtArgs>
+    _count?: boolean | SizesCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["sizes"]>
 
   export type SizesSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -15792,10 +17560,18 @@ export namespace Prisma {
   }
 
   export type SizesOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "nameUz" | "nameRu" | "nameEn" | "createdAt" | "updatedAt", ExtArgs["result"]["sizes"]>
+  export type SizesInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    Tools?: boolean | Sizes$ToolsArgs<ExtArgs>
+    _count?: boolean | SizesCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type SizesIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type SizesIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
 
   export type $SizesPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Sizes"
-    objects: {}
+    objects: {
+      Tools: Prisma.$ToolsPayload<ExtArgs>[]
+    }
     scalars: $Extensions.GetPayloadResult<{
       id: string
       nameUz: string
@@ -16197,6 +17973,7 @@ export namespace Prisma {
    */
   export interface Prisma__SizesClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    Tools<T extends Sizes$ToolsArgs<ExtArgs> = {}>(args?: Subset<T, Sizes$ToolsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ToolsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -16249,6 +18026,10 @@ export namespace Prisma {
      */
     omit?: SizesOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SizesInclude<ExtArgs> | null
+    /**
      * Filter, which Sizes to fetch.
      */
     where: SizesWhereUniqueInput
@@ -16267,6 +18048,10 @@ export namespace Prisma {
      */
     omit?: SizesOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SizesInclude<ExtArgs> | null
+    /**
      * Filter, which Sizes to fetch.
      */
     where: SizesWhereUniqueInput
@@ -16284,6 +18069,10 @@ export namespace Prisma {
      * Omit specific fields from the Sizes
      */
     omit?: SizesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SizesInclude<ExtArgs> | null
     /**
      * Filter, which Sizes to fetch.
      */
@@ -16333,6 +18122,10 @@ export namespace Prisma {
      */
     omit?: SizesOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SizesInclude<ExtArgs> | null
+    /**
      * Filter, which Sizes to fetch.
      */
     where?: SizesWhereInput
@@ -16381,6 +18174,10 @@ export namespace Prisma {
      */
     omit?: SizesOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SizesInclude<ExtArgs> | null
+    /**
      * Filter, which Sizes to fetch.
      */
     where?: SizesWhereInput
@@ -16423,6 +18220,10 @@ export namespace Prisma {
      * Omit specific fields from the Sizes
      */
     omit?: SizesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SizesInclude<ExtArgs> | null
     /**
      * The data needed to create a Sizes.
      */
@@ -16471,6 +18272,10 @@ export namespace Prisma {
      * Omit specific fields from the Sizes
      */
     omit?: SizesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SizesInclude<ExtArgs> | null
     /**
      * The data needed to update a Sizes.
      */
@@ -16538,6 +18343,10 @@ export namespace Prisma {
      */
     omit?: SizesOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SizesInclude<ExtArgs> | null
+    /**
      * The filter to search for the Sizes to update in case it exists.
      */
     where: SizesWhereUniqueInput
@@ -16564,6 +18373,10 @@ export namespace Prisma {
      */
     omit?: SizesOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SizesInclude<ExtArgs> | null
+    /**
      * Filter which Sizes to delete.
      */
     where: SizesWhereUniqueInput
@@ -16584,6 +18397,30 @@ export namespace Prisma {
   }
 
   /**
+   * Sizes.Tools
+   */
+  export type Sizes$ToolsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Tools
+     */
+    select?: ToolsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Tools
+     */
+    omit?: ToolsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ToolsInclude<ExtArgs> | null
+    where?: ToolsWhereInput
+    orderBy?: ToolsOrderByWithRelationInput | ToolsOrderByWithRelationInput[]
+    cursor?: ToolsWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ToolsScalarFieldEnum | ToolsScalarFieldEnum[]
+  }
+
+  /**
    * Sizes without action
    */
   export type SizesDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -16595,6 +18432,10 @@ export namespace Prisma {
      * Omit specific fields from the Sizes
      */
     omit?: SizesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SizesInclude<ExtArgs> | null
   }
 
 
@@ -16770,6 +18611,8 @@ export namespace Prisma {
     nameEn?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    Tools?: boolean | Brands$ToolsArgs<ExtArgs>
+    _count?: boolean | BrandsCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["brands"]>
 
   export type BrandsSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -16800,10 +18643,18 @@ export namespace Prisma {
   }
 
   export type BrandsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "nameUz" | "nameRu" | "nameEn" | "createdAt" | "updatedAt", ExtArgs["result"]["brands"]>
+  export type BrandsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    Tools?: boolean | Brands$ToolsArgs<ExtArgs>
+    _count?: boolean | BrandsCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type BrandsIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type BrandsIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
 
   export type $BrandsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Brands"
-    objects: {}
+    objects: {
+      Tools: Prisma.$ToolsPayload<ExtArgs>[]
+    }
     scalars: $Extensions.GetPayloadResult<{
       id: string
       nameUz: string
@@ -17205,6 +19056,7 @@ export namespace Prisma {
    */
   export interface Prisma__BrandsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    Tools<T extends Brands$ToolsArgs<ExtArgs> = {}>(args?: Subset<T, Brands$ToolsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ToolsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -17257,6 +19109,10 @@ export namespace Prisma {
      */
     omit?: BrandsOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BrandsInclude<ExtArgs> | null
+    /**
      * Filter, which Brands to fetch.
      */
     where: BrandsWhereUniqueInput
@@ -17275,6 +19131,10 @@ export namespace Prisma {
      */
     omit?: BrandsOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BrandsInclude<ExtArgs> | null
+    /**
      * Filter, which Brands to fetch.
      */
     where: BrandsWhereUniqueInput
@@ -17292,6 +19152,10 @@ export namespace Prisma {
      * Omit specific fields from the Brands
      */
     omit?: BrandsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BrandsInclude<ExtArgs> | null
     /**
      * Filter, which Brands to fetch.
      */
@@ -17341,6 +19205,10 @@ export namespace Prisma {
      */
     omit?: BrandsOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BrandsInclude<ExtArgs> | null
+    /**
      * Filter, which Brands to fetch.
      */
     where?: BrandsWhereInput
@@ -17389,6 +19257,10 @@ export namespace Prisma {
      */
     omit?: BrandsOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BrandsInclude<ExtArgs> | null
+    /**
      * Filter, which Brands to fetch.
      */
     where?: BrandsWhereInput
@@ -17431,6 +19303,10 @@ export namespace Prisma {
      * Omit specific fields from the Brands
      */
     omit?: BrandsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BrandsInclude<ExtArgs> | null
     /**
      * The data needed to create a Brands.
      */
@@ -17479,6 +19355,10 @@ export namespace Prisma {
      * Omit specific fields from the Brands
      */
     omit?: BrandsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BrandsInclude<ExtArgs> | null
     /**
      * The data needed to update a Brands.
      */
@@ -17546,6 +19426,10 @@ export namespace Prisma {
      */
     omit?: BrandsOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BrandsInclude<ExtArgs> | null
+    /**
      * The filter to search for the Brands to update in case it exists.
      */
     where: BrandsWhereUniqueInput
@@ -17572,6 +19456,10 @@ export namespace Prisma {
      */
     omit?: BrandsOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BrandsInclude<ExtArgs> | null
+    /**
      * Filter which Brands to delete.
      */
     where: BrandsWhereUniqueInput
@@ -17592,6 +19480,30 @@ export namespace Prisma {
   }
 
   /**
+   * Brands.Tools
+   */
+  export type Brands$ToolsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Tools
+     */
+    select?: ToolsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Tools
+     */
+    omit?: ToolsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ToolsInclude<ExtArgs> | null
+    where?: ToolsWhereInput
+    orderBy?: ToolsOrderByWithRelationInput | ToolsOrderByWithRelationInput[]
+    cursor?: ToolsWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ToolsScalarFieldEnum | ToolsScalarFieldEnum[]
+  }
+
+  /**
    * Brands without action
    */
   export type BrandsDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -17603,6 +19515,10619 @@ export namespace Prisma {
      * Omit specific fields from the Brands
      */
     omit?: BrandsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BrandsInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Masters
+   */
+
+  export type AggregateMasters = {
+    _count: MastersCountAggregateOutputType | null
+    _avg: MastersAvgAggregateOutputType | null
+    _sum: MastersSumAggregateOutputType | null
+    _min: MastersMinAggregateOutputType | null
+    _max: MastersMaxAggregateOutputType | null
+  }
+
+  export type MastersAvgAggregateOutputType = {
+    dateOfBirth: number | null
+  }
+
+  export type MastersSumAggregateOutputType = {
+    dateOfBirth: number | null
+  }
+
+  export type MastersMinAggregateOutputType = {
+    id: string | null
+    fullName: string | null
+    phone: string | null
+    status: boolean | null
+    dateOfBirth: number | null
+    avatar: string | null
+    passportImage: string | null
+    about: string | null
+  }
+
+  export type MastersMaxAggregateOutputType = {
+    id: string | null
+    fullName: string | null
+    phone: string | null
+    status: boolean | null
+    dateOfBirth: number | null
+    avatar: string | null
+    passportImage: string | null
+    about: string | null
+  }
+
+  export type MastersCountAggregateOutputType = {
+    id: number
+    fullName: number
+    phone: number
+    status: number
+    dateOfBirth: number
+    avatar: number
+    passportImage: number
+    about: number
+    _all: number
+  }
+
+
+  export type MastersAvgAggregateInputType = {
+    dateOfBirth?: true
+  }
+
+  export type MastersSumAggregateInputType = {
+    dateOfBirth?: true
+  }
+
+  export type MastersMinAggregateInputType = {
+    id?: true
+    fullName?: true
+    phone?: true
+    status?: true
+    dateOfBirth?: true
+    avatar?: true
+    passportImage?: true
+    about?: true
+  }
+
+  export type MastersMaxAggregateInputType = {
+    id?: true
+    fullName?: true
+    phone?: true
+    status?: true
+    dateOfBirth?: true
+    avatar?: true
+    passportImage?: true
+    about?: true
+  }
+
+  export type MastersCountAggregateInputType = {
+    id?: true
+    fullName?: true
+    phone?: true
+    status?: true
+    dateOfBirth?: true
+    avatar?: true
+    passportImage?: true
+    about?: true
+    _all?: true
+  }
+
+  export type MastersAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Masters to aggregate.
+     */
+    where?: MastersWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Masters to fetch.
+     */
+    orderBy?: MastersOrderByWithRelationInput | MastersOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: MastersWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Masters from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Masters.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Masters
+    **/
+    _count?: true | MastersCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: MastersAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: MastersSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: MastersMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: MastersMaxAggregateInputType
+  }
+
+  export type GetMastersAggregateType<T extends MastersAggregateArgs> = {
+        [P in keyof T & keyof AggregateMasters]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateMasters[P]>
+      : GetScalarType<T[P], AggregateMasters[P]>
+  }
+
+
+
+
+  export type MastersGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: MastersWhereInput
+    orderBy?: MastersOrderByWithAggregationInput | MastersOrderByWithAggregationInput[]
+    by: MastersScalarFieldEnum[] | MastersScalarFieldEnum
+    having?: MastersScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: MastersCountAggregateInputType | true
+    _avg?: MastersAvgAggregateInputType
+    _sum?: MastersSumAggregateInputType
+    _min?: MastersMinAggregateInputType
+    _max?: MastersMaxAggregateInputType
+  }
+
+  export type MastersGroupByOutputType = {
+    id: string
+    fullName: string
+    phone: string
+    status: boolean
+    dateOfBirth: number
+    avatar: string
+    passportImage: string
+    about: string
+    _count: MastersCountAggregateOutputType | null
+    _avg: MastersAvgAggregateOutputType | null
+    _sum: MastersSumAggregateOutputType | null
+    _min: MastersMinAggregateOutputType | null
+    _max: MastersMaxAggregateOutputType | null
+  }
+
+  type GetMastersGroupByPayload<T extends MastersGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<MastersGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof MastersGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], MastersGroupByOutputType[P]>
+            : GetScalarType<T[P], MastersGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type MastersSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    fullName?: boolean
+    phone?: boolean
+    status?: boolean
+    dateOfBirth?: boolean
+    avatar?: boolean
+    passportImage?: boolean
+    about?: boolean
+    MasterProfessions?: boolean | Masters$MasterProfessionsArgs<ExtArgs>
+    _count?: boolean | MastersCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["masters"]>
+
+  export type MastersSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    fullName?: boolean
+    phone?: boolean
+    status?: boolean
+    dateOfBirth?: boolean
+    avatar?: boolean
+    passportImage?: boolean
+    about?: boolean
+  }, ExtArgs["result"]["masters"]>
+
+  export type MastersSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    fullName?: boolean
+    phone?: boolean
+    status?: boolean
+    dateOfBirth?: boolean
+    avatar?: boolean
+    passportImage?: boolean
+    about?: boolean
+  }, ExtArgs["result"]["masters"]>
+
+  export type MastersSelectScalar = {
+    id?: boolean
+    fullName?: boolean
+    phone?: boolean
+    status?: boolean
+    dateOfBirth?: boolean
+    avatar?: boolean
+    passportImage?: boolean
+    about?: boolean
+  }
+
+  export type MastersOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "fullName" | "phone" | "status" | "dateOfBirth" | "avatar" | "passportImage" | "about", ExtArgs["result"]["masters"]>
+  export type MastersInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    MasterProfessions?: boolean | Masters$MasterProfessionsArgs<ExtArgs>
+    _count?: boolean | MastersCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type MastersIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type MastersIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+
+  export type $MastersPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Masters"
+    objects: {
+      MasterProfessions: Prisma.$MasterProfessionsPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      fullName: string
+      phone: string
+      status: boolean
+      dateOfBirth: number
+      avatar: string
+      passportImage: string
+      about: string
+    }, ExtArgs["result"]["masters"]>
+    composites: {}
+  }
+
+  type MastersGetPayload<S extends boolean | null | undefined | MastersDefaultArgs> = $Result.GetResult<Prisma.$MastersPayload, S>
+
+  type MastersCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<MastersFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: MastersCountAggregateInputType | true
+    }
+
+  export interface MastersDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Masters'], meta: { name: 'Masters' } }
+    /**
+     * Find zero or one Masters that matches the filter.
+     * @param {MastersFindUniqueArgs} args - Arguments to find a Masters
+     * @example
+     * // Get one Masters
+     * const masters = await prisma.masters.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends MastersFindUniqueArgs>(args: SelectSubset<T, MastersFindUniqueArgs<ExtArgs>>): Prisma__MastersClient<$Result.GetResult<Prisma.$MastersPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Masters that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {MastersFindUniqueOrThrowArgs} args - Arguments to find a Masters
+     * @example
+     * // Get one Masters
+     * const masters = await prisma.masters.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends MastersFindUniqueOrThrowArgs>(args: SelectSubset<T, MastersFindUniqueOrThrowArgs<ExtArgs>>): Prisma__MastersClient<$Result.GetResult<Prisma.$MastersPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Masters that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MastersFindFirstArgs} args - Arguments to find a Masters
+     * @example
+     * // Get one Masters
+     * const masters = await prisma.masters.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends MastersFindFirstArgs>(args?: SelectSubset<T, MastersFindFirstArgs<ExtArgs>>): Prisma__MastersClient<$Result.GetResult<Prisma.$MastersPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Masters that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MastersFindFirstOrThrowArgs} args - Arguments to find a Masters
+     * @example
+     * // Get one Masters
+     * const masters = await prisma.masters.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends MastersFindFirstOrThrowArgs>(args?: SelectSubset<T, MastersFindFirstOrThrowArgs<ExtArgs>>): Prisma__MastersClient<$Result.GetResult<Prisma.$MastersPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Masters that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MastersFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Masters
+     * const masters = await prisma.masters.findMany()
+     * 
+     * // Get first 10 Masters
+     * const masters = await prisma.masters.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const mastersWithIdOnly = await prisma.masters.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends MastersFindManyArgs>(args?: SelectSubset<T, MastersFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MastersPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Masters.
+     * @param {MastersCreateArgs} args - Arguments to create a Masters.
+     * @example
+     * // Create one Masters
+     * const Masters = await prisma.masters.create({
+     *   data: {
+     *     // ... data to create a Masters
+     *   }
+     * })
+     * 
+     */
+    create<T extends MastersCreateArgs>(args: SelectSubset<T, MastersCreateArgs<ExtArgs>>): Prisma__MastersClient<$Result.GetResult<Prisma.$MastersPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Masters.
+     * @param {MastersCreateManyArgs} args - Arguments to create many Masters.
+     * @example
+     * // Create many Masters
+     * const masters = await prisma.masters.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends MastersCreateManyArgs>(args?: SelectSubset<T, MastersCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Masters and returns the data saved in the database.
+     * @param {MastersCreateManyAndReturnArgs} args - Arguments to create many Masters.
+     * @example
+     * // Create many Masters
+     * const masters = await prisma.masters.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Masters and only return the `id`
+     * const mastersWithIdOnly = await prisma.masters.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends MastersCreateManyAndReturnArgs>(args?: SelectSubset<T, MastersCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MastersPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Masters.
+     * @param {MastersDeleteArgs} args - Arguments to delete one Masters.
+     * @example
+     * // Delete one Masters
+     * const Masters = await prisma.masters.delete({
+     *   where: {
+     *     // ... filter to delete one Masters
+     *   }
+     * })
+     * 
+     */
+    delete<T extends MastersDeleteArgs>(args: SelectSubset<T, MastersDeleteArgs<ExtArgs>>): Prisma__MastersClient<$Result.GetResult<Prisma.$MastersPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Masters.
+     * @param {MastersUpdateArgs} args - Arguments to update one Masters.
+     * @example
+     * // Update one Masters
+     * const masters = await prisma.masters.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends MastersUpdateArgs>(args: SelectSubset<T, MastersUpdateArgs<ExtArgs>>): Prisma__MastersClient<$Result.GetResult<Prisma.$MastersPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Masters.
+     * @param {MastersDeleteManyArgs} args - Arguments to filter Masters to delete.
+     * @example
+     * // Delete a few Masters
+     * const { count } = await prisma.masters.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends MastersDeleteManyArgs>(args?: SelectSubset<T, MastersDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Masters.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MastersUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Masters
+     * const masters = await prisma.masters.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends MastersUpdateManyArgs>(args: SelectSubset<T, MastersUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Masters and returns the data updated in the database.
+     * @param {MastersUpdateManyAndReturnArgs} args - Arguments to update many Masters.
+     * @example
+     * // Update many Masters
+     * const masters = await prisma.masters.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Masters and only return the `id`
+     * const mastersWithIdOnly = await prisma.masters.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends MastersUpdateManyAndReturnArgs>(args: SelectSubset<T, MastersUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MastersPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Masters.
+     * @param {MastersUpsertArgs} args - Arguments to update or create a Masters.
+     * @example
+     * // Update or create a Masters
+     * const masters = await prisma.masters.upsert({
+     *   create: {
+     *     // ... data to create a Masters
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Masters we want to update
+     *   }
+     * })
+     */
+    upsert<T extends MastersUpsertArgs>(args: SelectSubset<T, MastersUpsertArgs<ExtArgs>>): Prisma__MastersClient<$Result.GetResult<Prisma.$MastersPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Masters.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MastersCountArgs} args - Arguments to filter Masters to count.
+     * @example
+     * // Count the number of Masters
+     * const count = await prisma.masters.count({
+     *   where: {
+     *     // ... the filter for the Masters we want to count
+     *   }
+     * })
+    **/
+    count<T extends MastersCountArgs>(
+      args?: Subset<T, MastersCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], MastersCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Masters.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MastersAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends MastersAggregateArgs>(args: Subset<T, MastersAggregateArgs>): Prisma.PrismaPromise<GetMastersAggregateType<T>>
+
+    /**
+     * Group by Masters.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MastersGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends MastersGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: MastersGroupByArgs['orderBy'] }
+        : { orderBy?: MastersGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, MastersGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetMastersGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Masters model
+   */
+  readonly fields: MastersFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Masters.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__MastersClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    MasterProfessions<T extends Masters$MasterProfessionsArgs<ExtArgs> = {}>(args?: Subset<T, Masters$MasterProfessionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MasterProfessionsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Masters model
+   */
+  interface MastersFieldRefs {
+    readonly id: FieldRef<"Masters", 'String'>
+    readonly fullName: FieldRef<"Masters", 'String'>
+    readonly phone: FieldRef<"Masters", 'String'>
+    readonly status: FieldRef<"Masters", 'Boolean'>
+    readonly dateOfBirth: FieldRef<"Masters", 'Int'>
+    readonly avatar: FieldRef<"Masters", 'String'>
+    readonly passportImage: FieldRef<"Masters", 'String'>
+    readonly about: FieldRef<"Masters", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Masters findUnique
+   */
+  export type MastersFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Masters
+     */
+    select?: MastersSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Masters
+     */
+    omit?: MastersOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MastersInclude<ExtArgs> | null
+    /**
+     * Filter, which Masters to fetch.
+     */
+    where: MastersWhereUniqueInput
+  }
+
+  /**
+   * Masters findUniqueOrThrow
+   */
+  export type MastersFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Masters
+     */
+    select?: MastersSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Masters
+     */
+    omit?: MastersOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MastersInclude<ExtArgs> | null
+    /**
+     * Filter, which Masters to fetch.
+     */
+    where: MastersWhereUniqueInput
+  }
+
+  /**
+   * Masters findFirst
+   */
+  export type MastersFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Masters
+     */
+    select?: MastersSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Masters
+     */
+    omit?: MastersOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MastersInclude<ExtArgs> | null
+    /**
+     * Filter, which Masters to fetch.
+     */
+    where?: MastersWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Masters to fetch.
+     */
+    orderBy?: MastersOrderByWithRelationInput | MastersOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Masters.
+     */
+    cursor?: MastersWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Masters from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Masters.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Masters.
+     */
+    distinct?: MastersScalarFieldEnum | MastersScalarFieldEnum[]
+  }
+
+  /**
+   * Masters findFirstOrThrow
+   */
+  export type MastersFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Masters
+     */
+    select?: MastersSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Masters
+     */
+    omit?: MastersOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MastersInclude<ExtArgs> | null
+    /**
+     * Filter, which Masters to fetch.
+     */
+    where?: MastersWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Masters to fetch.
+     */
+    orderBy?: MastersOrderByWithRelationInput | MastersOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Masters.
+     */
+    cursor?: MastersWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Masters from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Masters.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Masters.
+     */
+    distinct?: MastersScalarFieldEnum | MastersScalarFieldEnum[]
+  }
+
+  /**
+   * Masters findMany
+   */
+  export type MastersFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Masters
+     */
+    select?: MastersSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Masters
+     */
+    omit?: MastersOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MastersInclude<ExtArgs> | null
+    /**
+     * Filter, which Masters to fetch.
+     */
+    where?: MastersWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Masters to fetch.
+     */
+    orderBy?: MastersOrderByWithRelationInput | MastersOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Masters.
+     */
+    cursor?: MastersWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Masters from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Masters.
+     */
+    skip?: number
+    distinct?: MastersScalarFieldEnum | MastersScalarFieldEnum[]
+  }
+
+  /**
+   * Masters create
+   */
+  export type MastersCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Masters
+     */
+    select?: MastersSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Masters
+     */
+    omit?: MastersOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MastersInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Masters.
+     */
+    data: XOR<MastersCreateInput, MastersUncheckedCreateInput>
+  }
+
+  /**
+   * Masters createMany
+   */
+  export type MastersCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Masters.
+     */
+    data: MastersCreateManyInput | MastersCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Masters createManyAndReturn
+   */
+  export type MastersCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Masters
+     */
+    select?: MastersSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Masters
+     */
+    omit?: MastersOmit<ExtArgs> | null
+    /**
+     * The data used to create many Masters.
+     */
+    data: MastersCreateManyInput | MastersCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Masters update
+   */
+  export type MastersUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Masters
+     */
+    select?: MastersSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Masters
+     */
+    omit?: MastersOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MastersInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Masters.
+     */
+    data: XOR<MastersUpdateInput, MastersUncheckedUpdateInput>
+    /**
+     * Choose, which Masters to update.
+     */
+    where: MastersWhereUniqueInput
+  }
+
+  /**
+   * Masters updateMany
+   */
+  export type MastersUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Masters.
+     */
+    data: XOR<MastersUpdateManyMutationInput, MastersUncheckedUpdateManyInput>
+    /**
+     * Filter which Masters to update
+     */
+    where?: MastersWhereInput
+    /**
+     * Limit how many Masters to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Masters updateManyAndReturn
+   */
+  export type MastersUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Masters
+     */
+    select?: MastersSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Masters
+     */
+    omit?: MastersOmit<ExtArgs> | null
+    /**
+     * The data used to update Masters.
+     */
+    data: XOR<MastersUpdateManyMutationInput, MastersUncheckedUpdateManyInput>
+    /**
+     * Filter which Masters to update
+     */
+    where?: MastersWhereInput
+    /**
+     * Limit how many Masters to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Masters upsert
+   */
+  export type MastersUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Masters
+     */
+    select?: MastersSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Masters
+     */
+    omit?: MastersOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MastersInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Masters to update in case it exists.
+     */
+    where: MastersWhereUniqueInput
+    /**
+     * In case the Masters found by the `where` argument doesn't exist, create a new Masters with this data.
+     */
+    create: XOR<MastersCreateInput, MastersUncheckedCreateInput>
+    /**
+     * In case the Masters was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<MastersUpdateInput, MastersUncheckedUpdateInput>
+  }
+
+  /**
+   * Masters delete
+   */
+  export type MastersDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Masters
+     */
+    select?: MastersSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Masters
+     */
+    omit?: MastersOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MastersInclude<ExtArgs> | null
+    /**
+     * Filter which Masters to delete.
+     */
+    where: MastersWhereUniqueInput
+  }
+
+  /**
+   * Masters deleteMany
+   */
+  export type MastersDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Masters to delete
+     */
+    where?: MastersWhereInput
+    /**
+     * Limit how many Masters to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Masters.MasterProfessions
+   */
+  export type Masters$MasterProfessionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MasterProfessions
+     */
+    select?: MasterProfessionsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MasterProfessions
+     */
+    omit?: MasterProfessionsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MasterProfessionsInclude<ExtArgs> | null
+    where?: MasterProfessionsWhereInput
+    orderBy?: MasterProfessionsOrderByWithRelationInput | MasterProfessionsOrderByWithRelationInput[]
+    cursor?: MasterProfessionsWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: MasterProfessionsScalarFieldEnum | MasterProfessionsScalarFieldEnum[]
+  }
+
+  /**
+   * Masters without action
+   */
+  export type MastersDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Masters
+     */
+    select?: MastersSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Masters
+     */
+    omit?: MastersOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MastersInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Professions
+   */
+
+  export type AggregateProfessions = {
+    _count: ProfessionsCountAggregateOutputType | null
+    _min: ProfessionsMinAggregateOutputType | null
+    _max: ProfessionsMaxAggregateOutputType | null
+  }
+
+  export type ProfessionsMinAggregateOutputType = {
+    id: string | null
+    nameUz: string | null
+    nameRu: string | null
+    nameEn: string | null
+    avatar: string | null
+    status: boolean | null
+  }
+
+  export type ProfessionsMaxAggregateOutputType = {
+    id: string | null
+    nameUz: string | null
+    nameRu: string | null
+    nameEn: string | null
+    avatar: string | null
+    status: boolean | null
+  }
+
+  export type ProfessionsCountAggregateOutputType = {
+    id: number
+    nameUz: number
+    nameRu: number
+    nameEn: number
+    avatar: number
+    status: number
+    _all: number
+  }
+
+
+  export type ProfessionsMinAggregateInputType = {
+    id?: true
+    nameUz?: true
+    nameRu?: true
+    nameEn?: true
+    avatar?: true
+    status?: true
+  }
+
+  export type ProfessionsMaxAggregateInputType = {
+    id?: true
+    nameUz?: true
+    nameRu?: true
+    nameEn?: true
+    avatar?: true
+    status?: true
+  }
+
+  export type ProfessionsCountAggregateInputType = {
+    id?: true
+    nameUz?: true
+    nameRu?: true
+    nameEn?: true
+    avatar?: true
+    status?: true
+    _all?: true
+  }
+
+  export type ProfessionsAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Professions to aggregate.
+     */
+    where?: ProfessionsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Professions to fetch.
+     */
+    orderBy?: ProfessionsOrderByWithRelationInput | ProfessionsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: ProfessionsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Professions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Professions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Professions
+    **/
+    _count?: true | ProfessionsCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: ProfessionsMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: ProfessionsMaxAggregateInputType
+  }
+
+  export type GetProfessionsAggregateType<T extends ProfessionsAggregateArgs> = {
+        [P in keyof T & keyof AggregateProfessions]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateProfessions[P]>
+      : GetScalarType<T[P], AggregateProfessions[P]>
+  }
+
+
+
+
+  export type ProfessionsGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ProfessionsWhereInput
+    orderBy?: ProfessionsOrderByWithAggregationInput | ProfessionsOrderByWithAggregationInput[]
+    by: ProfessionsScalarFieldEnum[] | ProfessionsScalarFieldEnum
+    having?: ProfessionsScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: ProfessionsCountAggregateInputType | true
+    _min?: ProfessionsMinAggregateInputType
+    _max?: ProfessionsMaxAggregateInputType
+  }
+
+  export type ProfessionsGroupByOutputType = {
+    id: string
+    nameUz: string
+    nameRu: string
+    nameEn: string
+    avatar: string
+    status: boolean
+    _count: ProfessionsCountAggregateOutputType | null
+    _min: ProfessionsMinAggregateOutputType | null
+    _max: ProfessionsMaxAggregateOutputType | null
+  }
+
+  type GetProfessionsGroupByPayload<T extends ProfessionsGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<ProfessionsGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof ProfessionsGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], ProfessionsGroupByOutputType[P]>
+            : GetScalarType<T[P], ProfessionsGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type ProfessionsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    nameUz?: boolean
+    nameRu?: boolean
+    nameEn?: boolean
+    avatar?: boolean
+    status?: boolean
+    MasterProfessions?: boolean | Professions$MasterProfessionsArgs<ExtArgs>
+    Backet?: boolean | Professions$BacketArgs<ExtArgs>
+    OrderItems?: boolean | Professions$OrderItemsArgs<ExtArgs>
+    ProfessionLevels?: boolean | Professions$ProfessionLevelsArgs<ExtArgs>
+    ProfessionTools?: boolean | Professions$ProfessionToolsArgs<ExtArgs>
+    _count?: boolean | ProfessionsCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["professions"]>
+
+  export type ProfessionsSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    nameUz?: boolean
+    nameRu?: boolean
+    nameEn?: boolean
+    avatar?: boolean
+    status?: boolean
+  }, ExtArgs["result"]["professions"]>
+
+  export type ProfessionsSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    nameUz?: boolean
+    nameRu?: boolean
+    nameEn?: boolean
+    avatar?: boolean
+    status?: boolean
+  }, ExtArgs["result"]["professions"]>
+
+  export type ProfessionsSelectScalar = {
+    id?: boolean
+    nameUz?: boolean
+    nameRu?: boolean
+    nameEn?: boolean
+    avatar?: boolean
+    status?: boolean
+  }
+
+  export type ProfessionsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "nameUz" | "nameRu" | "nameEn" | "avatar" | "status", ExtArgs["result"]["professions"]>
+  export type ProfessionsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    MasterProfessions?: boolean | Professions$MasterProfessionsArgs<ExtArgs>
+    Backet?: boolean | Professions$BacketArgs<ExtArgs>
+    OrderItems?: boolean | Professions$OrderItemsArgs<ExtArgs>
+    ProfessionLevels?: boolean | Professions$ProfessionLevelsArgs<ExtArgs>
+    ProfessionTools?: boolean | Professions$ProfessionToolsArgs<ExtArgs>
+    _count?: boolean | ProfessionsCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type ProfessionsIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type ProfessionsIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+
+  export type $ProfessionsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Professions"
+    objects: {
+      MasterProfessions: Prisma.$MasterProfessionsPayload<ExtArgs>[]
+      Backet: Prisma.$BacketPayload<ExtArgs>[]
+      OrderItems: Prisma.$OrderItemsPayload<ExtArgs>[]
+      ProfessionLevels: Prisma.$ProfessionLevelsPayload<ExtArgs>[]
+      ProfessionTools: Prisma.$ProfessionToolsPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      nameUz: string
+      nameRu: string
+      nameEn: string
+      avatar: string
+      status: boolean
+    }, ExtArgs["result"]["professions"]>
+    composites: {}
+  }
+
+  type ProfessionsGetPayload<S extends boolean | null | undefined | ProfessionsDefaultArgs> = $Result.GetResult<Prisma.$ProfessionsPayload, S>
+
+  type ProfessionsCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<ProfessionsFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: ProfessionsCountAggregateInputType | true
+    }
+
+  export interface ProfessionsDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Professions'], meta: { name: 'Professions' } }
+    /**
+     * Find zero or one Professions that matches the filter.
+     * @param {ProfessionsFindUniqueArgs} args - Arguments to find a Professions
+     * @example
+     * // Get one Professions
+     * const professions = await prisma.professions.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends ProfessionsFindUniqueArgs>(args: SelectSubset<T, ProfessionsFindUniqueArgs<ExtArgs>>): Prisma__ProfessionsClient<$Result.GetResult<Prisma.$ProfessionsPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Professions that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {ProfessionsFindUniqueOrThrowArgs} args - Arguments to find a Professions
+     * @example
+     * // Get one Professions
+     * const professions = await prisma.professions.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends ProfessionsFindUniqueOrThrowArgs>(args: SelectSubset<T, ProfessionsFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ProfessionsClient<$Result.GetResult<Prisma.$ProfessionsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Professions that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProfessionsFindFirstArgs} args - Arguments to find a Professions
+     * @example
+     * // Get one Professions
+     * const professions = await prisma.professions.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends ProfessionsFindFirstArgs>(args?: SelectSubset<T, ProfessionsFindFirstArgs<ExtArgs>>): Prisma__ProfessionsClient<$Result.GetResult<Prisma.$ProfessionsPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Professions that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProfessionsFindFirstOrThrowArgs} args - Arguments to find a Professions
+     * @example
+     * // Get one Professions
+     * const professions = await prisma.professions.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends ProfessionsFindFirstOrThrowArgs>(args?: SelectSubset<T, ProfessionsFindFirstOrThrowArgs<ExtArgs>>): Prisma__ProfessionsClient<$Result.GetResult<Prisma.$ProfessionsPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Professions that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProfessionsFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Professions
+     * const professions = await prisma.professions.findMany()
+     * 
+     * // Get first 10 Professions
+     * const professions = await prisma.professions.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const professionsWithIdOnly = await prisma.professions.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends ProfessionsFindManyArgs>(args?: SelectSubset<T, ProfessionsFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProfessionsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Professions.
+     * @param {ProfessionsCreateArgs} args - Arguments to create a Professions.
+     * @example
+     * // Create one Professions
+     * const Professions = await prisma.professions.create({
+     *   data: {
+     *     // ... data to create a Professions
+     *   }
+     * })
+     * 
+     */
+    create<T extends ProfessionsCreateArgs>(args: SelectSubset<T, ProfessionsCreateArgs<ExtArgs>>): Prisma__ProfessionsClient<$Result.GetResult<Prisma.$ProfessionsPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Professions.
+     * @param {ProfessionsCreateManyArgs} args - Arguments to create many Professions.
+     * @example
+     * // Create many Professions
+     * const professions = await prisma.professions.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends ProfessionsCreateManyArgs>(args?: SelectSubset<T, ProfessionsCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Professions and returns the data saved in the database.
+     * @param {ProfessionsCreateManyAndReturnArgs} args - Arguments to create many Professions.
+     * @example
+     * // Create many Professions
+     * const professions = await prisma.professions.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Professions and only return the `id`
+     * const professionsWithIdOnly = await prisma.professions.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends ProfessionsCreateManyAndReturnArgs>(args?: SelectSubset<T, ProfessionsCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProfessionsPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Professions.
+     * @param {ProfessionsDeleteArgs} args - Arguments to delete one Professions.
+     * @example
+     * // Delete one Professions
+     * const Professions = await prisma.professions.delete({
+     *   where: {
+     *     // ... filter to delete one Professions
+     *   }
+     * })
+     * 
+     */
+    delete<T extends ProfessionsDeleteArgs>(args: SelectSubset<T, ProfessionsDeleteArgs<ExtArgs>>): Prisma__ProfessionsClient<$Result.GetResult<Prisma.$ProfessionsPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Professions.
+     * @param {ProfessionsUpdateArgs} args - Arguments to update one Professions.
+     * @example
+     * // Update one Professions
+     * const professions = await prisma.professions.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends ProfessionsUpdateArgs>(args: SelectSubset<T, ProfessionsUpdateArgs<ExtArgs>>): Prisma__ProfessionsClient<$Result.GetResult<Prisma.$ProfessionsPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Professions.
+     * @param {ProfessionsDeleteManyArgs} args - Arguments to filter Professions to delete.
+     * @example
+     * // Delete a few Professions
+     * const { count } = await prisma.professions.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends ProfessionsDeleteManyArgs>(args?: SelectSubset<T, ProfessionsDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Professions.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProfessionsUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Professions
+     * const professions = await prisma.professions.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends ProfessionsUpdateManyArgs>(args: SelectSubset<T, ProfessionsUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Professions and returns the data updated in the database.
+     * @param {ProfessionsUpdateManyAndReturnArgs} args - Arguments to update many Professions.
+     * @example
+     * // Update many Professions
+     * const professions = await prisma.professions.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Professions and only return the `id`
+     * const professionsWithIdOnly = await prisma.professions.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends ProfessionsUpdateManyAndReturnArgs>(args: SelectSubset<T, ProfessionsUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProfessionsPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Professions.
+     * @param {ProfessionsUpsertArgs} args - Arguments to update or create a Professions.
+     * @example
+     * // Update or create a Professions
+     * const professions = await prisma.professions.upsert({
+     *   create: {
+     *     // ... data to create a Professions
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Professions we want to update
+     *   }
+     * })
+     */
+    upsert<T extends ProfessionsUpsertArgs>(args: SelectSubset<T, ProfessionsUpsertArgs<ExtArgs>>): Prisma__ProfessionsClient<$Result.GetResult<Prisma.$ProfessionsPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Professions.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProfessionsCountArgs} args - Arguments to filter Professions to count.
+     * @example
+     * // Count the number of Professions
+     * const count = await prisma.professions.count({
+     *   where: {
+     *     // ... the filter for the Professions we want to count
+     *   }
+     * })
+    **/
+    count<T extends ProfessionsCountArgs>(
+      args?: Subset<T, ProfessionsCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], ProfessionsCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Professions.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProfessionsAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends ProfessionsAggregateArgs>(args: Subset<T, ProfessionsAggregateArgs>): Prisma.PrismaPromise<GetProfessionsAggregateType<T>>
+
+    /**
+     * Group by Professions.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProfessionsGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends ProfessionsGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: ProfessionsGroupByArgs['orderBy'] }
+        : { orderBy?: ProfessionsGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, ProfessionsGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetProfessionsGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Professions model
+   */
+  readonly fields: ProfessionsFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Professions.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__ProfessionsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    MasterProfessions<T extends Professions$MasterProfessionsArgs<ExtArgs> = {}>(args?: Subset<T, Professions$MasterProfessionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MasterProfessionsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    Backet<T extends Professions$BacketArgs<ExtArgs> = {}>(args?: Subset<T, Professions$BacketArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BacketPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    OrderItems<T extends Professions$OrderItemsArgs<ExtArgs> = {}>(args?: Subset<T, Professions$OrderItemsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$OrderItemsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    ProfessionLevels<T extends Professions$ProfessionLevelsArgs<ExtArgs> = {}>(args?: Subset<T, Professions$ProfessionLevelsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProfessionLevelsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    ProfessionTools<T extends Professions$ProfessionToolsArgs<ExtArgs> = {}>(args?: Subset<T, Professions$ProfessionToolsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProfessionToolsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Professions model
+   */
+  interface ProfessionsFieldRefs {
+    readonly id: FieldRef<"Professions", 'String'>
+    readonly nameUz: FieldRef<"Professions", 'String'>
+    readonly nameRu: FieldRef<"Professions", 'String'>
+    readonly nameEn: FieldRef<"Professions", 'String'>
+    readonly avatar: FieldRef<"Professions", 'String'>
+    readonly status: FieldRef<"Professions", 'Boolean'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Professions findUnique
+   */
+  export type ProfessionsFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Professions
+     */
+    select?: ProfessionsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Professions
+     */
+    omit?: ProfessionsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfessionsInclude<ExtArgs> | null
+    /**
+     * Filter, which Professions to fetch.
+     */
+    where: ProfessionsWhereUniqueInput
+  }
+
+  /**
+   * Professions findUniqueOrThrow
+   */
+  export type ProfessionsFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Professions
+     */
+    select?: ProfessionsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Professions
+     */
+    omit?: ProfessionsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfessionsInclude<ExtArgs> | null
+    /**
+     * Filter, which Professions to fetch.
+     */
+    where: ProfessionsWhereUniqueInput
+  }
+
+  /**
+   * Professions findFirst
+   */
+  export type ProfessionsFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Professions
+     */
+    select?: ProfessionsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Professions
+     */
+    omit?: ProfessionsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfessionsInclude<ExtArgs> | null
+    /**
+     * Filter, which Professions to fetch.
+     */
+    where?: ProfessionsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Professions to fetch.
+     */
+    orderBy?: ProfessionsOrderByWithRelationInput | ProfessionsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Professions.
+     */
+    cursor?: ProfessionsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Professions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Professions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Professions.
+     */
+    distinct?: ProfessionsScalarFieldEnum | ProfessionsScalarFieldEnum[]
+  }
+
+  /**
+   * Professions findFirstOrThrow
+   */
+  export type ProfessionsFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Professions
+     */
+    select?: ProfessionsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Professions
+     */
+    omit?: ProfessionsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfessionsInclude<ExtArgs> | null
+    /**
+     * Filter, which Professions to fetch.
+     */
+    where?: ProfessionsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Professions to fetch.
+     */
+    orderBy?: ProfessionsOrderByWithRelationInput | ProfessionsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Professions.
+     */
+    cursor?: ProfessionsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Professions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Professions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Professions.
+     */
+    distinct?: ProfessionsScalarFieldEnum | ProfessionsScalarFieldEnum[]
+  }
+
+  /**
+   * Professions findMany
+   */
+  export type ProfessionsFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Professions
+     */
+    select?: ProfessionsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Professions
+     */
+    omit?: ProfessionsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfessionsInclude<ExtArgs> | null
+    /**
+     * Filter, which Professions to fetch.
+     */
+    where?: ProfessionsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Professions to fetch.
+     */
+    orderBy?: ProfessionsOrderByWithRelationInput | ProfessionsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Professions.
+     */
+    cursor?: ProfessionsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Professions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Professions.
+     */
+    skip?: number
+    distinct?: ProfessionsScalarFieldEnum | ProfessionsScalarFieldEnum[]
+  }
+
+  /**
+   * Professions create
+   */
+  export type ProfessionsCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Professions
+     */
+    select?: ProfessionsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Professions
+     */
+    omit?: ProfessionsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfessionsInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Professions.
+     */
+    data: XOR<ProfessionsCreateInput, ProfessionsUncheckedCreateInput>
+  }
+
+  /**
+   * Professions createMany
+   */
+  export type ProfessionsCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Professions.
+     */
+    data: ProfessionsCreateManyInput | ProfessionsCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Professions createManyAndReturn
+   */
+  export type ProfessionsCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Professions
+     */
+    select?: ProfessionsSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Professions
+     */
+    omit?: ProfessionsOmit<ExtArgs> | null
+    /**
+     * The data used to create many Professions.
+     */
+    data: ProfessionsCreateManyInput | ProfessionsCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Professions update
+   */
+  export type ProfessionsUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Professions
+     */
+    select?: ProfessionsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Professions
+     */
+    omit?: ProfessionsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfessionsInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Professions.
+     */
+    data: XOR<ProfessionsUpdateInput, ProfessionsUncheckedUpdateInput>
+    /**
+     * Choose, which Professions to update.
+     */
+    where: ProfessionsWhereUniqueInput
+  }
+
+  /**
+   * Professions updateMany
+   */
+  export type ProfessionsUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Professions.
+     */
+    data: XOR<ProfessionsUpdateManyMutationInput, ProfessionsUncheckedUpdateManyInput>
+    /**
+     * Filter which Professions to update
+     */
+    where?: ProfessionsWhereInput
+    /**
+     * Limit how many Professions to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Professions updateManyAndReturn
+   */
+  export type ProfessionsUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Professions
+     */
+    select?: ProfessionsSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Professions
+     */
+    omit?: ProfessionsOmit<ExtArgs> | null
+    /**
+     * The data used to update Professions.
+     */
+    data: XOR<ProfessionsUpdateManyMutationInput, ProfessionsUncheckedUpdateManyInput>
+    /**
+     * Filter which Professions to update
+     */
+    where?: ProfessionsWhereInput
+    /**
+     * Limit how many Professions to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Professions upsert
+   */
+  export type ProfessionsUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Professions
+     */
+    select?: ProfessionsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Professions
+     */
+    omit?: ProfessionsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfessionsInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Professions to update in case it exists.
+     */
+    where: ProfessionsWhereUniqueInput
+    /**
+     * In case the Professions found by the `where` argument doesn't exist, create a new Professions with this data.
+     */
+    create: XOR<ProfessionsCreateInput, ProfessionsUncheckedCreateInput>
+    /**
+     * In case the Professions was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<ProfessionsUpdateInput, ProfessionsUncheckedUpdateInput>
+  }
+
+  /**
+   * Professions delete
+   */
+  export type ProfessionsDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Professions
+     */
+    select?: ProfessionsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Professions
+     */
+    omit?: ProfessionsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfessionsInclude<ExtArgs> | null
+    /**
+     * Filter which Professions to delete.
+     */
+    where: ProfessionsWhereUniqueInput
+  }
+
+  /**
+   * Professions deleteMany
+   */
+  export type ProfessionsDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Professions to delete
+     */
+    where?: ProfessionsWhereInput
+    /**
+     * Limit how many Professions to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Professions.MasterProfessions
+   */
+  export type Professions$MasterProfessionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MasterProfessions
+     */
+    select?: MasterProfessionsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MasterProfessions
+     */
+    omit?: MasterProfessionsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MasterProfessionsInclude<ExtArgs> | null
+    where?: MasterProfessionsWhereInput
+    orderBy?: MasterProfessionsOrderByWithRelationInput | MasterProfessionsOrderByWithRelationInput[]
+    cursor?: MasterProfessionsWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: MasterProfessionsScalarFieldEnum | MasterProfessionsScalarFieldEnum[]
+  }
+
+  /**
+   * Professions.Backet
+   */
+  export type Professions$BacketArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Backet
+     */
+    select?: BacketSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Backet
+     */
+    omit?: BacketOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BacketInclude<ExtArgs> | null
+    where?: BacketWhereInput
+    orderBy?: BacketOrderByWithRelationInput | BacketOrderByWithRelationInput[]
+    cursor?: BacketWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: BacketScalarFieldEnum | BacketScalarFieldEnum[]
+  }
+
+  /**
+   * Professions.OrderItems
+   */
+  export type Professions$OrderItemsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the OrderItems
+     */
+    select?: OrderItemsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the OrderItems
+     */
+    omit?: OrderItemsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OrderItemsInclude<ExtArgs> | null
+    where?: OrderItemsWhereInput
+    orderBy?: OrderItemsOrderByWithRelationInput | OrderItemsOrderByWithRelationInput[]
+    cursor?: OrderItemsWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: OrderItemsScalarFieldEnum | OrderItemsScalarFieldEnum[]
+  }
+
+  /**
+   * Professions.ProfessionLevels
+   */
+  export type Professions$ProfessionLevelsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProfessionLevels
+     */
+    select?: ProfessionLevelsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProfessionLevels
+     */
+    omit?: ProfessionLevelsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfessionLevelsInclude<ExtArgs> | null
+    where?: ProfessionLevelsWhereInput
+    orderBy?: ProfessionLevelsOrderByWithRelationInput | ProfessionLevelsOrderByWithRelationInput[]
+    cursor?: ProfessionLevelsWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ProfessionLevelsScalarFieldEnum | ProfessionLevelsScalarFieldEnum[]
+  }
+
+  /**
+   * Professions.ProfessionTools
+   */
+  export type Professions$ProfessionToolsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProfessionTools
+     */
+    select?: ProfessionToolsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProfessionTools
+     */
+    omit?: ProfessionToolsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfessionToolsInclude<ExtArgs> | null
+    where?: ProfessionToolsWhereInput
+    orderBy?: ProfessionToolsOrderByWithRelationInput | ProfessionToolsOrderByWithRelationInput[]
+    cursor?: ProfessionToolsWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ProfessionToolsScalarFieldEnum | ProfessionToolsScalarFieldEnum[]
+  }
+
+  /**
+   * Professions without action
+   */
+  export type ProfessionsDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Professions
+     */
+    select?: ProfessionsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Professions
+     */
+    omit?: ProfessionsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfessionsInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model MasterProfessions
+   */
+
+  export type AggregateMasterProfessions = {
+    _count: MasterProfessionsCountAggregateOutputType | null
+    _avg: MasterProfessionsAvgAggregateOutputType | null
+    _sum: MasterProfessionsSumAggregateOutputType | null
+    _min: MasterProfessionsMinAggregateOutputType | null
+    _max: MasterProfessionsMaxAggregateOutputType | null
+  }
+
+  export type MasterProfessionsAvgAggregateOutputType = {
+    minWorkingHours: number | null
+    priceHourly: Decimal | null
+    priceDaily: Decimal | null
+    experience: number | null
+  }
+
+  export type MasterProfessionsSumAggregateOutputType = {
+    minWorkingHours: number | null
+    priceHourly: Decimal | null
+    priceDaily: Decimal | null
+    experience: number | null
+  }
+
+  export type MasterProfessionsMinAggregateOutputType = {
+    id: string | null
+    professionId: string | null
+    minWorkingHours: number | null
+    levelId: string | null
+    priceHourly: Decimal | null
+    priceDaily: Decimal | null
+    experience: number | null
+    masterId: string | null
+  }
+
+  export type MasterProfessionsMaxAggregateOutputType = {
+    id: string | null
+    professionId: string | null
+    minWorkingHours: number | null
+    levelId: string | null
+    priceHourly: Decimal | null
+    priceDaily: Decimal | null
+    experience: number | null
+    masterId: string | null
+  }
+
+  export type MasterProfessionsCountAggregateOutputType = {
+    id: number
+    professionId: number
+    minWorkingHours: number
+    levelId: number
+    priceHourly: number
+    priceDaily: number
+    experience: number
+    masterId: number
+    _all: number
+  }
+
+
+  export type MasterProfessionsAvgAggregateInputType = {
+    minWorkingHours?: true
+    priceHourly?: true
+    priceDaily?: true
+    experience?: true
+  }
+
+  export type MasterProfessionsSumAggregateInputType = {
+    minWorkingHours?: true
+    priceHourly?: true
+    priceDaily?: true
+    experience?: true
+  }
+
+  export type MasterProfessionsMinAggregateInputType = {
+    id?: true
+    professionId?: true
+    minWorkingHours?: true
+    levelId?: true
+    priceHourly?: true
+    priceDaily?: true
+    experience?: true
+    masterId?: true
+  }
+
+  export type MasterProfessionsMaxAggregateInputType = {
+    id?: true
+    professionId?: true
+    minWorkingHours?: true
+    levelId?: true
+    priceHourly?: true
+    priceDaily?: true
+    experience?: true
+    masterId?: true
+  }
+
+  export type MasterProfessionsCountAggregateInputType = {
+    id?: true
+    professionId?: true
+    minWorkingHours?: true
+    levelId?: true
+    priceHourly?: true
+    priceDaily?: true
+    experience?: true
+    masterId?: true
+    _all?: true
+  }
+
+  export type MasterProfessionsAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which MasterProfessions to aggregate.
+     */
+    where?: MasterProfessionsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of MasterProfessions to fetch.
+     */
+    orderBy?: MasterProfessionsOrderByWithRelationInput | MasterProfessionsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: MasterProfessionsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` MasterProfessions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` MasterProfessions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned MasterProfessions
+    **/
+    _count?: true | MasterProfessionsCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: MasterProfessionsAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: MasterProfessionsSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: MasterProfessionsMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: MasterProfessionsMaxAggregateInputType
+  }
+
+  export type GetMasterProfessionsAggregateType<T extends MasterProfessionsAggregateArgs> = {
+        [P in keyof T & keyof AggregateMasterProfessions]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateMasterProfessions[P]>
+      : GetScalarType<T[P], AggregateMasterProfessions[P]>
+  }
+
+
+
+
+  export type MasterProfessionsGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: MasterProfessionsWhereInput
+    orderBy?: MasterProfessionsOrderByWithAggregationInput | MasterProfessionsOrderByWithAggregationInput[]
+    by: MasterProfessionsScalarFieldEnum[] | MasterProfessionsScalarFieldEnum
+    having?: MasterProfessionsScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: MasterProfessionsCountAggregateInputType | true
+    _avg?: MasterProfessionsAvgAggregateInputType
+    _sum?: MasterProfessionsSumAggregateInputType
+    _min?: MasterProfessionsMinAggregateInputType
+    _max?: MasterProfessionsMaxAggregateInputType
+  }
+
+  export type MasterProfessionsGroupByOutputType = {
+    id: string
+    professionId: string
+    minWorkingHours: number
+    levelId: string
+    priceHourly: Decimal
+    priceDaily: Decimal
+    experience: number
+    masterId: string
+    _count: MasterProfessionsCountAggregateOutputType | null
+    _avg: MasterProfessionsAvgAggregateOutputType | null
+    _sum: MasterProfessionsSumAggregateOutputType | null
+    _min: MasterProfessionsMinAggregateOutputType | null
+    _max: MasterProfessionsMaxAggregateOutputType | null
+  }
+
+  type GetMasterProfessionsGroupByPayload<T extends MasterProfessionsGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<MasterProfessionsGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof MasterProfessionsGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], MasterProfessionsGroupByOutputType[P]>
+            : GetScalarType<T[P], MasterProfessionsGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type MasterProfessionsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    professionId?: boolean
+    minWorkingHours?: boolean
+    levelId?: boolean
+    priceHourly?: boolean
+    priceDaily?: boolean
+    experience?: boolean
+    masterId?: boolean
+    profession?: boolean | ProfessionsDefaultArgs<ExtArgs>
+    level?: boolean | LevelsDefaultArgs<ExtArgs>
+    master?: boolean | MastersDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["masterProfessions"]>
+
+  export type MasterProfessionsSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    professionId?: boolean
+    minWorkingHours?: boolean
+    levelId?: boolean
+    priceHourly?: boolean
+    priceDaily?: boolean
+    experience?: boolean
+    masterId?: boolean
+    profession?: boolean | ProfessionsDefaultArgs<ExtArgs>
+    level?: boolean | LevelsDefaultArgs<ExtArgs>
+    master?: boolean | MastersDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["masterProfessions"]>
+
+  export type MasterProfessionsSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    professionId?: boolean
+    minWorkingHours?: boolean
+    levelId?: boolean
+    priceHourly?: boolean
+    priceDaily?: boolean
+    experience?: boolean
+    masterId?: boolean
+    profession?: boolean | ProfessionsDefaultArgs<ExtArgs>
+    level?: boolean | LevelsDefaultArgs<ExtArgs>
+    master?: boolean | MastersDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["masterProfessions"]>
+
+  export type MasterProfessionsSelectScalar = {
+    id?: boolean
+    professionId?: boolean
+    minWorkingHours?: boolean
+    levelId?: boolean
+    priceHourly?: boolean
+    priceDaily?: boolean
+    experience?: boolean
+    masterId?: boolean
+  }
+
+  export type MasterProfessionsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "professionId" | "minWorkingHours" | "levelId" | "priceHourly" | "priceDaily" | "experience" | "masterId", ExtArgs["result"]["masterProfessions"]>
+  export type MasterProfessionsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    profession?: boolean | ProfessionsDefaultArgs<ExtArgs>
+    level?: boolean | LevelsDefaultArgs<ExtArgs>
+    master?: boolean | MastersDefaultArgs<ExtArgs>
+  }
+  export type MasterProfessionsIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    profession?: boolean | ProfessionsDefaultArgs<ExtArgs>
+    level?: boolean | LevelsDefaultArgs<ExtArgs>
+    master?: boolean | MastersDefaultArgs<ExtArgs>
+  }
+  export type MasterProfessionsIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    profession?: boolean | ProfessionsDefaultArgs<ExtArgs>
+    level?: boolean | LevelsDefaultArgs<ExtArgs>
+    master?: boolean | MastersDefaultArgs<ExtArgs>
+  }
+
+  export type $MasterProfessionsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "MasterProfessions"
+    objects: {
+      profession: Prisma.$ProfessionsPayload<ExtArgs>
+      level: Prisma.$LevelsPayload<ExtArgs>
+      master: Prisma.$MastersPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      professionId: string
+      minWorkingHours: number
+      levelId: string
+      priceHourly: Prisma.Decimal
+      priceDaily: Prisma.Decimal
+      experience: number
+      masterId: string
+    }, ExtArgs["result"]["masterProfessions"]>
+    composites: {}
+  }
+
+  type MasterProfessionsGetPayload<S extends boolean | null | undefined | MasterProfessionsDefaultArgs> = $Result.GetResult<Prisma.$MasterProfessionsPayload, S>
+
+  type MasterProfessionsCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<MasterProfessionsFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: MasterProfessionsCountAggregateInputType | true
+    }
+
+  export interface MasterProfessionsDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['MasterProfessions'], meta: { name: 'MasterProfessions' } }
+    /**
+     * Find zero or one MasterProfessions that matches the filter.
+     * @param {MasterProfessionsFindUniqueArgs} args - Arguments to find a MasterProfessions
+     * @example
+     * // Get one MasterProfessions
+     * const masterProfessions = await prisma.masterProfessions.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends MasterProfessionsFindUniqueArgs>(args: SelectSubset<T, MasterProfessionsFindUniqueArgs<ExtArgs>>): Prisma__MasterProfessionsClient<$Result.GetResult<Prisma.$MasterProfessionsPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one MasterProfessions that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {MasterProfessionsFindUniqueOrThrowArgs} args - Arguments to find a MasterProfessions
+     * @example
+     * // Get one MasterProfessions
+     * const masterProfessions = await prisma.masterProfessions.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends MasterProfessionsFindUniqueOrThrowArgs>(args: SelectSubset<T, MasterProfessionsFindUniqueOrThrowArgs<ExtArgs>>): Prisma__MasterProfessionsClient<$Result.GetResult<Prisma.$MasterProfessionsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first MasterProfessions that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MasterProfessionsFindFirstArgs} args - Arguments to find a MasterProfessions
+     * @example
+     * // Get one MasterProfessions
+     * const masterProfessions = await prisma.masterProfessions.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends MasterProfessionsFindFirstArgs>(args?: SelectSubset<T, MasterProfessionsFindFirstArgs<ExtArgs>>): Prisma__MasterProfessionsClient<$Result.GetResult<Prisma.$MasterProfessionsPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first MasterProfessions that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MasterProfessionsFindFirstOrThrowArgs} args - Arguments to find a MasterProfessions
+     * @example
+     * // Get one MasterProfessions
+     * const masterProfessions = await prisma.masterProfessions.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends MasterProfessionsFindFirstOrThrowArgs>(args?: SelectSubset<T, MasterProfessionsFindFirstOrThrowArgs<ExtArgs>>): Prisma__MasterProfessionsClient<$Result.GetResult<Prisma.$MasterProfessionsPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more MasterProfessions that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MasterProfessionsFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all MasterProfessions
+     * const masterProfessions = await prisma.masterProfessions.findMany()
+     * 
+     * // Get first 10 MasterProfessions
+     * const masterProfessions = await prisma.masterProfessions.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const masterProfessionsWithIdOnly = await prisma.masterProfessions.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends MasterProfessionsFindManyArgs>(args?: SelectSubset<T, MasterProfessionsFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MasterProfessionsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a MasterProfessions.
+     * @param {MasterProfessionsCreateArgs} args - Arguments to create a MasterProfessions.
+     * @example
+     * // Create one MasterProfessions
+     * const MasterProfessions = await prisma.masterProfessions.create({
+     *   data: {
+     *     // ... data to create a MasterProfessions
+     *   }
+     * })
+     * 
+     */
+    create<T extends MasterProfessionsCreateArgs>(args: SelectSubset<T, MasterProfessionsCreateArgs<ExtArgs>>): Prisma__MasterProfessionsClient<$Result.GetResult<Prisma.$MasterProfessionsPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many MasterProfessions.
+     * @param {MasterProfessionsCreateManyArgs} args - Arguments to create many MasterProfessions.
+     * @example
+     * // Create many MasterProfessions
+     * const masterProfessions = await prisma.masterProfessions.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends MasterProfessionsCreateManyArgs>(args?: SelectSubset<T, MasterProfessionsCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many MasterProfessions and returns the data saved in the database.
+     * @param {MasterProfessionsCreateManyAndReturnArgs} args - Arguments to create many MasterProfessions.
+     * @example
+     * // Create many MasterProfessions
+     * const masterProfessions = await prisma.masterProfessions.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many MasterProfessions and only return the `id`
+     * const masterProfessionsWithIdOnly = await prisma.masterProfessions.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends MasterProfessionsCreateManyAndReturnArgs>(args?: SelectSubset<T, MasterProfessionsCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MasterProfessionsPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a MasterProfessions.
+     * @param {MasterProfessionsDeleteArgs} args - Arguments to delete one MasterProfessions.
+     * @example
+     * // Delete one MasterProfessions
+     * const MasterProfessions = await prisma.masterProfessions.delete({
+     *   where: {
+     *     // ... filter to delete one MasterProfessions
+     *   }
+     * })
+     * 
+     */
+    delete<T extends MasterProfessionsDeleteArgs>(args: SelectSubset<T, MasterProfessionsDeleteArgs<ExtArgs>>): Prisma__MasterProfessionsClient<$Result.GetResult<Prisma.$MasterProfessionsPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one MasterProfessions.
+     * @param {MasterProfessionsUpdateArgs} args - Arguments to update one MasterProfessions.
+     * @example
+     * // Update one MasterProfessions
+     * const masterProfessions = await prisma.masterProfessions.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends MasterProfessionsUpdateArgs>(args: SelectSubset<T, MasterProfessionsUpdateArgs<ExtArgs>>): Prisma__MasterProfessionsClient<$Result.GetResult<Prisma.$MasterProfessionsPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more MasterProfessions.
+     * @param {MasterProfessionsDeleteManyArgs} args - Arguments to filter MasterProfessions to delete.
+     * @example
+     * // Delete a few MasterProfessions
+     * const { count } = await prisma.masterProfessions.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends MasterProfessionsDeleteManyArgs>(args?: SelectSubset<T, MasterProfessionsDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more MasterProfessions.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MasterProfessionsUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many MasterProfessions
+     * const masterProfessions = await prisma.masterProfessions.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends MasterProfessionsUpdateManyArgs>(args: SelectSubset<T, MasterProfessionsUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more MasterProfessions and returns the data updated in the database.
+     * @param {MasterProfessionsUpdateManyAndReturnArgs} args - Arguments to update many MasterProfessions.
+     * @example
+     * // Update many MasterProfessions
+     * const masterProfessions = await prisma.masterProfessions.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more MasterProfessions and only return the `id`
+     * const masterProfessionsWithIdOnly = await prisma.masterProfessions.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends MasterProfessionsUpdateManyAndReturnArgs>(args: SelectSubset<T, MasterProfessionsUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MasterProfessionsPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one MasterProfessions.
+     * @param {MasterProfessionsUpsertArgs} args - Arguments to update or create a MasterProfessions.
+     * @example
+     * // Update or create a MasterProfessions
+     * const masterProfessions = await prisma.masterProfessions.upsert({
+     *   create: {
+     *     // ... data to create a MasterProfessions
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the MasterProfessions we want to update
+     *   }
+     * })
+     */
+    upsert<T extends MasterProfessionsUpsertArgs>(args: SelectSubset<T, MasterProfessionsUpsertArgs<ExtArgs>>): Prisma__MasterProfessionsClient<$Result.GetResult<Prisma.$MasterProfessionsPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of MasterProfessions.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MasterProfessionsCountArgs} args - Arguments to filter MasterProfessions to count.
+     * @example
+     * // Count the number of MasterProfessions
+     * const count = await prisma.masterProfessions.count({
+     *   where: {
+     *     // ... the filter for the MasterProfessions we want to count
+     *   }
+     * })
+    **/
+    count<T extends MasterProfessionsCountArgs>(
+      args?: Subset<T, MasterProfessionsCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], MasterProfessionsCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a MasterProfessions.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MasterProfessionsAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends MasterProfessionsAggregateArgs>(args: Subset<T, MasterProfessionsAggregateArgs>): Prisma.PrismaPromise<GetMasterProfessionsAggregateType<T>>
+
+    /**
+     * Group by MasterProfessions.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MasterProfessionsGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends MasterProfessionsGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: MasterProfessionsGroupByArgs['orderBy'] }
+        : { orderBy?: MasterProfessionsGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, MasterProfessionsGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetMasterProfessionsGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the MasterProfessions model
+   */
+  readonly fields: MasterProfessionsFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for MasterProfessions.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__MasterProfessionsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    profession<T extends ProfessionsDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ProfessionsDefaultArgs<ExtArgs>>): Prisma__ProfessionsClient<$Result.GetResult<Prisma.$ProfessionsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    level<T extends LevelsDefaultArgs<ExtArgs> = {}>(args?: Subset<T, LevelsDefaultArgs<ExtArgs>>): Prisma__LevelsClient<$Result.GetResult<Prisma.$LevelsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    master<T extends MastersDefaultArgs<ExtArgs> = {}>(args?: Subset<T, MastersDefaultArgs<ExtArgs>>): Prisma__MastersClient<$Result.GetResult<Prisma.$MastersPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the MasterProfessions model
+   */
+  interface MasterProfessionsFieldRefs {
+    readonly id: FieldRef<"MasterProfessions", 'String'>
+    readonly professionId: FieldRef<"MasterProfessions", 'String'>
+    readonly minWorkingHours: FieldRef<"MasterProfessions", 'Int'>
+    readonly levelId: FieldRef<"MasterProfessions", 'String'>
+    readonly priceHourly: FieldRef<"MasterProfessions", 'Decimal'>
+    readonly priceDaily: FieldRef<"MasterProfessions", 'Decimal'>
+    readonly experience: FieldRef<"MasterProfessions", 'Float'>
+    readonly masterId: FieldRef<"MasterProfessions", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * MasterProfessions findUnique
+   */
+  export type MasterProfessionsFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MasterProfessions
+     */
+    select?: MasterProfessionsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MasterProfessions
+     */
+    omit?: MasterProfessionsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MasterProfessionsInclude<ExtArgs> | null
+    /**
+     * Filter, which MasterProfessions to fetch.
+     */
+    where: MasterProfessionsWhereUniqueInput
+  }
+
+  /**
+   * MasterProfessions findUniqueOrThrow
+   */
+  export type MasterProfessionsFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MasterProfessions
+     */
+    select?: MasterProfessionsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MasterProfessions
+     */
+    omit?: MasterProfessionsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MasterProfessionsInclude<ExtArgs> | null
+    /**
+     * Filter, which MasterProfessions to fetch.
+     */
+    where: MasterProfessionsWhereUniqueInput
+  }
+
+  /**
+   * MasterProfessions findFirst
+   */
+  export type MasterProfessionsFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MasterProfessions
+     */
+    select?: MasterProfessionsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MasterProfessions
+     */
+    omit?: MasterProfessionsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MasterProfessionsInclude<ExtArgs> | null
+    /**
+     * Filter, which MasterProfessions to fetch.
+     */
+    where?: MasterProfessionsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of MasterProfessions to fetch.
+     */
+    orderBy?: MasterProfessionsOrderByWithRelationInput | MasterProfessionsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for MasterProfessions.
+     */
+    cursor?: MasterProfessionsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` MasterProfessions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` MasterProfessions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of MasterProfessions.
+     */
+    distinct?: MasterProfessionsScalarFieldEnum | MasterProfessionsScalarFieldEnum[]
+  }
+
+  /**
+   * MasterProfessions findFirstOrThrow
+   */
+  export type MasterProfessionsFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MasterProfessions
+     */
+    select?: MasterProfessionsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MasterProfessions
+     */
+    omit?: MasterProfessionsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MasterProfessionsInclude<ExtArgs> | null
+    /**
+     * Filter, which MasterProfessions to fetch.
+     */
+    where?: MasterProfessionsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of MasterProfessions to fetch.
+     */
+    orderBy?: MasterProfessionsOrderByWithRelationInput | MasterProfessionsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for MasterProfessions.
+     */
+    cursor?: MasterProfessionsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` MasterProfessions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` MasterProfessions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of MasterProfessions.
+     */
+    distinct?: MasterProfessionsScalarFieldEnum | MasterProfessionsScalarFieldEnum[]
+  }
+
+  /**
+   * MasterProfessions findMany
+   */
+  export type MasterProfessionsFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MasterProfessions
+     */
+    select?: MasterProfessionsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MasterProfessions
+     */
+    omit?: MasterProfessionsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MasterProfessionsInclude<ExtArgs> | null
+    /**
+     * Filter, which MasterProfessions to fetch.
+     */
+    where?: MasterProfessionsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of MasterProfessions to fetch.
+     */
+    orderBy?: MasterProfessionsOrderByWithRelationInput | MasterProfessionsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing MasterProfessions.
+     */
+    cursor?: MasterProfessionsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` MasterProfessions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` MasterProfessions.
+     */
+    skip?: number
+    distinct?: MasterProfessionsScalarFieldEnum | MasterProfessionsScalarFieldEnum[]
+  }
+
+  /**
+   * MasterProfessions create
+   */
+  export type MasterProfessionsCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MasterProfessions
+     */
+    select?: MasterProfessionsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MasterProfessions
+     */
+    omit?: MasterProfessionsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MasterProfessionsInclude<ExtArgs> | null
+    /**
+     * The data needed to create a MasterProfessions.
+     */
+    data: XOR<MasterProfessionsCreateInput, MasterProfessionsUncheckedCreateInput>
+  }
+
+  /**
+   * MasterProfessions createMany
+   */
+  export type MasterProfessionsCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many MasterProfessions.
+     */
+    data: MasterProfessionsCreateManyInput | MasterProfessionsCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * MasterProfessions createManyAndReturn
+   */
+  export type MasterProfessionsCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MasterProfessions
+     */
+    select?: MasterProfessionsSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the MasterProfessions
+     */
+    omit?: MasterProfessionsOmit<ExtArgs> | null
+    /**
+     * The data used to create many MasterProfessions.
+     */
+    data: MasterProfessionsCreateManyInput | MasterProfessionsCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MasterProfessionsIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * MasterProfessions update
+   */
+  export type MasterProfessionsUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MasterProfessions
+     */
+    select?: MasterProfessionsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MasterProfessions
+     */
+    omit?: MasterProfessionsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MasterProfessionsInclude<ExtArgs> | null
+    /**
+     * The data needed to update a MasterProfessions.
+     */
+    data: XOR<MasterProfessionsUpdateInput, MasterProfessionsUncheckedUpdateInput>
+    /**
+     * Choose, which MasterProfessions to update.
+     */
+    where: MasterProfessionsWhereUniqueInput
+  }
+
+  /**
+   * MasterProfessions updateMany
+   */
+  export type MasterProfessionsUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update MasterProfessions.
+     */
+    data: XOR<MasterProfessionsUpdateManyMutationInput, MasterProfessionsUncheckedUpdateManyInput>
+    /**
+     * Filter which MasterProfessions to update
+     */
+    where?: MasterProfessionsWhereInput
+    /**
+     * Limit how many MasterProfessions to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * MasterProfessions updateManyAndReturn
+   */
+  export type MasterProfessionsUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MasterProfessions
+     */
+    select?: MasterProfessionsSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the MasterProfessions
+     */
+    omit?: MasterProfessionsOmit<ExtArgs> | null
+    /**
+     * The data used to update MasterProfessions.
+     */
+    data: XOR<MasterProfessionsUpdateManyMutationInput, MasterProfessionsUncheckedUpdateManyInput>
+    /**
+     * Filter which MasterProfessions to update
+     */
+    where?: MasterProfessionsWhereInput
+    /**
+     * Limit how many MasterProfessions to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MasterProfessionsIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * MasterProfessions upsert
+   */
+  export type MasterProfessionsUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MasterProfessions
+     */
+    select?: MasterProfessionsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MasterProfessions
+     */
+    omit?: MasterProfessionsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MasterProfessionsInclude<ExtArgs> | null
+    /**
+     * The filter to search for the MasterProfessions to update in case it exists.
+     */
+    where: MasterProfessionsWhereUniqueInput
+    /**
+     * In case the MasterProfessions found by the `where` argument doesn't exist, create a new MasterProfessions with this data.
+     */
+    create: XOR<MasterProfessionsCreateInput, MasterProfessionsUncheckedCreateInput>
+    /**
+     * In case the MasterProfessions was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<MasterProfessionsUpdateInput, MasterProfessionsUncheckedUpdateInput>
+  }
+
+  /**
+   * MasterProfessions delete
+   */
+  export type MasterProfessionsDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MasterProfessions
+     */
+    select?: MasterProfessionsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MasterProfessions
+     */
+    omit?: MasterProfessionsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MasterProfessionsInclude<ExtArgs> | null
+    /**
+     * Filter which MasterProfessions to delete.
+     */
+    where: MasterProfessionsWhereUniqueInput
+  }
+
+  /**
+   * MasterProfessions deleteMany
+   */
+  export type MasterProfessionsDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which MasterProfessions to delete
+     */
+    where?: MasterProfessionsWhereInput
+    /**
+     * Limit how many MasterProfessions to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * MasterProfessions without action
+   */
+  export type MasterProfessionsDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MasterProfessions
+     */
+    select?: MasterProfessionsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MasterProfessions
+     */
+    omit?: MasterProfessionsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MasterProfessionsInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model ProfessionLevels
+   */
+
+  export type AggregateProfessionLevels = {
+    _count: ProfessionLevelsCountAggregateOutputType | null
+    _avg: ProfessionLevelsAvgAggregateOutputType | null
+    _sum: ProfessionLevelsSumAggregateOutputType | null
+    _min: ProfessionLevelsMinAggregateOutputType | null
+    _max: ProfessionLevelsMaxAggregateOutputType | null
+  }
+
+  export type ProfessionLevelsAvgAggregateOutputType = {
+    minWorkingHours: number | null
+    priceHourly: Decimal | null
+    priceDaily: Decimal | null
+  }
+
+  export type ProfessionLevelsSumAggregateOutputType = {
+    minWorkingHours: number | null
+    priceHourly: Decimal | null
+    priceDaily: Decimal | null
+  }
+
+  export type ProfessionLevelsMinAggregateOutputType = {
+    id: string | null
+    professionId: string | null
+    levelId: string | null
+    minWorkingHours: number | null
+    priceHourly: Decimal | null
+    priceDaily: Decimal | null
+  }
+
+  export type ProfessionLevelsMaxAggregateOutputType = {
+    id: string | null
+    professionId: string | null
+    levelId: string | null
+    minWorkingHours: number | null
+    priceHourly: Decimal | null
+    priceDaily: Decimal | null
+  }
+
+  export type ProfessionLevelsCountAggregateOutputType = {
+    id: number
+    professionId: number
+    levelId: number
+    minWorkingHours: number
+    priceHourly: number
+    priceDaily: number
+    _all: number
+  }
+
+
+  export type ProfessionLevelsAvgAggregateInputType = {
+    minWorkingHours?: true
+    priceHourly?: true
+    priceDaily?: true
+  }
+
+  export type ProfessionLevelsSumAggregateInputType = {
+    minWorkingHours?: true
+    priceHourly?: true
+    priceDaily?: true
+  }
+
+  export type ProfessionLevelsMinAggregateInputType = {
+    id?: true
+    professionId?: true
+    levelId?: true
+    minWorkingHours?: true
+    priceHourly?: true
+    priceDaily?: true
+  }
+
+  export type ProfessionLevelsMaxAggregateInputType = {
+    id?: true
+    professionId?: true
+    levelId?: true
+    minWorkingHours?: true
+    priceHourly?: true
+    priceDaily?: true
+  }
+
+  export type ProfessionLevelsCountAggregateInputType = {
+    id?: true
+    professionId?: true
+    levelId?: true
+    minWorkingHours?: true
+    priceHourly?: true
+    priceDaily?: true
+    _all?: true
+  }
+
+  export type ProfessionLevelsAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ProfessionLevels to aggregate.
+     */
+    where?: ProfessionLevelsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ProfessionLevels to fetch.
+     */
+    orderBy?: ProfessionLevelsOrderByWithRelationInput | ProfessionLevelsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: ProfessionLevelsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ProfessionLevels from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ProfessionLevels.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned ProfessionLevels
+    **/
+    _count?: true | ProfessionLevelsCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: ProfessionLevelsAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: ProfessionLevelsSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: ProfessionLevelsMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: ProfessionLevelsMaxAggregateInputType
+  }
+
+  export type GetProfessionLevelsAggregateType<T extends ProfessionLevelsAggregateArgs> = {
+        [P in keyof T & keyof AggregateProfessionLevels]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateProfessionLevels[P]>
+      : GetScalarType<T[P], AggregateProfessionLevels[P]>
+  }
+
+
+
+
+  export type ProfessionLevelsGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ProfessionLevelsWhereInput
+    orderBy?: ProfessionLevelsOrderByWithAggregationInput | ProfessionLevelsOrderByWithAggregationInput[]
+    by: ProfessionLevelsScalarFieldEnum[] | ProfessionLevelsScalarFieldEnum
+    having?: ProfessionLevelsScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: ProfessionLevelsCountAggregateInputType | true
+    _avg?: ProfessionLevelsAvgAggregateInputType
+    _sum?: ProfessionLevelsSumAggregateInputType
+    _min?: ProfessionLevelsMinAggregateInputType
+    _max?: ProfessionLevelsMaxAggregateInputType
+  }
+
+  export type ProfessionLevelsGroupByOutputType = {
+    id: string
+    professionId: string
+    levelId: string
+    minWorkingHours: number
+    priceHourly: Decimal
+    priceDaily: Decimal
+    _count: ProfessionLevelsCountAggregateOutputType | null
+    _avg: ProfessionLevelsAvgAggregateOutputType | null
+    _sum: ProfessionLevelsSumAggregateOutputType | null
+    _min: ProfessionLevelsMinAggregateOutputType | null
+    _max: ProfessionLevelsMaxAggregateOutputType | null
+  }
+
+  type GetProfessionLevelsGroupByPayload<T extends ProfessionLevelsGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<ProfessionLevelsGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof ProfessionLevelsGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], ProfessionLevelsGroupByOutputType[P]>
+            : GetScalarType<T[P], ProfessionLevelsGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type ProfessionLevelsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    professionId?: boolean
+    levelId?: boolean
+    minWorkingHours?: boolean
+    priceHourly?: boolean
+    priceDaily?: boolean
+    profession?: boolean | ProfessionsDefaultArgs<ExtArgs>
+    level?: boolean | LevelsDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["professionLevels"]>
+
+  export type ProfessionLevelsSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    professionId?: boolean
+    levelId?: boolean
+    minWorkingHours?: boolean
+    priceHourly?: boolean
+    priceDaily?: boolean
+    profession?: boolean | ProfessionsDefaultArgs<ExtArgs>
+    level?: boolean | LevelsDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["professionLevels"]>
+
+  export type ProfessionLevelsSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    professionId?: boolean
+    levelId?: boolean
+    minWorkingHours?: boolean
+    priceHourly?: boolean
+    priceDaily?: boolean
+    profession?: boolean | ProfessionsDefaultArgs<ExtArgs>
+    level?: boolean | LevelsDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["professionLevels"]>
+
+  export type ProfessionLevelsSelectScalar = {
+    id?: boolean
+    professionId?: boolean
+    levelId?: boolean
+    minWorkingHours?: boolean
+    priceHourly?: boolean
+    priceDaily?: boolean
+  }
+
+  export type ProfessionLevelsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "professionId" | "levelId" | "minWorkingHours" | "priceHourly" | "priceDaily", ExtArgs["result"]["professionLevels"]>
+  export type ProfessionLevelsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    profession?: boolean | ProfessionsDefaultArgs<ExtArgs>
+    level?: boolean | LevelsDefaultArgs<ExtArgs>
+  }
+  export type ProfessionLevelsIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    profession?: boolean | ProfessionsDefaultArgs<ExtArgs>
+    level?: boolean | LevelsDefaultArgs<ExtArgs>
+  }
+  export type ProfessionLevelsIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    profession?: boolean | ProfessionsDefaultArgs<ExtArgs>
+    level?: boolean | LevelsDefaultArgs<ExtArgs>
+  }
+
+  export type $ProfessionLevelsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "ProfessionLevels"
+    objects: {
+      profession: Prisma.$ProfessionsPayload<ExtArgs>
+      level: Prisma.$LevelsPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      professionId: string
+      levelId: string
+      minWorkingHours: number
+      priceHourly: Prisma.Decimal
+      priceDaily: Prisma.Decimal
+    }, ExtArgs["result"]["professionLevels"]>
+    composites: {}
+  }
+
+  type ProfessionLevelsGetPayload<S extends boolean | null | undefined | ProfessionLevelsDefaultArgs> = $Result.GetResult<Prisma.$ProfessionLevelsPayload, S>
+
+  type ProfessionLevelsCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<ProfessionLevelsFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: ProfessionLevelsCountAggregateInputType | true
+    }
+
+  export interface ProfessionLevelsDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['ProfessionLevels'], meta: { name: 'ProfessionLevels' } }
+    /**
+     * Find zero or one ProfessionLevels that matches the filter.
+     * @param {ProfessionLevelsFindUniqueArgs} args - Arguments to find a ProfessionLevels
+     * @example
+     * // Get one ProfessionLevels
+     * const professionLevels = await prisma.professionLevels.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends ProfessionLevelsFindUniqueArgs>(args: SelectSubset<T, ProfessionLevelsFindUniqueArgs<ExtArgs>>): Prisma__ProfessionLevelsClient<$Result.GetResult<Prisma.$ProfessionLevelsPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one ProfessionLevels that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {ProfessionLevelsFindUniqueOrThrowArgs} args - Arguments to find a ProfessionLevels
+     * @example
+     * // Get one ProfessionLevels
+     * const professionLevels = await prisma.professionLevels.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends ProfessionLevelsFindUniqueOrThrowArgs>(args: SelectSubset<T, ProfessionLevelsFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ProfessionLevelsClient<$Result.GetResult<Prisma.$ProfessionLevelsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first ProfessionLevels that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProfessionLevelsFindFirstArgs} args - Arguments to find a ProfessionLevels
+     * @example
+     * // Get one ProfessionLevels
+     * const professionLevels = await prisma.professionLevels.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends ProfessionLevelsFindFirstArgs>(args?: SelectSubset<T, ProfessionLevelsFindFirstArgs<ExtArgs>>): Prisma__ProfessionLevelsClient<$Result.GetResult<Prisma.$ProfessionLevelsPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first ProfessionLevels that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProfessionLevelsFindFirstOrThrowArgs} args - Arguments to find a ProfessionLevels
+     * @example
+     * // Get one ProfessionLevels
+     * const professionLevels = await prisma.professionLevels.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends ProfessionLevelsFindFirstOrThrowArgs>(args?: SelectSubset<T, ProfessionLevelsFindFirstOrThrowArgs<ExtArgs>>): Prisma__ProfessionLevelsClient<$Result.GetResult<Prisma.$ProfessionLevelsPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more ProfessionLevels that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProfessionLevelsFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all ProfessionLevels
+     * const professionLevels = await prisma.professionLevels.findMany()
+     * 
+     * // Get first 10 ProfessionLevels
+     * const professionLevels = await prisma.professionLevels.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const professionLevelsWithIdOnly = await prisma.professionLevels.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends ProfessionLevelsFindManyArgs>(args?: SelectSubset<T, ProfessionLevelsFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProfessionLevelsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a ProfessionLevels.
+     * @param {ProfessionLevelsCreateArgs} args - Arguments to create a ProfessionLevels.
+     * @example
+     * // Create one ProfessionLevels
+     * const ProfessionLevels = await prisma.professionLevels.create({
+     *   data: {
+     *     // ... data to create a ProfessionLevels
+     *   }
+     * })
+     * 
+     */
+    create<T extends ProfessionLevelsCreateArgs>(args: SelectSubset<T, ProfessionLevelsCreateArgs<ExtArgs>>): Prisma__ProfessionLevelsClient<$Result.GetResult<Prisma.$ProfessionLevelsPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many ProfessionLevels.
+     * @param {ProfessionLevelsCreateManyArgs} args - Arguments to create many ProfessionLevels.
+     * @example
+     * // Create many ProfessionLevels
+     * const professionLevels = await prisma.professionLevels.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends ProfessionLevelsCreateManyArgs>(args?: SelectSubset<T, ProfessionLevelsCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many ProfessionLevels and returns the data saved in the database.
+     * @param {ProfessionLevelsCreateManyAndReturnArgs} args - Arguments to create many ProfessionLevels.
+     * @example
+     * // Create many ProfessionLevels
+     * const professionLevels = await prisma.professionLevels.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many ProfessionLevels and only return the `id`
+     * const professionLevelsWithIdOnly = await prisma.professionLevels.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends ProfessionLevelsCreateManyAndReturnArgs>(args?: SelectSubset<T, ProfessionLevelsCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProfessionLevelsPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a ProfessionLevels.
+     * @param {ProfessionLevelsDeleteArgs} args - Arguments to delete one ProfessionLevels.
+     * @example
+     * // Delete one ProfessionLevels
+     * const ProfessionLevels = await prisma.professionLevels.delete({
+     *   where: {
+     *     // ... filter to delete one ProfessionLevels
+     *   }
+     * })
+     * 
+     */
+    delete<T extends ProfessionLevelsDeleteArgs>(args: SelectSubset<T, ProfessionLevelsDeleteArgs<ExtArgs>>): Prisma__ProfessionLevelsClient<$Result.GetResult<Prisma.$ProfessionLevelsPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one ProfessionLevels.
+     * @param {ProfessionLevelsUpdateArgs} args - Arguments to update one ProfessionLevels.
+     * @example
+     * // Update one ProfessionLevels
+     * const professionLevels = await prisma.professionLevels.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends ProfessionLevelsUpdateArgs>(args: SelectSubset<T, ProfessionLevelsUpdateArgs<ExtArgs>>): Prisma__ProfessionLevelsClient<$Result.GetResult<Prisma.$ProfessionLevelsPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more ProfessionLevels.
+     * @param {ProfessionLevelsDeleteManyArgs} args - Arguments to filter ProfessionLevels to delete.
+     * @example
+     * // Delete a few ProfessionLevels
+     * const { count } = await prisma.professionLevels.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends ProfessionLevelsDeleteManyArgs>(args?: SelectSubset<T, ProfessionLevelsDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more ProfessionLevels.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProfessionLevelsUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many ProfessionLevels
+     * const professionLevels = await prisma.professionLevels.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends ProfessionLevelsUpdateManyArgs>(args: SelectSubset<T, ProfessionLevelsUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more ProfessionLevels and returns the data updated in the database.
+     * @param {ProfessionLevelsUpdateManyAndReturnArgs} args - Arguments to update many ProfessionLevels.
+     * @example
+     * // Update many ProfessionLevels
+     * const professionLevels = await prisma.professionLevels.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more ProfessionLevels and only return the `id`
+     * const professionLevelsWithIdOnly = await prisma.professionLevels.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends ProfessionLevelsUpdateManyAndReturnArgs>(args: SelectSubset<T, ProfessionLevelsUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProfessionLevelsPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one ProfessionLevels.
+     * @param {ProfessionLevelsUpsertArgs} args - Arguments to update or create a ProfessionLevels.
+     * @example
+     * // Update or create a ProfessionLevels
+     * const professionLevels = await prisma.professionLevels.upsert({
+     *   create: {
+     *     // ... data to create a ProfessionLevels
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the ProfessionLevels we want to update
+     *   }
+     * })
+     */
+    upsert<T extends ProfessionLevelsUpsertArgs>(args: SelectSubset<T, ProfessionLevelsUpsertArgs<ExtArgs>>): Prisma__ProfessionLevelsClient<$Result.GetResult<Prisma.$ProfessionLevelsPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of ProfessionLevels.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProfessionLevelsCountArgs} args - Arguments to filter ProfessionLevels to count.
+     * @example
+     * // Count the number of ProfessionLevels
+     * const count = await prisma.professionLevels.count({
+     *   where: {
+     *     // ... the filter for the ProfessionLevels we want to count
+     *   }
+     * })
+    **/
+    count<T extends ProfessionLevelsCountArgs>(
+      args?: Subset<T, ProfessionLevelsCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], ProfessionLevelsCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a ProfessionLevels.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProfessionLevelsAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends ProfessionLevelsAggregateArgs>(args: Subset<T, ProfessionLevelsAggregateArgs>): Prisma.PrismaPromise<GetProfessionLevelsAggregateType<T>>
+
+    /**
+     * Group by ProfessionLevels.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProfessionLevelsGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends ProfessionLevelsGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: ProfessionLevelsGroupByArgs['orderBy'] }
+        : { orderBy?: ProfessionLevelsGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, ProfessionLevelsGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetProfessionLevelsGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the ProfessionLevels model
+   */
+  readonly fields: ProfessionLevelsFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for ProfessionLevels.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__ProfessionLevelsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    profession<T extends ProfessionsDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ProfessionsDefaultArgs<ExtArgs>>): Prisma__ProfessionsClient<$Result.GetResult<Prisma.$ProfessionsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    level<T extends LevelsDefaultArgs<ExtArgs> = {}>(args?: Subset<T, LevelsDefaultArgs<ExtArgs>>): Prisma__LevelsClient<$Result.GetResult<Prisma.$LevelsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the ProfessionLevels model
+   */
+  interface ProfessionLevelsFieldRefs {
+    readonly id: FieldRef<"ProfessionLevels", 'String'>
+    readonly professionId: FieldRef<"ProfessionLevels", 'String'>
+    readonly levelId: FieldRef<"ProfessionLevels", 'String'>
+    readonly minWorkingHours: FieldRef<"ProfessionLevels", 'Int'>
+    readonly priceHourly: FieldRef<"ProfessionLevels", 'Decimal'>
+    readonly priceDaily: FieldRef<"ProfessionLevels", 'Decimal'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * ProfessionLevels findUnique
+   */
+  export type ProfessionLevelsFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProfessionLevels
+     */
+    select?: ProfessionLevelsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProfessionLevels
+     */
+    omit?: ProfessionLevelsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfessionLevelsInclude<ExtArgs> | null
+    /**
+     * Filter, which ProfessionLevels to fetch.
+     */
+    where: ProfessionLevelsWhereUniqueInput
+  }
+
+  /**
+   * ProfessionLevels findUniqueOrThrow
+   */
+  export type ProfessionLevelsFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProfessionLevels
+     */
+    select?: ProfessionLevelsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProfessionLevels
+     */
+    omit?: ProfessionLevelsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfessionLevelsInclude<ExtArgs> | null
+    /**
+     * Filter, which ProfessionLevels to fetch.
+     */
+    where: ProfessionLevelsWhereUniqueInput
+  }
+
+  /**
+   * ProfessionLevels findFirst
+   */
+  export type ProfessionLevelsFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProfessionLevels
+     */
+    select?: ProfessionLevelsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProfessionLevels
+     */
+    omit?: ProfessionLevelsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfessionLevelsInclude<ExtArgs> | null
+    /**
+     * Filter, which ProfessionLevels to fetch.
+     */
+    where?: ProfessionLevelsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ProfessionLevels to fetch.
+     */
+    orderBy?: ProfessionLevelsOrderByWithRelationInput | ProfessionLevelsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ProfessionLevels.
+     */
+    cursor?: ProfessionLevelsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ProfessionLevels from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ProfessionLevels.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ProfessionLevels.
+     */
+    distinct?: ProfessionLevelsScalarFieldEnum | ProfessionLevelsScalarFieldEnum[]
+  }
+
+  /**
+   * ProfessionLevels findFirstOrThrow
+   */
+  export type ProfessionLevelsFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProfessionLevels
+     */
+    select?: ProfessionLevelsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProfessionLevels
+     */
+    omit?: ProfessionLevelsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfessionLevelsInclude<ExtArgs> | null
+    /**
+     * Filter, which ProfessionLevels to fetch.
+     */
+    where?: ProfessionLevelsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ProfessionLevels to fetch.
+     */
+    orderBy?: ProfessionLevelsOrderByWithRelationInput | ProfessionLevelsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ProfessionLevels.
+     */
+    cursor?: ProfessionLevelsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ProfessionLevels from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ProfessionLevels.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ProfessionLevels.
+     */
+    distinct?: ProfessionLevelsScalarFieldEnum | ProfessionLevelsScalarFieldEnum[]
+  }
+
+  /**
+   * ProfessionLevels findMany
+   */
+  export type ProfessionLevelsFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProfessionLevels
+     */
+    select?: ProfessionLevelsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProfessionLevels
+     */
+    omit?: ProfessionLevelsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfessionLevelsInclude<ExtArgs> | null
+    /**
+     * Filter, which ProfessionLevels to fetch.
+     */
+    where?: ProfessionLevelsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ProfessionLevels to fetch.
+     */
+    orderBy?: ProfessionLevelsOrderByWithRelationInput | ProfessionLevelsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing ProfessionLevels.
+     */
+    cursor?: ProfessionLevelsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ProfessionLevels from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ProfessionLevels.
+     */
+    skip?: number
+    distinct?: ProfessionLevelsScalarFieldEnum | ProfessionLevelsScalarFieldEnum[]
+  }
+
+  /**
+   * ProfessionLevels create
+   */
+  export type ProfessionLevelsCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProfessionLevels
+     */
+    select?: ProfessionLevelsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProfessionLevels
+     */
+    omit?: ProfessionLevelsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfessionLevelsInclude<ExtArgs> | null
+    /**
+     * The data needed to create a ProfessionLevels.
+     */
+    data: XOR<ProfessionLevelsCreateInput, ProfessionLevelsUncheckedCreateInput>
+  }
+
+  /**
+   * ProfessionLevels createMany
+   */
+  export type ProfessionLevelsCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many ProfessionLevels.
+     */
+    data: ProfessionLevelsCreateManyInput | ProfessionLevelsCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * ProfessionLevels createManyAndReturn
+   */
+  export type ProfessionLevelsCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProfessionLevels
+     */
+    select?: ProfessionLevelsSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProfessionLevels
+     */
+    omit?: ProfessionLevelsOmit<ExtArgs> | null
+    /**
+     * The data used to create many ProfessionLevels.
+     */
+    data: ProfessionLevelsCreateManyInput | ProfessionLevelsCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfessionLevelsIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * ProfessionLevels update
+   */
+  export type ProfessionLevelsUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProfessionLevels
+     */
+    select?: ProfessionLevelsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProfessionLevels
+     */
+    omit?: ProfessionLevelsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfessionLevelsInclude<ExtArgs> | null
+    /**
+     * The data needed to update a ProfessionLevels.
+     */
+    data: XOR<ProfessionLevelsUpdateInput, ProfessionLevelsUncheckedUpdateInput>
+    /**
+     * Choose, which ProfessionLevels to update.
+     */
+    where: ProfessionLevelsWhereUniqueInput
+  }
+
+  /**
+   * ProfessionLevels updateMany
+   */
+  export type ProfessionLevelsUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update ProfessionLevels.
+     */
+    data: XOR<ProfessionLevelsUpdateManyMutationInput, ProfessionLevelsUncheckedUpdateManyInput>
+    /**
+     * Filter which ProfessionLevels to update
+     */
+    where?: ProfessionLevelsWhereInput
+    /**
+     * Limit how many ProfessionLevels to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * ProfessionLevels updateManyAndReturn
+   */
+  export type ProfessionLevelsUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProfessionLevels
+     */
+    select?: ProfessionLevelsSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProfessionLevels
+     */
+    omit?: ProfessionLevelsOmit<ExtArgs> | null
+    /**
+     * The data used to update ProfessionLevels.
+     */
+    data: XOR<ProfessionLevelsUpdateManyMutationInput, ProfessionLevelsUncheckedUpdateManyInput>
+    /**
+     * Filter which ProfessionLevels to update
+     */
+    where?: ProfessionLevelsWhereInput
+    /**
+     * Limit how many ProfessionLevels to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfessionLevelsIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * ProfessionLevels upsert
+   */
+  export type ProfessionLevelsUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProfessionLevels
+     */
+    select?: ProfessionLevelsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProfessionLevels
+     */
+    omit?: ProfessionLevelsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfessionLevelsInclude<ExtArgs> | null
+    /**
+     * The filter to search for the ProfessionLevels to update in case it exists.
+     */
+    where: ProfessionLevelsWhereUniqueInput
+    /**
+     * In case the ProfessionLevels found by the `where` argument doesn't exist, create a new ProfessionLevels with this data.
+     */
+    create: XOR<ProfessionLevelsCreateInput, ProfessionLevelsUncheckedCreateInput>
+    /**
+     * In case the ProfessionLevels was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<ProfessionLevelsUpdateInput, ProfessionLevelsUncheckedUpdateInput>
+  }
+
+  /**
+   * ProfessionLevels delete
+   */
+  export type ProfessionLevelsDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProfessionLevels
+     */
+    select?: ProfessionLevelsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProfessionLevels
+     */
+    omit?: ProfessionLevelsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfessionLevelsInclude<ExtArgs> | null
+    /**
+     * Filter which ProfessionLevels to delete.
+     */
+    where: ProfessionLevelsWhereUniqueInput
+  }
+
+  /**
+   * ProfessionLevels deleteMany
+   */
+  export type ProfessionLevelsDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ProfessionLevels to delete
+     */
+    where?: ProfessionLevelsWhereInput
+    /**
+     * Limit how many ProfessionLevels to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * ProfessionLevels without action
+   */
+  export type ProfessionLevelsDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProfessionLevels
+     */
+    select?: ProfessionLevelsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProfessionLevels
+     */
+    omit?: ProfessionLevelsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfessionLevelsInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Tools
+   */
+
+  export type AggregateTools = {
+    _count: ToolsCountAggregateOutputType | null
+    _avg: ToolsAvgAggregateOutputType | null
+    _sum: ToolsSumAggregateOutputType | null
+    _min: ToolsMinAggregateOutputType | null
+    _max: ToolsMaxAggregateOutputType | null
+  }
+
+  export type ToolsAvgAggregateOutputType = {
+    price: Decimal | null
+    quantity: number | null
+  }
+
+  export type ToolsSumAggregateOutputType = {
+    price: Decimal | null
+    quantity: number | null
+  }
+
+  export type ToolsMinAggregateOutputType = {
+    id: string | null
+    code: string | null
+    nameUz: string | null
+    nameRu: string | null
+    nameEn: string | null
+    descriptionUz: string | null
+    descriptionRu: string | null
+    descriptionEn: string | null
+    price: Decimal | null
+    quantity: number | null
+    brandId: string | null
+    capacityId: string | null
+    sizeId: string | null
+    image: string | null
+    isAvailable: boolean | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type ToolsMaxAggregateOutputType = {
+    id: string | null
+    code: string | null
+    nameUz: string | null
+    nameRu: string | null
+    nameEn: string | null
+    descriptionUz: string | null
+    descriptionRu: string | null
+    descriptionEn: string | null
+    price: Decimal | null
+    quantity: number | null
+    brandId: string | null
+    capacityId: string | null
+    sizeId: string | null
+    image: string | null
+    isAvailable: boolean | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type ToolsCountAggregateOutputType = {
+    id: number
+    code: number
+    nameUz: number
+    nameRu: number
+    nameEn: number
+    descriptionUz: number
+    descriptionRu: number
+    descriptionEn: number
+    price: number
+    quantity: number
+    brandId: number
+    capacityId: number
+    sizeId: number
+    image: number
+    isAvailable: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type ToolsAvgAggregateInputType = {
+    price?: true
+    quantity?: true
+  }
+
+  export type ToolsSumAggregateInputType = {
+    price?: true
+    quantity?: true
+  }
+
+  export type ToolsMinAggregateInputType = {
+    id?: true
+    code?: true
+    nameUz?: true
+    nameRu?: true
+    nameEn?: true
+    descriptionUz?: true
+    descriptionRu?: true
+    descriptionEn?: true
+    price?: true
+    quantity?: true
+    brandId?: true
+    capacityId?: true
+    sizeId?: true
+    image?: true
+    isAvailable?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type ToolsMaxAggregateInputType = {
+    id?: true
+    code?: true
+    nameUz?: true
+    nameRu?: true
+    nameEn?: true
+    descriptionUz?: true
+    descriptionRu?: true
+    descriptionEn?: true
+    price?: true
+    quantity?: true
+    brandId?: true
+    capacityId?: true
+    sizeId?: true
+    image?: true
+    isAvailable?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type ToolsCountAggregateInputType = {
+    id?: true
+    code?: true
+    nameUz?: true
+    nameRu?: true
+    nameEn?: true
+    descriptionUz?: true
+    descriptionRu?: true
+    descriptionEn?: true
+    price?: true
+    quantity?: true
+    brandId?: true
+    capacityId?: true
+    sizeId?: true
+    image?: true
+    isAvailable?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type ToolsAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Tools to aggregate.
+     */
+    where?: ToolsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Tools to fetch.
+     */
+    orderBy?: ToolsOrderByWithRelationInput | ToolsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: ToolsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Tools from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Tools.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Tools
+    **/
+    _count?: true | ToolsCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: ToolsAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: ToolsSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: ToolsMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: ToolsMaxAggregateInputType
+  }
+
+  export type GetToolsAggregateType<T extends ToolsAggregateArgs> = {
+        [P in keyof T & keyof AggregateTools]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateTools[P]>
+      : GetScalarType<T[P], AggregateTools[P]>
+  }
+
+
+
+
+  export type ToolsGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ToolsWhereInput
+    orderBy?: ToolsOrderByWithAggregationInput | ToolsOrderByWithAggregationInput[]
+    by: ToolsScalarFieldEnum[] | ToolsScalarFieldEnum
+    having?: ToolsScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: ToolsCountAggregateInputType | true
+    _avg?: ToolsAvgAggregateInputType
+    _sum?: ToolsSumAggregateInputType
+    _min?: ToolsMinAggregateInputType
+    _max?: ToolsMaxAggregateInputType
+  }
+
+  export type ToolsGroupByOutputType = {
+    id: string
+    code: string
+    nameUz: string
+    nameRu: string
+    nameEn: string
+    descriptionUz: string
+    descriptionRu: string
+    descriptionEn: string
+    price: Decimal
+    quantity: number
+    brandId: string
+    capacityId: string
+    sizeId: string
+    image: string
+    isAvailable: boolean
+    createdAt: Date
+    updatedAt: Date
+    _count: ToolsCountAggregateOutputType | null
+    _avg: ToolsAvgAggregateOutputType | null
+    _sum: ToolsSumAggregateOutputType | null
+    _min: ToolsMinAggregateOutputType | null
+    _max: ToolsMaxAggregateOutputType | null
+  }
+
+  type GetToolsGroupByPayload<T extends ToolsGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<ToolsGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof ToolsGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], ToolsGroupByOutputType[P]>
+            : GetScalarType<T[P], ToolsGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type ToolsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    code?: boolean
+    nameUz?: boolean
+    nameRu?: boolean
+    nameEn?: boolean
+    descriptionUz?: boolean
+    descriptionRu?: boolean
+    descriptionEn?: boolean
+    price?: boolean
+    quantity?: boolean
+    brandId?: boolean
+    capacityId?: boolean
+    sizeId?: boolean
+    image?: boolean
+    isAvailable?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    brand?: boolean | BrandsDefaultArgs<ExtArgs>
+    capacity?: boolean | CapacityDefaultArgs<ExtArgs>
+    size?: boolean | SizesDefaultArgs<ExtArgs>
+    Backet?: boolean | Tools$BacketArgs<ExtArgs>
+    OrderItems?: boolean | Tools$OrderItemsArgs<ExtArgs>
+    ProfessionTools?: boolean | Tools$ProfessionToolsArgs<ExtArgs>
+    _count?: boolean | ToolsCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["tools"]>
+
+  export type ToolsSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    code?: boolean
+    nameUz?: boolean
+    nameRu?: boolean
+    nameEn?: boolean
+    descriptionUz?: boolean
+    descriptionRu?: boolean
+    descriptionEn?: boolean
+    price?: boolean
+    quantity?: boolean
+    brandId?: boolean
+    capacityId?: boolean
+    sizeId?: boolean
+    image?: boolean
+    isAvailable?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    brand?: boolean | BrandsDefaultArgs<ExtArgs>
+    capacity?: boolean | CapacityDefaultArgs<ExtArgs>
+    size?: boolean | SizesDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["tools"]>
+
+  export type ToolsSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    code?: boolean
+    nameUz?: boolean
+    nameRu?: boolean
+    nameEn?: boolean
+    descriptionUz?: boolean
+    descriptionRu?: boolean
+    descriptionEn?: boolean
+    price?: boolean
+    quantity?: boolean
+    brandId?: boolean
+    capacityId?: boolean
+    sizeId?: boolean
+    image?: boolean
+    isAvailable?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    brand?: boolean | BrandsDefaultArgs<ExtArgs>
+    capacity?: boolean | CapacityDefaultArgs<ExtArgs>
+    size?: boolean | SizesDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["tools"]>
+
+  export type ToolsSelectScalar = {
+    id?: boolean
+    code?: boolean
+    nameUz?: boolean
+    nameRu?: boolean
+    nameEn?: boolean
+    descriptionUz?: boolean
+    descriptionRu?: boolean
+    descriptionEn?: boolean
+    price?: boolean
+    quantity?: boolean
+    brandId?: boolean
+    capacityId?: boolean
+    sizeId?: boolean
+    image?: boolean
+    isAvailable?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type ToolsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "code" | "nameUz" | "nameRu" | "nameEn" | "descriptionUz" | "descriptionRu" | "descriptionEn" | "price" | "quantity" | "brandId" | "capacityId" | "sizeId" | "image" | "isAvailable" | "createdAt" | "updatedAt", ExtArgs["result"]["tools"]>
+  export type ToolsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    brand?: boolean | BrandsDefaultArgs<ExtArgs>
+    capacity?: boolean | CapacityDefaultArgs<ExtArgs>
+    size?: boolean | SizesDefaultArgs<ExtArgs>
+    Backet?: boolean | Tools$BacketArgs<ExtArgs>
+    OrderItems?: boolean | Tools$OrderItemsArgs<ExtArgs>
+    ProfessionTools?: boolean | Tools$ProfessionToolsArgs<ExtArgs>
+    _count?: boolean | ToolsCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type ToolsIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    brand?: boolean | BrandsDefaultArgs<ExtArgs>
+    capacity?: boolean | CapacityDefaultArgs<ExtArgs>
+    size?: boolean | SizesDefaultArgs<ExtArgs>
+  }
+  export type ToolsIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    brand?: boolean | BrandsDefaultArgs<ExtArgs>
+    capacity?: boolean | CapacityDefaultArgs<ExtArgs>
+    size?: boolean | SizesDefaultArgs<ExtArgs>
+  }
+
+  export type $ToolsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Tools"
+    objects: {
+      brand: Prisma.$BrandsPayload<ExtArgs>
+      capacity: Prisma.$CapacityPayload<ExtArgs>
+      size: Prisma.$SizesPayload<ExtArgs>
+      Backet: Prisma.$BacketPayload<ExtArgs>[]
+      OrderItems: Prisma.$OrderItemsPayload<ExtArgs>[]
+      ProfessionTools: Prisma.$ProfessionToolsPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      code: string
+      nameUz: string
+      nameRu: string
+      nameEn: string
+      descriptionUz: string
+      descriptionRu: string
+      descriptionEn: string
+      price: Prisma.Decimal
+      quantity: number
+      brandId: string
+      capacityId: string
+      sizeId: string
+      image: string
+      isAvailable: boolean
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["tools"]>
+    composites: {}
+  }
+
+  type ToolsGetPayload<S extends boolean | null | undefined | ToolsDefaultArgs> = $Result.GetResult<Prisma.$ToolsPayload, S>
+
+  type ToolsCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<ToolsFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: ToolsCountAggregateInputType | true
+    }
+
+  export interface ToolsDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Tools'], meta: { name: 'Tools' } }
+    /**
+     * Find zero or one Tools that matches the filter.
+     * @param {ToolsFindUniqueArgs} args - Arguments to find a Tools
+     * @example
+     * // Get one Tools
+     * const tools = await prisma.tools.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends ToolsFindUniqueArgs>(args: SelectSubset<T, ToolsFindUniqueArgs<ExtArgs>>): Prisma__ToolsClient<$Result.GetResult<Prisma.$ToolsPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Tools that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {ToolsFindUniqueOrThrowArgs} args - Arguments to find a Tools
+     * @example
+     * // Get one Tools
+     * const tools = await prisma.tools.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends ToolsFindUniqueOrThrowArgs>(args: SelectSubset<T, ToolsFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ToolsClient<$Result.GetResult<Prisma.$ToolsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Tools that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ToolsFindFirstArgs} args - Arguments to find a Tools
+     * @example
+     * // Get one Tools
+     * const tools = await prisma.tools.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends ToolsFindFirstArgs>(args?: SelectSubset<T, ToolsFindFirstArgs<ExtArgs>>): Prisma__ToolsClient<$Result.GetResult<Prisma.$ToolsPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Tools that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ToolsFindFirstOrThrowArgs} args - Arguments to find a Tools
+     * @example
+     * // Get one Tools
+     * const tools = await prisma.tools.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends ToolsFindFirstOrThrowArgs>(args?: SelectSubset<T, ToolsFindFirstOrThrowArgs<ExtArgs>>): Prisma__ToolsClient<$Result.GetResult<Prisma.$ToolsPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Tools that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ToolsFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Tools
+     * const tools = await prisma.tools.findMany()
+     * 
+     * // Get first 10 Tools
+     * const tools = await prisma.tools.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const toolsWithIdOnly = await prisma.tools.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends ToolsFindManyArgs>(args?: SelectSubset<T, ToolsFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ToolsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Tools.
+     * @param {ToolsCreateArgs} args - Arguments to create a Tools.
+     * @example
+     * // Create one Tools
+     * const Tools = await prisma.tools.create({
+     *   data: {
+     *     // ... data to create a Tools
+     *   }
+     * })
+     * 
+     */
+    create<T extends ToolsCreateArgs>(args: SelectSubset<T, ToolsCreateArgs<ExtArgs>>): Prisma__ToolsClient<$Result.GetResult<Prisma.$ToolsPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Tools.
+     * @param {ToolsCreateManyArgs} args - Arguments to create many Tools.
+     * @example
+     * // Create many Tools
+     * const tools = await prisma.tools.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends ToolsCreateManyArgs>(args?: SelectSubset<T, ToolsCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Tools and returns the data saved in the database.
+     * @param {ToolsCreateManyAndReturnArgs} args - Arguments to create many Tools.
+     * @example
+     * // Create many Tools
+     * const tools = await prisma.tools.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Tools and only return the `id`
+     * const toolsWithIdOnly = await prisma.tools.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends ToolsCreateManyAndReturnArgs>(args?: SelectSubset<T, ToolsCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ToolsPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Tools.
+     * @param {ToolsDeleteArgs} args - Arguments to delete one Tools.
+     * @example
+     * // Delete one Tools
+     * const Tools = await prisma.tools.delete({
+     *   where: {
+     *     // ... filter to delete one Tools
+     *   }
+     * })
+     * 
+     */
+    delete<T extends ToolsDeleteArgs>(args: SelectSubset<T, ToolsDeleteArgs<ExtArgs>>): Prisma__ToolsClient<$Result.GetResult<Prisma.$ToolsPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Tools.
+     * @param {ToolsUpdateArgs} args - Arguments to update one Tools.
+     * @example
+     * // Update one Tools
+     * const tools = await prisma.tools.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends ToolsUpdateArgs>(args: SelectSubset<T, ToolsUpdateArgs<ExtArgs>>): Prisma__ToolsClient<$Result.GetResult<Prisma.$ToolsPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Tools.
+     * @param {ToolsDeleteManyArgs} args - Arguments to filter Tools to delete.
+     * @example
+     * // Delete a few Tools
+     * const { count } = await prisma.tools.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends ToolsDeleteManyArgs>(args?: SelectSubset<T, ToolsDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Tools.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ToolsUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Tools
+     * const tools = await prisma.tools.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends ToolsUpdateManyArgs>(args: SelectSubset<T, ToolsUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Tools and returns the data updated in the database.
+     * @param {ToolsUpdateManyAndReturnArgs} args - Arguments to update many Tools.
+     * @example
+     * // Update many Tools
+     * const tools = await prisma.tools.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Tools and only return the `id`
+     * const toolsWithIdOnly = await prisma.tools.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends ToolsUpdateManyAndReturnArgs>(args: SelectSubset<T, ToolsUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ToolsPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Tools.
+     * @param {ToolsUpsertArgs} args - Arguments to update or create a Tools.
+     * @example
+     * // Update or create a Tools
+     * const tools = await prisma.tools.upsert({
+     *   create: {
+     *     // ... data to create a Tools
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Tools we want to update
+     *   }
+     * })
+     */
+    upsert<T extends ToolsUpsertArgs>(args: SelectSubset<T, ToolsUpsertArgs<ExtArgs>>): Prisma__ToolsClient<$Result.GetResult<Prisma.$ToolsPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Tools.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ToolsCountArgs} args - Arguments to filter Tools to count.
+     * @example
+     * // Count the number of Tools
+     * const count = await prisma.tools.count({
+     *   where: {
+     *     // ... the filter for the Tools we want to count
+     *   }
+     * })
+    **/
+    count<T extends ToolsCountArgs>(
+      args?: Subset<T, ToolsCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], ToolsCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Tools.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ToolsAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends ToolsAggregateArgs>(args: Subset<T, ToolsAggregateArgs>): Prisma.PrismaPromise<GetToolsAggregateType<T>>
+
+    /**
+     * Group by Tools.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ToolsGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends ToolsGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: ToolsGroupByArgs['orderBy'] }
+        : { orderBy?: ToolsGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, ToolsGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetToolsGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Tools model
+   */
+  readonly fields: ToolsFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Tools.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__ToolsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    brand<T extends BrandsDefaultArgs<ExtArgs> = {}>(args?: Subset<T, BrandsDefaultArgs<ExtArgs>>): Prisma__BrandsClient<$Result.GetResult<Prisma.$BrandsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    capacity<T extends CapacityDefaultArgs<ExtArgs> = {}>(args?: Subset<T, CapacityDefaultArgs<ExtArgs>>): Prisma__CapacityClient<$Result.GetResult<Prisma.$CapacityPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    size<T extends SizesDefaultArgs<ExtArgs> = {}>(args?: Subset<T, SizesDefaultArgs<ExtArgs>>): Prisma__SizesClient<$Result.GetResult<Prisma.$SizesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    Backet<T extends Tools$BacketArgs<ExtArgs> = {}>(args?: Subset<T, Tools$BacketArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BacketPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    OrderItems<T extends Tools$OrderItemsArgs<ExtArgs> = {}>(args?: Subset<T, Tools$OrderItemsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$OrderItemsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    ProfessionTools<T extends Tools$ProfessionToolsArgs<ExtArgs> = {}>(args?: Subset<T, Tools$ProfessionToolsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProfessionToolsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Tools model
+   */
+  interface ToolsFieldRefs {
+    readonly id: FieldRef<"Tools", 'String'>
+    readonly code: FieldRef<"Tools", 'String'>
+    readonly nameUz: FieldRef<"Tools", 'String'>
+    readonly nameRu: FieldRef<"Tools", 'String'>
+    readonly nameEn: FieldRef<"Tools", 'String'>
+    readonly descriptionUz: FieldRef<"Tools", 'String'>
+    readonly descriptionRu: FieldRef<"Tools", 'String'>
+    readonly descriptionEn: FieldRef<"Tools", 'String'>
+    readonly price: FieldRef<"Tools", 'Decimal'>
+    readonly quantity: FieldRef<"Tools", 'Int'>
+    readonly brandId: FieldRef<"Tools", 'String'>
+    readonly capacityId: FieldRef<"Tools", 'String'>
+    readonly sizeId: FieldRef<"Tools", 'String'>
+    readonly image: FieldRef<"Tools", 'String'>
+    readonly isAvailable: FieldRef<"Tools", 'Boolean'>
+    readonly createdAt: FieldRef<"Tools", 'DateTime'>
+    readonly updatedAt: FieldRef<"Tools", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Tools findUnique
+   */
+  export type ToolsFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Tools
+     */
+    select?: ToolsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Tools
+     */
+    omit?: ToolsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ToolsInclude<ExtArgs> | null
+    /**
+     * Filter, which Tools to fetch.
+     */
+    where: ToolsWhereUniqueInput
+  }
+
+  /**
+   * Tools findUniqueOrThrow
+   */
+  export type ToolsFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Tools
+     */
+    select?: ToolsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Tools
+     */
+    omit?: ToolsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ToolsInclude<ExtArgs> | null
+    /**
+     * Filter, which Tools to fetch.
+     */
+    where: ToolsWhereUniqueInput
+  }
+
+  /**
+   * Tools findFirst
+   */
+  export type ToolsFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Tools
+     */
+    select?: ToolsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Tools
+     */
+    omit?: ToolsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ToolsInclude<ExtArgs> | null
+    /**
+     * Filter, which Tools to fetch.
+     */
+    where?: ToolsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Tools to fetch.
+     */
+    orderBy?: ToolsOrderByWithRelationInput | ToolsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Tools.
+     */
+    cursor?: ToolsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Tools from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Tools.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Tools.
+     */
+    distinct?: ToolsScalarFieldEnum | ToolsScalarFieldEnum[]
+  }
+
+  /**
+   * Tools findFirstOrThrow
+   */
+  export type ToolsFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Tools
+     */
+    select?: ToolsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Tools
+     */
+    omit?: ToolsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ToolsInclude<ExtArgs> | null
+    /**
+     * Filter, which Tools to fetch.
+     */
+    where?: ToolsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Tools to fetch.
+     */
+    orderBy?: ToolsOrderByWithRelationInput | ToolsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Tools.
+     */
+    cursor?: ToolsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Tools from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Tools.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Tools.
+     */
+    distinct?: ToolsScalarFieldEnum | ToolsScalarFieldEnum[]
+  }
+
+  /**
+   * Tools findMany
+   */
+  export type ToolsFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Tools
+     */
+    select?: ToolsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Tools
+     */
+    omit?: ToolsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ToolsInclude<ExtArgs> | null
+    /**
+     * Filter, which Tools to fetch.
+     */
+    where?: ToolsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Tools to fetch.
+     */
+    orderBy?: ToolsOrderByWithRelationInput | ToolsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Tools.
+     */
+    cursor?: ToolsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Tools from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Tools.
+     */
+    skip?: number
+    distinct?: ToolsScalarFieldEnum | ToolsScalarFieldEnum[]
+  }
+
+  /**
+   * Tools create
+   */
+  export type ToolsCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Tools
+     */
+    select?: ToolsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Tools
+     */
+    omit?: ToolsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ToolsInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Tools.
+     */
+    data: XOR<ToolsCreateInput, ToolsUncheckedCreateInput>
+  }
+
+  /**
+   * Tools createMany
+   */
+  export type ToolsCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Tools.
+     */
+    data: ToolsCreateManyInput | ToolsCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Tools createManyAndReturn
+   */
+  export type ToolsCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Tools
+     */
+    select?: ToolsSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Tools
+     */
+    omit?: ToolsOmit<ExtArgs> | null
+    /**
+     * The data used to create many Tools.
+     */
+    data: ToolsCreateManyInput | ToolsCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ToolsIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Tools update
+   */
+  export type ToolsUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Tools
+     */
+    select?: ToolsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Tools
+     */
+    omit?: ToolsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ToolsInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Tools.
+     */
+    data: XOR<ToolsUpdateInput, ToolsUncheckedUpdateInput>
+    /**
+     * Choose, which Tools to update.
+     */
+    where: ToolsWhereUniqueInput
+  }
+
+  /**
+   * Tools updateMany
+   */
+  export type ToolsUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Tools.
+     */
+    data: XOR<ToolsUpdateManyMutationInput, ToolsUncheckedUpdateManyInput>
+    /**
+     * Filter which Tools to update
+     */
+    where?: ToolsWhereInput
+    /**
+     * Limit how many Tools to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Tools updateManyAndReturn
+   */
+  export type ToolsUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Tools
+     */
+    select?: ToolsSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Tools
+     */
+    omit?: ToolsOmit<ExtArgs> | null
+    /**
+     * The data used to update Tools.
+     */
+    data: XOR<ToolsUpdateManyMutationInput, ToolsUncheckedUpdateManyInput>
+    /**
+     * Filter which Tools to update
+     */
+    where?: ToolsWhereInput
+    /**
+     * Limit how many Tools to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ToolsIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Tools upsert
+   */
+  export type ToolsUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Tools
+     */
+    select?: ToolsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Tools
+     */
+    omit?: ToolsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ToolsInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Tools to update in case it exists.
+     */
+    where: ToolsWhereUniqueInput
+    /**
+     * In case the Tools found by the `where` argument doesn't exist, create a new Tools with this data.
+     */
+    create: XOR<ToolsCreateInput, ToolsUncheckedCreateInput>
+    /**
+     * In case the Tools was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<ToolsUpdateInput, ToolsUncheckedUpdateInput>
+  }
+
+  /**
+   * Tools delete
+   */
+  export type ToolsDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Tools
+     */
+    select?: ToolsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Tools
+     */
+    omit?: ToolsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ToolsInclude<ExtArgs> | null
+    /**
+     * Filter which Tools to delete.
+     */
+    where: ToolsWhereUniqueInput
+  }
+
+  /**
+   * Tools deleteMany
+   */
+  export type ToolsDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Tools to delete
+     */
+    where?: ToolsWhereInput
+    /**
+     * Limit how many Tools to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Tools.Backet
+   */
+  export type Tools$BacketArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Backet
+     */
+    select?: BacketSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Backet
+     */
+    omit?: BacketOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BacketInclude<ExtArgs> | null
+    where?: BacketWhereInput
+    orderBy?: BacketOrderByWithRelationInput | BacketOrderByWithRelationInput[]
+    cursor?: BacketWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: BacketScalarFieldEnum | BacketScalarFieldEnum[]
+  }
+
+  /**
+   * Tools.OrderItems
+   */
+  export type Tools$OrderItemsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the OrderItems
+     */
+    select?: OrderItemsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the OrderItems
+     */
+    omit?: OrderItemsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OrderItemsInclude<ExtArgs> | null
+    where?: OrderItemsWhereInput
+    orderBy?: OrderItemsOrderByWithRelationInput | OrderItemsOrderByWithRelationInput[]
+    cursor?: OrderItemsWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: OrderItemsScalarFieldEnum | OrderItemsScalarFieldEnum[]
+  }
+
+  /**
+   * Tools.ProfessionTools
+   */
+  export type Tools$ProfessionToolsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProfessionTools
+     */
+    select?: ProfessionToolsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProfessionTools
+     */
+    omit?: ProfessionToolsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfessionToolsInclude<ExtArgs> | null
+    where?: ProfessionToolsWhereInput
+    orderBy?: ProfessionToolsOrderByWithRelationInput | ProfessionToolsOrderByWithRelationInput[]
+    cursor?: ProfessionToolsWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ProfessionToolsScalarFieldEnum | ProfessionToolsScalarFieldEnum[]
+  }
+
+  /**
+   * Tools without action
+   */
+  export type ToolsDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Tools
+     */
+    select?: ToolsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Tools
+     */
+    omit?: ToolsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ToolsInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model ProfessionTools
+   */
+
+  export type AggregateProfessionTools = {
+    _count: ProfessionToolsCountAggregateOutputType | null
+    _min: ProfessionToolsMinAggregateOutputType | null
+    _max: ProfessionToolsMaxAggregateOutputType | null
+  }
+
+  export type ProfessionToolsMinAggregateOutputType = {
+    id: string | null
+    professionId: string | null
+    toolId: string | null
+  }
+
+  export type ProfessionToolsMaxAggregateOutputType = {
+    id: string | null
+    professionId: string | null
+    toolId: string | null
+  }
+
+  export type ProfessionToolsCountAggregateOutputType = {
+    id: number
+    professionId: number
+    toolId: number
+    _all: number
+  }
+
+
+  export type ProfessionToolsMinAggregateInputType = {
+    id?: true
+    professionId?: true
+    toolId?: true
+  }
+
+  export type ProfessionToolsMaxAggregateInputType = {
+    id?: true
+    professionId?: true
+    toolId?: true
+  }
+
+  export type ProfessionToolsCountAggregateInputType = {
+    id?: true
+    professionId?: true
+    toolId?: true
+    _all?: true
+  }
+
+  export type ProfessionToolsAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ProfessionTools to aggregate.
+     */
+    where?: ProfessionToolsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ProfessionTools to fetch.
+     */
+    orderBy?: ProfessionToolsOrderByWithRelationInput | ProfessionToolsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: ProfessionToolsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ProfessionTools from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ProfessionTools.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned ProfessionTools
+    **/
+    _count?: true | ProfessionToolsCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: ProfessionToolsMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: ProfessionToolsMaxAggregateInputType
+  }
+
+  export type GetProfessionToolsAggregateType<T extends ProfessionToolsAggregateArgs> = {
+        [P in keyof T & keyof AggregateProfessionTools]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateProfessionTools[P]>
+      : GetScalarType<T[P], AggregateProfessionTools[P]>
+  }
+
+
+
+
+  export type ProfessionToolsGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ProfessionToolsWhereInput
+    orderBy?: ProfessionToolsOrderByWithAggregationInput | ProfessionToolsOrderByWithAggregationInput[]
+    by: ProfessionToolsScalarFieldEnum[] | ProfessionToolsScalarFieldEnum
+    having?: ProfessionToolsScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: ProfessionToolsCountAggregateInputType | true
+    _min?: ProfessionToolsMinAggregateInputType
+    _max?: ProfessionToolsMaxAggregateInputType
+  }
+
+  export type ProfessionToolsGroupByOutputType = {
+    id: string
+    professionId: string
+    toolId: string
+    _count: ProfessionToolsCountAggregateOutputType | null
+    _min: ProfessionToolsMinAggregateOutputType | null
+    _max: ProfessionToolsMaxAggregateOutputType | null
+  }
+
+  type GetProfessionToolsGroupByPayload<T extends ProfessionToolsGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<ProfessionToolsGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof ProfessionToolsGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], ProfessionToolsGroupByOutputType[P]>
+            : GetScalarType<T[P], ProfessionToolsGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type ProfessionToolsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    professionId?: boolean
+    toolId?: boolean
+    professions?: boolean | ProfessionsDefaultArgs<ExtArgs>
+    tools?: boolean | ToolsDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["professionTools"]>
+
+  export type ProfessionToolsSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    professionId?: boolean
+    toolId?: boolean
+    professions?: boolean | ProfessionsDefaultArgs<ExtArgs>
+    tools?: boolean | ToolsDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["professionTools"]>
+
+  export type ProfessionToolsSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    professionId?: boolean
+    toolId?: boolean
+    professions?: boolean | ProfessionsDefaultArgs<ExtArgs>
+    tools?: boolean | ToolsDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["professionTools"]>
+
+  export type ProfessionToolsSelectScalar = {
+    id?: boolean
+    professionId?: boolean
+    toolId?: boolean
+  }
+
+  export type ProfessionToolsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "professionId" | "toolId", ExtArgs["result"]["professionTools"]>
+  export type ProfessionToolsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    professions?: boolean | ProfessionsDefaultArgs<ExtArgs>
+    tools?: boolean | ToolsDefaultArgs<ExtArgs>
+  }
+  export type ProfessionToolsIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    professions?: boolean | ProfessionsDefaultArgs<ExtArgs>
+    tools?: boolean | ToolsDefaultArgs<ExtArgs>
+  }
+  export type ProfessionToolsIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    professions?: boolean | ProfessionsDefaultArgs<ExtArgs>
+    tools?: boolean | ToolsDefaultArgs<ExtArgs>
+  }
+
+  export type $ProfessionToolsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "ProfessionTools"
+    objects: {
+      professions: Prisma.$ProfessionsPayload<ExtArgs>
+      tools: Prisma.$ToolsPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      professionId: string
+      toolId: string
+    }, ExtArgs["result"]["professionTools"]>
+    composites: {}
+  }
+
+  type ProfessionToolsGetPayload<S extends boolean | null | undefined | ProfessionToolsDefaultArgs> = $Result.GetResult<Prisma.$ProfessionToolsPayload, S>
+
+  type ProfessionToolsCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<ProfessionToolsFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: ProfessionToolsCountAggregateInputType | true
+    }
+
+  export interface ProfessionToolsDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['ProfessionTools'], meta: { name: 'ProfessionTools' } }
+    /**
+     * Find zero or one ProfessionTools that matches the filter.
+     * @param {ProfessionToolsFindUniqueArgs} args - Arguments to find a ProfessionTools
+     * @example
+     * // Get one ProfessionTools
+     * const professionTools = await prisma.professionTools.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends ProfessionToolsFindUniqueArgs>(args: SelectSubset<T, ProfessionToolsFindUniqueArgs<ExtArgs>>): Prisma__ProfessionToolsClient<$Result.GetResult<Prisma.$ProfessionToolsPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one ProfessionTools that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {ProfessionToolsFindUniqueOrThrowArgs} args - Arguments to find a ProfessionTools
+     * @example
+     * // Get one ProfessionTools
+     * const professionTools = await prisma.professionTools.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends ProfessionToolsFindUniqueOrThrowArgs>(args: SelectSubset<T, ProfessionToolsFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ProfessionToolsClient<$Result.GetResult<Prisma.$ProfessionToolsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first ProfessionTools that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProfessionToolsFindFirstArgs} args - Arguments to find a ProfessionTools
+     * @example
+     * // Get one ProfessionTools
+     * const professionTools = await prisma.professionTools.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends ProfessionToolsFindFirstArgs>(args?: SelectSubset<T, ProfessionToolsFindFirstArgs<ExtArgs>>): Prisma__ProfessionToolsClient<$Result.GetResult<Prisma.$ProfessionToolsPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first ProfessionTools that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProfessionToolsFindFirstOrThrowArgs} args - Arguments to find a ProfessionTools
+     * @example
+     * // Get one ProfessionTools
+     * const professionTools = await prisma.professionTools.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends ProfessionToolsFindFirstOrThrowArgs>(args?: SelectSubset<T, ProfessionToolsFindFirstOrThrowArgs<ExtArgs>>): Prisma__ProfessionToolsClient<$Result.GetResult<Prisma.$ProfessionToolsPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more ProfessionTools that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProfessionToolsFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all ProfessionTools
+     * const professionTools = await prisma.professionTools.findMany()
+     * 
+     * // Get first 10 ProfessionTools
+     * const professionTools = await prisma.professionTools.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const professionToolsWithIdOnly = await prisma.professionTools.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends ProfessionToolsFindManyArgs>(args?: SelectSubset<T, ProfessionToolsFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProfessionToolsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a ProfessionTools.
+     * @param {ProfessionToolsCreateArgs} args - Arguments to create a ProfessionTools.
+     * @example
+     * // Create one ProfessionTools
+     * const ProfessionTools = await prisma.professionTools.create({
+     *   data: {
+     *     // ... data to create a ProfessionTools
+     *   }
+     * })
+     * 
+     */
+    create<T extends ProfessionToolsCreateArgs>(args: SelectSubset<T, ProfessionToolsCreateArgs<ExtArgs>>): Prisma__ProfessionToolsClient<$Result.GetResult<Prisma.$ProfessionToolsPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many ProfessionTools.
+     * @param {ProfessionToolsCreateManyArgs} args - Arguments to create many ProfessionTools.
+     * @example
+     * // Create many ProfessionTools
+     * const professionTools = await prisma.professionTools.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends ProfessionToolsCreateManyArgs>(args?: SelectSubset<T, ProfessionToolsCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many ProfessionTools and returns the data saved in the database.
+     * @param {ProfessionToolsCreateManyAndReturnArgs} args - Arguments to create many ProfessionTools.
+     * @example
+     * // Create many ProfessionTools
+     * const professionTools = await prisma.professionTools.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many ProfessionTools and only return the `id`
+     * const professionToolsWithIdOnly = await prisma.professionTools.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends ProfessionToolsCreateManyAndReturnArgs>(args?: SelectSubset<T, ProfessionToolsCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProfessionToolsPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a ProfessionTools.
+     * @param {ProfessionToolsDeleteArgs} args - Arguments to delete one ProfessionTools.
+     * @example
+     * // Delete one ProfessionTools
+     * const ProfessionTools = await prisma.professionTools.delete({
+     *   where: {
+     *     // ... filter to delete one ProfessionTools
+     *   }
+     * })
+     * 
+     */
+    delete<T extends ProfessionToolsDeleteArgs>(args: SelectSubset<T, ProfessionToolsDeleteArgs<ExtArgs>>): Prisma__ProfessionToolsClient<$Result.GetResult<Prisma.$ProfessionToolsPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one ProfessionTools.
+     * @param {ProfessionToolsUpdateArgs} args - Arguments to update one ProfessionTools.
+     * @example
+     * // Update one ProfessionTools
+     * const professionTools = await prisma.professionTools.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends ProfessionToolsUpdateArgs>(args: SelectSubset<T, ProfessionToolsUpdateArgs<ExtArgs>>): Prisma__ProfessionToolsClient<$Result.GetResult<Prisma.$ProfessionToolsPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more ProfessionTools.
+     * @param {ProfessionToolsDeleteManyArgs} args - Arguments to filter ProfessionTools to delete.
+     * @example
+     * // Delete a few ProfessionTools
+     * const { count } = await prisma.professionTools.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends ProfessionToolsDeleteManyArgs>(args?: SelectSubset<T, ProfessionToolsDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more ProfessionTools.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProfessionToolsUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many ProfessionTools
+     * const professionTools = await prisma.professionTools.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends ProfessionToolsUpdateManyArgs>(args: SelectSubset<T, ProfessionToolsUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more ProfessionTools and returns the data updated in the database.
+     * @param {ProfessionToolsUpdateManyAndReturnArgs} args - Arguments to update many ProfessionTools.
+     * @example
+     * // Update many ProfessionTools
+     * const professionTools = await prisma.professionTools.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more ProfessionTools and only return the `id`
+     * const professionToolsWithIdOnly = await prisma.professionTools.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends ProfessionToolsUpdateManyAndReturnArgs>(args: SelectSubset<T, ProfessionToolsUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProfessionToolsPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one ProfessionTools.
+     * @param {ProfessionToolsUpsertArgs} args - Arguments to update or create a ProfessionTools.
+     * @example
+     * // Update or create a ProfessionTools
+     * const professionTools = await prisma.professionTools.upsert({
+     *   create: {
+     *     // ... data to create a ProfessionTools
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the ProfessionTools we want to update
+     *   }
+     * })
+     */
+    upsert<T extends ProfessionToolsUpsertArgs>(args: SelectSubset<T, ProfessionToolsUpsertArgs<ExtArgs>>): Prisma__ProfessionToolsClient<$Result.GetResult<Prisma.$ProfessionToolsPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of ProfessionTools.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProfessionToolsCountArgs} args - Arguments to filter ProfessionTools to count.
+     * @example
+     * // Count the number of ProfessionTools
+     * const count = await prisma.professionTools.count({
+     *   where: {
+     *     // ... the filter for the ProfessionTools we want to count
+     *   }
+     * })
+    **/
+    count<T extends ProfessionToolsCountArgs>(
+      args?: Subset<T, ProfessionToolsCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], ProfessionToolsCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a ProfessionTools.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProfessionToolsAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends ProfessionToolsAggregateArgs>(args: Subset<T, ProfessionToolsAggregateArgs>): Prisma.PrismaPromise<GetProfessionToolsAggregateType<T>>
+
+    /**
+     * Group by ProfessionTools.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProfessionToolsGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends ProfessionToolsGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: ProfessionToolsGroupByArgs['orderBy'] }
+        : { orderBy?: ProfessionToolsGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, ProfessionToolsGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetProfessionToolsGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the ProfessionTools model
+   */
+  readonly fields: ProfessionToolsFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for ProfessionTools.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__ProfessionToolsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    professions<T extends ProfessionsDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ProfessionsDefaultArgs<ExtArgs>>): Prisma__ProfessionsClient<$Result.GetResult<Prisma.$ProfessionsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    tools<T extends ToolsDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ToolsDefaultArgs<ExtArgs>>): Prisma__ToolsClient<$Result.GetResult<Prisma.$ToolsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the ProfessionTools model
+   */
+  interface ProfessionToolsFieldRefs {
+    readonly id: FieldRef<"ProfessionTools", 'String'>
+    readonly professionId: FieldRef<"ProfessionTools", 'String'>
+    readonly toolId: FieldRef<"ProfessionTools", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * ProfessionTools findUnique
+   */
+  export type ProfessionToolsFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProfessionTools
+     */
+    select?: ProfessionToolsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProfessionTools
+     */
+    omit?: ProfessionToolsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfessionToolsInclude<ExtArgs> | null
+    /**
+     * Filter, which ProfessionTools to fetch.
+     */
+    where: ProfessionToolsWhereUniqueInput
+  }
+
+  /**
+   * ProfessionTools findUniqueOrThrow
+   */
+  export type ProfessionToolsFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProfessionTools
+     */
+    select?: ProfessionToolsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProfessionTools
+     */
+    omit?: ProfessionToolsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfessionToolsInclude<ExtArgs> | null
+    /**
+     * Filter, which ProfessionTools to fetch.
+     */
+    where: ProfessionToolsWhereUniqueInput
+  }
+
+  /**
+   * ProfessionTools findFirst
+   */
+  export type ProfessionToolsFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProfessionTools
+     */
+    select?: ProfessionToolsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProfessionTools
+     */
+    omit?: ProfessionToolsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfessionToolsInclude<ExtArgs> | null
+    /**
+     * Filter, which ProfessionTools to fetch.
+     */
+    where?: ProfessionToolsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ProfessionTools to fetch.
+     */
+    orderBy?: ProfessionToolsOrderByWithRelationInput | ProfessionToolsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ProfessionTools.
+     */
+    cursor?: ProfessionToolsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ProfessionTools from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ProfessionTools.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ProfessionTools.
+     */
+    distinct?: ProfessionToolsScalarFieldEnum | ProfessionToolsScalarFieldEnum[]
+  }
+
+  /**
+   * ProfessionTools findFirstOrThrow
+   */
+  export type ProfessionToolsFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProfessionTools
+     */
+    select?: ProfessionToolsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProfessionTools
+     */
+    omit?: ProfessionToolsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfessionToolsInclude<ExtArgs> | null
+    /**
+     * Filter, which ProfessionTools to fetch.
+     */
+    where?: ProfessionToolsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ProfessionTools to fetch.
+     */
+    orderBy?: ProfessionToolsOrderByWithRelationInput | ProfessionToolsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ProfessionTools.
+     */
+    cursor?: ProfessionToolsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ProfessionTools from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ProfessionTools.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ProfessionTools.
+     */
+    distinct?: ProfessionToolsScalarFieldEnum | ProfessionToolsScalarFieldEnum[]
+  }
+
+  /**
+   * ProfessionTools findMany
+   */
+  export type ProfessionToolsFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProfessionTools
+     */
+    select?: ProfessionToolsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProfessionTools
+     */
+    omit?: ProfessionToolsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfessionToolsInclude<ExtArgs> | null
+    /**
+     * Filter, which ProfessionTools to fetch.
+     */
+    where?: ProfessionToolsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ProfessionTools to fetch.
+     */
+    orderBy?: ProfessionToolsOrderByWithRelationInput | ProfessionToolsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing ProfessionTools.
+     */
+    cursor?: ProfessionToolsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ProfessionTools from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ProfessionTools.
+     */
+    skip?: number
+    distinct?: ProfessionToolsScalarFieldEnum | ProfessionToolsScalarFieldEnum[]
+  }
+
+  /**
+   * ProfessionTools create
+   */
+  export type ProfessionToolsCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProfessionTools
+     */
+    select?: ProfessionToolsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProfessionTools
+     */
+    omit?: ProfessionToolsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfessionToolsInclude<ExtArgs> | null
+    /**
+     * The data needed to create a ProfessionTools.
+     */
+    data: XOR<ProfessionToolsCreateInput, ProfessionToolsUncheckedCreateInput>
+  }
+
+  /**
+   * ProfessionTools createMany
+   */
+  export type ProfessionToolsCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many ProfessionTools.
+     */
+    data: ProfessionToolsCreateManyInput | ProfessionToolsCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * ProfessionTools createManyAndReturn
+   */
+  export type ProfessionToolsCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProfessionTools
+     */
+    select?: ProfessionToolsSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProfessionTools
+     */
+    omit?: ProfessionToolsOmit<ExtArgs> | null
+    /**
+     * The data used to create many ProfessionTools.
+     */
+    data: ProfessionToolsCreateManyInput | ProfessionToolsCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfessionToolsIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * ProfessionTools update
+   */
+  export type ProfessionToolsUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProfessionTools
+     */
+    select?: ProfessionToolsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProfessionTools
+     */
+    omit?: ProfessionToolsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfessionToolsInclude<ExtArgs> | null
+    /**
+     * The data needed to update a ProfessionTools.
+     */
+    data: XOR<ProfessionToolsUpdateInput, ProfessionToolsUncheckedUpdateInput>
+    /**
+     * Choose, which ProfessionTools to update.
+     */
+    where: ProfessionToolsWhereUniqueInput
+  }
+
+  /**
+   * ProfessionTools updateMany
+   */
+  export type ProfessionToolsUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update ProfessionTools.
+     */
+    data: XOR<ProfessionToolsUpdateManyMutationInput, ProfessionToolsUncheckedUpdateManyInput>
+    /**
+     * Filter which ProfessionTools to update
+     */
+    where?: ProfessionToolsWhereInput
+    /**
+     * Limit how many ProfessionTools to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * ProfessionTools updateManyAndReturn
+   */
+  export type ProfessionToolsUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProfessionTools
+     */
+    select?: ProfessionToolsSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProfessionTools
+     */
+    omit?: ProfessionToolsOmit<ExtArgs> | null
+    /**
+     * The data used to update ProfessionTools.
+     */
+    data: XOR<ProfessionToolsUpdateManyMutationInput, ProfessionToolsUncheckedUpdateManyInput>
+    /**
+     * Filter which ProfessionTools to update
+     */
+    where?: ProfessionToolsWhereInput
+    /**
+     * Limit how many ProfessionTools to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfessionToolsIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * ProfessionTools upsert
+   */
+  export type ProfessionToolsUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProfessionTools
+     */
+    select?: ProfessionToolsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProfessionTools
+     */
+    omit?: ProfessionToolsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfessionToolsInclude<ExtArgs> | null
+    /**
+     * The filter to search for the ProfessionTools to update in case it exists.
+     */
+    where: ProfessionToolsWhereUniqueInput
+    /**
+     * In case the ProfessionTools found by the `where` argument doesn't exist, create a new ProfessionTools with this data.
+     */
+    create: XOR<ProfessionToolsCreateInput, ProfessionToolsUncheckedCreateInput>
+    /**
+     * In case the ProfessionTools was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<ProfessionToolsUpdateInput, ProfessionToolsUncheckedUpdateInput>
+  }
+
+  /**
+   * ProfessionTools delete
+   */
+  export type ProfessionToolsDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProfessionTools
+     */
+    select?: ProfessionToolsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProfessionTools
+     */
+    omit?: ProfessionToolsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfessionToolsInclude<ExtArgs> | null
+    /**
+     * Filter which ProfessionTools to delete.
+     */
+    where: ProfessionToolsWhereUniqueInput
+  }
+
+  /**
+   * ProfessionTools deleteMany
+   */
+  export type ProfessionToolsDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ProfessionTools to delete
+     */
+    where?: ProfessionToolsWhereInput
+    /**
+     * Limit how many ProfessionTools to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * ProfessionTools without action
+   */
+  export type ProfessionToolsDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProfessionTools
+     */
+    select?: ProfessionToolsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProfessionTools
+     */
+    omit?: ProfessionToolsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfessionToolsInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Backet
+   */
+
+  export type AggregateBacket = {
+    _count: BacketCountAggregateOutputType | null
+    _avg: BacketAvgAggregateOutputType | null
+    _sum: BacketSumAggregateOutputType | null
+    _min: BacketMinAggregateOutputType | null
+    _max: BacketMaxAggregateOutputType | null
+  }
+
+  export type BacketAvgAggregateOutputType = {
+    count: number | null
+    workingTime: number | null
+    totalPrice: Decimal | null
+  }
+
+  export type BacketSumAggregateOutputType = {
+    count: number | null
+    workingTime: number | null
+    totalPrice: Decimal | null
+  }
+
+  export type BacketMinAggregateOutputType = {
+    id: string | null
+    ownerId: string | null
+    professionId: string | null
+    toolId: string | null
+    count: number | null
+    measure: $Enums.BacketMeasure | null
+    workingTime: number | null
+    totalPrice: Decimal | null
+    levelId: string | null
+  }
+
+  export type BacketMaxAggregateOutputType = {
+    id: string | null
+    ownerId: string | null
+    professionId: string | null
+    toolId: string | null
+    count: number | null
+    measure: $Enums.BacketMeasure | null
+    workingTime: number | null
+    totalPrice: Decimal | null
+    levelId: string | null
+  }
+
+  export type BacketCountAggregateOutputType = {
+    id: number
+    ownerId: number
+    professionId: number
+    toolId: number
+    count: number
+    measure: number
+    workingTime: number
+    totalPrice: number
+    levelId: number
+    _all: number
+  }
+
+
+  export type BacketAvgAggregateInputType = {
+    count?: true
+    workingTime?: true
+    totalPrice?: true
+  }
+
+  export type BacketSumAggregateInputType = {
+    count?: true
+    workingTime?: true
+    totalPrice?: true
+  }
+
+  export type BacketMinAggregateInputType = {
+    id?: true
+    ownerId?: true
+    professionId?: true
+    toolId?: true
+    count?: true
+    measure?: true
+    workingTime?: true
+    totalPrice?: true
+    levelId?: true
+  }
+
+  export type BacketMaxAggregateInputType = {
+    id?: true
+    ownerId?: true
+    professionId?: true
+    toolId?: true
+    count?: true
+    measure?: true
+    workingTime?: true
+    totalPrice?: true
+    levelId?: true
+  }
+
+  export type BacketCountAggregateInputType = {
+    id?: true
+    ownerId?: true
+    professionId?: true
+    toolId?: true
+    count?: true
+    measure?: true
+    workingTime?: true
+    totalPrice?: true
+    levelId?: true
+    _all?: true
+  }
+
+  export type BacketAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Backet to aggregate.
+     */
+    where?: BacketWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Backets to fetch.
+     */
+    orderBy?: BacketOrderByWithRelationInput | BacketOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: BacketWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Backets from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Backets.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Backets
+    **/
+    _count?: true | BacketCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: BacketAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: BacketSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: BacketMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: BacketMaxAggregateInputType
+  }
+
+  export type GetBacketAggregateType<T extends BacketAggregateArgs> = {
+        [P in keyof T & keyof AggregateBacket]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateBacket[P]>
+      : GetScalarType<T[P], AggregateBacket[P]>
+  }
+
+
+
+
+  export type BacketGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: BacketWhereInput
+    orderBy?: BacketOrderByWithAggregationInput | BacketOrderByWithAggregationInput[]
+    by: BacketScalarFieldEnum[] | BacketScalarFieldEnum
+    having?: BacketScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: BacketCountAggregateInputType | true
+    _avg?: BacketAvgAggregateInputType
+    _sum?: BacketSumAggregateInputType
+    _min?: BacketMinAggregateInputType
+    _max?: BacketMaxAggregateInputType
+  }
+
+  export type BacketGroupByOutputType = {
+    id: string
+    ownerId: string
+    professionId: string
+    toolId: string
+    count: number
+    measure: $Enums.BacketMeasure
+    workingTime: number
+    totalPrice: Decimal
+    levelId: string
+    _count: BacketCountAggregateOutputType | null
+    _avg: BacketAvgAggregateOutputType | null
+    _sum: BacketSumAggregateOutputType | null
+    _min: BacketMinAggregateOutputType | null
+    _max: BacketMaxAggregateOutputType | null
+  }
+
+  type GetBacketGroupByPayload<T extends BacketGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<BacketGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof BacketGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], BacketGroupByOutputType[P]>
+            : GetScalarType<T[P], BacketGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type BacketSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    ownerId?: boolean
+    professionId?: boolean
+    toolId?: boolean
+    count?: boolean
+    measure?: boolean
+    workingTime?: boolean
+    totalPrice?: boolean
+    levelId?: boolean
+    owner?: boolean | UsersDefaultArgs<ExtArgs>
+    profession?: boolean | ProfessionsDefaultArgs<ExtArgs>
+    tools?: boolean | ToolsDefaultArgs<ExtArgs>
+    level?: boolean | LevelsDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["backet"]>
+
+  export type BacketSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    ownerId?: boolean
+    professionId?: boolean
+    toolId?: boolean
+    count?: boolean
+    measure?: boolean
+    workingTime?: boolean
+    totalPrice?: boolean
+    levelId?: boolean
+    owner?: boolean | UsersDefaultArgs<ExtArgs>
+    profession?: boolean | ProfessionsDefaultArgs<ExtArgs>
+    tools?: boolean | ToolsDefaultArgs<ExtArgs>
+    level?: boolean | LevelsDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["backet"]>
+
+  export type BacketSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    ownerId?: boolean
+    professionId?: boolean
+    toolId?: boolean
+    count?: boolean
+    measure?: boolean
+    workingTime?: boolean
+    totalPrice?: boolean
+    levelId?: boolean
+    owner?: boolean | UsersDefaultArgs<ExtArgs>
+    profession?: boolean | ProfessionsDefaultArgs<ExtArgs>
+    tools?: boolean | ToolsDefaultArgs<ExtArgs>
+    level?: boolean | LevelsDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["backet"]>
+
+  export type BacketSelectScalar = {
+    id?: boolean
+    ownerId?: boolean
+    professionId?: boolean
+    toolId?: boolean
+    count?: boolean
+    measure?: boolean
+    workingTime?: boolean
+    totalPrice?: boolean
+    levelId?: boolean
+  }
+
+  export type BacketOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "ownerId" | "professionId" | "toolId" | "count" | "measure" | "workingTime" | "totalPrice" | "levelId", ExtArgs["result"]["backet"]>
+  export type BacketInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    owner?: boolean | UsersDefaultArgs<ExtArgs>
+    profession?: boolean | ProfessionsDefaultArgs<ExtArgs>
+    tools?: boolean | ToolsDefaultArgs<ExtArgs>
+    level?: boolean | LevelsDefaultArgs<ExtArgs>
+  }
+  export type BacketIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    owner?: boolean | UsersDefaultArgs<ExtArgs>
+    profession?: boolean | ProfessionsDefaultArgs<ExtArgs>
+    tools?: boolean | ToolsDefaultArgs<ExtArgs>
+    level?: boolean | LevelsDefaultArgs<ExtArgs>
+  }
+  export type BacketIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    owner?: boolean | UsersDefaultArgs<ExtArgs>
+    profession?: boolean | ProfessionsDefaultArgs<ExtArgs>
+    tools?: boolean | ToolsDefaultArgs<ExtArgs>
+    level?: boolean | LevelsDefaultArgs<ExtArgs>
+  }
+
+  export type $BacketPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Backet"
+    objects: {
+      owner: Prisma.$UsersPayload<ExtArgs>
+      profession: Prisma.$ProfessionsPayload<ExtArgs>
+      tools: Prisma.$ToolsPayload<ExtArgs>
+      level: Prisma.$LevelsPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      ownerId: string
+      professionId: string
+      toolId: string
+      count: number
+      measure: $Enums.BacketMeasure
+      workingTime: number
+      totalPrice: Prisma.Decimal
+      levelId: string
+    }, ExtArgs["result"]["backet"]>
+    composites: {}
+  }
+
+  type BacketGetPayload<S extends boolean | null | undefined | BacketDefaultArgs> = $Result.GetResult<Prisma.$BacketPayload, S>
+
+  type BacketCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<BacketFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: BacketCountAggregateInputType | true
+    }
+
+  export interface BacketDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Backet'], meta: { name: 'Backet' } }
+    /**
+     * Find zero or one Backet that matches the filter.
+     * @param {BacketFindUniqueArgs} args - Arguments to find a Backet
+     * @example
+     * // Get one Backet
+     * const backet = await prisma.backet.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends BacketFindUniqueArgs>(args: SelectSubset<T, BacketFindUniqueArgs<ExtArgs>>): Prisma__BacketClient<$Result.GetResult<Prisma.$BacketPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Backet that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {BacketFindUniqueOrThrowArgs} args - Arguments to find a Backet
+     * @example
+     * // Get one Backet
+     * const backet = await prisma.backet.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends BacketFindUniqueOrThrowArgs>(args: SelectSubset<T, BacketFindUniqueOrThrowArgs<ExtArgs>>): Prisma__BacketClient<$Result.GetResult<Prisma.$BacketPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Backet that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BacketFindFirstArgs} args - Arguments to find a Backet
+     * @example
+     * // Get one Backet
+     * const backet = await prisma.backet.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends BacketFindFirstArgs>(args?: SelectSubset<T, BacketFindFirstArgs<ExtArgs>>): Prisma__BacketClient<$Result.GetResult<Prisma.$BacketPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Backet that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BacketFindFirstOrThrowArgs} args - Arguments to find a Backet
+     * @example
+     * // Get one Backet
+     * const backet = await prisma.backet.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends BacketFindFirstOrThrowArgs>(args?: SelectSubset<T, BacketFindFirstOrThrowArgs<ExtArgs>>): Prisma__BacketClient<$Result.GetResult<Prisma.$BacketPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Backets that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BacketFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Backets
+     * const backets = await prisma.backet.findMany()
+     * 
+     * // Get first 10 Backets
+     * const backets = await prisma.backet.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const backetWithIdOnly = await prisma.backet.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends BacketFindManyArgs>(args?: SelectSubset<T, BacketFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BacketPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Backet.
+     * @param {BacketCreateArgs} args - Arguments to create a Backet.
+     * @example
+     * // Create one Backet
+     * const Backet = await prisma.backet.create({
+     *   data: {
+     *     // ... data to create a Backet
+     *   }
+     * })
+     * 
+     */
+    create<T extends BacketCreateArgs>(args: SelectSubset<T, BacketCreateArgs<ExtArgs>>): Prisma__BacketClient<$Result.GetResult<Prisma.$BacketPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Backets.
+     * @param {BacketCreateManyArgs} args - Arguments to create many Backets.
+     * @example
+     * // Create many Backets
+     * const backet = await prisma.backet.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends BacketCreateManyArgs>(args?: SelectSubset<T, BacketCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Backets and returns the data saved in the database.
+     * @param {BacketCreateManyAndReturnArgs} args - Arguments to create many Backets.
+     * @example
+     * // Create many Backets
+     * const backet = await prisma.backet.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Backets and only return the `id`
+     * const backetWithIdOnly = await prisma.backet.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends BacketCreateManyAndReturnArgs>(args?: SelectSubset<T, BacketCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BacketPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Backet.
+     * @param {BacketDeleteArgs} args - Arguments to delete one Backet.
+     * @example
+     * // Delete one Backet
+     * const Backet = await prisma.backet.delete({
+     *   where: {
+     *     // ... filter to delete one Backet
+     *   }
+     * })
+     * 
+     */
+    delete<T extends BacketDeleteArgs>(args: SelectSubset<T, BacketDeleteArgs<ExtArgs>>): Prisma__BacketClient<$Result.GetResult<Prisma.$BacketPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Backet.
+     * @param {BacketUpdateArgs} args - Arguments to update one Backet.
+     * @example
+     * // Update one Backet
+     * const backet = await prisma.backet.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends BacketUpdateArgs>(args: SelectSubset<T, BacketUpdateArgs<ExtArgs>>): Prisma__BacketClient<$Result.GetResult<Prisma.$BacketPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Backets.
+     * @param {BacketDeleteManyArgs} args - Arguments to filter Backets to delete.
+     * @example
+     * // Delete a few Backets
+     * const { count } = await prisma.backet.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends BacketDeleteManyArgs>(args?: SelectSubset<T, BacketDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Backets.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BacketUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Backets
+     * const backet = await prisma.backet.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends BacketUpdateManyArgs>(args: SelectSubset<T, BacketUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Backets and returns the data updated in the database.
+     * @param {BacketUpdateManyAndReturnArgs} args - Arguments to update many Backets.
+     * @example
+     * // Update many Backets
+     * const backet = await prisma.backet.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Backets and only return the `id`
+     * const backetWithIdOnly = await prisma.backet.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends BacketUpdateManyAndReturnArgs>(args: SelectSubset<T, BacketUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BacketPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Backet.
+     * @param {BacketUpsertArgs} args - Arguments to update or create a Backet.
+     * @example
+     * // Update or create a Backet
+     * const backet = await prisma.backet.upsert({
+     *   create: {
+     *     // ... data to create a Backet
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Backet we want to update
+     *   }
+     * })
+     */
+    upsert<T extends BacketUpsertArgs>(args: SelectSubset<T, BacketUpsertArgs<ExtArgs>>): Prisma__BacketClient<$Result.GetResult<Prisma.$BacketPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Backets.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BacketCountArgs} args - Arguments to filter Backets to count.
+     * @example
+     * // Count the number of Backets
+     * const count = await prisma.backet.count({
+     *   where: {
+     *     // ... the filter for the Backets we want to count
+     *   }
+     * })
+    **/
+    count<T extends BacketCountArgs>(
+      args?: Subset<T, BacketCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], BacketCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Backet.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BacketAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends BacketAggregateArgs>(args: Subset<T, BacketAggregateArgs>): Prisma.PrismaPromise<GetBacketAggregateType<T>>
+
+    /**
+     * Group by Backet.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BacketGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends BacketGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: BacketGroupByArgs['orderBy'] }
+        : { orderBy?: BacketGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, BacketGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetBacketGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Backet model
+   */
+  readonly fields: BacketFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Backet.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__BacketClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    owner<T extends UsersDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UsersDefaultArgs<ExtArgs>>): Prisma__UsersClient<$Result.GetResult<Prisma.$UsersPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    profession<T extends ProfessionsDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ProfessionsDefaultArgs<ExtArgs>>): Prisma__ProfessionsClient<$Result.GetResult<Prisma.$ProfessionsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    tools<T extends ToolsDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ToolsDefaultArgs<ExtArgs>>): Prisma__ToolsClient<$Result.GetResult<Prisma.$ToolsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    level<T extends LevelsDefaultArgs<ExtArgs> = {}>(args?: Subset<T, LevelsDefaultArgs<ExtArgs>>): Prisma__LevelsClient<$Result.GetResult<Prisma.$LevelsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Backet model
+   */
+  interface BacketFieldRefs {
+    readonly id: FieldRef<"Backet", 'String'>
+    readonly ownerId: FieldRef<"Backet", 'String'>
+    readonly professionId: FieldRef<"Backet", 'String'>
+    readonly toolId: FieldRef<"Backet", 'String'>
+    readonly count: FieldRef<"Backet", 'Int'>
+    readonly measure: FieldRef<"Backet", 'BacketMeasure'>
+    readonly workingTime: FieldRef<"Backet", 'Int'>
+    readonly totalPrice: FieldRef<"Backet", 'Decimal'>
+    readonly levelId: FieldRef<"Backet", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Backet findUnique
+   */
+  export type BacketFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Backet
+     */
+    select?: BacketSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Backet
+     */
+    omit?: BacketOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BacketInclude<ExtArgs> | null
+    /**
+     * Filter, which Backet to fetch.
+     */
+    where: BacketWhereUniqueInput
+  }
+
+  /**
+   * Backet findUniqueOrThrow
+   */
+  export type BacketFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Backet
+     */
+    select?: BacketSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Backet
+     */
+    omit?: BacketOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BacketInclude<ExtArgs> | null
+    /**
+     * Filter, which Backet to fetch.
+     */
+    where: BacketWhereUniqueInput
+  }
+
+  /**
+   * Backet findFirst
+   */
+  export type BacketFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Backet
+     */
+    select?: BacketSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Backet
+     */
+    omit?: BacketOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BacketInclude<ExtArgs> | null
+    /**
+     * Filter, which Backet to fetch.
+     */
+    where?: BacketWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Backets to fetch.
+     */
+    orderBy?: BacketOrderByWithRelationInput | BacketOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Backets.
+     */
+    cursor?: BacketWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Backets from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Backets.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Backets.
+     */
+    distinct?: BacketScalarFieldEnum | BacketScalarFieldEnum[]
+  }
+
+  /**
+   * Backet findFirstOrThrow
+   */
+  export type BacketFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Backet
+     */
+    select?: BacketSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Backet
+     */
+    omit?: BacketOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BacketInclude<ExtArgs> | null
+    /**
+     * Filter, which Backet to fetch.
+     */
+    where?: BacketWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Backets to fetch.
+     */
+    orderBy?: BacketOrderByWithRelationInput | BacketOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Backets.
+     */
+    cursor?: BacketWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Backets from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Backets.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Backets.
+     */
+    distinct?: BacketScalarFieldEnum | BacketScalarFieldEnum[]
+  }
+
+  /**
+   * Backet findMany
+   */
+  export type BacketFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Backet
+     */
+    select?: BacketSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Backet
+     */
+    omit?: BacketOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BacketInclude<ExtArgs> | null
+    /**
+     * Filter, which Backets to fetch.
+     */
+    where?: BacketWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Backets to fetch.
+     */
+    orderBy?: BacketOrderByWithRelationInput | BacketOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Backets.
+     */
+    cursor?: BacketWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Backets from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Backets.
+     */
+    skip?: number
+    distinct?: BacketScalarFieldEnum | BacketScalarFieldEnum[]
+  }
+
+  /**
+   * Backet create
+   */
+  export type BacketCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Backet
+     */
+    select?: BacketSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Backet
+     */
+    omit?: BacketOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BacketInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Backet.
+     */
+    data: XOR<BacketCreateInput, BacketUncheckedCreateInput>
+  }
+
+  /**
+   * Backet createMany
+   */
+  export type BacketCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Backets.
+     */
+    data: BacketCreateManyInput | BacketCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Backet createManyAndReturn
+   */
+  export type BacketCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Backet
+     */
+    select?: BacketSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Backet
+     */
+    omit?: BacketOmit<ExtArgs> | null
+    /**
+     * The data used to create many Backets.
+     */
+    data: BacketCreateManyInput | BacketCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BacketIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Backet update
+   */
+  export type BacketUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Backet
+     */
+    select?: BacketSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Backet
+     */
+    omit?: BacketOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BacketInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Backet.
+     */
+    data: XOR<BacketUpdateInput, BacketUncheckedUpdateInput>
+    /**
+     * Choose, which Backet to update.
+     */
+    where: BacketWhereUniqueInput
+  }
+
+  /**
+   * Backet updateMany
+   */
+  export type BacketUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Backets.
+     */
+    data: XOR<BacketUpdateManyMutationInput, BacketUncheckedUpdateManyInput>
+    /**
+     * Filter which Backets to update
+     */
+    where?: BacketWhereInput
+    /**
+     * Limit how many Backets to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Backet updateManyAndReturn
+   */
+  export type BacketUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Backet
+     */
+    select?: BacketSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Backet
+     */
+    omit?: BacketOmit<ExtArgs> | null
+    /**
+     * The data used to update Backets.
+     */
+    data: XOR<BacketUpdateManyMutationInput, BacketUncheckedUpdateManyInput>
+    /**
+     * Filter which Backets to update
+     */
+    where?: BacketWhereInput
+    /**
+     * Limit how many Backets to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BacketIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Backet upsert
+   */
+  export type BacketUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Backet
+     */
+    select?: BacketSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Backet
+     */
+    omit?: BacketOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BacketInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Backet to update in case it exists.
+     */
+    where: BacketWhereUniqueInput
+    /**
+     * In case the Backet found by the `where` argument doesn't exist, create a new Backet with this data.
+     */
+    create: XOR<BacketCreateInput, BacketUncheckedCreateInput>
+    /**
+     * In case the Backet was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<BacketUpdateInput, BacketUncheckedUpdateInput>
+  }
+
+  /**
+   * Backet delete
+   */
+  export type BacketDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Backet
+     */
+    select?: BacketSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Backet
+     */
+    omit?: BacketOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BacketInclude<ExtArgs> | null
+    /**
+     * Filter which Backet to delete.
+     */
+    where: BacketWhereUniqueInput
+  }
+
+  /**
+   * Backet deleteMany
+   */
+  export type BacketDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Backets to delete
+     */
+    where?: BacketWhereInput
+    /**
+     * Limit how many Backets to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Backet without action
+   */
+  export type BacketDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Backet
+     */
+    select?: BacketSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Backet
+     */
+    omit?: BacketOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BacketInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Orders
+   */
+
+  export type AggregateOrders = {
+    _count: OrdersCountAggregateOutputType | null
+    _avg: OrdersAvgAggregateOutputType | null
+    _sum: OrdersSumAggregateOutputType | null
+    _min: OrdersMinAggregateOutputType | null
+    _max: OrdersMaxAggregateOutputType | null
+  }
+
+  export type OrdersAvgAggregateOutputType = {
+    totalPrice: Decimal | null
+  }
+
+  export type OrdersSumAggregateOutputType = {
+    totalPrice: Decimal | null
+  }
+
+  export type OrdersMinAggregateOutputType = {
+    id: string | null
+    ownerId: string | null
+    address: string | null
+    latitude: string | null
+    longitude: string | null
+    date: Date | null
+    totalPrice: Decimal | null
+    paymentType: $Enums.PaymentType | null
+    withDelivery: boolean | null
+    status: $Enums.OrderStatus | null
+    deliveryCommentId: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type OrdersMaxAggregateOutputType = {
+    id: string | null
+    ownerId: string | null
+    address: string | null
+    latitude: string | null
+    longitude: string | null
+    date: Date | null
+    totalPrice: Decimal | null
+    paymentType: $Enums.PaymentType | null
+    withDelivery: boolean | null
+    status: $Enums.OrderStatus | null
+    deliveryCommentId: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type OrdersCountAggregateOutputType = {
+    id: number
+    ownerId: number
+    address: number
+    latitude: number
+    longitude: number
+    date: number
+    totalPrice: number
+    paymentType: number
+    withDelivery: number
+    status: number
+    deliveryCommentId: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type OrdersAvgAggregateInputType = {
+    totalPrice?: true
+  }
+
+  export type OrdersSumAggregateInputType = {
+    totalPrice?: true
+  }
+
+  export type OrdersMinAggregateInputType = {
+    id?: true
+    ownerId?: true
+    address?: true
+    latitude?: true
+    longitude?: true
+    date?: true
+    totalPrice?: true
+    paymentType?: true
+    withDelivery?: true
+    status?: true
+    deliveryCommentId?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type OrdersMaxAggregateInputType = {
+    id?: true
+    ownerId?: true
+    address?: true
+    latitude?: true
+    longitude?: true
+    date?: true
+    totalPrice?: true
+    paymentType?: true
+    withDelivery?: true
+    status?: true
+    deliveryCommentId?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type OrdersCountAggregateInputType = {
+    id?: true
+    ownerId?: true
+    address?: true
+    latitude?: true
+    longitude?: true
+    date?: true
+    totalPrice?: true
+    paymentType?: true
+    withDelivery?: true
+    status?: true
+    deliveryCommentId?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type OrdersAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Orders to aggregate.
+     */
+    where?: OrdersWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Orders to fetch.
+     */
+    orderBy?: OrdersOrderByWithRelationInput | OrdersOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: OrdersWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Orders from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Orders.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Orders
+    **/
+    _count?: true | OrdersCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: OrdersAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: OrdersSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: OrdersMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: OrdersMaxAggregateInputType
+  }
+
+  export type GetOrdersAggregateType<T extends OrdersAggregateArgs> = {
+        [P in keyof T & keyof AggregateOrders]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateOrders[P]>
+      : GetScalarType<T[P], AggregateOrders[P]>
+  }
+
+
+
+
+  export type OrdersGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: OrdersWhereInput
+    orderBy?: OrdersOrderByWithAggregationInput | OrdersOrderByWithAggregationInput[]
+    by: OrdersScalarFieldEnum[] | OrdersScalarFieldEnum
+    having?: OrdersScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: OrdersCountAggregateInputType | true
+    _avg?: OrdersAvgAggregateInputType
+    _sum?: OrdersSumAggregateInputType
+    _min?: OrdersMinAggregateInputType
+    _max?: OrdersMaxAggregateInputType
+  }
+
+  export type OrdersGroupByOutputType = {
+    id: string
+    ownerId: string
+    address: string
+    latitude: string
+    longitude: string
+    date: Date
+    totalPrice: Decimal
+    paymentType: $Enums.PaymentType
+    withDelivery: boolean
+    status: $Enums.OrderStatus
+    deliveryCommentId: string | null
+    createdAt: Date
+    updatedAt: Date
+    _count: OrdersCountAggregateOutputType | null
+    _avg: OrdersAvgAggregateOutputType | null
+    _sum: OrdersSumAggregateOutputType | null
+    _min: OrdersMinAggregateOutputType | null
+    _max: OrdersMaxAggregateOutputType | null
+  }
+
+  type GetOrdersGroupByPayload<T extends OrdersGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<OrdersGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof OrdersGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], OrdersGroupByOutputType[P]>
+            : GetScalarType<T[P], OrdersGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type OrdersSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    ownerId?: boolean
+    address?: boolean
+    latitude?: boolean
+    longitude?: boolean
+    date?: boolean
+    totalPrice?: boolean
+    paymentType?: boolean
+    withDelivery?: boolean
+    status?: boolean
+    deliveryCommentId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    deliveryComment?: boolean | Orders$deliveryCommentArgs<ExtArgs>
+    OrderItems?: boolean | Orders$OrderItemsArgs<ExtArgs>
+    _count?: boolean | OrdersCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["orders"]>
+
+  export type OrdersSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    ownerId?: boolean
+    address?: boolean
+    latitude?: boolean
+    longitude?: boolean
+    date?: boolean
+    totalPrice?: boolean
+    paymentType?: boolean
+    withDelivery?: boolean
+    status?: boolean
+    deliveryCommentId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    deliveryComment?: boolean | Orders$deliveryCommentArgs<ExtArgs>
+  }, ExtArgs["result"]["orders"]>
+
+  export type OrdersSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    ownerId?: boolean
+    address?: boolean
+    latitude?: boolean
+    longitude?: boolean
+    date?: boolean
+    totalPrice?: boolean
+    paymentType?: boolean
+    withDelivery?: boolean
+    status?: boolean
+    deliveryCommentId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    deliveryComment?: boolean | Orders$deliveryCommentArgs<ExtArgs>
+  }, ExtArgs["result"]["orders"]>
+
+  export type OrdersSelectScalar = {
+    id?: boolean
+    ownerId?: boolean
+    address?: boolean
+    latitude?: boolean
+    longitude?: boolean
+    date?: boolean
+    totalPrice?: boolean
+    paymentType?: boolean
+    withDelivery?: boolean
+    status?: boolean
+    deliveryCommentId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type OrdersOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "ownerId" | "address" | "latitude" | "longitude" | "date" | "totalPrice" | "paymentType" | "withDelivery" | "status" | "deliveryCommentId" | "createdAt" | "updatedAt", ExtArgs["result"]["orders"]>
+  export type OrdersInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    deliveryComment?: boolean | Orders$deliveryCommentArgs<ExtArgs>
+    OrderItems?: boolean | Orders$OrderItemsArgs<ExtArgs>
+    _count?: boolean | OrdersCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type OrdersIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    deliveryComment?: boolean | Orders$deliveryCommentArgs<ExtArgs>
+  }
+  export type OrdersIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    deliveryComment?: boolean | Orders$deliveryCommentArgs<ExtArgs>
+  }
+
+  export type $OrdersPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Orders"
+    objects: {
+      deliveryComment: Prisma.$CommentsPayload<ExtArgs> | null
+      OrderItems: Prisma.$OrderItemsPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      ownerId: string
+      address: string
+      latitude: string
+      longitude: string
+      date: Date
+      totalPrice: Prisma.Decimal
+      paymentType: $Enums.PaymentType
+      withDelivery: boolean
+      status: $Enums.OrderStatus
+      deliveryCommentId: string | null
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["orders"]>
+    composites: {}
+  }
+
+  type OrdersGetPayload<S extends boolean | null | undefined | OrdersDefaultArgs> = $Result.GetResult<Prisma.$OrdersPayload, S>
+
+  type OrdersCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<OrdersFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: OrdersCountAggregateInputType | true
+    }
+
+  export interface OrdersDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Orders'], meta: { name: 'Orders' } }
+    /**
+     * Find zero or one Orders that matches the filter.
+     * @param {OrdersFindUniqueArgs} args - Arguments to find a Orders
+     * @example
+     * // Get one Orders
+     * const orders = await prisma.orders.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends OrdersFindUniqueArgs>(args: SelectSubset<T, OrdersFindUniqueArgs<ExtArgs>>): Prisma__OrdersClient<$Result.GetResult<Prisma.$OrdersPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Orders that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {OrdersFindUniqueOrThrowArgs} args - Arguments to find a Orders
+     * @example
+     * // Get one Orders
+     * const orders = await prisma.orders.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends OrdersFindUniqueOrThrowArgs>(args: SelectSubset<T, OrdersFindUniqueOrThrowArgs<ExtArgs>>): Prisma__OrdersClient<$Result.GetResult<Prisma.$OrdersPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Orders that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {OrdersFindFirstArgs} args - Arguments to find a Orders
+     * @example
+     * // Get one Orders
+     * const orders = await prisma.orders.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends OrdersFindFirstArgs>(args?: SelectSubset<T, OrdersFindFirstArgs<ExtArgs>>): Prisma__OrdersClient<$Result.GetResult<Prisma.$OrdersPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Orders that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {OrdersFindFirstOrThrowArgs} args - Arguments to find a Orders
+     * @example
+     * // Get one Orders
+     * const orders = await prisma.orders.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends OrdersFindFirstOrThrowArgs>(args?: SelectSubset<T, OrdersFindFirstOrThrowArgs<ExtArgs>>): Prisma__OrdersClient<$Result.GetResult<Prisma.$OrdersPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Orders that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {OrdersFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Orders
+     * const orders = await prisma.orders.findMany()
+     * 
+     * // Get first 10 Orders
+     * const orders = await prisma.orders.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const ordersWithIdOnly = await prisma.orders.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends OrdersFindManyArgs>(args?: SelectSubset<T, OrdersFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$OrdersPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Orders.
+     * @param {OrdersCreateArgs} args - Arguments to create a Orders.
+     * @example
+     * // Create one Orders
+     * const Orders = await prisma.orders.create({
+     *   data: {
+     *     // ... data to create a Orders
+     *   }
+     * })
+     * 
+     */
+    create<T extends OrdersCreateArgs>(args: SelectSubset<T, OrdersCreateArgs<ExtArgs>>): Prisma__OrdersClient<$Result.GetResult<Prisma.$OrdersPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Orders.
+     * @param {OrdersCreateManyArgs} args - Arguments to create many Orders.
+     * @example
+     * // Create many Orders
+     * const orders = await prisma.orders.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends OrdersCreateManyArgs>(args?: SelectSubset<T, OrdersCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Orders and returns the data saved in the database.
+     * @param {OrdersCreateManyAndReturnArgs} args - Arguments to create many Orders.
+     * @example
+     * // Create many Orders
+     * const orders = await prisma.orders.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Orders and only return the `id`
+     * const ordersWithIdOnly = await prisma.orders.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends OrdersCreateManyAndReturnArgs>(args?: SelectSubset<T, OrdersCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$OrdersPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Orders.
+     * @param {OrdersDeleteArgs} args - Arguments to delete one Orders.
+     * @example
+     * // Delete one Orders
+     * const Orders = await prisma.orders.delete({
+     *   where: {
+     *     // ... filter to delete one Orders
+     *   }
+     * })
+     * 
+     */
+    delete<T extends OrdersDeleteArgs>(args: SelectSubset<T, OrdersDeleteArgs<ExtArgs>>): Prisma__OrdersClient<$Result.GetResult<Prisma.$OrdersPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Orders.
+     * @param {OrdersUpdateArgs} args - Arguments to update one Orders.
+     * @example
+     * // Update one Orders
+     * const orders = await prisma.orders.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends OrdersUpdateArgs>(args: SelectSubset<T, OrdersUpdateArgs<ExtArgs>>): Prisma__OrdersClient<$Result.GetResult<Prisma.$OrdersPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Orders.
+     * @param {OrdersDeleteManyArgs} args - Arguments to filter Orders to delete.
+     * @example
+     * // Delete a few Orders
+     * const { count } = await prisma.orders.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends OrdersDeleteManyArgs>(args?: SelectSubset<T, OrdersDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Orders.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {OrdersUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Orders
+     * const orders = await prisma.orders.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends OrdersUpdateManyArgs>(args: SelectSubset<T, OrdersUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Orders and returns the data updated in the database.
+     * @param {OrdersUpdateManyAndReturnArgs} args - Arguments to update many Orders.
+     * @example
+     * // Update many Orders
+     * const orders = await prisma.orders.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Orders and only return the `id`
+     * const ordersWithIdOnly = await prisma.orders.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends OrdersUpdateManyAndReturnArgs>(args: SelectSubset<T, OrdersUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$OrdersPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Orders.
+     * @param {OrdersUpsertArgs} args - Arguments to update or create a Orders.
+     * @example
+     * // Update or create a Orders
+     * const orders = await prisma.orders.upsert({
+     *   create: {
+     *     // ... data to create a Orders
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Orders we want to update
+     *   }
+     * })
+     */
+    upsert<T extends OrdersUpsertArgs>(args: SelectSubset<T, OrdersUpsertArgs<ExtArgs>>): Prisma__OrdersClient<$Result.GetResult<Prisma.$OrdersPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Orders.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {OrdersCountArgs} args - Arguments to filter Orders to count.
+     * @example
+     * // Count the number of Orders
+     * const count = await prisma.orders.count({
+     *   where: {
+     *     // ... the filter for the Orders we want to count
+     *   }
+     * })
+    **/
+    count<T extends OrdersCountArgs>(
+      args?: Subset<T, OrdersCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], OrdersCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Orders.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {OrdersAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends OrdersAggregateArgs>(args: Subset<T, OrdersAggregateArgs>): Prisma.PrismaPromise<GetOrdersAggregateType<T>>
+
+    /**
+     * Group by Orders.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {OrdersGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends OrdersGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: OrdersGroupByArgs['orderBy'] }
+        : { orderBy?: OrdersGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, OrdersGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetOrdersGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Orders model
+   */
+  readonly fields: OrdersFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Orders.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__OrdersClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    deliveryComment<T extends Orders$deliveryCommentArgs<ExtArgs> = {}>(args?: Subset<T, Orders$deliveryCommentArgs<ExtArgs>>): Prisma__CommentsClient<$Result.GetResult<Prisma.$CommentsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    OrderItems<T extends Orders$OrderItemsArgs<ExtArgs> = {}>(args?: Subset<T, Orders$OrderItemsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$OrderItemsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Orders model
+   */
+  interface OrdersFieldRefs {
+    readonly id: FieldRef<"Orders", 'String'>
+    readonly ownerId: FieldRef<"Orders", 'String'>
+    readonly address: FieldRef<"Orders", 'String'>
+    readonly latitude: FieldRef<"Orders", 'String'>
+    readonly longitude: FieldRef<"Orders", 'String'>
+    readonly date: FieldRef<"Orders", 'DateTime'>
+    readonly totalPrice: FieldRef<"Orders", 'Decimal'>
+    readonly paymentType: FieldRef<"Orders", 'PaymentType'>
+    readonly withDelivery: FieldRef<"Orders", 'Boolean'>
+    readonly status: FieldRef<"Orders", 'OrderStatus'>
+    readonly deliveryCommentId: FieldRef<"Orders", 'String'>
+    readonly createdAt: FieldRef<"Orders", 'DateTime'>
+    readonly updatedAt: FieldRef<"Orders", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Orders findUnique
+   */
+  export type OrdersFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Orders
+     */
+    select?: OrdersSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Orders
+     */
+    omit?: OrdersOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OrdersInclude<ExtArgs> | null
+    /**
+     * Filter, which Orders to fetch.
+     */
+    where: OrdersWhereUniqueInput
+  }
+
+  /**
+   * Orders findUniqueOrThrow
+   */
+  export type OrdersFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Orders
+     */
+    select?: OrdersSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Orders
+     */
+    omit?: OrdersOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OrdersInclude<ExtArgs> | null
+    /**
+     * Filter, which Orders to fetch.
+     */
+    where: OrdersWhereUniqueInput
+  }
+
+  /**
+   * Orders findFirst
+   */
+  export type OrdersFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Orders
+     */
+    select?: OrdersSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Orders
+     */
+    omit?: OrdersOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OrdersInclude<ExtArgs> | null
+    /**
+     * Filter, which Orders to fetch.
+     */
+    where?: OrdersWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Orders to fetch.
+     */
+    orderBy?: OrdersOrderByWithRelationInput | OrdersOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Orders.
+     */
+    cursor?: OrdersWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Orders from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Orders.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Orders.
+     */
+    distinct?: OrdersScalarFieldEnum | OrdersScalarFieldEnum[]
+  }
+
+  /**
+   * Orders findFirstOrThrow
+   */
+  export type OrdersFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Orders
+     */
+    select?: OrdersSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Orders
+     */
+    omit?: OrdersOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OrdersInclude<ExtArgs> | null
+    /**
+     * Filter, which Orders to fetch.
+     */
+    where?: OrdersWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Orders to fetch.
+     */
+    orderBy?: OrdersOrderByWithRelationInput | OrdersOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Orders.
+     */
+    cursor?: OrdersWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Orders from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Orders.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Orders.
+     */
+    distinct?: OrdersScalarFieldEnum | OrdersScalarFieldEnum[]
+  }
+
+  /**
+   * Orders findMany
+   */
+  export type OrdersFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Orders
+     */
+    select?: OrdersSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Orders
+     */
+    omit?: OrdersOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OrdersInclude<ExtArgs> | null
+    /**
+     * Filter, which Orders to fetch.
+     */
+    where?: OrdersWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Orders to fetch.
+     */
+    orderBy?: OrdersOrderByWithRelationInput | OrdersOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Orders.
+     */
+    cursor?: OrdersWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Orders from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Orders.
+     */
+    skip?: number
+    distinct?: OrdersScalarFieldEnum | OrdersScalarFieldEnum[]
+  }
+
+  /**
+   * Orders create
+   */
+  export type OrdersCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Orders
+     */
+    select?: OrdersSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Orders
+     */
+    omit?: OrdersOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OrdersInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Orders.
+     */
+    data: XOR<OrdersCreateInput, OrdersUncheckedCreateInput>
+  }
+
+  /**
+   * Orders createMany
+   */
+  export type OrdersCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Orders.
+     */
+    data: OrdersCreateManyInput | OrdersCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Orders createManyAndReturn
+   */
+  export type OrdersCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Orders
+     */
+    select?: OrdersSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Orders
+     */
+    omit?: OrdersOmit<ExtArgs> | null
+    /**
+     * The data used to create many Orders.
+     */
+    data: OrdersCreateManyInput | OrdersCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OrdersIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Orders update
+   */
+  export type OrdersUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Orders
+     */
+    select?: OrdersSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Orders
+     */
+    omit?: OrdersOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OrdersInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Orders.
+     */
+    data: XOR<OrdersUpdateInput, OrdersUncheckedUpdateInput>
+    /**
+     * Choose, which Orders to update.
+     */
+    where: OrdersWhereUniqueInput
+  }
+
+  /**
+   * Orders updateMany
+   */
+  export type OrdersUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Orders.
+     */
+    data: XOR<OrdersUpdateManyMutationInput, OrdersUncheckedUpdateManyInput>
+    /**
+     * Filter which Orders to update
+     */
+    where?: OrdersWhereInput
+    /**
+     * Limit how many Orders to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Orders updateManyAndReturn
+   */
+  export type OrdersUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Orders
+     */
+    select?: OrdersSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Orders
+     */
+    omit?: OrdersOmit<ExtArgs> | null
+    /**
+     * The data used to update Orders.
+     */
+    data: XOR<OrdersUpdateManyMutationInput, OrdersUncheckedUpdateManyInput>
+    /**
+     * Filter which Orders to update
+     */
+    where?: OrdersWhereInput
+    /**
+     * Limit how many Orders to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OrdersIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Orders upsert
+   */
+  export type OrdersUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Orders
+     */
+    select?: OrdersSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Orders
+     */
+    omit?: OrdersOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OrdersInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Orders to update in case it exists.
+     */
+    where: OrdersWhereUniqueInput
+    /**
+     * In case the Orders found by the `where` argument doesn't exist, create a new Orders with this data.
+     */
+    create: XOR<OrdersCreateInput, OrdersUncheckedCreateInput>
+    /**
+     * In case the Orders was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<OrdersUpdateInput, OrdersUncheckedUpdateInput>
+  }
+
+  /**
+   * Orders delete
+   */
+  export type OrdersDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Orders
+     */
+    select?: OrdersSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Orders
+     */
+    omit?: OrdersOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OrdersInclude<ExtArgs> | null
+    /**
+     * Filter which Orders to delete.
+     */
+    where: OrdersWhereUniqueInput
+  }
+
+  /**
+   * Orders deleteMany
+   */
+  export type OrdersDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Orders to delete
+     */
+    where?: OrdersWhereInput
+    /**
+     * Limit how many Orders to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Orders.deliveryComment
+   */
+  export type Orders$deliveryCommentArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Comments
+     */
+    select?: CommentsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Comments
+     */
+    omit?: CommentsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CommentsInclude<ExtArgs> | null
+    where?: CommentsWhereInput
+  }
+
+  /**
+   * Orders.OrderItems
+   */
+  export type Orders$OrderItemsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the OrderItems
+     */
+    select?: OrderItemsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the OrderItems
+     */
+    omit?: OrderItemsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OrderItemsInclude<ExtArgs> | null
+    where?: OrderItemsWhereInput
+    orderBy?: OrderItemsOrderByWithRelationInput | OrderItemsOrderByWithRelationInput[]
+    cursor?: OrderItemsWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: OrderItemsScalarFieldEnum | OrderItemsScalarFieldEnum[]
+  }
+
+  /**
+   * Orders without action
+   */
+  export type OrdersDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Orders
+     */
+    select?: OrdersSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Orders
+     */
+    omit?: OrdersOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OrdersInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model OrderItems
+   */
+
+  export type AggregateOrderItems = {
+    _count: OrderItemsCountAggregateOutputType | null
+    _avg: OrderItemsAvgAggregateOutputType | null
+    _sum: OrderItemsSumAggregateOutputType | null
+    _min: OrderItemsMinAggregateOutputType | null
+    _max: OrderItemsMaxAggregateOutputType | null
+  }
+
+  export type OrderItemsAvgAggregateOutputType = {
+    workingTime: number | null
+    price: Decimal | null
+    count: number | null
+  }
+
+  export type OrderItemsSumAggregateOutputType = {
+    workingTime: number | null
+    price: Decimal | null
+    count: number | null
+  }
+
+  export type OrderItemsMinAggregateOutputType = {
+    id: string | null
+    orderId: string | null
+    professionId: string | null
+    toolId: string | null
+    levelId: string | null
+    measure: $Enums.OrderItemMeasure | null
+    workingTime: number | null
+    price: Decimal | null
+    count: number | null
+  }
+
+  export type OrderItemsMaxAggregateOutputType = {
+    id: string | null
+    orderId: string | null
+    professionId: string | null
+    toolId: string | null
+    levelId: string | null
+    measure: $Enums.OrderItemMeasure | null
+    workingTime: number | null
+    price: Decimal | null
+    count: number | null
+  }
+
+  export type OrderItemsCountAggregateOutputType = {
+    id: number
+    orderId: number
+    professionId: number
+    toolId: number
+    levelId: number
+    measure: number
+    workingTime: number
+    price: number
+    count: number
+    _all: number
+  }
+
+
+  export type OrderItemsAvgAggregateInputType = {
+    workingTime?: true
+    price?: true
+    count?: true
+  }
+
+  export type OrderItemsSumAggregateInputType = {
+    workingTime?: true
+    price?: true
+    count?: true
+  }
+
+  export type OrderItemsMinAggregateInputType = {
+    id?: true
+    orderId?: true
+    professionId?: true
+    toolId?: true
+    levelId?: true
+    measure?: true
+    workingTime?: true
+    price?: true
+    count?: true
+  }
+
+  export type OrderItemsMaxAggregateInputType = {
+    id?: true
+    orderId?: true
+    professionId?: true
+    toolId?: true
+    levelId?: true
+    measure?: true
+    workingTime?: true
+    price?: true
+    count?: true
+  }
+
+  export type OrderItemsCountAggregateInputType = {
+    id?: true
+    orderId?: true
+    professionId?: true
+    toolId?: true
+    levelId?: true
+    measure?: true
+    workingTime?: true
+    price?: true
+    count?: true
+    _all?: true
+  }
+
+  export type OrderItemsAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which OrderItems to aggregate.
+     */
+    where?: OrderItemsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of OrderItems to fetch.
+     */
+    orderBy?: OrderItemsOrderByWithRelationInput | OrderItemsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: OrderItemsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` OrderItems from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` OrderItems.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned OrderItems
+    **/
+    _count?: true | OrderItemsCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: OrderItemsAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: OrderItemsSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: OrderItemsMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: OrderItemsMaxAggregateInputType
+  }
+
+  export type GetOrderItemsAggregateType<T extends OrderItemsAggregateArgs> = {
+        [P in keyof T & keyof AggregateOrderItems]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateOrderItems[P]>
+      : GetScalarType<T[P], AggregateOrderItems[P]>
+  }
+
+
+
+
+  export type OrderItemsGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: OrderItemsWhereInput
+    orderBy?: OrderItemsOrderByWithAggregationInput | OrderItemsOrderByWithAggregationInput[]
+    by: OrderItemsScalarFieldEnum[] | OrderItemsScalarFieldEnum
+    having?: OrderItemsScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: OrderItemsCountAggregateInputType | true
+    _avg?: OrderItemsAvgAggregateInputType
+    _sum?: OrderItemsSumAggregateInputType
+    _min?: OrderItemsMinAggregateInputType
+    _max?: OrderItemsMaxAggregateInputType
+  }
+
+  export type OrderItemsGroupByOutputType = {
+    id: string
+    orderId: string
+    professionId: string
+    toolId: string
+    levelId: string
+    measure: $Enums.OrderItemMeasure
+    workingTime: number
+    price: Decimal
+    count: number
+    _count: OrderItemsCountAggregateOutputType | null
+    _avg: OrderItemsAvgAggregateOutputType | null
+    _sum: OrderItemsSumAggregateOutputType | null
+    _min: OrderItemsMinAggregateOutputType | null
+    _max: OrderItemsMaxAggregateOutputType | null
+  }
+
+  type GetOrderItemsGroupByPayload<T extends OrderItemsGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<OrderItemsGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof OrderItemsGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], OrderItemsGroupByOutputType[P]>
+            : GetScalarType<T[P], OrderItemsGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type OrderItemsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    orderId?: boolean
+    professionId?: boolean
+    toolId?: boolean
+    levelId?: boolean
+    measure?: boolean
+    workingTime?: boolean
+    price?: boolean
+    count?: boolean
+    order?: boolean | OrdersDefaultArgs<ExtArgs>
+    profession?: boolean | ProfessionsDefaultArgs<ExtArgs>
+    tool?: boolean | ToolsDefaultArgs<ExtArgs>
+    level?: boolean | LevelsDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["orderItems"]>
+
+  export type OrderItemsSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    orderId?: boolean
+    professionId?: boolean
+    toolId?: boolean
+    levelId?: boolean
+    measure?: boolean
+    workingTime?: boolean
+    price?: boolean
+    count?: boolean
+    order?: boolean | OrdersDefaultArgs<ExtArgs>
+    profession?: boolean | ProfessionsDefaultArgs<ExtArgs>
+    tool?: boolean | ToolsDefaultArgs<ExtArgs>
+    level?: boolean | LevelsDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["orderItems"]>
+
+  export type OrderItemsSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    orderId?: boolean
+    professionId?: boolean
+    toolId?: boolean
+    levelId?: boolean
+    measure?: boolean
+    workingTime?: boolean
+    price?: boolean
+    count?: boolean
+    order?: boolean | OrdersDefaultArgs<ExtArgs>
+    profession?: boolean | ProfessionsDefaultArgs<ExtArgs>
+    tool?: boolean | ToolsDefaultArgs<ExtArgs>
+    level?: boolean | LevelsDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["orderItems"]>
+
+  export type OrderItemsSelectScalar = {
+    id?: boolean
+    orderId?: boolean
+    professionId?: boolean
+    toolId?: boolean
+    levelId?: boolean
+    measure?: boolean
+    workingTime?: boolean
+    price?: boolean
+    count?: boolean
+  }
+
+  export type OrderItemsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "orderId" | "professionId" | "toolId" | "levelId" | "measure" | "workingTime" | "price" | "count", ExtArgs["result"]["orderItems"]>
+  export type OrderItemsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    order?: boolean | OrdersDefaultArgs<ExtArgs>
+    profession?: boolean | ProfessionsDefaultArgs<ExtArgs>
+    tool?: boolean | ToolsDefaultArgs<ExtArgs>
+    level?: boolean | LevelsDefaultArgs<ExtArgs>
+  }
+  export type OrderItemsIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    order?: boolean | OrdersDefaultArgs<ExtArgs>
+    profession?: boolean | ProfessionsDefaultArgs<ExtArgs>
+    tool?: boolean | ToolsDefaultArgs<ExtArgs>
+    level?: boolean | LevelsDefaultArgs<ExtArgs>
+  }
+  export type OrderItemsIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    order?: boolean | OrdersDefaultArgs<ExtArgs>
+    profession?: boolean | ProfessionsDefaultArgs<ExtArgs>
+    tool?: boolean | ToolsDefaultArgs<ExtArgs>
+    level?: boolean | LevelsDefaultArgs<ExtArgs>
+  }
+
+  export type $OrderItemsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "OrderItems"
+    objects: {
+      order: Prisma.$OrdersPayload<ExtArgs>
+      profession: Prisma.$ProfessionsPayload<ExtArgs>
+      tool: Prisma.$ToolsPayload<ExtArgs>
+      level: Prisma.$LevelsPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      orderId: string
+      professionId: string
+      toolId: string
+      levelId: string
+      measure: $Enums.OrderItemMeasure
+      workingTime: number
+      price: Prisma.Decimal
+      count: number
+    }, ExtArgs["result"]["orderItems"]>
+    composites: {}
+  }
+
+  type OrderItemsGetPayload<S extends boolean | null | undefined | OrderItemsDefaultArgs> = $Result.GetResult<Prisma.$OrderItemsPayload, S>
+
+  type OrderItemsCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<OrderItemsFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: OrderItemsCountAggregateInputType | true
+    }
+
+  export interface OrderItemsDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['OrderItems'], meta: { name: 'OrderItems' } }
+    /**
+     * Find zero or one OrderItems that matches the filter.
+     * @param {OrderItemsFindUniqueArgs} args - Arguments to find a OrderItems
+     * @example
+     * // Get one OrderItems
+     * const orderItems = await prisma.orderItems.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends OrderItemsFindUniqueArgs>(args: SelectSubset<T, OrderItemsFindUniqueArgs<ExtArgs>>): Prisma__OrderItemsClient<$Result.GetResult<Prisma.$OrderItemsPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one OrderItems that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {OrderItemsFindUniqueOrThrowArgs} args - Arguments to find a OrderItems
+     * @example
+     * // Get one OrderItems
+     * const orderItems = await prisma.orderItems.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends OrderItemsFindUniqueOrThrowArgs>(args: SelectSubset<T, OrderItemsFindUniqueOrThrowArgs<ExtArgs>>): Prisma__OrderItemsClient<$Result.GetResult<Prisma.$OrderItemsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first OrderItems that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {OrderItemsFindFirstArgs} args - Arguments to find a OrderItems
+     * @example
+     * // Get one OrderItems
+     * const orderItems = await prisma.orderItems.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends OrderItemsFindFirstArgs>(args?: SelectSubset<T, OrderItemsFindFirstArgs<ExtArgs>>): Prisma__OrderItemsClient<$Result.GetResult<Prisma.$OrderItemsPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first OrderItems that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {OrderItemsFindFirstOrThrowArgs} args - Arguments to find a OrderItems
+     * @example
+     * // Get one OrderItems
+     * const orderItems = await prisma.orderItems.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends OrderItemsFindFirstOrThrowArgs>(args?: SelectSubset<T, OrderItemsFindFirstOrThrowArgs<ExtArgs>>): Prisma__OrderItemsClient<$Result.GetResult<Prisma.$OrderItemsPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more OrderItems that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {OrderItemsFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all OrderItems
+     * const orderItems = await prisma.orderItems.findMany()
+     * 
+     * // Get first 10 OrderItems
+     * const orderItems = await prisma.orderItems.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const orderItemsWithIdOnly = await prisma.orderItems.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends OrderItemsFindManyArgs>(args?: SelectSubset<T, OrderItemsFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$OrderItemsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a OrderItems.
+     * @param {OrderItemsCreateArgs} args - Arguments to create a OrderItems.
+     * @example
+     * // Create one OrderItems
+     * const OrderItems = await prisma.orderItems.create({
+     *   data: {
+     *     // ... data to create a OrderItems
+     *   }
+     * })
+     * 
+     */
+    create<T extends OrderItemsCreateArgs>(args: SelectSubset<T, OrderItemsCreateArgs<ExtArgs>>): Prisma__OrderItemsClient<$Result.GetResult<Prisma.$OrderItemsPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many OrderItems.
+     * @param {OrderItemsCreateManyArgs} args - Arguments to create many OrderItems.
+     * @example
+     * // Create many OrderItems
+     * const orderItems = await prisma.orderItems.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends OrderItemsCreateManyArgs>(args?: SelectSubset<T, OrderItemsCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many OrderItems and returns the data saved in the database.
+     * @param {OrderItemsCreateManyAndReturnArgs} args - Arguments to create many OrderItems.
+     * @example
+     * // Create many OrderItems
+     * const orderItems = await prisma.orderItems.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many OrderItems and only return the `id`
+     * const orderItemsWithIdOnly = await prisma.orderItems.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends OrderItemsCreateManyAndReturnArgs>(args?: SelectSubset<T, OrderItemsCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$OrderItemsPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a OrderItems.
+     * @param {OrderItemsDeleteArgs} args - Arguments to delete one OrderItems.
+     * @example
+     * // Delete one OrderItems
+     * const OrderItems = await prisma.orderItems.delete({
+     *   where: {
+     *     // ... filter to delete one OrderItems
+     *   }
+     * })
+     * 
+     */
+    delete<T extends OrderItemsDeleteArgs>(args: SelectSubset<T, OrderItemsDeleteArgs<ExtArgs>>): Prisma__OrderItemsClient<$Result.GetResult<Prisma.$OrderItemsPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one OrderItems.
+     * @param {OrderItemsUpdateArgs} args - Arguments to update one OrderItems.
+     * @example
+     * // Update one OrderItems
+     * const orderItems = await prisma.orderItems.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends OrderItemsUpdateArgs>(args: SelectSubset<T, OrderItemsUpdateArgs<ExtArgs>>): Prisma__OrderItemsClient<$Result.GetResult<Prisma.$OrderItemsPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more OrderItems.
+     * @param {OrderItemsDeleteManyArgs} args - Arguments to filter OrderItems to delete.
+     * @example
+     * // Delete a few OrderItems
+     * const { count } = await prisma.orderItems.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends OrderItemsDeleteManyArgs>(args?: SelectSubset<T, OrderItemsDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more OrderItems.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {OrderItemsUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many OrderItems
+     * const orderItems = await prisma.orderItems.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends OrderItemsUpdateManyArgs>(args: SelectSubset<T, OrderItemsUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more OrderItems and returns the data updated in the database.
+     * @param {OrderItemsUpdateManyAndReturnArgs} args - Arguments to update many OrderItems.
+     * @example
+     * // Update many OrderItems
+     * const orderItems = await prisma.orderItems.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more OrderItems and only return the `id`
+     * const orderItemsWithIdOnly = await prisma.orderItems.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends OrderItemsUpdateManyAndReturnArgs>(args: SelectSubset<T, OrderItemsUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$OrderItemsPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one OrderItems.
+     * @param {OrderItemsUpsertArgs} args - Arguments to update or create a OrderItems.
+     * @example
+     * // Update or create a OrderItems
+     * const orderItems = await prisma.orderItems.upsert({
+     *   create: {
+     *     // ... data to create a OrderItems
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the OrderItems we want to update
+     *   }
+     * })
+     */
+    upsert<T extends OrderItemsUpsertArgs>(args: SelectSubset<T, OrderItemsUpsertArgs<ExtArgs>>): Prisma__OrderItemsClient<$Result.GetResult<Prisma.$OrderItemsPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of OrderItems.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {OrderItemsCountArgs} args - Arguments to filter OrderItems to count.
+     * @example
+     * // Count the number of OrderItems
+     * const count = await prisma.orderItems.count({
+     *   where: {
+     *     // ... the filter for the OrderItems we want to count
+     *   }
+     * })
+    **/
+    count<T extends OrderItemsCountArgs>(
+      args?: Subset<T, OrderItemsCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], OrderItemsCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a OrderItems.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {OrderItemsAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends OrderItemsAggregateArgs>(args: Subset<T, OrderItemsAggregateArgs>): Prisma.PrismaPromise<GetOrderItemsAggregateType<T>>
+
+    /**
+     * Group by OrderItems.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {OrderItemsGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends OrderItemsGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: OrderItemsGroupByArgs['orderBy'] }
+        : { orderBy?: OrderItemsGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, OrderItemsGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetOrderItemsGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the OrderItems model
+   */
+  readonly fields: OrderItemsFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for OrderItems.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__OrderItemsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    order<T extends OrdersDefaultArgs<ExtArgs> = {}>(args?: Subset<T, OrdersDefaultArgs<ExtArgs>>): Prisma__OrdersClient<$Result.GetResult<Prisma.$OrdersPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    profession<T extends ProfessionsDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ProfessionsDefaultArgs<ExtArgs>>): Prisma__ProfessionsClient<$Result.GetResult<Prisma.$ProfessionsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    tool<T extends ToolsDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ToolsDefaultArgs<ExtArgs>>): Prisma__ToolsClient<$Result.GetResult<Prisma.$ToolsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    level<T extends LevelsDefaultArgs<ExtArgs> = {}>(args?: Subset<T, LevelsDefaultArgs<ExtArgs>>): Prisma__LevelsClient<$Result.GetResult<Prisma.$LevelsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the OrderItems model
+   */
+  interface OrderItemsFieldRefs {
+    readonly id: FieldRef<"OrderItems", 'String'>
+    readonly orderId: FieldRef<"OrderItems", 'String'>
+    readonly professionId: FieldRef<"OrderItems", 'String'>
+    readonly toolId: FieldRef<"OrderItems", 'String'>
+    readonly levelId: FieldRef<"OrderItems", 'String'>
+    readonly measure: FieldRef<"OrderItems", 'OrderItemMeasure'>
+    readonly workingTime: FieldRef<"OrderItems", 'Int'>
+    readonly price: FieldRef<"OrderItems", 'Decimal'>
+    readonly count: FieldRef<"OrderItems", 'Int'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * OrderItems findUnique
+   */
+  export type OrderItemsFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the OrderItems
+     */
+    select?: OrderItemsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the OrderItems
+     */
+    omit?: OrderItemsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OrderItemsInclude<ExtArgs> | null
+    /**
+     * Filter, which OrderItems to fetch.
+     */
+    where: OrderItemsWhereUniqueInput
+  }
+
+  /**
+   * OrderItems findUniqueOrThrow
+   */
+  export type OrderItemsFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the OrderItems
+     */
+    select?: OrderItemsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the OrderItems
+     */
+    omit?: OrderItemsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OrderItemsInclude<ExtArgs> | null
+    /**
+     * Filter, which OrderItems to fetch.
+     */
+    where: OrderItemsWhereUniqueInput
+  }
+
+  /**
+   * OrderItems findFirst
+   */
+  export type OrderItemsFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the OrderItems
+     */
+    select?: OrderItemsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the OrderItems
+     */
+    omit?: OrderItemsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OrderItemsInclude<ExtArgs> | null
+    /**
+     * Filter, which OrderItems to fetch.
+     */
+    where?: OrderItemsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of OrderItems to fetch.
+     */
+    orderBy?: OrderItemsOrderByWithRelationInput | OrderItemsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for OrderItems.
+     */
+    cursor?: OrderItemsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` OrderItems from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` OrderItems.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of OrderItems.
+     */
+    distinct?: OrderItemsScalarFieldEnum | OrderItemsScalarFieldEnum[]
+  }
+
+  /**
+   * OrderItems findFirstOrThrow
+   */
+  export type OrderItemsFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the OrderItems
+     */
+    select?: OrderItemsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the OrderItems
+     */
+    omit?: OrderItemsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OrderItemsInclude<ExtArgs> | null
+    /**
+     * Filter, which OrderItems to fetch.
+     */
+    where?: OrderItemsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of OrderItems to fetch.
+     */
+    orderBy?: OrderItemsOrderByWithRelationInput | OrderItemsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for OrderItems.
+     */
+    cursor?: OrderItemsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` OrderItems from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` OrderItems.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of OrderItems.
+     */
+    distinct?: OrderItemsScalarFieldEnum | OrderItemsScalarFieldEnum[]
+  }
+
+  /**
+   * OrderItems findMany
+   */
+  export type OrderItemsFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the OrderItems
+     */
+    select?: OrderItemsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the OrderItems
+     */
+    omit?: OrderItemsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OrderItemsInclude<ExtArgs> | null
+    /**
+     * Filter, which OrderItems to fetch.
+     */
+    where?: OrderItemsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of OrderItems to fetch.
+     */
+    orderBy?: OrderItemsOrderByWithRelationInput | OrderItemsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing OrderItems.
+     */
+    cursor?: OrderItemsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` OrderItems from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` OrderItems.
+     */
+    skip?: number
+    distinct?: OrderItemsScalarFieldEnum | OrderItemsScalarFieldEnum[]
+  }
+
+  /**
+   * OrderItems create
+   */
+  export type OrderItemsCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the OrderItems
+     */
+    select?: OrderItemsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the OrderItems
+     */
+    omit?: OrderItemsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OrderItemsInclude<ExtArgs> | null
+    /**
+     * The data needed to create a OrderItems.
+     */
+    data: XOR<OrderItemsCreateInput, OrderItemsUncheckedCreateInput>
+  }
+
+  /**
+   * OrderItems createMany
+   */
+  export type OrderItemsCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many OrderItems.
+     */
+    data: OrderItemsCreateManyInput | OrderItemsCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * OrderItems createManyAndReturn
+   */
+  export type OrderItemsCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the OrderItems
+     */
+    select?: OrderItemsSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the OrderItems
+     */
+    omit?: OrderItemsOmit<ExtArgs> | null
+    /**
+     * The data used to create many OrderItems.
+     */
+    data: OrderItemsCreateManyInput | OrderItemsCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OrderItemsIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * OrderItems update
+   */
+  export type OrderItemsUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the OrderItems
+     */
+    select?: OrderItemsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the OrderItems
+     */
+    omit?: OrderItemsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OrderItemsInclude<ExtArgs> | null
+    /**
+     * The data needed to update a OrderItems.
+     */
+    data: XOR<OrderItemsUpdateInput, OrderItemsUncheckedUpdateInput>
+    /**
+     * Choose, which OrderItems to update.
+     */
+    where: OrderItemsWhereUniqueInput
+  }
+
+  /**
+   * OrderItems updateMany
+   */
+  export type OrderItemsUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update OrderItems.
+     */
+    data: XOR<OrderItemsUpdateManyMutationInput, OrderItemsUncheckedUpdateManyInput>
+    /**
+     * Filter which OrderItems to update
+     */
+    where?: OrderItemsWhereInput
+    /**
+     * Limit how many OrderItems to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * OrderItems updateManyAndReturn
+   */
+  export type OrderItemsUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the OrderItems
+     */
+    select?: OrderItemsSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the OrderItems
+     */
+    omit?: OrderItemsOmit<ExtArgs> | null
+    /**
+     * The data used to update OrderItems.
+     */
+    data: XOR<OrderItemsUpdateManyMutationInput, OrderItemsUncheckedUpdateManyInput>
+    /**
+     * Filter which OrderItems to update
+     */
+    where?: OrderItemsWhereInput
+    /**
+     * Limit how many OrderItems to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OrderItemsIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * OrderItems upsert
+   */
+  export type OrderItemsUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the OrderItems
+     */
+    select?: OrderItemsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the OrderItems
+     */
+    omit?: OrderItemsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OrderItemsInclude<ExtArgs> | null
+    /**
+     * The filter to search for the OrderItems to update in case it exists.
+     */
+    where: OrderItemsWhereUniqueInput
+    /**
+     * In case the OrderItems found by the `where` argument doesn't exist, create a new OrderItems with this data.
+     */
+    create: XOR<OrderItemsCreateInput, OrderItemsUncheckedCreateInput>
+    /**
+     * In case the OrderItems was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<OrderItemsUpdateInput, OrderItemsUncheckedUpdateInput>
+  }
+
+  /**
+   * OrderItems delete
+   */
+  export type OrderItemsDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the OrderItems
+     */
+    select?: OrderItemsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the OrderItems
+     */
+    omit?: OrderItemsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OrderItemsInclude<ExtArgs> | null
+    /**
+     * Filter which OrderItems to delete.
+     */
+    where: OrderItemsWhereUniqueInput
+  }
+
+  /**
+   * OrderItems deleteMany
+   */
+  export type OrderItemsDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which OrderItems to delete
+     */
+    where?: OrderItemsWhereInput
+    /**
+     * Limit how many OrderItems to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * OrderItems without action
+   */
+  export type OrderItemsDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the OrderItems
+     */
+    select?: OrderItemsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the OrderItems
+     */
+    omit?: OrderItemsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OrderItemsInclude<ExtArgs> | null
   }
 
 
@@ -17744,6 +30269,7 @@ export namespace Prisma {
   export const CommentsScalarFieldEnum: {
     id: 'id',
     message: 'message',
+    userId: 'userId',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
@@ -17809,6 +30335,139 @@ export namespace Prisma {
   export type BrandsScalarFieldEnum = (typeof BrandsScalarFieldEnum)[keyof typeof BrandsScalarFieldEnum]
 
 
+  export const MastersScalarFieldEnum: {
+    id: 'id',
+    fullName: 'fullName',
+    phone: 'phone',
+    status: 'status',
+    dateOfBirth: 'dateOfBirth',
+    avatar: 'avatar',
+    passportImage: 'passportImage',
+    about: 'about'
+  };
+
+  export type MastersScalarFieldEnum = (typeof MastersScalarFieldEnum)[keyof typeof MastersScalarFieldEnum]
+
+
+  export const ProfessionsScalarFieldEnum: {
+    id: 'id',
+    nameUz: 'nameUz',
+    nameRu: 'nameRu',
+    nameEn: 'nameEn',
+    avatar: 'avatar',
+    status: 'status'
+  };
+
+  export type ProfessionsScalarFieldEnum = (typeof ProfessionsScalarFieldEnum)[keyof typeof ProfessionsScalarFieldEnum]
+
+
+  export const MasterProfessionsScalarFieldEnum: {
+    id: 'id',
+    professionId: 'professionId',
+    minWorkingHours: 'minWorkingHours',
+    levelId: 'levelId',
+    priceHourly: 'priceHourly',
+    priceDaily: 'priceDaily',
+    experience: 'experience',
+    masterId: 'masterId'
+  };
+
+  export type MasterProfessionsScalarFieldEnum = (typeof MasterProfessionsScalarFieldEnum)[keyof typeof MasterProfessionsScalarFieldEnum]
+
+
+  export const ProfessionLevelsScalarFieldEnum: {
+    id: 'id',
+    professionId: 'professionId',
+    levelId: 'levelId',
+    minWorkingHours: 'minWorkingHours',
+    priceHourly: 'priceHourly',
+    priceDaily: 'priceDaily'
+  };
+
+  export type ProfessionLevelsScalarFieldEnum = (typeof ProfessionLevelsScalarFieldEnum)[keyof typeof ProfessionLevelsScalarFieldEnum]
+
+
+  export const ToolsScalarFieldEnum: {
+    id: 'id',
+    code: 'code',
+    nameUz: 'nameUz',
+    nameRu: 'nameRu',
+    nameEn: 'nameEn',
+    descriptionUz: 'descriptionUz',
+    descriptionRu: 'descriptionRu',
+    descriptionEn: 'descriptionEn',
+    price: 'price',
+    quantity: 'quantity',
+    brandId: 'brandId',
+    capacityId: 'capacityId',
+    sizeId: 'sizeId',
+    image: 'image',
+    isAvailable: 'isAvailable',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type ToolsScalarFieldEnum = (typeof ToolsScalarFieldEnum)[keyof typeof ToolsScalarFieldEnum]
+
+
+  export const ProfessionToolsScalarFieldEnum: {
+    id: 'id',
+    professionId: 'professionId',
+    toolId: 'toolId'
+  };
+
+  export type ProfessionToolsScalarFieldEnum = (typeof ProfessionToolsScalarFieldEnum)[keyof typeof ProfessionToolsScalarFieldEnum]
+
+
+  export const BacketScalarFieldEnum: {
+    id: 'id',
+    ownerId: 'ownerId',
+    professionId: 'professionId',
+    toolId: 'toolId',
+    count: 'count',
+    measure: 'measure',
+    workingTime: 'workingTime',
+    totalPrice: 'totalPrice',
+    levelId: 'levelId'
+  };
+
+  export type BacketScalarFieldEnum = (typeof BacketScalarFieldEnum)[keyof typeof BacketScalarFieldEnum]
+
+
+  export const OrdersScalarFieldEnum: {
+    id: 'id',
+    ownerId: 'ownerId',
+    address: 'address',
+    latitude: 'latitude',
+    longitude: 'longitude',
+    date: 'date',
+    totalPrice: 'totalPrice',
+    paymentType: 'paymentType',
+    withDelivery: 'withDelivery',
+    status: 'status',
+    deliveryCommentId: 'deliveryCommentId',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type OrdersScalarFieldEnum = (typeof OrdersScalarFieldEnum)[keyof typeof OrdersScalarFieldEnum]
+
+
+  export const OrderItemsScalarFieldEnum: {
+    id: 'id',
+    orderId: 'orderId',
+    professionId: 'professionId',
+    toolId: 'toolId',
+    levelId: 'levelId',
+    measure: 'measure',
+    workingTime: 'workingTime',
+    price: 'price',
+    count: 'count'
+  };
+
+  export type OrderItemsScalarFieldEnum = (typeof OrderItemsScalarFieldEnum)[keyof typeof OrderItemsScalarFieldEnum]
+
+
   export const SortOrder: {
     asc: 'asc',
     desc: 'desc'
@@ -17839,6 +30498,14 @@ export namespace Prisma {
   };
 
   export type JsonNullValueFilter = (typeof JsonNullValueFilter)[keyof typeof JsonNullValueFilter]
+
+
+  export const NullsOrder: {
+    first: 'first',
+    last: 'last'
+  };
+
+  export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
 
 
   /**
@@ -17931,6 +30598,13 @@ export namespace Prisma {
 
 
   /**
+   * Reference to a field of type 'Boolean'
+   */
+  export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
+    
+
+
+  /**
    * Reference to a field of type 'Int'
    */
   export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int'>
@@ -17941,6 +30615,76 @@ export namespace Prisma {
    * Reference to a field of type 'Int[]'
    */
   export type ListIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'Decimal'
+   */
+  export type DecimalFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Decimal'>
+    
+
+
+  /**
+   * Reference to a field of type 'Decimal[]'
+   */
+  export type ListDecimalFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Decimal[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'BacketMeasure'
+   */
+  export type EnumBacketMeasureFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BacketMeasure'>
+    
+
+
+  /**
+   * Reference to a field of type 'BacketMeasure[]'
+   */
+  export type ListEnumBacketMeasureFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BacketMeasure[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'PaymentType'
+   */
+  export type EnumPaymentTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'PaymentType'>
+    
+
+
+  /**
+   * Reference to a field of type 'PaymentType[]'
+   */
+  export type ListEnumPaymentTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'PaymentType[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'OrderStatus'
+   */
+  export type EnumOrderStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'OrderStatus'>
+    
+
+
+  /**
+   * Reference to a field of type 'OrderStatus[]'
+   */
+  export type ListEnumOrderStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'OrderStatus[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'OrderItemMeasure'
+   */
+  export type EnumOrderItemMeasureFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'OrderItemMeasure'>
+    
+
+
+  /**
+   * Reference to a field of type 'OrderItemMeasure[]'
+   */
+  export type ListEnumOrderItemMeasureFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'OrderItemMeasure[]'>
     
   /**
    * Deep Input Types
@@ -18022,6 +30766,9 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"Users"> | Date | string
     updatedAt?: DateTimeFilter<"Users"> | Date | string
     region?: XOR<RegionsScalarRelationFilter, RegionsWhereInput>
+    Backet?: BacketListRelationFilter
+    Comments?: CommentsListRelationFilter
+    Sessions?: SessionsListRelationFilter
   }
 
   export type UsersOrderByWithRelationInput = {
@@ -18036,6 +30783,9 @@ export namespace Prisma {
     createdAt?: SortOrder
     updatedAt?: SortOrder
     region?: RegionsOrderByWithRelationInput
+    Backet?: BacketOrderByRelationAggregateInput
+    Comments?: CommentsOrderByRelationAggregateInput
+    Sessions?: SessionsOrderByRelationAggregateInput
   }
 
   export type UsersWhereUniqueInput = Prisma.AtLeast<{
@@ -18053,6 +30803,9 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"Users"> | Date | string
     updatedAt?: DateTimeFilter<"Users"> | Date | string
     region?: XOR<RegionsScalarRelationFilter, RegionsWhereInput>
+    Backet?: BacketListRelationFilter
+    Comments?: CommentsListRelationFilter
+    Sessions?: SessionsListRelationFilter
   }, "id" | "phone">
 
   export type UsersOrderByWithAggregationInput = {
@@ -18096,6 +30849,7 @@ export namespace Prisma {
     ipAddress?: StringFilter<"Sessions"> | string
     deviceInfo?: JsonFilter<"Sessions">
     createdAt?: DateTimeFilter<"Sessions"> | Date | string
+    user?: XOR<UsersScalarRelationFilter, UsersWhereInput>
   }
 
   export type SessionsOrderByWithRelationInput = {
@@ -18104,6 +30858,7 @@ export namespace Prisma {
     ipAddress?: SortOrder
     deviceInfo?: SortOrder
     createdAt?: SortOrder
+    user?: UsersOrderByWithRelationInput
   }
 
   export type SessionsWhereUniqueInput = Prisma.AtLeast<{
@@ -18115,6 +30870,7 @@ export namespace Prisma {
     ipAddress?: StringFilter<"Sessions"> | string
     deviceInfo?: JsonFilter<"Sessions">
     createdAt?: DateTimeFilter<"Sessions"> | Date | string
+    user?: XOR<UsersScalarRelationFilter, UsersWhereInput>
   }, "id">
 
   export type SessionsOrderByWithAggregationInput = {
@@ -18537,15 +31293,21 @@ export namespace Prisma {
     NOT?: CommentsWhereInput | CommentsWhereInput[]
     id?: StringFilter<"Comments"> | string
     message?: StringFilter<"Comments"> | string
+    userId?: StringFilter<"Comments"> | string
     createdAt?: DateTimeFilter<"Comments"> | Date | string
     updatedAt?: DateTimeFilter<"Comments"> | Date | string
+    user?: XOR<UsersScalarRelationFilter, UsersWhereInput>
+    Orders?: OrdersListRelationFilter
   }
 
   export type CommentsOrderByWithRelationInput = {
     id?: SortOrder
     message?: SortOrder
+    userId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    user?: UsersOrderByWithRelationInput
+    Orders?: OrdersOrderByRelationAggregateInput
   }
 
   export type CommentsWhereUniqueInput = Prisma.AtLeast<{
@@ -18554,13 +31316,17 @@ export namespace Prisma {
     OR?: CommentsWhereInput[]
     NOT?: CommentsWhereInput | CommentsWhereInput[]
     message?: StringFilter<"Comments"> | string
+    userId?: StringFilter<"Comments"> | string
     createdAt?: DateTimeFilter<"Comments"> | Date | string
     updatedAt?: DateTimeFilter<"Comments"> | Date | string
+    user?: XOR<UsersScalarRelationFilter, UsersWhereInput>
+    Orders?: OrdersListRelationFilter
   }, "id">
 
   export type CommentsOrderByWithAggregationInput = {
     id?: SortOrder
     message?: SortOrder
+    userId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     _count?: CommentsCountOrderByAggregateInput
@@ -18574,6 +31340,7 @@ export namespace Prisma {
     NOT?: CommentsScalarWhereWithAggregatesInput | CommentsScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"Comments"> | string
     message?: StringWithAggregatesFilter<"Comments"> | string
+    userId?: StringWithAggregatesFilter<"Comments"> | string
     createdAt?: DateTimeWithAggregatesFilter<"Comments"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Comments"> | Date | string
   }
@@ -18637,6 +31404,10 @@ export namespace Prisma {
     nameEn?: StringFilter<"Levels"> | string
     createdAt?: DateTimeFilter<"Levels"> | Date | string
     updatedAt?: DateTimeFilter<"Levels"> | Date | string
+    MasterProfessions?: MasterProfessionsListRelationFilter
+    Backet?: BacketListRelationFilter
+    OrderItems?: OrderItemsListRelationFilter
+    ProfessionLevels?: ProfessionLevelsListRelationFilter
   }
 
   export type LevelsOrderByWithRelationInput = {
@@ -18646,6 +31417,10 @@ export namespace Prisma {
     nameEn?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    MasterProfessions?: MasterProfessionsOrderByRelationAggregateInput
+    Backet?: BacketOrderByRelationAggregateInput
+    OrderItems?: OrderItemsOrderByRelationAggregateInput
+    ProfessionLevels?: ProfessionLevelsOrderByRelationAggregateInput
   }
 
   export type LevelsWhereUniqueInput = Prisma.AtLeast<{
@@ -18658,6 +31433,10 @@ export namespace Prisma {
     nameEn?: StringFilter<"Levels"> | string
     createdAt?: DateTimeFilter<"Levels"> | Date | string
     updatedAt?: DateTimeFilter<"Levels"> | Date | string
+    MasterProfessions?: MasterProfessionsListRelationFilter
+    Backet?: BacketListRelationFilter
+    OrderItems?: OrderItemsListRelationFilter
+    ProfessionLevels?: ProfessionLevelsListRelationFilter
   }, "id">
 
   export type LevelsOrderByWithAggregationInput = {
@@ -18694,6 +31473,7 @@ export namespace Prisma {
     nameEn?: StringFilter<"Capacity"> | string
     createdAt?: DateTimeFilter<"Capacity"> | Date | string
     updatedAt?: DateTimeFilter<"Capacity"> | Date | string
+    Tools?: ToolsListRelationFilter
   }
 
   export type CapacityOrderByWithRelationInput = {
@@ -18703,6 +31483,7 @@ export namespace Prisma {
     nameEn?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    Tools?: ToolsOrderByRelationAggregateInput
   }
 
   export type CapacityWhereUniqueInput = Prisma.AtLeast<{
@@ -18715,6 +31496,7 @@ export namespace Prisma {
     nameEn?: StringFilter<"Capacity"> | string
     createdAt?: DateTimeFilter<"Capacity"> | Date | string
     updatedAt?: DateTimeFilter<"Capacity"> | Date | string
+    Tools?: ToolsListRelationFilter
   }, "id">
 
   export type CapacityOrderByWithAggregationInput = {
@@ -18751,6 +31533,7 @@ export namespace Prisma {
     nameEn?: StringFilter<"Sizes"> | string
     createdAt?: DateTimeFilter<"Sizes"> | Date | string
     updatedAt?: DateTimeFilter<"Sizes"> | Date | string
+    Tools?: ToolsListRelationFilter
   }
 
   export type SizesOrderByWithRelationInput = {
@@ -18760,6 +31543,7 @@ export namespace Prisma {
     nameEn?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    Tools?: ToolsOrderByRelationAggregateInput
   }
 
   export type SizesWhereUniqueInput = Prisma.AtLeast<{
@@ -18772,6 +31556,7 @@ export namespace Prisma {
     nameEn?: StringFilter<"Sizes"> | string
     createdAt?: DateTimeFilter<"Sizes"> | Date | string
     updatedAt?: DateTimeFilter<"Sizes"> | Date | string
+    Tools?: ToolsListRelationFilter
   }, "id">
 
   export type SizesOrderByWithAggregationInput = {
@@ -18808,6 +31593,7 @@ export namespace Prisma {
     nameEn?: StringFilter<"Brands"> | string
     createdAt?: DateTimeFilter<"Brands"> | Date | string
     updatedAt?: DateTimeFilter<"Brands"> | Date | string
+    Tools?: ToolsListRelationFilter
   }
 
   export type BrandsOrderByWithRelationInput = {
@@ -18817,6 +31603,7 @@ export namespace Prisma {
     nameEn?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    Tools?: ToolsOrderByRelationAggregateInput
   }
 
   export type BrandsWhereUniqueInput = Prisma.AtLeast<{
@@ -18829,6 +31616,7 @@ export namespace Prisma {
     nameEn?: StringFilter<"Brands"> | string
     createdAt?: DateTimeFilter<"Brands"> | Date | string
     updatedAt?: DateTimeFilter<"Brands"> | Date | string
+    Tools?: ToolsListRelationFilter
   }, "id">
 
   export type BrandsOrderByWithAggregationInput = {
@@ -18853,6 +31641,745 @@ export namespace Prisma {
     nameEn?: StringWithAggregatesFilter<"Brands"> | string
     createdAt?: DateTimeWithAggregatesFilter<"Brands"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Brands"> | Date | string
+  }
+
+  export type MastersWhereInput = {
+    AND?: MastersWhereInput | MastersWhereInput[]
+    OR?: MastersWhereInput[]
+    NOT?: MastersWhereInput | MastersWhereInput[]
+    id?: StringFilter<"Masters"> | string
+    fullName?: StringFilter<"Masters"> | string
+    phone?: StringFilter<"Masters"> | string
+    status?: BoolFilter<"Masters"> | boolean
+    dateOfBirth?: IntFilter<"Masters"> | number
+    avatar?: StringFilter<"Masters"> | string
+    passportImage?: StringFilter<"Masters"> | string
+    about?: StringFilter<"Masters"> | string
+    MasterProfessions?: MasterProfessionsListRelationFilter
+  }
+
+  export type MastersOrderByWithRelationInput = {
+    id?: SortOrder
+    fullName?: SortOrder
+    phone?: SortOrder
+    status?: SortOrder
+    dateOfBirth?: SortOrder
+    avatar?: SortOrder
+    passportImage?: SortOrder
+    about?: SortOrder
+    MasterProfessions?: MasterProfessionsOrderByRelationAggregateInput
+  }
+
+  export type MastersWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    phone?: string
+    AND?: MastersWhereInput | MastersWhereInput[]
+    OR?: MastersWhereInput[]
+    NOT?: MastersWhereInput | MastersWhereInput[]
+    fullName?: StringFilter<"Masters"> | string
+    status?: BoolFilter<"Masters"> | boolean
+    dateOfBirth?: IntFilter<"Masters"> | number
+    avatar?: StringFilter<"Masters"> | string
+    passportImage?: StringFilter<"Masters"> | string
+    about?: StringFilter<"Masters"> | string
+    MasterProfessions?: MasterProfessionsListRelationFilter
+  }, "id" | "phone">
+
+  export type MastersOrderByWithAggregationInput = {
+    id?: SortOrder
+    fullName?: SortOrder
+    phone?: SortOrder
+    status?: SortOrder
+    dateOfBirth?: SortOrder
+    avatar?: SortOrder
+    passportImage?: SortOrder
+    about?: SortOrder
+    _count?: MastersCountOrderByAggregateInput
+    _avg?: MastersAvgOrderByAggregateInput
+    _max?: MastersMaxOrderByAggregateInput
+    _min?: MastersMinOrderByAggregateInput
+    _sum?: MastersSumOrderByAggregateInput
+  }
+
+  export type MastersScalarWhereWithAggregatesInput = {
+    AND?: MastersScalarWhereWithAggregatesInput | MastersScalarWhereWithAggregatesInput[]
+    OR?: MastersScalarWhereWithAggregatesInput[]
+    NOT?: MastersScalarWhereWithAggregatesInput | MastersScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Masters"> | string
+    fullName?: StringWithAggregatesFilter<"Masters"> | string
+    phone?: StringWithAggregatesFilter<"Masters"> | string
+    status?: BoolWithAggregatesFilter<"Masters"> | boolean
+    dateOfBirth?: IntWithAggregatesFilter<"Masters"> | number
+    avatar?: StringWithAggregatesFilter<"Masters"> | string
+    passportImage?: StringWithAggregatesFilter<"Masters"> | string
+    about?: StringWithAggregatesFilter<"Masters"> | string
+  }
+
+  export type ProfessionsWhereInput = {
+    AND?: ProfessionsWhereInput | ProfessionsWhereInput[]
+    OR?: ProfessionsWhereInput[]
+    NOT?: ProfessionsWhereInput | ProfessionsWhereInput[]
+    id?: StringFilter<"Professions"> | string
+    nameUz?: StringFilter<"Professions"> | string
+    nameRu?: StringFilter<"Professions"> | string
+    nameEn?: StringFilter<"Professions"> | string
+    avatar?: StringFilter<"Professions"> | string
+    status?: BoolFilter<"Professions"> | boolean
+    MasterProfessions?: MasterProfessionsListRelationFilter
+    Backet?: BacketListRelationFilter
+    OrderItems?: OrderItemsListRelationFilter
+    ProfessionLevels?: ProfessionLevelsListRelationFilter
+    ProfessionTools?: ProfessionToolsListRelationFilter
+  }
+
+  export type ProfessionsOrderByWithRelationInput = {
+    id?: SortOrder
+    nameUz?: SortOrder
+    nameRu?: SortOrder
+    nameEn?: SortOrder
+    avatar?: SortOrder
+    status?: SortOrder
+    MasterProfessions?: MasterProfessionsOrderByRelationAggregateInput
+    Backet?: BacketOrderByRelationAggregateInput
+    OrderItems?: OrderItemsOrderByRelationAggregateInput
+    ProfessionLevels?: ProfessionLevelsOrderByRelationAggregateInput
+    ProfessionTools?: ProfessionToolsOrderByRelationAggregateInput
+  }
+
+  export type ProfessionsWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: ProfessionsWhereInput | ProfessionsWhereInput[]
+    OR?: ProfessionsWhereInput[]
+    NOT?: ProfessionsWhereInput | ProfessionsWhereInput[]
+    nameUz?: StringFilter<"Professions"> | string
+    nameRu?: StringFilter<"Professions"> | string
+    nameEn?: StringFilter<"Professions"> | string
+    avatar?: StringFilter<"Professions"> | string
+    status?: BoolFilter<"Professions"> | boolean
+    MasterProfessions?: MasterProfessionsListRelationFilter
+    Backet?: BacketListRelationFilter
+    OrderItems?: OrderItemsListRelationFilter
+    ProfessionLevels?: ProfessionLevelsListRelationFilter
+    ProfessionTools?: ProfessionToolsListRelationFilter
+  }, "id">
+
+  export type ProfessionsOrderByWithAggregationInput = {
+    id?: SortOrder
+    nameUz?: SortOrder
+    nameRu?: SortOrder
+    nameEn?: SortOrder
+    avatar?: SortOrder
+    status?: SortOrder
+    _count?: ProfessionsCountOrderByAggregateInput
+    _max?: ProfessionsMaxOrderByAggregateInput
+    _min?: ProfessionsMinOrderByAggregateInput
+  }
+
+  export type ProfessionsScalarWhereWithAggregatesInput = {
+    AND?: ProfessionsScalarWhereWithAggregatesInput | ProfessionsScalarWhereWithAggregatesInput[]
+    OR?: ProfessionsScalarWhereWithAggregatesInput[]
+    NOT?: ProfessionsScalarWhereWithAggregatesInput | ProfessionsScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Professions"> | string
+    nameUz?: StringWithAggregatesFilter<"Professions"> | string
+    nameRu?: StringWithAggregatesFilter<"Professions"> | string
+    nameEn?: StringWithAggregatesFilter<"Professions"> | string
+    avatar?: StringWithAggregatesFilter<"Professions"> | string
+    status?: BoolWithAggregatesFilter<"Professions"> | boolean
+  }
+
+  export type MasterProfessionsWhereInput = {
+    AND?: MasterProfessionsWhereInput | MasterProfessionsWhereInput[]
+    OR?: MasterProfessionsWhereInput[]
+    NOT?: MasterProfessionsWhereInput | MasterProfessionsWhereInput[]
+    id?: StringFilter<"MasterProfessions"> | string
+    professionId?: StringFilter<"MasterProfessions"> | string
+    minWorkingHours?: IntFilter<"MasterProfessions"> | number
+    levelId?: StringFilter<"MasterProfessions"> | string
+    priceHourly?: DecimalFilter<"MasterProfessions"> | Decimal | DecimalJsLike | number | string
+    priceDaily?: DecimalFilter<"MasterProfessions"> | Decimal | DecimalJsLike | number | string
+    experience?: FloatFilter<"MasterProfessions"> | number
+    masterId?: StringFilter<"MasterProfessions"> | string
+    profession?: XOR<ProfessionsScalarRelationFilter, ProfessionsWhereInput>
+    level?: XOR<LevelsScalarRelationFilter, LevelsWhereInput>
+    master?: XOR<MastersScalarRelationFilter, MastersWhereInput>
+  }
+
+  export type MasterProfessionsOrderByWithRelationInput = {
+    id?: SortOrder
+    professionId?: SortOrder
+    minWorkingHours?: SortOrder
+    levelId?: SortOrder
+    priceHourly?: SortOrder
+    priceDaily?: SortOrder
+    experience?: SortOrder
+    masterId?: SortOrder
+    profession?: ProfessionsOrderByWithRelationInput
+    level?: LevelsOrderByWithRelationInput
+    master?: MastersOrderByWithRelationInput
+  }
+
+  export type MasterProfessionsWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: MasterProfessionsWhereInput | MasterProfessionsWhereInput[]
+    OR?: MasterProfessionsWhereInput[]
+    NOT?: MasterProfessionsWhereInput | MasterProfessionsWhereInput[]
+    professionId?: StringFilter<"MasterProfessions"> | string
+    minWorkingHours?: IntFilter<"MasterProfessions"> | number
+    levelId?: StringFilter<"MasterProfessions"> | string
+    priceHourly?: DecimalFilter<"MasterProfessions"> | Decimal | DecimalJsLike | number | string
+    priceDaily?: DecimalFilter<"MasterProfessions"> | Decimal | DecimalJsLike | number | string
+    experience?: FloatFilter<"MasterProfessions"> | number
+    masterId?: StringFilter<"MasterProfessions"> | string
+    profession?: XOR<ProfessionsScalarRelationFilter, ProfessionsWhereInput>
+    level?: XOR<LevelsScalarRelationFilter, LevelsWhereInput>
+    master?: XOR<MastersScalarRelationFilter, MastersWhereInput>
+  }, "id">
+
+  export type MasterProfessionsOrderByWithAggregationInput = {
+    id?: SortOrder
+    professionId?: SortOrder
+    minWorkingHours?: SortOrder
+    levelId?: SortOrder
+    priceHourly?: SortOrder
+    priceDaily?: SortOrder
+    experience?: SortOrder
+    masterId?: SortOrder
+    _count?: MasterProfessionsCountOrderByAggregateInput
+    _avg?: MasterProfessionsAvgOrderByAggregateInput
+    _max?: MasterProfessionsMaxOrderByAggregateInput
+    _min?: MasterProfessionsMinOrderByAggregateInput
+    _sum?: MasterProfessionsSumOrderByAggregateInput
+  }
+
+  export type MasterProfessionsScalarWhereWithAggregatesInput = {
+    AND?: MasterProfessionsScalarWhereWithAggregatesInput | MasterProfessionsScalarWhereWithAggregatesInput[]
+    OR?: MasterProfessionsScalarWhereWithAggregatesInput[]
+    NOT?: MasterProfessionsScalarWhereWithAggregatesInput | MasterProfessionsScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"MasterProfessions"> | string
+    professionId?: StringWithAggregatesFilter<"MasterProfessions"> | string
+    minWorkingHours?: IntWithAggregatesFilter<"MasterProfessions"> | number
+    levelId?: StringWithAggregatesFilter<"MasterProfessions"> | string
+    priceHourly?: DecimalWithAggregatesFilter<"MasterProfessions"> | Decimal | DecimalJsLike | number | string
+    priceDaily?: DecimalWithAggregatesFilter<"MasterProfessions"> | Decimal | DecimalJsLike | number | string
+    experience?: FloatWithAggregatesFilter<"MasterProfessions"> | number
+    masterId?: StringWithAggregatesFilter<"MasterProfessions"> | string
+  }
+
+  export type ProfessionLevelsWhereInput = {
+    AND?: ProfessionLevelsWhereInput | ProfessionLevelsWhereInput[]
+    OR?: ProfessionLevelsWhereInput[]
+    NOT?: ProfessionLevelsWhereInput | ProfessionLevelsWhereInput[]
+    id?: StringFilter<"ProfessionLevels"> | string
+    professionId?: StringFilter<"ProfessionLevels"> | string
+    levelId?: StringFilter<"ProfessionLevels"> | string
+    minWorkingHours?: IntFilter<"ProfessionLevels"> | number
+    priceHourly?: DecimalFilter<"ProfessionLevels"> | Decimal | DecimalJsLike | number | string
+    priceDaily?: DecimalFilter<"ProfessionLevels"> | Decimal | DecimalJsLike | number | string
+    profession?: XOR<ProfessionsScalarRelationFilter, ProfessionsWhereInput>
+    level?: XOR<LevelsScalarRelationFilter, LevelsWhereInput>
+  }
+
+  export type ProfessionLevelsOrderByWithRelationInput = {
+    id?: SortOrder
+    professionId?: SortOrder
+    levelId?: SortOrder
+    minWorkingHours?: SortOrder
+    priceHourly?: SortOrder
+    priceDaily?: SortOrder
+    profession?: ProfessionsOrderByWithRelationInput
+    level?: LevelsOrderByWithRelationInput
+  }
+
+  export type ProfessionLevelsWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: ProfessionLevelsWhereInput | ProfessionLevelsWhereInput[]
+    OR?: ProfessionLevelsWhereInput[]
+    NOT?: ProfessionLevelsWhereInput | ProfessionLevelsWhereInput[]
+    professionId?: StringFilter<"ProfessionLevels"> | string
+    levelId?: StringFilter<"ProfessionLevels"> | string
+    minWorkingHours?: IntFilter<"ProfessionLevels"> | number
+    priceHourly?: DecimalFilter<"ProfessionLevels"> | Decimal | DecimalJsLike | number | string
+    priceDaily?: DecimalFilter<"ProfessionLevels"> | Decimal | DecimalJsLike | number | string
+    profession?: XOR<ProfessionsScalarRelationFilter, ProfessionsWhereInput>
+    level?: XOR<LevelsScalarRelationFilter, LevelsWhereInput>
+  }, "id">
+
+  export type ProfessionLevelsOrderByWithAggregationInput = {
+    id?: SortOrder
+    professionId?: SortOrder
+    levelId?: SortOrder
+    minWorkingHours?: SortOrder
+    priceHourly?: SortOrder
+    priceDaily?: SortOrder
+    _count?: ProfessionLevelsCountOrderByAggregateInput
+    _avg?: ProfessionLevelsAvgOrderByAggregateInput
+    _max?: ProfessionLevelsMaxOrderByAggregateInput
+    _min?: ProfessionLevelsMinOrderByAggregateInput
+    _sum?: ProfessionLevelsSumOrderByAggregateInput
+  }
+
+  export type ProfessionLevelsScalarWhereWithAggregatesInput = {
+    AND?: ProfessionLevelsScalarWhereWithAggregatesInput | ProfessionLevelsScalarWhereWithAggregatesInput[]
+    OR?: ProfessionLevelsScalarWhereWithAggregatesInput[]
+    NOT?: ProfessionLevelsScalarWhereWithAggregatesInput | ProfessionLevelsScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"ProfessionLevels"> | string
+    professionId?: StringWithAggregatesFilter<"ProfessionLevels"> | string
+    levelId?: StringWithAggregatesFilter<"ProfessionLevels"> | string
+    minWorkingHours?: IntWithAggregatesFilter<"ProfessionLevels"> | number
+    priceHourly?: DecimalWithAggregatesFilter<"ProfessionLevels"> | Decimal | DecimalJsLike | number | string
+    priceDaily?: DecimalWithAggregatesFilter<"ProfessionLevels"> | Decimal | DecimalJsLike | number | string
+  }
+
+  export type ToolsWhereInput = {
+    AND?: ToolsWhereInput | ToolsWhereInput[]
+    OR?: ToolsWhereInput[]
+    NOT?: ToolsWhereInput | ToolsWhereInput[]
+    id?: StringFilter<"Tools"> | string
+    code?: StringFilter<"Tools"> | string
+    nameUz?: StringFilter<"Tools"> | string
+    nameRu?: StringFilter<"Tools"> | string
+    nameEn?: StringFilter<"Tools"> | string
+    descriptionUz?: StringFilter<"Tools"> | string
+    descriptionRu?: StringFilter<"Tools"> | string
+    descriptionEn?: StringFilter<"Tools"> | string
+    price?: DecimalFilter<"Tools"> | Decimal | DecimalJsLike | number | string
+    quantity?: IntFilter<"Tools"> | number
+    brandId?: StringFilter<"Tools"> | string
+    capacityId?: StringFilter<"Tools"> | string
+    sizeId?: StringFilter<"Tools"> | string
+    image?: StringFilter<"Tools"> | string
+    isAvailable?: BoolFilter<"Tools"> | boolean
+    createdAt?: DateTimeFilter<"Tools"> | Date | string
+    updatedAt?: DateTimeFilter<"Tools"> | Date | string
+    brand?: XOR<BrandsScalarRelationFilter, BrandsWhereInput>
+    capacity?: XOR<CapacityScalarRelationFilter, CapacityWhereInput>
+    size?: XOR<SizesScalarRelationFilter, SizesWhereInput>
+    Backet?: BacketListRelationFilter
+    OrderItems?: OrderItemsListRelationFilter
+    ProfessionTools?: ProfessionToolsListRelationFilter
+  }
+
+  export type ToolsOrderByWithRelationInput = {
+    id?: SortOrder
+    code?: SortOrder
+    nameUz?: SortOrder
+    nameRu?: SortOrder
+    nameEn?: SortOrder
+    descriptionUz?: SortOrder
+    descriptionRu?: SortOrder
+    descriptionEn?: SortOrder
+    price?: SortOrder
+    quantity?: SortOrder
+    brandId?: SortOrder
+    capacityId?: SortOrder
+    sizeId?: SortOrder
+    image?: SortOrder
+    isAvailable?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    brand?: BrandsOrderByWithRelationInput
+    capacity?: CapacityOrderByWithRelationInput
+    size?: SizesOrderByWithRelationInput
+    Backet?: BacketOrderByRelationAggregateInput
+    OrderItems?: OrderItemsOrderByRelationAggregateInput
+    ProfessionTools?: ProfessionToolsOrderByRelationAggregateInput
+  }
+
+  export type ToolsWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    code?: string
+    AND?: ToolsWhereInput | ToolsWhereInput[]
+    OR?: ToolsWhereInput[]
+    NOT?: ToolsWhereInput | ToolsWhereInput[]
+    nameUz?: StringFilter<"Tools"> | string
+    nameRu?: StringFilter<"Tools"> | string
+    nameEn?: StringFilter<"Tools"> | string
+    descriptionUz?: StringFilter<"Tools"> | string
+    descriptionRu?: StringFilter<"Tools"> | string
+    descriptionEn?: StringFilter<"Tools"> | string
+    price?: DecimalFilter<"Tools"> | Decimal | DecimalJsLike | number | string
+    quantity?: IntFilter<"Tools"> | number
+    brandId?: StringFilter<"Tools"> | string
+    capacityId?: StringFilter<"Tools"> | string
+    sizeId?: StringFilter<"Tools"> | string
+    image?: StringFilter<"Tools"> | string
+    isAvailable?: BoolFilter<"Tools"> | boolean
+    createdAt?: DateTimeFilter<"Tools"> | Date | string
+    updatedAt?: DateTimeFilter<"Tools"> | Date | string
+    brand?: XOR<BrandsScalarRelationFilter, BrandsWhereInput>
+    capacity?: XOR<CapacityScalarRelationFilter, CapacityWhereInput>
+    size?: XOR<SizesScalarRelationFilter, SizesWhereInput>
+    Backet?: BacketListRelationFilter
+    OrderItems?: OrderItemsListRelationFilter
+    ProfessionTools?: ProfessionToolsListRelationFilter
+  }, "id" | "code">
+
+  export type ToolsOrderByWithAggregationInput = {
+    id?: SortOrder
+    code?: SortOrder
+    nameUz?: SortOrder
+    nameRu?: SortOrder
+    nameEn?: SortOrder
+    descriptionUz?: SortOrder
+    descriptionRu?: SortOrder
+    descriptionEn?: SortOrder
+    price?: SortOrder
+    quantity?: SortOrder
+    brandId?: SortOrder
+    capacityId?: SortOrder
+    sizeId?: SortOrder
+    image?: SortOrder
+    isAvailable?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: ToolsCountOrderByAggregateInput
+    _avg?: ToolsAvgOrderByAggregateInput
+    _max?: ToolsMaxOrderByAggregateInput
+    _min?: ToolsMinOrderByAggregateInput
+    _sum?: ToolsSumOrderByAggregateInput
+  }
+
+  export type ToolsScalarWhereWithAggregatesInput = {
+    AND?: ToolsScalarWhereWithAggregatesInput | ToolsScalarWhereWithAggregatesInput[]
+    OR?: ToolsScalarWhereWithAggregatesInput[]
+    NOT?: ToolsScalarWhereWithAggregatesInput | ToolsScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Tools"> | string
+    code?: StringWithAggregatesFilter<"Tools"> | string
+    nameUz?: StringWithAggregatesFilter<"Tools"> | string
+    nameRu?: StringWithAggregatesFilter<"Tools"> | string
+    nameEn?: StringWithAggregatesFilter<"Tools"> | string
+    descriptionUz?: StringWithAggregatesFilter<"Tools"> | string
+    descriptionRu?: StringWithAggregatesFilter<"Tools"> | string
+    descriptionEn?: StringWithAggregatesFilter<"Tools"> | string
+    price?: DecimalWithAggregatesFilter<"Tools"> | Decimal | DecimalJsLike | number | string
+    quantity?: IntWithAggregatesFilter<"Tools"> | number
+    brandId?: StringWithAggregatesFilter<"Tools"> | string
+    capacityId?: StringWithAggregatesFilter<"Tools"> | string
+    sizeId?: StringWithAggregatesFilter<"Tools"> | string
+    image?: StringWithAggregatesFilter<"Tools"> | string
+    isAvailable?: BoolWithAggregatesFilter<"Tools"> | boolean
+    createdAt?: DateTimeWithAggregatesFilter<"Tools"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Tools"> | Date | string
+  }
+
+  export type ProfessionToolsWhereInput = {
+    AND?: ProfessionToolsWhereInput | ProfessionToolsWhereInput[]
+    OR?: ProfessionToolsWhereInput[]
+    NOT?: ProfessionToolsWhereInput | ProfessionToolsWhereInput[]
+    id?: StringFilter<"ProfessionTools"> | string
+    professionId?: StringFilter<"ProfessionTools"> | string
+    toolId?: StringFilter<"ProfessionTools"> | string
+    professions?: XOR<ProfessionsScalarRelationFilter, ProfessionsWhereInput>
+    tools?: XOR<ToolsScalarRelationFilter, ToolsWhereInput>
+  }
+
+  export type ProfessionToolsOrderByWithRelationInput = {
+    id?: SortOrder
+    professionId?: SortOrder
+    toolId?: SortOrder
+    professions?: ProfessionsOrderByWithRelationInput
+    tools?: ToolsOrderByWithRelationInput
+  }
+
+  export type ProfessionToolsWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: ProfessionToolsWhereInput | ProfessionToolsWhereInput[]
+    OR?: ProfessionToolsWhereInput[]
+    NOT?: ProfessionToolsWhereInput | ProfessionToolsWhereInput[]
+    professionId?: StringFilter<"ProfessionTools"> | string
+    toolId?: StringFilter<"ProfessionTools"> | string
+    professions?: XOR<ProfessionsScalarRelationFilter, ProfessionsWhereInput>
+    tools?: XOR<ToolsScalarRelationFilter, ToolsWhereInput>
+  }, "id">
+
+  export type ProfessionToolsOrderByWithAggregationInput = {
+    id?: SortOrder
+    professionId?: SortOrder
+    toolId?: SortOrder
+    _count?: ProfessionToolsCountOrderByAggregateInput
+    _max?: ProfessionToolsMaxOrderByAggregateInput
+    _min?: ProfessionToolsMinOrderByAggregateInput
+  }
+
+  export type ProfessionToolsScalarWhereWithAggregatesInput = {
+    AND?: ProfessionToolsScalarWhereWithAggregatesInput | ProfessionToolsScalarWhereWithAggregatesInput[]
+    OR?: ProfessionToolsScalarWhereWithAggregatesInput[]
+    NOT?: ProfessionToolsScalarWhereWithAggregatesInput | ProfessionToolsScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"ProfessionTools"> | string
+    professionId?: StringWithAggregatesFilter<"ProfessionTools"> | string
+    toolId?: StringWithAggregatesFilter<"ProfessionTools"> | string
+  }
+
+  export type BacketWhereInput = {
+    AND?: BacketWhereInput | BacketWhereInput[]
+    OR?: BacketWhereInput[]
+    NOT?: BacketWhereInput | BacketWhereInput[]
+    id?: StringFilter<"Backet"> | string
+    ownerId?: StringFilter<"Backet"> | string
+    professionId?: StringFilter<"Backet"> | string
+    toolId?: StringFilter<"Backet"> | string
+    count?: IntFilter<"Backet"> | number
+    measure?: EnumBacketMeasureFilter<"Backet"> | $Enums.BacketMeasure
+    workingTime?: IntFilter<"Backet"> | number
+    totalPrice?: DecimalFilter<"Backet"> | Decimal | DecimalJsLike | number | string
+    levelId?: StringFilter<"Backet"> | string
+    owner?: XOR<UsersScalarRelationFilter, UsersWhereInput>
+    profession?: XOR<ProfessionsScalarRelationFilter, ProfessionsWhereInput>
+    tools?: XOR<ToolsScalarRelationFilter, ToolsWhereInput>
+    level?: XOR<LevelsScalarRelationFilter, LevelsWhereInput>
+  }
+
+  export type BacketOrderByWithRelationInput = {
+    id?: SortOrder
+    ownerId?: SortOrder
+    professionId?: SortOrder
+    toolId?: SortOrder
+    count?: SortOrder
+    measure?: SortOrder
+    workingTime?: SortOrder
+    totalPrice?: SortOrder
+    levelId?: SortOrder
+    owner?: UsersOrderByWithRelationInput
+    profession?: ProfessionsOrderByWithRelationInput
+    tools?: ToolsOrderByWithRelationInput
+    level?: LevelsOrderByWithRelationInput
+  }
+
+  export type BacketWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: BacketWhereInput | BacketWhereInput[]
+    OR?: BacketWhereInput[]
+    NOT?: BacketWhereInput | BacketWhereInput[]
+    ownerId?: StringFilter<"Backet"> | string
+    professionId?: StringFilter<"Backet"> | string
+    toolId?: StringFilter<"Backet"> | string
+    count?: IntFilter<"Backet"> | number
+    measure?: EnumBacketMeasureFilter<"Backet"> | $Enums.BacketMeasure
+    workingTime?: IntFilter<"Backet"> | number
+    totalPrice?: DecimalFilter<"Backet"> | Decimal | DecimalJsLike | number | string
+    levelId?: StringFilter<"Backet"> | string
+    owner?: XOR<UsersScalarRelationFilter, UsersWhereInput>
+    profession?: XOR<ProfessionsScalarRelationFilter, ProfessionsWhereInput>
+    tools?: XOR<ToolsScalarRelationFilter, ToolsWhereInput>
+    level?: XOR<LevelsScalarRelationFilter, LevelsWhereInput>
+  }, "id">
+
+  export type BacketOrderByWithAggregationInput = {
+    id?: SortOrder
+    ownerId?: SortOrder
+    professionId?: SortOrder
+    toolId?: SortOrder
+    count?: SortOrder
+    measure?: SortOrder
+    workingTime?: SortOrder
+    totalPrice?: SortOrder
+    levelId?: SortOrder
+    _count?: BacketCountOrderByAggregateInput
+    _avg?: BacketAvgOrderByAggregateInput
+    _max?: BacketMaxOrderByAggregateInput
+    _min?: BacketMinOrderByAggregateInput
+    _sum?: BacketSumOrderByAggregateInput
+  }
+
+  export type BacketScalarWhereWithAggregatesInput = {
+    AND?: BacketScalarWhereWithAggregatesInput | BacketScalarWhereWithAggregatesInput[]
+    OR?: BacketScalarWhereWithAggregatesInput[]
+    NOT?: BacketScalarWhereWithAggregatesInput | BacketScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Backet"> | string
+    ownerId?: StringWithAggregatesFilter<"Backet"> | string
+    professionId?: StringWithAggregatesFilter<"Backet"> | string
+    toolId?: StringWithAggregatesFilter<"Backet"> | string
+    count?: IntWithAggregatesFilter<"Backet"> | number
+    measure?: EnumBacketMeasureWithAggregatesFilter<"Backet"> | $Enums.BacketMeasure
+    workingTime?: IntWithAggregatesFilter<"Backet"> | number
+    totalPrice?: DecimalWithAggregatesFilter<"Backet"> | Decimal | DecimalJsLike | number | string
+    levelId?: StringWithAggregatesFilter<"Backet"> | string
+  }
+
+  export type OrdersWhereInput = {
+    AND?: OrdersWhereInput | OrdersWhereInput[]
+    OR?: OrdersWhereInput[]
+    NOT?: OrdersWhereInput | OrdersWhereInput[]
+    id?: StringFilter<"Orders"> | string
+    ownerId?: StringFilter<"Orders"> | string
+    address?: StringFilter<"Orders"> | string
+    latitude?: StringFilter<"Orders"> | string
+    longitude?: StringFilter<"Orders"> | string
+    date?: DateTimeFilter<"Orders"> | Date | string
+    totalPrice?: DecimalFilter<"Orders"> | Decimal | DecimalJsLike | number | string
+    paymentType?: EnumPaymentTypeFilter<"Orders"> | $Enums.PaymentType
+    withDelivery?: BoolFilter<"Orders"> | boolean
+    status?: EnumOrderStatusFilter<"Orders"> | $Enums.OrderStatus
+    deliveryCommentId?: StringNullableFilter<"Orders"> | string | null
+    createdAt?: DateTimeFilter<"Orders"> | Date | string
+    updatedAt?: DateTimeFilter<"Orders"> | Date | string
+    deliveryComment?: XOR<CommentsNullableScalarRelationFilter, CommentsWhereInput> | null
+    OrderItems?: OrderItemsListRelationFilter
+  }
+
+  export type OrdersOrderByWithRelationInput = {
+    id?: SortOrder
+    ownerId?: SortOrder
+    address?: SortOrder
+    latitude?: SortOrder
+    longitude?: SortOrder
+    date?: SortOrder
+    totalPrice?: SortOrder
+    paymentType?: SortOrder
+    withDelivery?: SortOrder
+    status?: SortOrder
+    deliveryCommentId?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    deliveryComment?: CommentsOrderByWithRelationInput
+    OrderItems?: OrderItemsOrderByRelationAggregateInput
+  }
+
+  export type OrdersWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: OrdersWhereInput | OrdersWhereInput[]
+    OR?: OrdersWhereInput[]
+    NOT?: OrdersWhereInput | OrdersWhereInput[]
+    ownerId?: StringFilter<"Orders"> | string
+    address?: StringFilter<"Orders"> | string
+    latitude?: StringFilter<"Orders"> | string
+    longitude?: StringFilter<"Orders"> | string
+    date?: DateTimeFilter<"Orders"> | Date | string
+    totalPrice?: DecimalFilter<"Orders"> | Decimal | DecimalJsLike | number | string
+    paymentType?: EnumPaymentTypeFilter<"Orders"> | $Enums.PaymentType
+    withDelivery?: BoolFilter<"Orders"> | boolean
+    status?: EnumOrderStatusFilter<"Orders"> | $Enums.OrderStatus
+    deliveryCommentId?: StringNullableFilter<"Orders"> | string | null
+    createdAt?: DateTimeFilter<"Orders"> | Date | string
+    updatedAt?: DateTimeFilter<"Orders"> | Date | string
+    deliveryComment?: XOR<CommentsNullableScalarRelationFilter, CommentsWhereInput> | null
+    OrderItems?: OrderItemsListRelationFilter
+  }, "id">
+
+  export type OrdersOrderByWithAggregationInput = {
+    id?: SortOrder
+    ownerId?: SortOrder
+    address?: SortOrder
+    latitude?: SortOrder
+    longitude?: SortOrder
+    date?: SortOrder
+    totalPrice?: SortOrder
+    paymentType?: SortOrder
+    withDelivery?: SortOrder
+    status?: SortOrder
+    deliveryCommentId?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: OrdersCountOrderByAggregateInput
+    _avg?: OrdersAvgOrderByAggregateInput
+    _max?: OrdersMaxOrderByAggregateInput
+    _min?: OrdersMinOrderByAggregateInput
+    _sum?: OrdersSumOrderByAggregateInput
+  }
+
+  export type OrdersScalarWhereWithAggregatesInput = {
+    AND?: OrdersScalarWhereWithAggregatesInput | OrdersScalarWhereWithAggregatesInput[]
+    OR?: OrdersScalarWhereWithAggregatesInput[]
+    NOT?: OrdersScalarWhereWithAggregatesInput | OrdersScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Orders"> | string
+    ownerId?: StringWithAggregatesFilter<"Orders"> | string
+    address?: StringWithAggregatesFilter<"Orders"> | string
+    latitude?: StringWithAggregatesFilter<"Orders"> | string
+    longitude?: StringWithAggregatesFilter<"Orders"> | string
+    date?: DateTimeWithAggregatesFilter<"Orders"> | Date | string
+    totalPrice?: DecimalWithAggregatesFilter<"Orders"> | Decimal | DecimalJsLike | number | string
+    paymentType?: EnumPaymentTypeWithAggregatesFilter<"Orders"> | $Enums.PaymentType
+    withDelivery?: BoolWithAggregatesFilter<"Orders"> | boolean
+    status?: EnumOrderStatusWithAggregatesFilter<"Orders"> | $Enums.OrderStatus
+    deliveryCommentId?: StringNullableWithAggregatesFilter<"Orders"> | string | null
+    createdAt?: DateTimeWithAggregatesFilter<"Orders"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Orders"> | Date | string
+  }
+
+  export type OrderItemsWhereInput = {
+    AND?: OrderItemsWhereInput | OrderItemsWhereInput[]
+    OR?: OrderItemsWhereInput[]
+    NOT?: OrderItemsWhereInput | OrderItemsWhereInput[]
+    id?: StringFilter<"OrderItems"> | string
+    orderId?: StringFilter<"OrderItems"> | string
+    professionId?: StringFilter<"OrderItems"> | string
+    toolId?: StringFilter<"OrderItems"> | string
+    levelId?: StringFilter<"OrderItems"> | string
+    measure?: EnumOrderItemMeasureFilter<"OrderItems"> | $Enums.OrderItemMeasure
+    workingTime?: IntFilter<"OrderItems"> | number
+    price?: DecimalFilter<"OrderItems"> | Decimal | DecimalJsLike | number | string
+    count?: IntFilter<"OrderItems"> | number
+    order?: XOR<OrdersScalarRelationFilter, OrdersWhereInput>
+    profession?: XOR<ProfessionsScalarRelationFilter, ProfessionsWhereInput>
+    tool?: XOR<ToolsScalarRelationFilter, ToolsWhereInput>
+    level?: XOR<LevelsScalarRelationFilter, LevelsWhereInput>
+  }
+
+  export type OrderItemsOrderByWithRelationInput = {
+    id?: SortOrder
+    orderId?: SortOrder
+    professionId?: SortOrder
+    toolId?: SortOrder
+    levelId?: SortOrder
+    measure?: SortOrder
+    workingTime?: SortOrder
+    price?: SortOrder
+    count?: SortOrder
+    order?: OrdersOrderByWithRelationInput
+    profession?: ProfessionsOrderByWithRelationInput
+    tool?: ToolsOrderByWithRelationInput
+    level?: LevelsOrderByWithRelationInput
+  }
+
+  export type OrderItemsWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: OrderItemsWhereInput | OrderItemsWhereInput[]
+    OR?: OrderItemsWhereInput[]
+    NOT?: OrderItemsWhereInput | OrderItemsWhereInput[]
+    orderId?: StringFilter<"OrderItems"> | string
+    professionId?: StringFilter<"OrderItems"> | string
+    toolId?: StringFilter<"OrderItems"> | string
+    levelId?: StringFilter<"OrderItems"> | string
+    measure?: EnumOrderItemMeasureFilter<"OrderItems"> | $Enums.OrderItemMeasure
+    workingTime?: IntFilter<"OrderItems"> | number
+    price?: DecimalFilter<"OrderItems"> | Decimal | DecimalJsLike | number | string
+    count?: IntFilter<"OrderItems"> | number
+    order?: XOR<OrdersScalarRelationFilter, OrdersWhereInput>
+    profession?: XOR<ProfessionsScalarRelationFilter, ProfessionsWhereInput>
+    tool?: XOR<ToolsScalarRelationFilter, ToolsWhereInput>
+    level?: XOR<LevelsScalarRelationFilter, LevelsWhereInput>
+  }, "id">
+
+  export type OrderItemsOrderByWithAggregationInput = {
+    id?: SortOrder
+    orderId?: SortOrder
+    professionId?: SortOrder
+    toolId?: SortOrder
+    levelId?: SortOrder
+    measure?: SortOrder
+    workingTime?: SortOrder
+    price?: SortOrder
+    count?: SortOrder
+    _count?: OrderItemsCountOrderByAggregateInput
+    _avg?: OrderItemsAvgOrderByAggregateInput
+    _max?: OrderItemsMaxOrderByAggregateInput
+    _min?: OrderItemsMinOrderByAggregateInput
+    _sum?: OrderItemsSumOrderByAggregateInput
+  }
+
+  export type OrderItemsScalarWhereWithAggregatesInput = {
+    AND?: OrderItemsScalarWhereWithAggregatesInput | OrderItemsScalarWhereWithAggregatesInput[]
+    OR?: OrderItemsScalarWhereWithAggregatesInput[]
+    NOT?: OrderItemsScalarWhereWithAggregatesInput | OrderItemsScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"OrderItems"> | string
+    orderId?: StringWithAggregatesFilter<"OrderItems"> | string
+    professionId?: StringWithAggregatesFilter<"OrderItems"> | string
+    toolId?: StringWithAggregatesFilter<"OrderItems"> | string
+    levelId?: StringWithAggregatesFilter<"OrderItems"> | string
+    measure?: EnumOrderItemMeasureWithAggregatesFilter<"OrderItems"> | $Enums.OrderItemMeasure
+    workingTime?: IntWithAggregatesFilter<"OrderItems"> | number
+    price?: DecimalWithAggregatesFilter<"OrderItems"> | Decimal | DecimalJsLike | number | string
+    count?: IntWithAggregatesFilter<"OrderItems"> | number
   }
 
   export type RegionsCreateInput = {
@@ -18933,6 +32460,9 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     region: RegionsCreateNestedOneWithoutUsersInput
+    Backet?: BacketCreateNestedManyWithoutOwnerInput
+    Comments?: CommentsCreateNestedManyWithoutUserInput
+    Sessions?: SessionsCreateNestedManyWithoutUserInput
   }
 
   export type UsersUncheckedCreateInput = {
@@ -18946,6 +32476,9 @@ export namespace Prisma {
     regionId: string
     createdAt?: Date | string
     updatedAt?: Date | string
+    Backet?: BacketUncheckedCreateNestedManyWithoutOwnerInput
+    Comments?: CommentsUncheckedCreateNestedManyWithoutUserInput
+    Sessions?: SessionsUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UsersUpdateInput = {
@@ -18959,6 +32492,9 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     region?: RegionsUpdateOneRequiredWithoutUsersNestedInput
+    Backet?: BacketUpdateManyWithoutOwnerNestedInput
+    Comments?: CommentsUpdateManyWithoutUserNestedInput
+    Sessions?: SessionsUpdateManyWithoutUserNestedInput
   }
 
   export type UsersUncheckedUpdateInput = {
@@ -18972,6 +32508,9 @@ export namespace Prisma {
     regionId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    Backet?: BacketUncheckedUpdateManyWithoutOwnerNestedInput
+    Comments?: CommentsUncheckedUpdateManyWithoutUserNestedInput
+    Sessions?: SessionsUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UsersCreateManyInput = {
@@ -19014,10 +32553,10 @@ export namespace Prisma {
 
   export type SessionsCreateInput = {
     id?: string
-    userId: string
     ipAddress: string
     deviceInfo: JsonNullValueInput | InputJsonValue
     createdAt?: Date | string
+    user: UsersCreateNestedOneWithoutSessionsInput
   }
 
   export type SessionsUncheckedCreateInput = {
@@ -19030,10 +32569,10 @@ export namespace Prisma {
 
   export type SessionsUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    userId?: StringFieldUpdateOperationsInput | string
     ipAddress?: StringFieldUpdateOperationsInput | string
     deviceInfo?: JsonNullValueInput | InputJsonValue
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UsersUpdateOneRequiredWithoutSessionsNestedInput
   }
 
   export type SessionsUncheckedUpdateInput = {
@@ -19054,7 +32593,6 @@ export namespace Prisma {
 
   export type SessionsUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
-    userId?: StringFieldUpdateOperationsInput | string
     ipAddress?: StringFieldUpdateOperationsInput | string
     deviceInfo?: JsonNullValueInput | InputJsonValue
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -19521,13 +33059,17 @@ export namespace Prisma {
     message: string
     createdAt?: Date | string
     updatedAt?: Date | string
+    user: UsersCreateNestedOneWithoutCommentsInput
+    Orders?: OrdersCreateNestedManyWithoutDeliveryCommentInput
   }
 
   export type CommentsUncheckedCreateInput = {
     id?: string
     message: string
+    userId: string
     createdAt?: Date | string
     updatedAt?: Date | string
+    Orders?: OrdersUncheckedCreateNestedManyWithoutDeliveryCommentInput
   }
 
   export type CommentsUpdateInput = {
@@ -19535,18 +33077,23 @@ export namespace Prisma {
     message?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UsersUpdateOneRequiredWithoutCommentsNestedInput
+    Orders?: OrdersUpdateManyWithoutDeliveryCommentNestedInput
   }
 
   export type CommentsUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     message?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    Orders?: OrdersUncheckedUpdateManyWithoutDeliveryCommentNestedInput
   }
 
   export type CommentsCreateManyInput = {
     id?: string
     message: string
+    userId: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -19561,6 +33108,7 @@ export namespace Prisma {
   export type CommentsUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     message?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -19621,6 +33169,10 @@ export namespace Prisma {
     nameEn: string
     createdAt?: Date | string
     updatedAt?: Date | string
+    MasterProfessions?: MasterProfessionsCreateNestedManyWithoutLevelInput
+    Backet?: BacketCreateNestedManyWithoutLevelInput
+    OrderItems?: OrderItemsCreateNestedManyWithoutLevelInput
+    ProfessionLevels?: ProfessionLevelsCreateNestedManyWithoutLevelInput
   }
 
   export type LevelsUncheckedCreateInput = {
@@ -19630,6 +33182,10 @@ export namespace Prisma {
     nameEn: string
     createdAt?: Date | string
     updatedAt?: Date | string
+    MasterProfessions?: MasterProfessionsUncheckedCreateNestedManyWithoutLevelInput
+    Backet?: BacketUncheckedCreateNestedManyWithoutLevelInput
+    OrderItems?: OrderItemsUncheckedCreateNestedManyWithoutLevelInput
+    ProfessionLevels?: ProfessionLevelsUncheckedCreateNestedManyWithoutLevelInput
   }
 
   export type LevelsUpdateInput = {
@@ -19639,6 +33195,10 @@ export namespace Prisma {
     nameEn?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    MasterProfessions?: MasterProfessionsUpdateManyWithoutLevelNestedInput
+    Backet?: BacketUpdateManyWithoutLevelNestedInput
+    OrderItems?: OrderItemsUpdateManyWithoutLevelNestedInput
+    ProfessionLevels?: ProfessionLevelsUpdateManyWithoutLevelNestedInput
   }
 
   export type LevelsUncheckedUpdateInput = {
@@ -19648,6 +33208,10 @@ export namespace Prisma {
     nameEn?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    MasterProfessions?: MasterProfessionsUncheckedUpdateManyWithoutLevelNestedInput
+    Backet?: BacketUncheckedUpdateManyWithoutLevelNestedInput
+    OrderItems?: OrderItemsUncheckedUpdateManyWithoutLevelNestedInput
+    ProfessionLevels?: ProfessionLevelsUncheckedUpdateManyWithoutLevelNestedInput
   }
 
   export type LevelsCreateManyInput = {
@@ -19684,6 +33248,7 @@ export namespace Prisma {
     nameEn: string
     createdAt?: Date | string
     updatedAt?: Date | string
+    Tools?: ToolsCreateNestedManyWithoutCapacityInput
   }
 
   export type CapacityUncheckedCreateInput = {
@@ -19693,6 +33258,7 @@ export namespace Prisma {
     nameEn: string
     createdAt?: Date | string
     updatedAt?: Date | string
+    Tools?: ToolsUncheckedCreateNestedManyWithoutCapacityInput
   }
 
   export type CapacityUpdateInput = {
@@ -19702,6 +33268,7 @@ export namespace Prisma {
     nameEn?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    Tools?: ToolsUpdateManyWithoutCapacityNestedInput
   }
 
   export type CapacityUncheckedUpdateInput = {
@@ -19711,6 +33278,7 @@ export namespace Prisma {
     nameEn?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    Tools?: ToolsUncheckedUpdateManyWithoutCapacityNestedInput
   }
 
   export type CapacityCreateManyInput = {
@@ -19747,6 +33315,7 @@ export namespace Prisma {
     nameEn: string
     createdAt?: Date | string
     updatedAt?: Date | string
+    Tools?: ToolsCreateNestedManyWithoutSizeInput
   }
 
   export type SizesUncheckedCreateInput = {
@@ -19756,6 +33325,7 @@ export namespace Prisma {
     nameEn: string
     createdAt?: Date | string
     updatedAt?: Date | string
+    Tools?: ToolsUncheckedCreateNestedManyWithoutSizeInput
   }
 
   export type SizesUpdateInput = {
@@ -19765,6 +33335,7 @@ export namespace Prisma {
     nameEn?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    Tools?: ToolsUpdateManyWithoutSizeNestedInput
   }
 
   export type SizesUncheckedUpdateInput = {
@@ -19774,6 +33345,7 @@ export namespace Prisma {
     nameEn?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    Tools?: ToolsUncheckedUpdateManyWithoutSizeNestedInput
   }
 
   export type SizesCreateManyInput = {
@@ -19810,6 +33382,7 @@ export namespace Prisma {
     nameEn: string
     createdAt?: Date | string
     updatedAt?: Date | string
+    Tools?: ToolsCreateNestedManyWithoutBrandInput
   }
 
   export type BrandsUncheckedCreateInput = {
@@ -19819,6 +33392,7 @@ export namespace Prisma {
     nameEn: string
     createdAt?: Date | string
     updatedAt?: Date | string
+    Tools?: ToolsUncheckedCreateNestedManyWithoutBrandInput
   }
 
   export type BrandsUpdateInput = {
@@ -19828,6 +33402,7 @@ export namespace Prisma {
     nameEn?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    Tools?: ToolsUpdateManyWithoutBrandNestedInput
   }
 
   export type BrandsUncheckedUpdateInput = {
@@ -19837,6 +33412,7 @@ export namespace Prisma {
     nameEn?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    Tools?: ToolsUncheckedUpdateManyWithoutBrandNestedInput
   }
 
   export type BrandsCreateManyInput = {
@@ -19864,6 +33440,769 @@ export namespace Prisma {
     nameEn?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type MastersCreateInput = {
+    id?: string
+    fullName: string
+    phone: string
+    status: boolean
+    dateOfBirth: number
+    avatar: string
+    passportImage: string
+    about: string
+    MasterProfessions?: MasterProfessionsCreateNestedManyWithoutMasterInput
+  }
+
+  export type MastersUncheckedCreateInput = {
+    id?: string
+    fullName: string
+    phone: string
+    status: boolean
+    dateOfBirth: number
+    avatar: string
+    passportImage: string
+    about: string
+    MasterProfessions?: MasterProfessionsUncheckedCreateNestedManyWithoutMasterInput
+  }
+
+  export type MastersUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    fullName?: StringFieldUpdateOperationsInput | string
+    phone?: StringFieldUpdateOperationsInput | string
+    status?: BoolFieldUpdateOperationsInput | boolean
+    dateOfBirth?: IntFieldUpdateOperationsInput | number
+    avatar?: StringFieldUpdateOperationsInput | string
+    passportImage?: StringFieldUpdateOperationsInput | string
+    about?: StringFieldUpdateOperationsInput | string
+    MasterProfessions?: MasterProfessionsUpdateManyWithoutMasterNestedInput
+  }
+
+  export type MastersUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    fullName?: StringFieldUpdateOperationsInput | string
+    phone?: StringFieldUpdateOperationsInput | string
+    status?: BoolFieldUpdateOperationsInput | boolean
+    dateOfBirth?: IntFieldUpdateOperationsInput | number
+    avatar?: StringFieldUpdateOperationsInput | string
+    passportImage?: StringFieldUpdateOperationsInput | string
+    about?: StringFieldUpdateOperationsInput | string
+    MasterProfessions?: MasterProfessionsUncheckedUpdateManyWithoutMasterNestedInput
+  }
+
+  export type MastersCreateManyInput = {
+    id?: string
+    fullName: string
+    phone: string
+    status: boolean
+    dateOfBirth: number
+    avatar: string
+    passportImage: string
+    about: string
+  }
+
+  export type MastersUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    fullName?: StringFieldUpdateOperationsInput | string
+    phone?: StringFieldUpdateOperationsInput | string
+    status?: BoolFieldUpdateOperationsInput | boolean
+    dateOfBirth?: IntFieldUpdateOperationsInput | number
+    avatar?: StringFieldUpdateOperationsInput | string
+    passportImage?: StringFieldUpdateOperationsInput | string
+    about?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type MastersUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    fullName?: StringFieldUpdateOperationsInput | string
+    phone?: StringFieldUpdateOperationsInput | string
+    status?: BoolFieldUpdateOperationsInput | boolean
+    dateOfBirth?: IntFieldUpdateOperationsInput | number
+    avatar?: StringFieldUpdateOperationsInput | string
+    passportImage?: StringFieldUpdateOperationsInput | string
+    about?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ProfessionsCreateInput = {
+    id?: string
+    nameUz: string
+    nameRu: string
+    nameEn: string
+    avatar: string
+    status: boolean
+    MasterProfessions?: MasterProfessionsCreateNestedManyWithoutProfessionInput
+    Backet?: BacketCreateNestedManyWithoutProfessionInput
+    OrderItems?: OrderItemsCreateNestedManyWithoutProfessionInput
+    ProfessionLevels?: ProfessionLevelsCreateNestedManyWithoutProfessionInput
+    ProfessionTools?: ProfessionToolsCreateNestedManyWithoutProfessionsInput
+  }
+
+  export type ProfessionsUncheckedCreateInput = {
+    id?: string
+    nameUz: string
+    nameRu: string
+    nameEn: string
+    avatar: string
+    status: boolean
+    MasterProfessions?: MasterProfessionsUncheckedCreateNestedManyWithoutProfessionInput
+    Backet?: BacketUncheckedCreateNestedManyWithoutProfessionInput
+    OrderItems?: OrderItemsUncheckedCreateNestedManyWithoutProfessionInput
+    ProfessionLevels?: ProfessionLevelsUncheckedCreateNestedManyWithoutProfessionInput
+    ProfessionTools?: ProfessionToolsUncheckedCreateNestedManyWithoutProfessionsInput
+  }
+
+  export type ProfessionsUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    nameUz?: StringFieldUpdateOperationsInput | string
+    nameRu?: StringFieldUpdateOperationsInput | string
+    nameEn?: StringFieldUpdateOperationsInput | string
+    avatar?: StringFieldUpdateOperationsInput | string
+    status?: BoolFieldUpdateOperationsInput | boolean
+    MasterProfessions?: MasterProfessionsUpdateManyWithoutProfessionNestedInput
+    Backet?: BacketUpdateManyWithoutProfessionNestedInput
+    OrderItems?: OrderItemsUpdateManyWithoutProfessionNestedInput
+    ProfessionLevels?: ProfessionLevelsUpdateManyWithoutProfessionNestedInput
+    ProfessionTools?: ProfessionToolsUpdateManyWithoutProfessionsNestedInput
+  }
+
+  export type ProfessionsUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    nameUz?: StringFieldUpdateOperationsInput | string
+    nameRu?: StringFieldUpdateOperationsInput | string
+    nameEn?: StringFieldUpdateOperationsInput | string
+    avatar?: StringFieldUpdateOperationsInput | string
+    status?: BoolFieldUpdateOperationsInput | boolean
+    MasterProfessions?: MasterProfessionsUncheckedUpdateManyWithoutProfessionNestedInput
+    Backet?: BacketUncheckedUpdateManyWithoutProfessionNestedInput
+    OrderItems?: OrderItemsUncheckedUpdateManyWithoutProfessionNestedInput
+    ProfessionLevels?: ProfessionLevelsUncheckedUpdateManyWithoutProfessionNestedInput
+    ProfessionTools?: ProfessionToolsUncheckedUpdateManyWithoutProfessionsNestedInput
+  }
+
+  export type ProfessionsCreateManyInput = {
+    id?: string
+    nameUz: string
+    nameRu: string
+    nameEn: string
+    avatar: string
+    status: boolean
+  }
+
+  export type ProfessionsUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    nameUz?: StringFieldUpdateOperationsInput | string
+    nameRu?: StringFieldUpdateOperationsInput | string
+    nameEn?: StringFieldUpdateOperationsInput | string
+    avatar?: StringFieldUpdateOperationsInput | string
+    status?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type ProfessionsUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    nameUz?: StringFieldUpdateOperationsInput | string
+    nameRu?: StringFieldUpdateOperationsInput | string
+    nameEn?: StringFieldUpdateOperationsInput | string
+    avatar?: StringFieldUpdateOperationsInput | string
+    status?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type MasterProfessionsCreateInput = {
+    id?: string
+    minWorkingHours: number
+    priceHourly: Decimal | DecimalJsLike | number | string
+    priceDaily: Decimal | DecimalJsLike | number | string
+    experience: number
+    profession: ProfessionsCreateNestedOneWithoutMasterProfessionsInput
+    level: LevelsCreateNestedOneWithoutMasterProfessionsInput
+    master: MastersCreateNestedOneWithoutMasterProfessionsInput
+  }
+
+  export type MasterProfessionsUncheckedCreateInput = {
+    id?: string
+    professionId: string
+    minWorkingHours: number
+    levelId: string
+    priceHourly: Decimal | DecimalJsLike | number | string
+    priceDaily: Decimal | DecimalJsLike | number | string
+    experience: number
+    masterId: string
+  }
+
+  export type MasterProfessionsUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    minWorkingHours?: IntFieldUpdateOperationsInput | number
+    priceHourly?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    priceDaily?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    experience?: FloatFieldUpdateOperationsInput | number
+    profession?: ProfessionsUpdateOneRequiredWithoutMasterProfessionsNestedInput
+    level?: LevelsUpdateOneRequiredWithoutMasterProfessionsNestedInput
+    master?: MastersUpdateOneRequiredWithoutMasterProfessionsNestedInput
+  }
+
+  export type MasterProfessionsUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    professionId?: StringFieldUpdateOperationsInput | string
+    minWorkingHours?: IntFieldUpdateOperationsInput | number
+    levelId?: StringFieldUpdateOperationsInput | string
+    priceHourly?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    priceDaily?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    experience?: FloatFieldUpdateOperationsInput | number
+    masterId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type MasterProfessionsCreateManyInput = {
+    id?: string
+    professionId: string
+    minWorkingHours: number
+    levelId: string
+    priceHourly: Decimal | DecimalJsLike | number | string
+    priceDaily: Decimal | DecimalJsLike | number | string
+    experience: number
+    masterId: string
+  }
+
+  export type MasterProfessionsUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    minWorkingHours?: IntFieldUpdateOperationsInput | number
+    priceHourly?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    priceDaily?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    experience?: FloatFieldUpdateOperationsInput | number
+  }
+
+  export type MasterProfessionsUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    professionId?: StringFieldUpdateOperationsInput | string
+    minWorkingHours?: IntFieldUpdateOperationsInput | number
+    levelId?: StringFieldUpdateOperationsInput | string
+    priceHourly?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    priceDaily?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    experience?: FloatFieldUpdateOperationsInput | number
+    masterId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ProfessionLevelsCreateInput = {
+    id?: string
+    minWorkingHours: number
+    priceHourly: Decimal | DecimalJsLike | number | string
+    priceDaily: Decimal | DecimalJsLike | number | string
+    profession: ProfessionsCreateNestedOneWithoutProfessionLevelsInput
+    level: LevelsCreateNestedOneWithoutProfessionLevelsInput
+  }
+
+  export type ProfessionLevelsUncheckedCreateInput = {
+    id?: string
+    professionId: string
+    levelId: string
+    minWorkingHours: number
+    priceHourly: Decimal | DecimalJsLike | number | string
+    priceDaily: Decimal | DecimalJsLike | number | string
+  }
+
+  export type ProfessionLevelsUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    minWorkingHours?: IntFieldUpdateOperationsInput | number
+    priceHourly?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    priceDaily?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    profession?: ProfessionsUpdateOneRequiredWithoutProfessionLevelsNestedInput
+    level?: LevelsUpdateOneRequiredWithoutProfessionLevelsNestedInput
+  }
+
+  export type ProfessionLevelsUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    professionId?: StringFieldUpdateOperationsInput | string
+    levelId?: StringFieldUpdateOperationsInput | string
+    minWorkingHours?: IntFieldUpdateOperationsInput | number
+    priceHourly?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    priceDaily?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+  }
+
+  export type ProfessionLevelsCreateManyInput = {
+    id?: string
+    professionId: string
+    levelId: string
+    minWorkingHours: number
+    priceHourly: Decimal | DecimalJsLike | number | string
+    priceDaily: Decimal | DecimalJsLike | number | string
+  }
+
+  export type ProfessionLevelsUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    minWorkingHours?: IntFieldUpdateOperationsInput | number
+    priceHourly?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    priceDaily?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+  }
+
+  export type ProfessionLevelsUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    professionId?: StringFieldUpdateOperationsInput | string
+    levelId?: StringFieldUpdateOperationsInput | string
+    minWorkingHours?: IntFieldUpdateOperationsInput | number
+    priceHourly?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    priceDaily?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+  }
+
+  export type ToolsCreateInput = {
+    id?: string
+    code: string
+    nameUz: string
+    nameRu: string
+    nameEn: string
+    descriptionUz: string
+    descriptionRu: string
+    descriptionEn: string
+    price: Decimal | DecimalJsLike | number | string
+    quantity: number
+    image: string
+    isAvailable: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    brand: BrandsCreateNestedOneWithoutToolsInput
+    capacity: CapacityCreateNestedOneWithoutToolsInput
+    size: SizesCreateNestedOneWithoutToolsInput
+    Backet?: BacketCreateNestedManyWithoutToolsInput
+    OrderItems?: OrderItemsCreateNestedManyWithoutToolInput
+    ProfessionTools?: ProfessionToolsCreateNestedManyWithoutToolsInput
+  }
+
+  export type ToolsUncheckedCreateInput = {
+    id?: string
+    code: string
+    nameUz: string
+    nameRu: string
+    nameEn: string
+    descriptionUz: string
+    descriptionRu: string
+    descriptionEn: string
+    price: Decimal | DecimalJsLike | number | string
+    quantity: number
+    brandId: string
+    capacityId: string
+    sizeId: string
+    image: string
+    isAvailable: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    Backet?: BacketUncheckedCreateNestedManyWithoutToolsInput
+    OrderItems?: OrderItemsUncheckedCreateNestedManyWithoutToolInput
+    ProfessionTools?: ProfessionToolsUncheckedCreateNestedManyWithoutToolsInput
+  }
+
+  export type ToolsUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    code?: StringFieldUpdateOperationsInput | string
+    nameUz?: StringFieldUpdateOperationsInput | string
+    nameRu?: StringFieldUpdateOperationsInput | string
+    nameEn?: StringFieldUpdateOperationsInput | string
+    descriptionUz?: StringFieldUpdateOperationsInput | string
+    descriptionRu?: StringFieldUpdateOperationsInput | string
+    descriptionEn?: StringFieldUpdateOperationsInput | string
+    price?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    quantity?: IntFieldUpdateOperationsInput | number
+    image?: StringFieldUpdateOperationsInput | string
+    isAvailable?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    brand?: BrandsUpdateOneRequiredWithoutToolsNestedInput
+    capacity?: CapacityUpdateOneRequiredWithoutToolsNestedInput
+    size?: SizesUpdateOneRequiredWithoutToolsNestedInput
+    Backet?: BacketUpdateManyWithoutToolsNestedInput
+    OrderItems?: OrderItemsUpdateManyWithoutToolNestedInput
+    ProfessionTools?: ProfessionToolsUpdateManyWithoutToolsNestedInput
+  }
+
+  export type ToolsUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    code?: StringFieldUpdateOperationsInput | string
+    nameUz?: StringFieldUpdateOperationsInput | string
+    nameRu?: StringFieldUpdateOperationsInput | string
+    nameEn?: StringFieldUpdateOperationsInput | string
+    descriptionUz?: StringFieldUpdateOperationsInput | string
+    descriptionRu?: StringFieldUpdateOperationsInput | string
+    descriptionEn?: StringFieldUpdateOperationsInput | string
+    price?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    quantity?: IntFieldUpdateOperationsInput | number
+    brandId?: StringFieldUpdateOperationsInput | string
+    capacityId?: StringFieldUpdateOperationsInput | string
+    sizeId?: StringFieldUpdateOperationsInput | string
+    image?: StringFieldUpdateOperationsInput | string
+    isAvailable?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    Backet?: BacketUncheckedUpdateManyWithoutToolsNestedInput
+    OrderItems?: OrderItemsUncheckedUpdateManyWithoutToolNestedInput
+    ProfessionTools?: ProfessionToolsUncheckedUpdateManyWithoutToolsNestedInput
+  }
+
+  export type ToolsCreateManyInput = {
+    id?: string
+    code: string
+    nameUz: string
+    nameRu: string
+    nameEn: string
+    descriptionUz: string
+    descriptionRu: string
+    descriptionEn: string
+    price: Decimal | DecimalJsLike | number | string
+    quantity: number
+    brandId: string
+    capacityId: string
+    sizeId: string
+    image: string
+    isAvailable: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ToolsUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    code?: StringFieldUpdateOperationsInput | string
+    nameUz?: StringFieldUpdateOperationsInput | string
+    nameRu?: StringFieldUpdateOperationsInput | string
+    nameEn?: StringFieldUpdateOperationsInput | string
+    descriptionUz?: StringFieldUpdateOperationsInput | string
+    descriptionRu?: StringFieldUpdateOperationsInput | string
+    descriptionEn?: StringFieldUpdateOperationsInput | string
+    price?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    quantity?: IntFieldUpdateOperationsInput | number
+    image?: StringFieldUpdateOperationsInput | string
+    isAvailable?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ToolsUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    code?: StringFieldUpdateOperationsInput | string
+    nameUz?: StringFieldUpdateOperationsInput | string
+    nameRu?: StringFieldUpdateOperationsInput | string
+    nameEn?: StringFieldUpdateOperationsInput | string
+    descriptionUz?: StringFieldUpdateOperationsInput | string
+    descriptionRu?: StringFieldUpdateOperationsInput | string
+    descriptionEn?: StringFieldUpdateOperationsInput | string
+    price?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    quantity?: IntFieldUpdateOperationsInput | number
+    brandId?: StringFieldUpdateOperationsInput | string
+    capacityId?: StringFieldUpdateOperationsInput | string
+    sizeId?: StringFieldUpdateOperationsInput | string
+    image?: StringFieldUpdateOperationsInput | string
+    isAvailable?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ProfessionToolsCreateInput = {
+    id?: string
+    professions: ProfessionsCreateNestedOneWithoutProfessionToolsInput
+    tools: ToolsCreateNestedOneWithoutProfessionToolsInput
+  }
+
+  export type ProfessionToolsUncheckedCreateInput = {
+    id?: string
+    professionId: string
+    toolId: string
+  }
+
+  export type ProfessionToolsUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    professions?: ProfessionsUpdateOneRequiredWithoutProfessionToolsNestedInput
+    tools?: ToolsUpdateOneRequiredWithoutProfessionToolsNestedInput
+  }
+
+  export type ProfessionToolsUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    professionId?: StringFieldUpdateOperationsInput | string
+    toolId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ProfessionToolsCreateManyInput = {
+    id?: string
+    professionId: string
+    toolId: string
+  }
+
+  export type ProfessionToolsUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ProfessionToolsUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    professionId?: StringFieldUpdateOperationsInput | string
+    toolId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type BacketCreateInput = {
+    id?: string
+    count: number
+    measure: $Enums.BacketMeasure
+    workingTime: number
+    totalPrice: Decimal | DecimalJsLike | number | string
+    owner: UsersCreateNestedOneWithoutBacketInput
+    profession: ProfessionsCreateNestedOneWithoutBacketInput
+    tools: ToolsCreateNestedOneWithoutBacketInput
+    level: LevelsCreateNestedOneWithoutBacketInput
+  }
+
+  export type BacketUncheckedCreateInput = {
+    id?: string
+    ownerId: string
+    professionId: string
+    toolId: string
+    count: number
+    measure: $Enums.BacketMeasure
+    workingTime: number
+    totalPrice: Decimal | DecimalJsLike | number | string
+    levelId: string
+  }
+
+  export type BacketUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    count?: IntFieldUpdateOperationsInput | number
+    measure?: EnumBacketMeasureFieldUpdateOperationsInput | $Enums.BacketMeasure
+    workingTime?: IntFieldUpdateOperationsInput | number
+    totalPrice?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    owner?: UsersUpdateOneRequiredWithoutBacketNestedInput
+    profession?: ProfessionsUpdateOneRequiredWithoutBacketNestedInput
+    tools?: ToolsUpdateOneRequiredWithoutBacketNestedInput
+    level?: LevelsUpdateOneRequiredWithoutBacketNestedInput
+  }
+
+  export type BacketUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    ownerId?: StringFieldUpdateOperationsInput | string
+    professionId?: StringFieldUpdateOperationsInput | string
+    toolId?: StringFieldUpdateOperationsInput | string
+    count?: IntFieldUpdateOperationsInput | number
+    measure?: EnumBacketMeasureFieldUpdateOperationsInput | $Enums.BacketMeasure
+    workingTime?: IntFieldUpdateOperationsInput | number
+    totalPrice?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    levelId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type BacketCreateManyInput = {
+    id?: string
+    ownerId: string
+    professionId: string
+    toolId: string
+    count: number
+    measure: $Enums.BacketMeasure
+    workingTime: number
+    totalPrice: Decimal | DecimalJsLike | number | string
+    levelId: string
+  }
+
+  export type BacketUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    count?: IntFieldUpdateOperationsInput | number
+    measure?: EnumBacketMeasureFieldUpdateOperationsInput | $Enums.BacketMeasure
+    workingTime?: IntFieldUpdateOperationsInput | number
+    totalPrice?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+  }
+
+  export type BacketUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    ownerId?: StringFieldUpdateOperationsInput | string
+    professionId?: StringFieldUpdateOperationsInput | string
+    toolId?: StringFieldUpdateOperationsInput | string
+    count?: IntFieldUpdateOperationsInput | number
+    measure?: EnumBacketMeasureFieldUpdateOperationsInput | $Enums.BacketMeasure
+    workingTime?: IntFieldUpdateOperationsInput | number
+    totalPrice?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    levelId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type OrdersCreateInput = {
+    id?: string
+    ownerId: string
+    address: string
+    latitude: string
+    longitude: string
+    date: Date | string
+    totalPrice: Decimal | DecimalJsLike | number | string
+    paymentType: $Enums.PaymentType
+    withDelivery: boolean
+    status: $Enums.OrderStatus
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    deliveryComment?: CommentsCreateNestedOneWithoutOrdersInput
+    OrderItems?: OrderItemsCreateNestedManyWithoutOrderInput
+  }
+
+  export type OrdersUncheckedCreateInput = {
+    id?: string
+    ownerId: string
+    address: string
+    latitude: string
+    longitude: string
+    date: Date | string
+    totalPrice: Decimal | DecimalJsLike | number | string
+    paymentType: $Enums.PaymentType
+    withDelivery: boolean
+    status: $Enums.OrderStatus
+    deliveryCommentId?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    OrderItems?: OrderItemsUncheckedCreateNestedManyWithoutOrderInput
+  }
+
+  export type OrdersUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    ownerId?: StringFieldUpdateOperationsInput | string
+    address?: StringFieldUpdateOperationsInput | string
+    latitude?: StringFieldUpdateOperationsInput | string
+    longitude?: StringFieldUpdateOperationsInput | string
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    totalPrice?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    paymentType?: EnumPaymentTypeFieldUpdateOperationsInput | $Enums.PaymentType
+    withDelivery?: BoolFieldUpdateOperationsInput | boolean
+    status?: EnumOrderStatusFieldUpdateOperationsInput | $Enums.OrderStatus
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    deliveryComment?: CommentsUpdateOneWithoutOrdersNestedInput
+    OrderItems?: OrderItemsUpdateManyWithoutOrderNestedInput
+  }
+
+  export type OrdersUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    ownerId?: StringFieldUpdateOperationsInput | string
+    address?: StringFieldUpdateOperationsInput | string
+    latitude?: StringFieldUpdateOperationsInput | string
+    longitude?: StringFieldUpdateOperationsInput | string
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    totalPrice?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    paymentType?: EnumPaymentTypeFieldUpdateOperationsInput | $Enums.PaymentType
+    withDelivery?: BoolFieldUpdateOperationsInput | boolean
+    status?: EnumOrderStatusFieldUpdateOperationsInput | $Enums.OrderStatus
+    deliveryCommentId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    OrderItems?: OrderItemsUncheckedUpdateManyWithoutOrderNestedInput
+  }
+
+  export type OrdersCreateManyInput = {
+    id?: string
+    ownerId: string
+    address: string
+    latitude: string
+    longitude: string
+    date: Date | string
+    totalPrice: Decimal | DecimalJsLike | number | string
+    paymentType: $Enums.PaymentType
+    withDelivery: boolean
+    status: $Enums.OrderStatus
+    deliveryCommentId?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type OrdersUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    ownerId?: StringFieldUpdateOperationsInput | string
+    address?: StringFieldUpdateOperationsInput | string
+    latitude?: StringFieldUpdateOperationsInput | string
+    longitude?: StringFieldUpdateOperationsInput | string
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    totalPrice?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    paymentType?: EnumPaymentTypeFieldUpdateOperationsInput | $Enums.PaymentType
+    withDelivery?: BoolFieldUpdateOperationsInput | boolean
+    status?: EnumOrderStatusFieldUpdateOperationsInput | $Enums.OrderStatus
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type OrdersUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    ownerId?: StringFieldUpdateOperationsInput | string
+    address?: StringFieldUpdateOperationsInput | string
+    latitude?: StringFieldUpdateOperationsInput | string
+    longitude?: StringFieldUpdateOperationsInput | string
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    totalPrice?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    paymentType?: EnumPaymentTypeFieldUpdateOperationsInput | $Enums.PaymentType
+    withDelivery?: BoolFieldUpdateOperationsInput | boolean
+    status?: EnumOrderStatusFieldUpdateOperationsInput | $Enums.OrderStatus
+    deliveryCommentId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type OrderItemsCreateInput = {
+    id?: string
+    measure: $Enums.OrderItemMeasure
+    workingTime: number
+    price: Decimal | DecimalJsLike | number | string
+    count: number
+    order: OrdersCreateNestedOneWithoutOrderItemsInput
+    profession: ProfessionsCreateNestedOneWithoutOrderItemsInput
+    tool: ToolsCreateNestedOneWithoutOrderItemsInput
+    level: LevelsCreateNestedOneWithoutOrderItemsInput
+  }
+
+  export type OrderItemsUncheckedCreateInput = {
+    id?: string
+    orderId: string
+    professionId: string
+    toolId: string
+    levelId: string
+    measure: $Enums.OrderItemMeasure
+    workingTime: number
+    price: Decimal | DecimalJsLike | number | string
+    count: number
+  }
+
+  export type OrderItemsUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    measure?: EnumOrderItemMeasureFieldUpdateOperationsInput | $Enums.OrderItemMeasure
+    workingTime?: IntFieldUpdateOperationsInput | number
+    price?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    count?: IntFieldUpdateOperationsInput | number
+    order?: OrdersUpdateOneRequiredWithoutOrderItemsNestedInput
+    profession?: ProfessionsUpdateOneRequiredWithoutOrderItemsNestedInput
+    tool?: ToolsUpdateOneRequiredWithoutOrderItemsNestedInput
+    level?: LevelsUpdateOneRequiredWithoutOrderItemsNestedInput
+  }
+
+  export type OrderItemsUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    orderId?: StringFieldUpdateOperationsInput | string
+    professionId?: StringFieldUpdateOperationsInput | string
+    toolId?: StringFieldUpdateOperationsInput | string
+    levelId?: StringFieldUpdateOperationsInput | string
+    measure?: EnumOrderItemMeasureFieldUpdateOperationsInput | $Enums.OrderItemMeasure
+    workingTime?: IntFieldUpdateOperationsInput | number
+    price?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    count?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type OrderItemsCreateManyInput = {
+    id?: string
+    orderId: string
+    professionId: string
+    toolId: string
+    levelId: string
+    measure: $Enums.OrderItemMeasure
+    workingTime: number
+    price: Decimal | DecimalJsLike | number | string
+    count: number
+  }
+
+  export type OrderItemsUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    measure?: EnumOrderItemMeasureFieldUpdateOperationsInput | $Enums.OrderItemMeasure
+    workingTime?: IntFieldUpdateOperationsInput | number
+    price?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    count?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type OrderItemsUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    orderId?: StringFieldUpdateOperationsInput | string
+    professionId?: StringFieldUpdateOperationsInput | string
+    toolId?: StringFieldUpdateOperationsInput | string
+    levelId?: StringFieldUpdateOperationsInput | string
+    measure?: EnumOrderItemMeasureFieldUpdateOperationsInput | $Enums.OrderItemMeasure
+    workingTime?: IntFieldUpdateOperationsInput | number
+    price?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    count?: IntFieldUpdateOperationsInput | number
   }
 
   export type StringFilter<$PrismaModel = never> = {
@@ -19980,6 +34319,36 @@ export namespace Prisma {
     isNot?: RegionsWhereInput
   }
 
+  export type BacketListRelationFilter = {
+    every?: BacketWhereInput
+    some?: BacketWhereInput
+    none?: BacketWhereInput
+  }
+
+  export type CommentsListRelationFilter = {
+    every?: CommentsWhereInput
+    some?: CommentsWhereInput
+    none?: CommentsWhereInput
+  }
+
+  export type SessionsListRelationFilter = {
+    every?: SessionsWhereInput
+    some?: SessionsWhereInput
+    none?: SessionsWhereInput
+  }
+
+  export type BacketOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type CommentsOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type SessionsOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
   export type UsersCountOrderByAggregateInput = {
     id?: SortOrder
     fullName?: SortOrder
@@ -20060,6 +34429,11 @@ export namespace Prisma {
     gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
     gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
     not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+  }
+
+  export type UsersScalarRelationFilter = {
+    is?: UsersWhereInput
+    isNot?: UsersWhereInput
   }
 
   export type SessionsCountOrderByAggregateInput = {
@@ -20300,9 +34674,20 @@ export namespace Prisma {
     updatedAt?: SortOrder
   }
 
+  export type OrdersListRelationFilter = {
+    every?: OrdersWhereInput
+    some?: OrdersWhereInput
+    none?: OrdersWhereInput
+  }
+
+  export type OrdersOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
   export type CommentsCountOrderByAggregateInput = {
     id?: SortOrder
     message?: SortOrder
+    userId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -20310,6 +34695,7 @@ export namespace Prisma {
   export type CommentsMaxOrderByAggregateInput = {
     id?: SortOrder
     message?: SortOrder
+    userId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -20317,6 +34703,7 @@ export namespace Prisma {
   export type CommentsMinOrderByAggregateInput = {
     id?: SortOrder
     message?: SortOrder
+    userId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -20377,6 +34764,36 @@ export namespace Prisma {
     _max?: NestedFloatFilter<$PrismaModel>
   }
 
+  export type MasterProfessionsListRelationFilter = {
+    every?: MasterProfessionsWhereInput
+    some?: MasterProfessionsWhereInput
+    none?: MasterProfessionsWhereInput
+  }
+
+  export type OrderItemsListRelationFilter = {
+    every?: OrderItemsWhereInput
+    some?: OrderItemsWhereInput
+    none?: OrderItemsWhereInput
+  }
+
+  export type ProfessionLevelsListRelationFilter = {
+    every?: ProfessionLevelsWhereInput
+    some?: ProfessionLevelsWhereInput
+    none?: ProfessionLevelsWhereInput
+  }
+
+  export type MasterProfessionsOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type OrderItemsOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type ProfessionLevelsOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
   export type LevelsCountOrderByAggregateInput = {
     id?: SortOrder
     nameUz?: SortOrder
@@ -20402,6 +34819,16 @@ export namespace Prisma {
     nameEn?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+  }
+
+  export type ToolsListRelationFilter = {
+    every?: ToolsWhereInput
+    some?: ToolsWhereInput
+    none?: ToolsWhereInput
+  }
+
+  export type ToolsOrderByRelationAggregateInput = {
+    _count?: SortOrder
   }
 
   export type CapacityCountOrderByAggregateInput = {
@@ -20485,6 +34912,628 @@ export namespace Prisma {
     updatedAt?: SortOrder
   }
 
+  export type BoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
+  }
+
+  export type IntFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntFilter<$PrismaModel> | number
+  }
+
+  export type MastersCountOrderByAggregateInput = {
+    id?: SortOrder
+    fullName?: SortOrder
+    phone?: SortOrder
+    status?: SortOrder
+    dateOfBirth?: SortOrder
+    avatar?: SortOrder
+    passportImage?: SortOrder
+    about?: SortOrder
+  }
+
+  export type MastersAvgOrderByAggregateInput = {
+    dateOfBirth?: SortOrder
+  }
+
+  export type MastersMaxOrderByAggregateInput = {
+    id?: SortOrder
+    fullName?: SortOrder
+    phone?: SortOrder
+    status?: SortOrder
+    dateOfBirth?: SortOrder
+    avatar?: SortOrder
+    passportImage?: SortOrder
+    about?: SortOrder
+  }
+
+  export type MastersMinOrderByAggregateInput = {
+    id?: SortOrder
+    fullName?: SortOrder
+    phone?: SortOrder
+    status?: SortOrder
+    dateOfBirth?: SortOrder
+    avatar?: SortOrder
+    passportImage?: SortOrder
+    about?: SortOrder
+  }
+
+  export type MastersSumOrderByAggregateInput = {
+    dateOfBirth?: SortOrder
+  }
+
+  export type BoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
+  }
+
+  export type IntWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedIntFilter<$PrismaModel>
+    _min?: NestedIntFilter<$PrismaModel>
+    _max?: NestedIntFilter<$PrismaModel>
+  }
+
+  export type ProfessionToolsListRelationFilter = {
+    every?: ProfessionToolsWhereInput
+    some?: ProfessionToolsWhereInput
+    none?: ProfessionToolsWhereInput
+  }
+
+  export type ProfessionToolsOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type ProfessionsCountOrderByAggregateInput = {
+    id?: SortOrder
+    nameUz?: SortOrder
+    nameRu?: SortOrder
+    nameEn?: SortOrder
+    avatar?: SortOrder
+    status?: SortOrder
+  }
+
+  export type ProfessionsMaxOrderByAggregateInput = {
+    id?: SortOrder
+    nameUz?: SortOrder
+    nameRu?: SortOrder
+    nameEn?: SortOrder
+    avatar?: SortOrder
+    status?: SortOrder
+  }
+
+  export type ProfessionsMinOrderByAggregateInput = {
+    id?: SortOrder
+    nameUz?: SortOrder
+    nameRu?: SortOrder
+    nameEn?: SortOrder
+    avatar?: SortOrder
+    status?: SortOrder
+  }
+
+  export type DecimalFilter<$PrismaModel = never> = {
+    equals?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    in?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
+    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
+    lt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    lte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    not?: NestedDecimalFilter<$PrismaModel> | Decimal | DecimalJsLike | number | string
+  }
+
+  export type ProfessionsScalarRelationFilter = {
+    is?: ProfessionsWhereInput
+    isNot?: ProfessionsWhereInput
+  }
+
+  export type LevelsScalarRelationFilter = {
+    is?: LevelsWhereInput
+    isNot?: LevelsWhereInput
+  }
+
+  export type MastersScalarRelationFilter = {
+    is?: MastersWhereInput
+    isNot?: MastersWhereInput
+  }
+
+  export type MasterProfessionsCountOrderByAggregateInput = {
+    id?: SortOrder
+    professionId?: SortOrder
+    minWorkingHours?: SortOrder
+    levelId?: SortOrder
+    priceHourly?: SortOrder
+    priceDaily?: SortOrder
+    experience?: SortOrder
+    masterId?: SortOrder
+  }
+
+  export type MasterProfessionsAvgOrderByAggregateInput = {
+    minWorkingHours?: SortOrder
+    priceHourly?: SortOrder
+    priceDaily?: SortOrder
+    experience?: SortOrder
+  }
+
+  export type MasterProfessionsMaxOrderByAggregateInput = {
+    id?: SortOrder
+    professionId?: SortOrder
+    minWorkingHours?: SortOrder
+    levelId?: SortOrder
+    priceHourly?: SortOrder
+    priceDaily?: SortOrder
+    experience?: SortOrder
+    masterId?: SortOrder
+  }
+
+  export type MasterProfessionsMinOrderByAggregateInput = {
+    id?: SortOrder
+    professionId?: SortOrder
+    minWorkingHours?: SortOrder
+    levelId?: SortOrder
+    priceHourly?: SortOrder
+    priceDaily?: SortOrder
+    experience?: SortOrder
+    masterId?: SortOrder
+  }
+
+  export type MasterProfessionsSumOrderByAggregateInput = {
+    minWorkingHours?: SortOrder
+    priceHourly?: SortOrder
+    priceDaily?: SortOrder
+    experience?: SortOrder
+  }
+
+  export type DecimalWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    in?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
+    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
+    lt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    lte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    not?: NestedDecimalWithAggregatesFilter<$PrismaModel> | Decimal | DecimalJsLike | number | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedDecimalFilter<$PrismaModel>
+    _sum?: NestedDecimalFilter<$PrismaModel>
+    _min?: NestedDecimalFilter<$PrismaModel>
+    _max?: NestedDecimalFilter<$PrismaModel>
+  }
+
+  export type ProfessionLevelsCountOrderByAggregateInput = {
+    id?: SortOrder
+    professionId?: SortOrder
+    levelId?: SortOrder
+    minWorkingHours?: SortOrder
+    priceHourly?: SortOrder
+    priceDaily?: SortOrder
+  }
+
+  export type ProfessionLevelsAvgOrderByAggregateInput = {
+    minWorkingHours?: SortOrder
+    priceHourly?: SortOrder
+    priceDaily?: SortOrder
+  }
+
+  export type ProfessionLevelsMaxOrderByAggregateInput = {
+    id?: SortOrder
+    professionId?: SortOrder
+    levelId?: SortOrder
+    minWorkingHours?: SortOrder
+    priceHourly?: SortOrder
+    priceDaily?: SortOrder
+  }
+
+  export type ProfessionLevelsMinOrderByAggregateInput = {
+    id?: SortOrder
+    professionId?: SortOrder
+    levelId?: SortOrder
+    minWorkingHours?: SortOrder
+    priceHourly?: SortOrder
+    priceDaily?: SortOrder
+  }
+
+  export type ProfessionLevelsSumOrderByAggregateInput = {
+    minWorkingHours?: SortOrder
+    priceHourly?: SortOrder
+    priceDaily?: SortOrder
+  }
+
+  export type BrandsScalarRelationFilter = {
+    is?: BrandsWhereInput
+    isNot?: BrandsWhereInput
+  }
+
+  export type CapacityScalarRelationFilter = {
+    is?: CapacityWhereInput
+    isNot?: CapacityWhereInput
+  }
+
+  export type SizesScalarRelationFilter = {
+    is?: SizesWhereInput
+    isNot?: SizesWhereInput
+  }
+
+  export type ToolsCountOrderByAggregateInput = {
+    id?: SortOrder
+    code?: SortOrder
+    nameUz?: SortOrder
+    nameRu?: SortOrder
+    nameEn?: SortOrder
+    descriptionUz?: SortOrder
+    descriptionRu?: SortOrder
+    descriptionEn?: SortOrder
+    price?: SortOrder
+    quantity?: SortOrder
+    brandId?: SortOrder
+    capacityId?: SortOrder
+    sizeId?: SortOrder
+    image?: SortOrder
+    isAvailable?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type ToolsAvgOrderByAggregateInput = {
+    price?: SortOrder
+    quantity?: SortOrder
+  }
+
+  export type ToolsMaxOrderByAggregateInput = {
+    id?: SortOrder
+    code?: SortOrder
+    nameUz?: SortOrder
+    nameRu?: SortOrder
+    nameEn?: SortOrder
+    descriptionUz?: SortOrder
+    descriptionRu?: SortOrder
+    descriptionEn?: SortOrder
+    price?: SortOrder
+    quantity?: SortOrder
+    brandId?: SortOrder
+    capacityId?: SortOrder
+    sizeId?: SortOrder
+    image?: SortOrder
+    isAvailable?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type ToolsMinOrderByAggregateInput = {
+    id?: SortOrder
+    code?: SortOrder
+    nameUz?: SortOrder
+    nameRu?: SortOrder
+    nameEn?: SortOrder
+    descriptionUz?: SortOrder
+    descriptionRu?: SortOrder
+    descriptionEn?: SortOrder
+    price?: SortOrder
+    quantity?: SortOrder
+    brandId?: SortOrder
+    capacityId?: SortOrder
+    sizeId?: SortOrder
+    image?: SortOrder
+    isAvailable?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type ToolsSumOrderByAggregateInput = {
+    price?: SortOrder
+    quantity?: SortOrder
+  }
+
+  export type ToolsScalarRelationFilter = {
+    is?: ToolsWhereInput
+    isNot?: ToolsWhereInput
+  }
+
+  export type ProfessionToolsCountOrderByAggregateInput = {
+    id?: SortOrder
+    professionId?: SortOrder
+    toolId?: SortOrder
+  }
+
+  export type ProfessionToolsMaxOrderByAggregateInput = {
+    id?: SortOrder
+    professionId?: SortOrder
+    toolId?: SortOrder
+  }
+
+  export type ProfessionToolsMinOrderByAggregateInput = {
+    id?: SortOrder
+    professionId?: SortOrder
+    toolId?: SortOrder
+  }
+
+  export type EnumBacketMeasureFilter<$PrismaModel = never> = {
+    equals?: $Enums.BacketMeasure | EnumBacketMeasureFieldRefInput<$PrismaModel>
+    in?: $Enums.BacketMeasure[] | ListEnumBacketMeasureFieldRefInput<$PrismaModel>
+    notIn?: $Enums.BacketMeasure[] | ListEnumBacketMeasureFieldRefInput<$PrismaModel>
+    not?: NestedEnumBacketMeasureFilter<$PrismaModel> | $Enums.BacketMeasure
+  }
+
+  export type BacketCountOrderByAggregateInput = {
+    id?: SortOrder
+    ownerId?: SortOrder
+    professionId?: SortOrder
+    toolId?: SortOrder
+    count?: SortOrder
+    measure?: SortOrder
+    workingTime?: SortOrder
+    totalPrice?: SortOrder
+    levelId?: SortOrder
+  }
+
+  export type BacketAvgOrderByAggregateInput = {
+    count?: SortOrder
+    workingTime?: SortOrder
+    totalPrice?: SortOrder
+  }
+
+  export type BacketMaxOrderByAggregateInput = {
+    id?: SortOrder
+    ownerId?: SortOrder
+    professionId?: SortOrder
+    toolId?: SortOrder
+    count?: SortOrder
+    measure?: SortOrder
+    workingTime?: SortOrder
+    totalPrice?: SortOrder
+    levelId?: SortOrder
+  }
+
+  export type BacketMinOrderByAggregateInput = {
+    id?: SortOrder
+    ownerId?: SortOrder
+    professionId?: SortOrder
+    toolId?: SortOrder
+    count?: SortOrder
+    measure?: SortOrder
+    workingTime?: SortOrder
+    totalPrice?: SortOrder
+    levelId?: SortOrder
+  }
+
+  export type BacketSumOrderByAggregateInput = {
+    count?: SortOrder
+    workingTime?: SortOrder
+    totalPrice?: SortOrder
+  }
+
+  export type EnumBacketMeasureWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.BacketMeasure | EnumBacketMeasureFieldRefInput<$PrismaModel>
+    in?: $Enums.BacketMeasure[] | ListEnumBacketMeasureFieldRefInput<$PrismaModel>
+    notIn?: $Enums.BacketMeasure[] | ListEnumBacketMeasureFieldRefInput<$PrismaModel>
+    not?: NestedEnumBacketMeasureWithAggregatesFilter<$PrismaModel> | $Enums.BacketMeasure
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumBacketMeasureFilter<$PrismaModel>
+    _max?: NestedEnumBacketMeasureFilter<$PrismaModel>
+  }
+
+  export type EnumPaymentTypeFilter<$PrismaModel = never> = {
+    equals?: $Enums.PaymentType | EnumPaymentTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.PaymentType[] | ListEnumPaymentTypeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.PaymentType[] | ListEnumPaymentTypeFieldRefInput<$PrismaModel>
+    not?: NestedEnumPaymentTypeFilter<$PrismaModel> | $Enums.PaymentType
+  }
+
+  export type EnumOrderStatusFilter<$PrismaModel = never> = {
+    equals?: $Enums.OrderStatus | EnumOrderStatusFieldRefInput<$PrismaModel>
+    in?: $Enums.OrderStatus[] | ListEnumOrderStatusFieldRefInput<$PrismaModel>
+    notIn?: $Enums.OrderStatus[] | ListEnumOrderStatusFieldRefInput<$PrismaModel>
+    not?: NestedEnumOrderStatusFilter<$PrismaModel> | $Enums.OrderStatus
+  }
+
+  export type StringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    mode?: QueryMode
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  }
+
+  export type CommentsNullableScalarRelationFilter = {
+    is?: CommentsWhereInput | null
+    isNot?: CommentsWhereInput | null
+  }
+
+  export type SortOrderInput = {
+    sort: SortOrder
+    nulls?: NullsOrder
+  }
+
+  export type OrdersCountOrderByAggregateInput = {
+    id?: SortOrder
+    ownerId?: SortOrder
+    address?: SortOrder
+    latitude?: SortOrder
+    longitude?: SortOrder
+    date?: SortOrder
+    totalPrice?: SortOrder
+    paymentType?: SortOrder
+    withDelivery?: SortOrder
+    status?: SortOrder
+    deliveryCommentId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type OrdersAvgOrderByAggregateInput = {
+    totalPrice?: SortOrder
+  }
+
+  export type OrdersMaxOrderByAggregateInput = {
+    id?: SortOrder
+    ownerId?: SortOrder
+    address?: SortOrder
+    latitude?: SortOrder
+    longitude?: SortOrder
+    date?: SortOrder
+    totalPrice?: SortOrder
+    paymentType?: SortOrder
+    withDelivery?: SortOrder
+    status?: SortOrder
+    deliveryCommentId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type OrdersMinOrderByAggregateInput = {
+    id?: SortOrder
+    ownerId?: SortOrder
+    address?: SortOrder
+    latitude?: SortOrder
+    longitude?: SortOrder
+    date?: SortOrder
+    totalPrice?: SortOrder
+    paymentType?: SortOrder
+    withDelivery?: SortOrder
+    status?: SortOrder
+    deliveryCommentId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type OrdersSumOrderByAggregateInput = {
+    totalPrice?: SortOrder
+  }
+
+  export type EnumPaymentTypeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.PaymentType | EnumPaymentTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.PaymentType[] | ListEnumPaymentTypeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.PaymentType[] | ListEnumPaymentTypeFieldRefInput<$PrismaModel>
+    not?: NestedEnumPaymentTypeWithAggregatesFilter<$PrismaModel> | $Enums.PaymentType
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumPaymentTypeFilter<$PrismaModel>
+    _max?: NestedEnumPaymentTypeFilter<$PrismaModel>
+  }
+
+  export type EnumOrderStatusWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.OrderStatus | EnumOrderStatusFieldRefInput<$PrismaModel>
+    in?: $Enums.OrderStatus[] | ListEnumOrderStatusFieldRefInput<$PrismaModel>
+    notIn?: $Enums.OrderStatus[] | ListEnumOrderStatusFieldRefInput<$PrismaModel>
+    not?: NestedEnumOrderStatusWithAggregatesFilter<$PrismaModel> | $Enums.OrderStatus
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumOrderStatusFilter<$PrismaModel>
+    _max?: NestedEnumOrderStatusFilter<$PrismaModel>
+  }
+
+  export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    mode?: QueryMode
+    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedStringNullableFilter<$PrismaModel>
+    _max?: NestedStringNullableFilter<$PrismaModel>
+  }
+
+  export type EnumOrderItemMeasureFilter<$PrismaModel = never> = {
+    equals?: $Enums.OrderItemMeasure | EnumOrderItemMeasureFieldRefInput<$PrismaModel>
+    in?: $Enums.OrderItemMeasure[] | ListEnumOrderItemMeasureFieldRefInput<$PrismaModel>
+    notIn?: $Enums.OrderItemMeasure[] | ListEnumOrderItemMeasureFieldRefInput<$PrismaModel>
+    not?: NestedEnumOrderItemMeasureFilter<$PrismaModel> | $Enums.OrderItemMeasure
+  }
+
+  export type OrdersScalarRelationFilter = {
+    is?: OrdersWhereInput
+    isNot?: OrdersWhereInput
+  }
+
+  export type OrderItemsCountOrderByAggregateInput = {
+    id?: SortOrder
+    orderId?: SortOrder
+    professionId?: SortOrder
+    toolId?: SortOrder
+    levelId?: SortOrder
+    measure?: SortOrder
+    workingTime?: SortOrder
+    price?: SortOrder
+    count?: SortOrder
+  }
+
+  export type OrderItemsAvgOrderByAggregateInput = {
+    workingTime?: SortOrder
+    price?: SortOrder
+    count?: SortOrder
+  }
+
+  export type OrderItemsMaxOrderByAggregateInput = {
+    id?: SortOrder
+    orderId?: SortOrder
+    professionId?: SortOrder
+    toolId?: SortOrder
+    levelId?: SortOrder
+    measure?: SortOrder
+    workingTime?: SortOrder
+    price?: SortOrder
+    count?: SortOrder
+  }
+
+  export type OrderItemsMinOrderByAggregateInput = {
+    id?: SortOrder
+    orderId?: SortOrder
+    professionId?: SortOrder
+    toolId?: SortOrder
+    levelId?: SortOrder
+    measure?: SortOrder
+    workingTime?: SortOrder
+    price?: SortOrder
+    count?: SortOrder
+  }
+
+  export type OrderItemsSumOrderByAggregateInput = {
+    workingTime?: SortOrder
+    price?: SortOrder
+    count?: SortOrder
+  }
+
+  export type EnumOrderItemMeasureWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.OrderItemMeasure | EnumOrderItemMeasureFieldRefInput<$PrismaModel>
+    in?: $Enums.OrderItemMeasure[] | ListEnumOrderItemMeasureFieldRefInput<$PrismaModel>
+    notIn?: $Enums.OrderItemMeasure[] | ListEnumOrderItemMeasureFieldRefInput<$PrismaModel>
+    not?: NestedEnumOrderItemMeasureWithAggregatesFilter<$PrismaModel> | $Enums.OrderItemMeasure
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumOrderItemMeasureFilter<$PrismaModel>
+    _max?: NestedEnumOrderItemMeasureFilter<$PrismaModel>
+  }
+
   export type UsersCreateNestedManyWithoutRegionInput = {
     create?: XOR<UsersCreateWithoutRegionInput, UsersUncheckedCreateWithoutRegionInput> | UsersCreateWithoutRegionInput[] | UsersUncheckedCreateWithoutRegionInput[]
     connectOrCreate?: UsersCreateOrConnectWithoutRegionInput | UsersCreateOrConnectWithoutRegionInput[]
@@ -20541,6 +35590,48 @@ export namespace Prisma {
     connect?: RegionsWhereUniqueInput
   }
 
+  export type BacketCreateNestedManyWithoutOwnerInput = {
+    create?: XOR<BacketCreateWithoutOwnerInput, BacketUncheckedCreateWithoutOwnerInput> | BacketCreateWithoutOwnerInput[] | BacketUncheckedCreateWithoutOwnerInput[]
+    connectOrCreate?: BacketCreateOrConnectWithoutOwnerInput | BacketCreateOrConnectWithoutOwnerInput[]
+    createMany?: BacketCreateManyOwnerInputEnvelope
+    connect?: BacketWhereUniqueInput | BacketWhereUniqueInput[]
+  }
+
+  export type CommentsCreateNestedManyWithoutUserInput = {
+    create?: XOR<CommentsCreateWithoutUserInput, CommentsUncheckedCreateWithoutUserInput> | CommentsCreateWithoutUserInput[] | CommentsUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: CommentsCreateOrConnectWithoutUserInput | CommentsCreateOrConnectWithoutUserInput[]
+    createMany?: CommentsCreateManyUserInputEnvelope
+    connect?: CommentsWhereUniqueInput | CommentsWhereUniqueInput[]
+  }
+
+  export type SessionsCreateNestedManyWithoutUserInput = {
+    create?: XOR<SessionsCreateWithoutUserInput, SessionsUncheckedCreateWithoutUserInput> | SessionsCreateWithoutUserInput[] | SessionsUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: SessionsCreateOrConnectWithoutUserInput | SessionsCreateOrConnectWithoutUserInput[]
+    createMany?: SessionsCreateManyUserInputEnvelope
+    connect?: SessionsWhereUniqueInput | SessionsWhereUniqueInput[]
+  }
+
+  export type BacketUncheckedCreateNestedManyWithoutOwnerInput = {
+    create?: XOR<BacketCreateWithoutOwnerInput, BacketUncheckedCreateWithoutOwnerInput> | BacketCreateWithoutOwnerInput[] | BacketUncheckedCreateWithoutOwnerInput[]
+    connectOrCreate?: BacketCreateOrConnectWithoutOwnerInput | BacketCreateOrConnectWithoutOwnerInput[]
+    createMany?: BacketCreateManyOwnerInputEnvelope
+    connect?: BacketWhereUniqueInput | BacketWhereUniqueInput[]
+  }
+
+  export type CommentsUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<CommentsCreateWithoutUserInput, CommentsUncheckedCreateWithoutUserInput> | CommentsCreateWithoutUserInput[] | CommentsUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: CommentsCreateOrConnectWithoutUserInput | CommentsCreateOrConnectWithoutUserInput[]
+    createMany?: CommentsCreateManyUserInputEnvelope
+    connect?: CommentsWhereUniqueInput | CommentsWhereUniqueInput[]
+  }
+
+  export type SessionsUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<SessionsCreateWithoutUserInput, SessionsUncheckedCreateWithoutUserInput> | SessionsCreateWithoutUserInput[] | SessionsUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: SessionsCreateOrConnectWithoutUserInput | SessionsCreateOrConnectWithoutUserInput[]
+    createMany?: SessionsCreateManyUserInputEnvelope
+    connect?: SessionsWhereUniqueInput | SessionsWhereUniqueInput[]
+  }
+
   export type EnumUserRoleFieldUpdateOperationsInput = {
     set?: $Enums.UserRole
   }
@@ -20557,12 +35648,1188 @@ export namespace Prisma {
     update?: XOR<XOR<RegionsUpdateToOneWithWhereWithoutUsersInput, RegionsUpdateWithoutUsersInput>, RegionsUncheckedUpdateWithoutUsersInput>
   }
 
+  export type BacketUpdateManyWithoutOwnerNestedInput = {
+    create?: XOR<BacketCreateWithoutOwnerInput, BacketUncheckedCreateWithoutOwnerInput> | BacketCreateWithoutOwnerInput[] | BacketUncheckedCreateWithoutOwnerInput[]
+    connectOrCreate?: BacketCreateOrConnectWithoutOwnerInput | BacketCreateOrConnectWithoutOwnerInput[]
+    upsert?: BacketUpsertWithWhereUniqueWithoutOwnerInput | BacketUpsertWithWhereUniqueWithoutOwnerInput[]
+    createMany?: BacketCreateManyOwnerInputEnvelope
+    set?: BacketWhereUniqueInput | BacketWhereUniqueInput[]
+    disconnect?: BacketWhereUniqueInput | BacketWhereUniqueInput[]
+    delete?: BacketWhereUniqueInput | BacketWhereUniqueInput[]
+    connect?: BacketWhereUniqueInput | BacketWhereUniqueInput[]
+    update?: BacketUpdateWithWhereUniqueWithoutOwnerInput | BacketUpdateWithWhereUniqueWithoutOwnerInput[]
+    updateMany?: BacketUpdateManyWithWhereWithoutOwnerInput | BacketUpdateManyWithWhereWithoutOwnerInput[]
+    deleteMany?: BacketScalarWhereInput | BacketScalarWhereInput[]
+  }
+
+  export type CommentsUpdateManyWithoutUserNestedInput = {
+    create?: XOR<CommentsCreateWithoutUserInput, CommentsUncheckedCreateWithoutUserInput> | CommentsCreateWithoutUserInput[] | CommentsUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: CommentsCreateOrConnectWithoutUserInput | CommentsCreateOrConnectWithoutUserInput[]
+    upsert?: CommentsUpsertWithWhereUniqueWithoutUserInput | CommentsUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: CommentsCreateManyUserInputEnvelope
+    set?: CommentsWhereUniqueInput | CommentsWhereUniqueInput[]
+    disconnect?: CommentsWhereUniqueInput | CommentsWhereUniqueInput[]
+    delete?: CommentsWhereUniqueInput | CommentsWhereUniqueInput[]
+    connect?: CommentsWhereUniqueInput | CommentsWhereUniqueInput[]
+    update?: CommentsUpdateWithWhereUniqueWithoutUserInput | CommentsUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: CommentsUpdateManyWithWhereWithoutUserInput | CommentsUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: CommentsScalarWhereInput | CommentsScalarWhereInput[]
+  }
+
+  export type SessionsUpdateManyWithoutUserNestedInput = {
+    create?: XOR<SessionsCreateWithoutUserInput, SessionsUncheckedCreateWithoutUserInput> | SessionsCreateWithoutUserInput[] | SessionsUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: SessionsCreateOrConnectWithoutUserInput | SessionsCreateOrConnectWithoutUserInput[]
+    upsert?: SessionsUpsertWithWhereUniqueWithoutUserInput | SessionsUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: SessionsCreateManyUserInputEnvelope
+    set?: SessionsWhereUniqueInput | SessionsWhereUniqueInput[]
+    disconnect?: SessionsWhereUniqueInput | SessionsWhereUniqueInput[]
+    delete?: SessionsWhereUniqueInput | SessionsWhereUniqueInput[]
+    connect?: SessionsWhereUniqueInput | SessionsWhereUniqueInput[]
+    update?: SessionsUpdateWithWhereUniqueWithoutUserInput | SessionsUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: SessionsUpdateManyWithWhereWithoutUserInput | SessionsUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: SessionsScalarWhereInput | SessionsScalarWhereInput[]
+  }
+
+  export type BacketUncheckedUpdateManyWithoutOwnerNestedInput = {
+    create?: XOR<BacketCreateWithoutOwnerInput, BacketUncheckedCreateWithoutOwnerInput> | BacketCreateWithoutOwnerInput[] | BacketUncheckedCreateWithoutOwnerInput[]
+    connectOrCreate?: BacketCreateOrConnectWithoutOwnerInput | BacketCreateOrConnectWithoutOwnerInput[]
+    upsert?: BacketUpsertWithWhereUniqueWithoutOwnerInput | BacketUpsertWithWhereUniqueWithoutOwnerInput[]
+    createMany?: BacketCreateManyOwnerInputEnvelope
+    set?: BacketWhereUniqueInput | BacketWhereUniqueInput[]
+    disconnect?: BacketWhereUniqueInput | BacketWhereUniqueInput[]
+    delete?: BacketWhereUniqueInput | BacketWhereUniqueInput[]
+    connect?: BacketWhereUniqueInput | BacketWhereUniqueInput[]
+    update?: BacketUpdateWithWhereUniqueWithoutOwnerInput | BacketUpdateWithWhereUniqueWithoutOwnerInput[]
+    updateMany?: BacketUpdateManyWithWhereWithoutOwnerInput | BacketUpdateManyWithWhereWithoutOwnerInput[]
+    deleteMany?: BacketScalarWhereInput | BacketScalarWhereInput[]
+  }
+
+  export type CommentsUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<CommentsCreateWithoutUserInput, CommentsUncheckedCreateWithoutUserInput> | CommentsCreateWithoutUserInput[] | CommentsUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: CommentsCreateOrConnectWithoutUserInput | CommentsCreateOrConnectWithoutUserInput[]
+    upsert?: CommentsUpsertWithWhereUniqueWithoutUserInput | CommentsUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: CommentsCreateManyUserInputEnvelope
+    set?: CommentsWhereUniqueInput | CommentsWhereUniqueInput[]
+    disconnect?: CommentsWhereUniqueInput | CommentsWhereUniqueInput[]
+    delete?: CommentsWhereUniqueInput | CommentsWhereUniqueInput[]
+    connect?: CommentsWhereUniqueInput | CommentsWhereUniqueInput[]
+    update?: CommentsUpdateWithWhereUniqueWithoutUserInput | CommentsUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: CommentsUpdateManyWithWhereWithoutUserInput | CommentsUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: CommentsScalarWhereInput | CommentsScalarWhereInput[]
+  }
+
+  export type SessionsUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<SessionsCreateWithoutUserInput, SessionsUncheckedCreateWithoutUserInput> | SessionsCreateWithoutUserInput[] | SessionsUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: SessionsCreateOrConnectWithoutUserInput | SessionsCreateOrConnectWithoutUserInput[]
+    upsert?: SessionsUpsertWithWhereUniqueWithoutUserInput | SessionsUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: SessionsCreateManyUserInputEnvelope
+    set?: SessionsWhereUniqueInput | SessionsWhereUniqueInput[]
+    disconnect?: SessionsWhereUniqueInput | SessionsWhereUniqueInput[]
+    delete?: SessionsWhereUniqueInput | SessionsWhereUniqueInput[]
+    connect?: SessionsWhereUniqueInput | SessionsWhereUniqueInput[]
+    update?: SessionsUpdateWithWhereUniqueWithoutUserInput | SessionsUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: SessionsUpdateManyWithWhereWithoutUserInput | SessionsUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: SessionsScalarWhereInput | SessionsScalarWhereInput[]
+  }
+
+  export type UsersCreateNestedOneWithoutSessionsInput = {
+    create?: XOR<UsersCreateWithoutSessionsInput, UsersUncheckedCreateWithoutSessionsInput>
+    connectOrCreate?: UsersCreateOrConnectWithoutSessionsInput
+    connect?: UsersWhereUniqueInput
+  }
+
+  export type UsersUpdateOneRequiredWithoutSessionsNestedInput = {
+    create?: XOR<UsersCreateWithoutSessionsInput, UsersUncheckedCreateWithoutSessionsInput>
+    connectOrCreate?: UsersCreateOrConnectWithoutSessionsInput
+    upsert?: UsersUpsertWithoutSessionsInput
+    connect?: UsersWhereUniqueInput
+    update?: XOR<XOR<UsersUpdateToOneWithWhereWithoutSessionsInput, UsersUpdateWithoutSessionsInput>, UsersUncheckedUpdateWithoutSessionsInput>
+  }
+
+  export type UsersCreateNestedOneWithoutCommentsInput = {
+    create?: XOR<UsersCreateWithoutCommentsInput, UsersUncheckedCreateWithoutCommentsInput>
+    connectOrCreate?: UsersCreateOrConnectWithoutCommentsInput
+    connect?: UsersWhereUniqueInput
+  }
+
+  export type OrdersCreateNestedManyWithoutDeliveryCommentInput = {
+    create?: XOR<OrdersCreateWithoutDeliveryCommentInput, OrdersUncheckedCreateWithoutDeliveryCommentInput> | OrdersCreateWithoutDeliveryCommentInput[] | OrdersUncheckedCreateWithoutDeliveryCommentInput[]
+    connectOrCreate?: OrdersCreateOrConnectWithoutDeliveryCommentInput | OrdersCreateOrConnectWithoutDeliveryCommentInput[]
+    createMany?: OrdersCreateManyDeliveryCommentInputEnvelope
+    connect?: OrdersWhereUniqueInput | OrdersWhereUniqueInput[]
+  }
+
+  export type OrdersUncheckedCreateNestedManyWithoutDeliveryCommentInput = {
+    create?: XOR<OrdersCreateWithoutDeliveryCommentInput, OrdersUncheckedCreateWithoutDeliveryCommentInput> | OrdersCreateWithoutDeliveryCommentInput[] | OrdersUncheckedCreateWithoutDeliveryCommentInput[]
+    connectOrCreate?: OrdersCreateOrConnectWithoutDeliveryCommentInput | OrdersCreateOrConnectWithoutDeliveryCommentInput[]
+    createMany?: OrdersCreateManyDeliveryCommentInputEnvelope
+    connect?: OrdersWhereUniqueInput | OrdersWhereUniqueInput[]
+  }
+
+  export type UsersUpdateOneRequiredWithoutCommentsNestedInput = {
+    create?: XOR<UsersCreateWithoutCommentsInput, UsersUncheckedCreateWithoutCommentsInput>
+    connectOrCreate?: UsersCreateOrConnectWithoutCommentsInput
+    upsert?: UsersUpsertWithoutCommentsInput
+    connect?: UsersWhereUniqueInput
+    update?: XOR<XOR<UsersUpdateToOneWithWhereWithoutCommentsInput, UsersUpdateWithoutCommentsInput>, UsersUncheckedUpdateWithoutCommentsInput>
+  }
+
+  export type OrdersUpdateManyWithoutDeliveryCommentNestedInput = {
+    create?: XOR<OrdersCreateWithoutDeliveryCommentInput, OrdersUncheckedCreateWithoutDeliveryCommentInput> | OrdersCreateWithoutDeliveryCommentInput[] | OrdersUncheckedCreateWithoutDeliveryCommentInput[]
+    connectOrCreate?: OrdersCreateOrConnectWithoutDeliveryCommentInput | OrdersCreateOrConnectWithoutDeliveryCommentInput[]
+    upsert?: OrdersUpsertWithWhereUniqueWithoutDeliveryCommentInput | OrdersUpsertWithWhereUniqueWithoutDeliveryCommentInput[]
+    createMany?: OrdersCreateManyDeliveryCommentInputEnvelope
+    set?: OrdersWhereUniqueInput | OrdersWhereUniqueInput[]
+    disconnect?: OrdersWhereUniqueInput | OrdersWhereUniqueInput[]
+    delete?: OrdersWhereUniqueInput | OrdersWhereUniqueInput[]
+    connect?: OrdersWhereUniqueInput | OrdersWhereUniqueInput[]
+    update?: OrdersUpdateWithWhereUniqueWithoutDeliveryCommentInput | OrdersUpdateWithWhereUniqueWithoutDeliveryCommentInput[]
+    updateMany?: OrdersUpdateManyWithWhereWithoutDeliveryCommentInput | OrdersUpdateManyWithWhereWithoutDeliveryCommentInput[]
+    deleteMany?: OrdersScalarWhereInput | OrdersScalarWhereInput[]
+  }
+
+  export type OrdersUncheckedUpdateManyWithoutDeliveryCommentNestedInput = {
+    create?: XOR<OrdersCreateWithoutDeliveryCommentInput, OrdersUncheckedCreateWithoutDeliveryCommentInput> | OrdersCreateWithoutDeliveryCommentInput[] | OrdersUncheckedCreateWithoutDeliveryCommentInput[]
+    connectOrCreate?: OrdersCreateOrConnectWithoutDeliveryCommentInput | OrdersCreateOrConnectWithoutDeliveryCommentInput[]
+    upsert?: OrdersUpsertWithWhereUniqueWithoutDeliveryCommentInput | OrdersUpsertWithWhereUniqueWithoutDeliveryCommentInput[]
+    createMany?: OrdersCreateManyDeliveryCommentInputEnvelope
+    set?: OrdersWhereUniqueInput | OrdersWhereUniqueInput[]
+    disconnect?: OrdersWhereUniqueInput | OrdersWhereUniqueInput[]
+    delete?: OrdersWhereUniqueInput | OrdersWhereUniqueInput[]
+    connect?: OrdersWhereUniqueInput | OrdersWhereUniqueInput[]
+    update?: OrdersUpdateWithWhereUniqueWithoutDeliveryCommentInput | OrdersUpdateWithWhereUniqueWithoutDeliveryCommentInput[]
+    updateMany?: OrdersUpdateManyWithWhereWithoutDeliveryCommentInput | OrdersUpdateManyWithWhereWithoutDeliveryCommentInput[]
+    deleteMany?: OrdersScalarWhereInput | OrdersScalarWhereInput[]
+  }
+
   export type FloatFieldUpdateOperationsInput = {
     set?: number
     increment?: number
     decrement?: number
     multiply?: number
     divide?: number
+  }
+
+  export type MasterProfessionsCreateNestedManyWithoutLevelInput = {
+    create?: XOR<MasterProfessionsCreateWithoutLevelInput, MasterProfessionsUncheckedCreateWithoutLevelInput> | MasterProfessionsCreateWithoutLevelInput[] | MasterProfessionsUncheckedCreateWithoutLevelInput[]
+    connectOrCreate?: MasterProfessionsCreateOrConnectWithoutLevelInput | MasterProfessionsCreateOrConnectWithoutLevelInput[]
+    createMany?: MasterProfessionsCreateManyLevelInputEnvelope
+    connect?: MasterProfessionsWhereUniqueInput | MasterProfessionsWhereUniqueInput[]
+  }
+
+  export type BacketCreateNestedManyWithoutLevelInput = {
+    create?: XOR<BacketCreateWithoutLevelInput, BacketUncheckedCreateWithoutLevelInput> | BacketCreateWithoutLevelInput[] | BacketUncheckedCreateWithoutLevelInput[]
+    connectOrCreate?: BacketCreateOrConnectWithoutLevelInput | BacketCreateOrConnectWithoutLevelInput[]
+    createMany?: BacketCreateManyLevelInputEnvelope
+    connect?: BacketWhereUniqueInput | BacketWhereUniqueInput[]
+  }
+
+  export type OrderItemsCreateNestedManyWithoutLevelInput = {
+    create?: XOR<OrderItemsCreateWithoutLevelInput, OrderItemsUncheckedCreateWithoutLevelInput> | OrderItemsCreateWithoutLevelInput[] | OrderItemsUncheckedCreateWithoutLevelInput[]
+    connectOrCreate?: OrderItemsCreateOrConnectWithoutLevelInput | OrderItemsCreateOrConnectWithoutLevelInput[]
+    createMany?: OrderItemsCreateManyLevelInputEnvelope
+    connect?: OrderItemsWhereUniqueInput | OrderItemsWhereUniqueInput[]
+  }
+
+  export type ProfessionLevelsCreateNestedManyWithoutLevelInput = {
+    create?: XOR<ProfessionLevelsCreateWithoutLevelInput, ProfessionLevelsUncheckedCreateWithoutLevelInput> | ProfessionLevelsCreateWithoutLevelInput[] | ProfessionLevelsUncheckedCreateWithoutLevelInput[]
+    connectOrCreate?: ProfessionLevelsCreateOrConnectWithoutLevelInput | ProfessionLevelsCreateOrConnectWithoutLevelInput[]
+    createMany?: ProfessionLevelsCreateManyLevelInputEnvelope
+    connect?: ProfessionLevelsWhereUniqueInput | ProfessionLevelsWhereUniqueInput[]
+  }
+
+  export type MasterProfessionsUncheckedCreateNestedManyWithoutLevelInput = {
+    create?: XOR<MasterProfessionsCreateWithoutLevelInput, MasterProfessionsUncheckedCreateWithoutLevelInput> | MasterProfessionsCreateWithoutLevelInput[] | MasterProfessionsUncheckedCreateWithoutLevelInput[]
+    connectOrCreate?: MasterProfessionsCreateOrConnectWithoutLevelInput | MasterProfessionsCreateOrConnectWithoutLevelInput[]
+    createMany?: MasterProfessionsCreateManyLevelInputEnvelope
+    connect?: MasterProfessionsWhereUniqueInput | MasterProfessionsWhereUniqueInput[]
+  }
+
+  export type BacketUncheckedCreateNestedManyWithoutLevelInput = {
+    create?: XOR<BacketCreateWithoutLevelInput, BacketUncheckedCreateWithoutLevelInput> | BacketCreateWithoutLevelInput[] | BacketUncheckedCreateWithoutLevelInput[]
+    connectOrCreate?: BacketCreateOrConnectWithoutLevelInput | BacketCreateOrConnectWithoutLevelInput[]
+    createMany?: BacketCreateManyLevelInputEnvelope
+    connect?: BacketWhereUniqueInput | BacketWhereUniqueInput[]
+  }
+
+  export type OrderItemsUncheckedCreateNestedManyWithoutLevelInput = {
+    create?: XOR<OrderItemsCreateWithoutLevelInput, OrderItemsUncheckedCreateWithoutLevelInput> | OrderItemsCreateWithoutLevelInput[] | OrderItemsUncheckedCreateWithoutLevelInput[]
+    connectOrCreate?: OrderItemsCreateOrConnectWithoutLevelInput | OrderItemsCreateOrConnectWithoutLevelInput[]
+    createMany?: OrderItemsCreateManyLevelInputEnvelope
+    connect?: OrderItemsWhereUniqueInput | OrderItemsWhereUniqueInput[]
+  }
+
+  export type ProfessionLevelsUncheckedCreateNestedManyWithoutLevelInput = {
+    create?: XOR<ProfessionLevelsCreateWithoutLevelInput, ProfessionLevelsUncheckedCreateWithoutLevelInput> | ProfessionLevelsCreateWithoutLevelInput[] | ProfessionLevelsUncheckedCreateWithoutLevelInput[]
+    connectOrCreate?: ProfessionLevelsCreateOrConnectWithoutLevelInput | ProfessionLevelsCreateOrConnectWithoutLevelInput[]
+    createMany?: ProfessionLevelsCreateManyLevelInputEnvelope
+    connect?: ProfessionLevelsWhereUniqueInput | ProfessionLevelsWhereUniqueInput[]
+  }
+
+  export type MasterProfessionsUpdateManyWithoutLevelNestedInput = {
+    create?: XOR<MasterProfessionsCreateWithoutLevelInput, MasterProfessionsUncheckedCreateWithoutLevelInput> | MasterProfessionsCreateWithoutLevelInput[] | MasterProfessionsUncheckedCreateWithoutLevelInput[]
+    connectOrCreate?: MasterProfessionsCreateOrConnectWithoutLevelInput | MasterProfessionsCreateOrConnectWithoutLevelInput[]
+    upsert?: MasterProfessionsUpsertWithWhereUniqueWithoutLevelInput | MasterProfessionsUpsertWithWhereUniqueWithoutLevelInput[]
+    createMany?: MasterProfessionsCreateManyLevelInputEnvelope
+    set?: MasterProfessionsWhereUniqueInput | MasterProfessionsWhereUniqueInput[]
+    disconnect?: MasterProfessionsWhereUniqueInput | MasterProfessionsWhereUniqueInput[]
+    delete?: MasterProfessionsWhereUniqueInput | MasterProfessionsWhereUniqueInput[]
+    connect?: MasterProfessionsWhereUniqueInput | MasterProfessionsWhereUniqueInput[]
+    update?: MasterProfessionsUpdateWithWhereUniqueWithoutLevelInput | MasterProfessionsUpdateWithWhereUniqueWithoutLevelInput[]
+    updateMany?: MasterProfessionsUpdateManyWithWhereWithoutLevelInput | MasterProfessionsUpdateManyWithWhereWithoutLevelInput[]
+    deleteMany?: MasterProfessionsScalarWhereInput | MasterProfessionsScalarWhereInput[]
+  }
+
+  export type BacketUpdateManyWithoutLevelNestedInput = {
+    create?: XOR<BacketCreateWithoutLevelInput, BacketUncheckedCreateWithoutLevelInput> | BacketCreateWithoutLevelInput[] | BacketUncheckedCreateWithoutLevelInput[]
+    connectOrCreate?: BacketCreateOrConnectWithoutLevelInput | BacketCreateOrConnectWithoutLevelInput[]
+    upsert?: BacketUpsertWithWhereUniqueWithoutLevelInput | BacketUpsertWithWhereUniqueWithoutLevelInput[]
+    createMany?: BacketCreateManyLevelInputEnvelope
+    set?: BacketWhereUniqueInput | BacketWhereUniqueInput[]
+    disconnect?: BacketWhereUniqueInput | BacketWhereUniqueInput[]
+    delete?: BacketWhereUniqueInput | BacketWhereUniqueInput[]
+    connect?: BacketWhereUniqueInput | BacketWhereUniqueInput[]
+    update?: BacketUpdateWithWhereUniqueWithoutLevelInput | BacketUpdateWithWhereUniqueWithoutLevelInput[]
+    updateMany?: BacketUpdateManyWithWhereWithoutLevelInput | BacketUpdateManyWithWhereWithoutLevelInput[]
+    deleteMany?: BacketScalarWhereInput | BacketScalarWhereInput[]
+  }
+
+  export type OrderItemsUpdateManyWithoutLevelNestedInput = {
+    create?: XOR<OrderItemsCreateWithoutLevelInput, OrderItemsUncheckedCreateWithoutLevelInput> | OrderItemsCreateWithoutLevelInput[] | OrderItemsUncheckedCreateWithoutLevelInput[]
+    connectOrCreate?: OrderItemsCreateOrConnectWithoutLevelInput | OrderItemsCreateOrConnectWithoutLevelInput[]
+    upsert?: OrderItemsUpsertWithWhereUniqueWithoutLevelInput | OrderItemsUpsertWithWhereUniqueWithoutLevelInput[]
+    createMany?: OrderItemsCreateManyLevelInputEnvelope
+    set?: OrderItemsWhereUniqueInput | OrderItemsWhereUniqueInput[]
+    disconnect?: OrderItemsWhereUniqueInput | OrderItemsWhereUniqueInput[]
+    delete?: OrderItemsWhereUniqueInput | OrderItemsWhereUniqueInput[]
+    connect?: OrderItemsWhereUniqueInput | OrderItemsWhereUniqueInput[]
+    update?: OrderItemsUpdateWithWhereUniqueWithoutLevelInput | OrderItemsUpdateWithWhereUniqueWithoutLevelInput[]
+    updateMany?: OrderItemsUpdateManyWithWhereWithoutLevelInput | OrderItemsUpdateManyWithWhereWithoutLevelInput[]
+    deleteMany?: OrderItemsScalarWhereInput | OrderItemsScalarWhereInput[]
+  }
+
+  export type ProfessionLevelsUpdateManyWithoutLevelNestedInput = {
+    create?: XOR<ProfessionLevelsCreateWithoutLevelInput, ProfessionLevelsUncheckedCreateWithoutLevelInput> | ProfessionLevelsCreateWithoutLevelInput[] | ProfessionLevelsUncheckedCreateWithoutLevelInput[]
+    connectOrCreate?: ProfessionLevelsCreateOrConnectWithoutLevelInput | ProfessionLevelsCreateOrConnectWithoutLevelInput[]
+    upsert?: ProfessionLevelsUpsertWithWhereUniqueWithoutLevelInput | ProfessionLevelsUpsertWithWhereUniqueWithoutLevelInput[]
+    createMany?: ProfessionLevelsCreateManyLevelInputEnvelope
+    set?: ProfessionLevelsWhereUniqueInput | ProfessionLevelsWhereUniqueInput[]
+    disconnect?: ProfessionLevelsWhereUniqueInput | ProfessionLevelsWhereUniqueInput[]
+    delete?: ProfessionLevelsWhereUniqueInput | ProfessionLevelsWhereUniqueInput[]
+    connect?: ProfessionLevelsWhereUniqueInput | ProfessionLevelsWhereUniqueInput[]
+    update?: ProfessionLevelsUpdateWithWhereUniqueWithoutLevelInput | ProfessionLevelsUpdateWithWhereUniqueWithoutLevelInput[]
+    updateMany?: ProfessionLevelsUpdateManyWithWhereWithoutLevelInput | ProfessionLevelsUpdateManyWithWhereWithoutLevelInput[]
+    deleteMany?: ProfessionLevelsScalarWhereInput | ProfessionLevelsScalarWhereInput[]
+  }
+
+  export type MasterProfessionsUncheckedUpdateManyWithoutLevelNestedInput = {
+    create?: XOR<MasterProfessionsCreateWithoutLevelInput, MasterProfessionsUncheckedCreateWithoutLevelInput> | MasterProfessionsCreateWithoutLevelInput[] | MasterProfessionsUncheckedCreateWithoutLevelInput[]
+    connectOrCreate?: MasterProfessionsCreateOrConnectWithoutLevelInput | MasterProfessionsCreateOrConnectWithoutLevelInput[]
+    upsert?: MasterProfessionsUpsertWithWhereUniqueWithoutLevelInput | MasterProfessionsUpsertWithWhereUniqueWithoutLevelInput[]
+    createMany?: MasterProfessionsCreateManyLevelInputEnvelope
+    set?: MasterProfessionsWhereUniqueInput | MasterProfessionsWhereUniqueInput[]
+    disconnect?: MasterProfessionsWhereUniqueInput | MasterProfessionsWhereUniqueInput[]
+    delete?: MasterProfessionsWhereUniqueInput | MasterProfessionsWhereUniqueInput[]
+    connect?: MasterProfessionsWhereUniqueInput | MasterProfessionsWhereUniqueInput[]
+    update?: MasterProfessionsUpdateWithWhereUniqueWithoutLevelInput | MasterProfessionsUpdateWithWhereUniqueWithoutLevelInput[]
+    updateMany?: MasterProfessionsUpdateManyWithWhereWithoutLevelInput | MasterProfessionsUpdateManyWithWhereWithoutLevelInput[]
+    deleteMany?: MasterProfessionsScalarWhereInput | MasterProfessionsScalarWhereInput[]
+  }
+
+  export type BacketUncheckedUpdateManyWithoutLevelNestedInput = {
+    create?: XOR<BacketCreateWithoutLevelInput, BacketUncheckedCreateWithoutLevelInput> | BacketCreateWithoutLevelInput[] | BacketUncheckedCreateWithoutLevelInput[]
+    connectOrCreate?: BacketCreateOrConnectWithoutLevelInput | BacketCreateOrConnectWithoutLevelInput[]
+    upsert?: BacketUpsertWithWhereUniqueWithoutLevelInput | BacketUpsertWithWhereUniqueWithoutLevelInput[]
+    createMany?: BacketCreateManyLevelInputEnvelope
+    set?: BacketWhereUniqueInput | BacketWhereUniqueInput[]
+    disconnect?: BacketWhereUniqueInput | BacketWhereUniqueInput[]
+    delete?: BacketWhereUniqueInput | BacketWhereUniqueInput[]
+    connect?: BacketWhereUniqueInput | BacketWhereUniqueInput[]
+    update?: BacketUpdateWithWhereUniqueWithoutLevelInput | BacketUpdateWithWhereUniqueWithoutLevelInput[]
+    updateMany?: BacketUpdateManyWithWhereWithoutLevelInput | BacketUpdateManyWithWhereWithoutLevelInput[]
+    deleteMany?: BacketScalarWhereInput | BacketScalarWhereInput[]
+  }
+
+  export type OrderItemsUncheckedUpdateManyWithoutLevelNestedInput = {
+    create?: XOR<OrderItemsCreateWithoutLevelInput, OrderItemsUncheckedCreateWithoutLevelInput> | OrderItemsCreateWithoutLevelInput[] | OrderItemsUncheckedCreateWithoutLevelInput[]
+    connectOrCreate?: OrderItemsCreateOrConnectWithoutLevelInput | OrderItemsCreateOrConnectWithoutLevelInput[]
+    upsert?: OrderItemsUpsertWithWhereUniqueWithoutLevelInput | OrderItemsUpsertWithWhereUniqueWithoutLevelInput[]
+    createMany?: OrderItemsCreateManyLevelInputEnvelope
+    set?: OrderItemsWhereUniqueInput | OrderItemsWhereUniqueInput[]
+    disconnect?: OrderItemsWhereUniqueInput | OrderItemsWhereUniqueInput[]
+    delete?: OrderItemsWhereUniqueInput | OrderItemsWhereUniqueInput[]
+    connect?: OrderItemsWhereUniqueInput | OrderItemsWhereUniqueInput[]
+    update?: OrderItemsUpdateWithWhereUniqueWithoutLevelInput | OrderItemsUpdateWithWhereUniqueWithoutLevelInput[]
+    updateMany?: OrderItemsUpdateManyWithWhereWithoutLevelInput | OrderItemsUpdateManyWithWhereWithoutLevelInput[]
+    deleteMany?: OrderItemsScalarWhereInput | OrderItemsScalarWhereInput[]
+  }
+
+  export type ProfessionLevelsUncheckedUpdateManyWithoutLevelNestedInput = {
+    create?: XOR<ProfessionLevelsCreateWithoutLevelInput, ProfessionLevelsUncheckedCreateWithoutLevelInput> | ProfessionLevelsCreateWithoutLevelInput[] | ProfessionLevelsUncheckedCreateWithoutLevelInput[]
+    connectOrCreate?: ProfessionLevelsCreateOrConnectWithoutLevelInput | ProfessionLevelsCreateOrConnectWithoutLevelInput[]
+    upsert?: ProfessionLevelsUpsertWithWhereUniqueWithoutLevelInput | ProfessionLevelsUpsertWithWhereUniqueWithoutLevelInput[]
+    createMany?: ProfessionLevelsCreateManyLevelInputEnvelope
+    set?: ProfessionLevelsWhereUniqueInput | ProfessionLevelsWhereUniqueInput[]
+    disconnect?: ProfessionLevelsWhereUniqueInput | ProfessionLevelsWhereUniqueInput[]
+    delete?: ProfessionLevelsWhereUniqueInput | ProfessionLevelsWhereUniqueInput[]
+    connect?: ProfessionLevelsWhereUniqueInput | ProfessionLevelsWhereUniqueInput[]
+    update?: ProfessionLevelsUpdateWithWhereUniqueWithoutLevelInput | ProfessionLevelsUpdateWithWhereUniqueWithoutLevelInput[]
+    updateMany?: ProfessionLevelsUpdateManyWithWhereWithoutLevelInput | ProfessionLevelsUpdateManyWithWhereWithoutLevelInput[]
+    deleteMany?: ProfessionLevelsScalarWhereInput | ProfessionLevelsScalarWhereInput[]
+  }
+
+  export type ToolsCreateNestedManyWithoutCapacityInput = {
+    create?: XOR<ToolsCreateWithoutCapacityInput, ToolsUncheckedCreateWithoutCapacityInput> | ToolsCreateWithoutCapacityInput[] | ToolsUncheckedCreateWithoutCapacityInput[]
+    connectOrCreate?: ToolsCreateOrConnectWithoutCapacityInput | ToolsCreateOrConnectWithoutCapacityInput[]
+    createMany?: ToolsCreateManyCapacityInputEnvelope
+    connect?: ToolsWhereUniqueInput | ToolsWhereUniqueInput[]
+  }
+
+  export type ToolsUncheckedCreateNestedManyWithoutCapacityInput = {
+    create?: XOR<ToolsCreateWithoutCapacityInput, ToolsUncheckedCreateWithoutCapacityInput> | ToolsCreateWithoutCapacityInput[] | ToolsUncheckedCreateWithoutCapacityInput[]
+    connectOrCreate?: ToolsCreateOrConnectWithoutCapacityInput | ToolsCreateOrConnectWithoutCapacityInput[]
+    createMany?: ToolsCreateManyCapacityInputEnvelope
+    connect?: ToolsWhereUniqueInput | ToolsWhereUniqueInput[]
+  }
+
+  export type ToolsUpdateManyWithoutCapacityNestedInput = {
+    create?: XOR<ToolsCreateWithoutCapacityInput, ToolsUncheckedCreateWithoutCapacityInput> | ToolsCreateWithoutCapacityInput[] | ToolsUncheckedCreateWithoutCapacityInput[]
+    connectOrCreate?: ToolsCreateOrConnectWithoutCapacityInput | ToolsCreateOrConnectWithoutCapacityInput[]
+    upsert?: ToolsUpsertWithWhereUniqueWithoutCapacityInput | ToolsUpsertWithWhereUniqueWithoutCapacityInput[]
+    createMany?: ToolsCreateManyCapacityInputEnvelope
+    set?: ToolsWhereUniqueInput | ToolsWhereUniqueInput[]
+    disconnect?: ToolsWhereUniqueInput | ToolsWhereUniqueInput[]
+    delete?: ToolsWhereUniqueInput | ToolsWhereUniqueInput[]
+    connect?: ToolsWhereUniqueInput | ToolsWhereUniqueInput[]
+    update?: ToolsUpdateWithWhereUniqueWithoutCapacityInput | ToolsUpdateWithWhereUniqueWithoutCapacityInput[]
+    updateMany?: ToolsUpdateManyWithWhereWithoutCapacityInput | ToolsUpdateManyWithWhereWithoutCapacityInput[]
+    deleteMany?: ToolsScalarWhereInput | ToolsScalarWhereInput[]
+  }
+
+  export type ToolsUncheckedUpdateManyWithoutCapacityNestedInput = {
+    create?: XOR<ToolsCreateWithoutCapacityInput, ToolsUncheckedCreateWithoutCapacityInput> | ToolsCreateWithoutCapacityInput[] | ToolsUncheckedCreateWithoutCapacityInput[]
+    connectOrCreate?: ToolsCreateOrConnectWithoutCapacityInput | ToolsCreateOrConnectWithoutCapacityInput[]
+    upsert?: ToolsUpsertWithWhereUniqueWithoutCapacityInput | ToolsUpsertWithWhereUniqueWithoutCapacityInput[]
+    createMany?: ToolsCreateManyCapacityInputEnvelope
+    set?: ToolsWhereUniqueInput | ToolsWhereUniqueInput[]
+    disconnect?: ToolsWhereUniqueInput | ToolsWhereUniqueInput[]
+    delete?: ToolsWhereUniqueInput | ToolsWhereUniqueInput[]
+    connect?: ToolsWhereUniqueInput | ToolsWhereUniqueInput[]
+    update?: ToolsUpdateWithWhereUniqueWithoutCapacityInput | ToolsUpdateWithWhereUniqueWithoutCapacityInput[]
+    updateMany?: ToolsUpdateManyWithWhereWithoutCapacityInput | ToolsUpdateManyWithWhereWithoutCapacityInput[]
+    deleteMany?: ToolsScalarWhereInput | ToolsScalarWhereInput[]
+  }
+
+  export type ToolsCreateNestedManyWithoutSizeInput = {
+    create?: XOR<ToolsCreateWithoutSizeInput, ToolsUncheckedCreateWithoutSizeInput> | ToolsCreateWithoutSizeInput[] | ToolsUncheckedCreateWithoutSizeInput[]
+    connectOrCreate?: ToolsCreateOrConnectWithoutSizeInput | ToolsCreateOrConnectWithoutSizeInput[]
+    createMany?: ToolsCreateManySizeInputEnvelope
+    connect?: ToolsWhereUniqueInput | ToolsWhereUniqueInput[]
+  }
+
+  export type ToolsUncheckedCreateNestedManyWithoutSizeInput = {
+    create?: XOR<ToolsCreateWithoutSizeInput, ToolsUncheckedCreateWithoutSizeInput> | ToolsCreateWithoutSizeInput[] | ToolsUncheckedCreateWithoutSizeInput[]
+    connectOrCreate?: ToolsCreateOrConnectWithoutSizeInput | ToolsCreateOrConnectWithoutSizeInput[]
+    createMany?: ToolsCreateManySizeInputEnvelope
+    connect?: ToolsWhereUniqueInput | ToolsWhereUniqueInput[]
+  }
+
+  export type ToolsUpdateManyWithoutSizeNestedInput = {
+    create?: XOR<ToolsCreateWithoutSizeInput, ToolsUncheckedCreateWithoutSizeInput> | ToolsCreateWithoutSizeInput[] | ToolsUncheckedCreateWithoutSizeInput[]
+    connectOrCreate?: ToolsCreateOrConnectWithoutSizeInput | ToolsCreateOrConnectWithoutSizeInput[]
+    upsert?: ToolsUpsertWithWhereUniqueWithoutSizeInput | ToolsUpsertWithWhereUniqueWithoutSizeInput[]
+    createMany?: ToolsCreateManySizeInputEnvelope
+    set?: ToolsWhereUniqueInput | ToolsWhereUniqueInput[]
+    disconnect?: ToolsWhereUniqueInput | ToolsWhereUniqueInput[]
+    delete?: ToolsWhereUniqueInput | ToolsWhereUniqueInput[]
+    connect?: ToolsWhereUniqueInput | ToolsWhereUniqueInput[]
+    update?: ToolsUpdateWithWhereUniqueWithoutSizeInput | ToolsUpdateWithWhereUniqueWithoutSizeInput[]
+    updateMany?: ToolsUpdateManyWithWhereWithoutSizeInput | ToolsUpdateManyWithWhereWithoutSizeInput[]
+    deleteMany?: ToolsScalarWhereInput | ToolsScalarWhereInput[]
+  }
+
+  export type ToolsUncheckedUpdateManyWithoutSizeNestedInput = {
+    create?: XOR<ToolsCreateWithoutSizeInput, ToolsUncheckedCreateWithoutSizeInput> | ToolsCreateWithoutSizeInput[] | ToolsUncheckedCreateWithoutSizeInput[]
+    connectOrCreate?: ToolsCreateOrConnectWithoutSizeInput | ToolsCreateOrConnectWithoutSizeInput[]
+    upsert?: ToolsUpsertWithWhereUniqueWithoutSizeInput | ToolsUpsertWithWhereUniqueWithoutSizeInput[]
+    createMany?: ToolsCreateManySizeInputEnvelope
+    set?: ToolsWhereUniqueInput | ToolsWhereUniqueInput[]
+    disconnect?: ToolsWhereUniqueInput | ToolsWhereUniqueInput[]
+    delete?: ToolsWhereUniqueInput | ToolsWhereUniqueInput[]
+    connect?: ToolsWhereUniqueInput | ToolsWhereUniqueInput[]
+    update?: ToolsUpdateWithWhereUniqueWithoutSizeInput | ToolsUpdateWithWhereUniqueWithoutSizeInput[]
+    updateMany?: ToolsUpdateManyWithWhereWithoutSizeInput | ToolsUpdateManyWithWhereWithoutSizeInput[]
+    deleteMany?: ToolsScalarWhereInput | ToolsScalarWhereInput[]
+  }
+
+  export type ToolsCreateNestedManyWithoutBrandInput = {
+    create?: XOR<ToolsCreateWithoutBrandInput, ToolsUncheckedCreateWithoutBrandInput> | ToolsCreateWithoutBrandInput[] | ToolsUncheckedCreateWithoutBrandInput[]
+    connectOrCreate?: ToolsCreateOrConnectWithoutBrandInput | ToolsCreateOrConnectWithoutBrandInput[]
+    createMany?: ToolsCreateManyBrandInputEnvelope
+    connect?: ToolsWhereUniqueInput | ToolsWhereUniqueInput[]
+  }
+
+  export type ToolsUncheckedCreateNestedManyWithoutBrandInput = {
+    create?: XOR<ToolsCreateWithoutBrandInput, ToolsUncheckedCreateWithoutBrandInput> | ToolsCreateWithoutBrandInput[] | ToolsUncheckedCreateWithoutBrandInput[]
+    connectOrCreate?: ToolsCreateOrConnectWithoutBrandInput | ToolsCreateOrConnectWithoutBrandInput[]
+    createMany?: ToolsCreateManyBrandInputEnvelope
+    connect?: ToolsWhereUniqueInput | ToolsWhereUniqueInput[]
+  }
+
+  export type ToolsUpdateManyWithoutBrandNestedInput = {
+    create?: XOR<ToolsCreateWithoutBrandInput, ToolsUncheckedCreateWithoutBrandInput> | ToolsCreateWithoutBrandInput[] | ToolsUncheckedCreateWithoutBrandInput[]
+    connectOrCreate?: ToolsCreateOrConnectWithoutBrandInput | ToolsCreateOrConnectWithoutBrandInput[]
+    upsert?: ToolsUpsertWithWhereUniqueWithoutBrandInput | ToolsUpsertWithWhereUniqueWithoutBrandInput[]
+    createMany?: ToolsCreateManyBrandInputEnvelope
+    set?: ToolsWhereUniqueInput | ToolsWhereUniqueInput[]
+    disconnect?: ToolsWhereUniqueInput | ToolsWhereUniqueInput[]
+    delete?: ToolsWhereUniqueInput | ToolsWhereUniqueInput[]
+    connect?: ToolsWhereUniqueInput | ToolsWhereUniqueInput[]
+    update?: ToolsUpdateWithWhereUniqueWithoutBrandInput | ToolsUpdateWithWhereUniqueWithoutBrandInput[]
+    updateMany?: ToolsUpdateManyWithWhereWithoutBrandInput | ToolsUpdateManyWithWhereWithoutBrandInput[]
+    deleteMany?: ToolsScalarWhereInput | ToolsScalarWhereInput[]
+  }
+
+  export type ToolsUncheckedUpdateManyWithoutBrandNestedInput = {
+    create?: XOR<ToolsCreateWithoutBrandInput, ToolsUncheckedCreateWithoutBrandInput> | ToolsCreateWithoutBrandInput[] | ToolsUncheckedCreateWithoutBrandInput[]
+    connectOrCreate?: ToolsCreateOrConnectWithoutBrandInput | ToolsCreateOrConnectWithoutBrandInput[]
+    upsert?: ToolsUpsertWithWhereUniqueWithoutBrandInput | ToolsUpsertWithWhereUniqueWithoutBrandInput[]
+    createMany?: ToolsCreateManyBrandInputEnvelope
+    set?: ToolsWhereUniqueInput | ToolsWhereUniqueInput[]
+    disconnect?: ToolsWhereUniqueInput | ToolsWhereUniqueInput[]
+    delete?: ToolsWhereUniqueInput | ToolsWhereUniqueInput[]
+    connect?: ToolsWhereUniqueInput | ToolsWhereUniqueInput[]
+    update?: ToolsUpdateWithWhereUniqueWithoutBrandInput | ToolsUpdateWithWhereUniqueWithoutBrandInput[]
+    updateMany?: ToolsUpdateManyWithWhereWithoutBrandInput | ToolsUpdateManyWithWhereWithoutBrandInput[]
+    deleteMany?: ToolsScalarWhereInput | ToolsScalarWhereInput[]
+  }
+
+  export type MasterProfessionsCreateNestedManyWithoutMasterInput = {
+    create?: XOR<MasterProfessionsCreateWithoutMasterInput, MasterProfessionsUncheckedCreateWithoutMasterInput> | MasterProfessionsCreateWithoutMasterInput[] | MasterProfessionsUncheckedCreateWithoutMasterInput[]
+    connectOrCreate?: MasterProfessionsCreateOrConnectWithoutMasterInput | MasterProfessionsCreateOrConnectWithoutMasterInput[]
+    createMany?: MasterProfessionsCreateManyMasterInputEnvelope
+    connect?: MasterProfessionsWhereUniqueInput | MasterProfessionsWhereUniqueInput[]
+  }
+
+  export type MasterProfessionsUncheckedCreateNestedManyWithoutMasterInput = {
+    create?: XOR<MasterProfessionsCreateWithoutMasterInput, MasterProfessionsUncheckedCreateWithoutMasterInput> | MasterProfessionsCreateWithoutMasterInput[] | MasterProfessionsUncheckedCreateWithoutMasterInput[]
+    connectOrCreate?: MasterProfessionsCreateOrConnectWithoutMasterInput | MasterProfessionsCreateOrConnectWithoutMasterInput[]
+    createMany?: MasterProfessionsCreateManyMasterInputEnvelope
+    connect?: MasterProfessionsWhereUniqueInput | MasterProfessionsWhereUniqueInput[]
+  }
+
+  export type BoolFieldUpdateOperationsInput = {
+    set?: boolean
+  }
+
+  export type IntFieldUpdateOperationsInput = {
+    set?: number
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
+  export type MasterProfessionsUpdateManyWithoutMasterNestedInput = {
+    create?: XOR<MasterProfessionsCreateWithoutMasterInput, MasterProfessionsUncheckedCreateWithoutMasterInput> | MasterProfessionsCreateWithoutMasterInput[] | MasterProfessionsUncheckedCreateWithoutMasterInput[]
+    connectOrCreate?: MasterProfessionsCreateOrConnectWithoutMasterInput | MasterProfessionsCreateOrConnectWithoutMasterInput[]
+    upsert?: MasterProfessionsUpsertWithWhereUniqueWithoutMasterInput | MasterProfessionsUpsertWithWhereUniqueWithoutMasterInput[]
+    createMany?: MasterProfessionsCreateManyMasterInputEnvelope
+    set?: MasterProfessionsWhereUniqueInput | MasterProfessionsWhereUniqueInput[]
+    disconnect?: MasterProfessionsWhereUniqueInput | MasterProfessionsWhereUniqueInput[]
+    delete?: MasterProfessionsWhereUniqueInput | MasterProfessionsWhereUniqueInput[]
+    connect?: MasterProfessionsWhereUniqueInput | MasterProfessionsWhereUniqueInput[]
+    update?: MasterProfessionsUpdateWithWhereUniqueWithoutMasterInput | MasterProfessionsUpdateWithWhereUniqueWithoutMasterInput[]
+    updateMany?: MasterProfessionsUpdateManyWithWhereWithoutMasterInput | MasterProfessionsUpdateManyWithWhereWithoutMasterInput[]
+    deleteMany?: MasterProfessionsScalarWhereInput | MasterProfessionsScalarWhereInput[]
+  }
+
+  export type MasterProfessionsUncheckedUpdateManyWithoutMasterNestedInput = {
+    create?: XOR<MasterProfessionsCreateWithoutMasterInput, MasterProfessionsUncheckedCreateWithoutMasterInput> | MasterProfessionsCreateWithoutMasterInput[] | MasterProfessionsUncheckedCreateWithoutMasterInput[]
+    connectOrCreate?: MasterProfessionsCreateOrConnectWithoutMasterInput | MasterProfessionsCreateOrConnectWithoutMasterInput[]
+    upsert?: MasterProfessionsUpsertWithWhereUniqueWithoutMasterInput | MasterProfessionsUpsertWithWhereUniqueWithoutMasterInput[]
+    createMany?: MasterProfessionsCreateManyMasterInputEnvelope
+    set?: MasterProfessionsWhereUniqueInput | MasterProfessionsWhereUniqueInput[]
+    disconnect?: MasterProfessionsWhereUniqueInput | MasterProfessionsWhereUniqueInput[]
+    delete?: MasterProfessionsWhereUniqueInput | MasterProfessionsWhereUniqueInput[]
+    connect?: MasterProfessionsWhereUniqueInput | MasterProfessionsWhereUniqueInput[]
+    update?: MasterProfessionsUpdateWithWhereUniqueWithoutMasterInput | MasterProfessionsUpdateWithWhereUniqueWithoutMasterInput[]
+    updateMany?: MasterProfessionsUpdateManyWithWhereWithoutMasterInput | MasterProfessionsUpdateManyWithWhereWithoutMasterInput[]
+    deleteMany?: MasterProfessionsScalarWhereInput | MasterProfessionsScalarWhereInput[]
+  }
+
+  export type MasterProfessionsCreateNestedManyWithoutProfessionInput = {
+    create?: XOR<MasterProfessionsCreateWithoutProfessionInput, MasterProfessionsUncheckedCreateWithoutProfessionInput> | MasterProfessionsCreateWithoutProfessionInput[] | MasterProfessionsUncheckedCreateWithoutProfessionInput[]
+    connectOrCreate?: MasterProfessionsCreateOrConnectWithoutProfessionInput | MasterProfessionsCreateOrConnectWithoutProfessionInput[]
+    createMany?: MasterProfessionsCreateManyProfessionInputEnvelope
+    connect?: MasterProfessionsWhereUniqueInput | MasterProfessionsWhereUniqueInput[]
+  }
+
+  export type BacketCreateNestedManyWithoutProfessionInput = {
+    create?: XOR<BacketCreateWithoutProfessionInput, BacketUncheckedCreateWithoutProfessionInput> | BacketCreateWithoutProfessionInput[] | BacketUncheckedCreateWithoutProfessionInput[]
+    connectOrCreate?: BacketCreateOrConnectWithoutProfessionInput | BacketCreateOrConnectWithoutProfessionInput[]
+    createMany?: BacketCreateManyProfessionInputEnvelope
+    connect?: BacketWhereUniqueInput | BacketWhereUniqueInput[]
+  }
+
+  export type OrderItemsCreateNestedManyWithoutProfessionInput = {
+    create?: XOR<OrderItemsCreateWithoutProfessionInput, OrderItemsUncheckedCreateWithoutProfessionInput> | OrderItemsCreateWithoutProfessionInput[] | OrderItemsUncheckedCreateWithoutProfessionInput[]
+    connectOrCreate?: OrderItemsCreateOrConnectWithoutProfessionInput | OrderItemsCreateOrConnectWithoutProfessionInput[]
+    createMany?: OrderItemsCreateManyProfessionInputEnvelope
+    connect?: OrderItemsWhereUniqueInput | OrderItemsWhereUniqueInput[]
+  }
+
+  export type ProfessionLevelsCreateNestedManyWithoutProfessionInput = {
+    create?: XOR<ProfessionLevelsCreateWithoutProfessionInput, ProfessionLevelsUncheckedCreateWithoutProfessionInput> | ProfessionLevelsCreateWithoutProfessionInput[] | ProfessionLevelsUncheckedCreateWithoutProfessionInput[]
+    connectOrCreate?: ProfessionLevelsCreateOrConnectWithoutProfessionInput | ProfessionLevelsCreateOrConnectWithoutProfessionInput[]
+    createMany?: ProfessionLevelsCreateManyProfessionInputEnvelope
+    connect?: ProfessionLevelsWhereUniqueInput | ProfessionLevelsWhereUniqueInput[]
+  }
+
+  export type ProfessionToolsCreateNestedManyWithoutProfessionsInput = {
+    create?: XOR<ProfessionToolsCreateWithoutProfessionsInput, ProfessionToolsUncheckedCreateWithoutProfessionsInput> | ProfessionToolsCreateWithoutProfessionsInput[] | ProfessionToolsUncheckedCreateWithoutProfessionsInput[]
+    connectOrCreate?: ProfessionToolsCreateOrConnectWithoutProfessionsInput | ProfessionToolsCreateOrConnectWithoutProfessionsInput[]
+    createMany?: ProfessionToolsCreateManyProfessionsInputEnvelope
+    connect?: ProfessionToolsWhereUniqueInput | ProfessionToolsWhereUniqueInput[]
+  }
+
+  export type MasterProfessionsUncheckedCreateNestedManyWithoutProfessionInput = {
+    create?: XOR<MasterProfessionsCreateWithoutProfessionInput, MasterProfessionsUncheckedCreateWithoutProfessionInput> | MasterProfessionsCreateWithoutProfessionInput[] | MasterProfessionsUncheckedCreateWithoutProfessionInput[]
+    connectOrCreate?: MasterProfessionsCreateOrConnectWithoutProfessionInput | MasterProfessionsCreateOrConnectWithoutProfessionInput[]
+    createMany?: MasterProfessionsCreateManyProfessionInputEnvelope
+    connect?: MasterProfessionsWhereUniqueInput | MasterProfessionsWhereUniqueInput[]
+  }
+
+  export type BacketUncheckedCreateNestedManyWithoutProfessionInput = {
+    create?: XOR<BacketCreateWithoutProfessionInput, BacketUncheckedCreateWithoutProfessionInput> | BacketCreateWithoutProfessionInput[] | BacketUncheckedCreateWithoutProfessionInput[]
+    connectOrCreate?: BacketCreateOrConnectWithoutProfessionInput | BacketCreateOrConnectWithoutProfessionInput[]
+    createMany?: BacketCreateManyProfessionInputEnvelope
+    connect?: BacketWhereUniqueInput | BacketWhereUniqueInput[]
+  }
+
+  export type OrderItemsUncheckedCreateNestedManyWithoutProfessionInput = {
+    create?: XOR<OrderItemsCreateWithoutProfessionInput, OrderItemsUncheckedCreateWithoutProfessionInput> | OrderItemsCreateWithoutProfessionInput[] | OrderItemsUncheckedCreateWithoutProfessionInput[]
+    connectOrCreate?: OrderItemsCreateOrConnectWithoutProfessionInput | OrderItemsCreateOrConnectWithoutProfessionInput[]
+    createMany?: OrderItemsCreateManyProfessionInputEnvelope
+    connect?: OrderItemsWhereUniqueInput | OrderItemsWhereUniqueInput[]
+  }
+
+  export type ProfessionLevelsUncheckedCreateNestedManyWithoutProfessionInput = {
+    create?: XOR<ProfessionLevelsCreateWithoutProfessionInput, ProfessionLevelsUncheckedCreateWithoutProfessionInput> | ProfessionLevelsCreateWithoutProfessionInput[] | ProfessionLevelsUncheckedCreateWithoutProfessionInput[]
+    connectOrCreate?: ProfessionLevelsCreateOrConnectWithoutProfessionInput | ProfessionLevelsCreateOrConnectWithoutProfessionInput[]
+    createMany?: ProfessionLevelsCreateManyProfessionInputEnvelope
+    connect?: ProfessionLevelsWhereUniqueInput | ProfessionLevelsWhereUniqueInput[]
+  }
+
+  export type ProfessionToolsUncheckedCreateNestedManyWithoutProfessionsInput = {
+    create?: XOR<ProfessionToolsCreateWithoutProfessionsInput, ProfessionToolsUncheckedCreateWithoutProfessionsInput> | ProfessionToolsCreateWithoutProfessionsInput[] | ProfessionToolsUncheckedCreateWithoutProfessionsInput[]
+    connectOrCreate?: ProfessionToolsCreateOrConnectWithoutProfessionsInput | ProfessionToolsCreateOrConnectWithoutProfessionsInput[]
+    createMany?: ProfessionToolsCreateManyProfessionsInputEnvelope
+    connect?: ProfessionToolsWhereUniqueInput | ProfessionToolsWhereUniqueInput[]
+  }
+
+  export type MasterProfessionsUpdateManyWithoutProfessionNestedInput = {
+    create?: XOR<MasterProfessionsCreateWithoutProfessionInput, MasterProfessionsUncheckedCreateWithoutProfessionInput> | MasterProfessionsCreateWithoutProfessionInput[] | MasterProfessionsUncheckedCreateWithoutProfessionInput[]
+    connectOrCreate?: MasterProfessionsCreateOrConnectWithoutProfessionInput | MasterProfessionsCreateOrConnectWithoutProfessionInput[]
+    upsert?: MasterProfessionsUpsertWithWhereUniqueWithoutProfessionInput | MasterProfessionsUpsertWithWhereUniqueWithoutProfessionInput[]
+    createMany?: MasterProfessionsCreateManyProfessionInputEnvelope
+    set?: MasterProfessionsWhereUniqueInput | MasterProfessionsWhereUniqueInput[]
+    disconnect?: MasterProfessionsWhereUniqueInput | MasterProfessionsWhereUniqueInput[]
+    delete?: MasterProfessionsWhereUniqueInput | MasterProfessionsWhereUniqueInput[]
+    connect?: MasterProfessionsWhereUniqueInput | MasterProfessionsWhereUniqueInput[]
+    update?: MasterProfessionsUpdateWithWhereUniqueWithoutProfessionInput | MasterProfessionsUpdateWithWhereUniqueWithoutProfessionInput[]
+    updateMany?: MasterProfessionsUpdateManyWithWhereWithoutProfessionInput | MasterProfessionsUpdateManyWithWhereWithoutProfessionInput[]
+    deleteMany?: MasterProfessionsScalarWhereInput | MasterProfessionsScalarWhereInput[]
+  }
+
+  export type BacketUpdateManyWithoutProfessionNestedInput = {
+    create?: XOR<BacketCreateWithoutProfessionInput, BacketUncheckedCreateWithoutProfessionInput> | BacketCreateWithoutProfessionInput[] | BacketUncheckedCreateWithoutProfessionInput[]
+    connectOrCreate?: BacketCreateOrConnectWithoutProfessionInput | BacketCreateOrConnectWithoutProfessionInput[]
+    upsert?: BacketUpsertWithWhereUniqueWithoutProfessionInput | BacketUpsertWithWhereUniqueWithoutProfessionInput[]
+    createMany?: BacketCreateManyProfessionInputEnvelope
+    set?: BacketWhereUniqueInput | BacketWhereUniqueInput[]
+    disconnect?: BacketWhereUniqueInput | BacketWhereUniqueInput[]
+    delete?: BacketWhereUniqueInput | BacketWhereUniqueInput[]
+    connect?: BacketWhereUniqueInput | BacketWhereUniqueInput[]
+    update?: BacketUpdateWithWhereUniqueWithoutProfessionInput | BacketUpdateWithWhereUniqueWithoutProfessionInput[]
+    updateMany?: BacketUpdateManyWithWhereWithoutProfessionInput | BacketUpdateManyWithWhereWithoutProfessionInput[]
+    deleteMany?: BacketScalarWhereInput | BacketScalarWhereInput[]
+  }
+
+  export type OrderItemsUpdateManyWithoutProfessionNestedInput = {
+    create?: XOR<OrderItemsCreateWithoutProfessionInput, OrderItemsUncheckedCreateWithoutProfessionInput> | OrderItemsCreateWithoutProfessionInput[] | OrderItemsUncheckedCreateWithoutProfessionInput[]
+    connectOrCreate?: OrderItemsCreateOrConnectWithoutProfessionInput | OrderItemsCreateOrConnectWithoutProfessionInput[]
+    upsert?: OrderItemsUpsertWithWhereUniqueWithoutProfessionInput | OrderItemsUpsertWithWhereUniqueWithoutProfessionInput[]
+    createMany?: OrderItemsCreateManyProfessionInputEnvelope
+    set?: OrderItemsWhereUniqueInput | OrderItemsWhereUniqueInput[]
+    disconnect?: OrderItemsWhereUniqueInput | OrderItemsWhereUniqueInput[]
+    delete?: OrderItemsWhereUniqueInput | OrderItemsWhereUniqueInput[]
+    connect?: OrderItemsWhereUniqueInput | OrderItemsWhereUniqueInput[]
+    update?: OrderItemsUpdateWithWhereUniqueWithoutProfessionInput | OrderItemsUpdateWithWhereUniqueWithoutProfessionInput[]
+    updateMany?: OrderItemsUpdateManyWithWhereWithoutProfessionInput | OrderItemsUpdateManyWithWhereWithoutProfessionInput[]
+    deleteMany?: OrderItemsScalarWhereInput | OrderItemsScalarWhereInput[]
+  }
+
+  export type ProfessionLevelsUpdateManyWithoutProfessionNestedInput = {
+    create?: XOR<ProfessionLevelsCreateWithoutProfessionInput, ProfessionLevelsUncheckedCreateWithoutProfessionInput> | ProfessionLevelsCreateWithoutProfessionInput[] | ProfessionLevelsUncheckedCreateWithoutProfessionInput[]
+    connectOrCreate?: ProfessionLevelsCreateOrConnectWithoutProfessionInput | ProfessionLevelsCreateOrConnectWithoutProfessionInput[]
+    upsert?: ProfessionLevelsUpsertWithWhereUniqueWithoutProfessionInput | ProfessionLevelsUpsertWithWhereUniqueWithoutProfessionInput[]
+    createMany?: ProfessionLevelsCreateManyProfessionInputEnvelope
+    set?: ProfessionLevelsWhereUniqueInput | ProfessionLevelsWhereUniqueInput[]
+    disconnect?: ProfessionLevelsWhereUniqueInput | ProfessionLevelsWhereUniqueInput[]
+    delete?: ProfessionLevelsWhereUniqueInput | ProfessionLevelsWhereUniqueInput[]
+    connect?: ProfessionLevelsWhereUniqueInput | ProfessionLevelsWhereUniqueInput[]
+    update?: ProfessionLevelsUpdateWithWhereUniqueWithoutProfessionInput | ProfessionLevelsUpdateWithWhereUniqueWithoutProfessionInput[]
+    updateMany?: ProfessionLevelsUpdateManyWithWhereWithoutProfessionInput | ProfessionLevelsUpdateManyWithWhereWithoutProfessionInput[]
+    deleteMany?: ProfessionLevelsScalarWhereInput | ProfessionLevelsScalarWhereInput[]
+  }
+
+  export type ProfessionToolsUpdateManyWithoutProfessionsNestedInput = {
+    create?: XOR<ProfessionToolsCreateWithoutProfessionsInput, ProfessionToolsUncheckedCreateWithoutProfessionsInput> | ProfessionToolsCreateWithoutProfessionsInput[] | ProfessionToolsUncheckedCreateWithoutProfessionsInput[]
+    connectOrCreate?: ProfessionToolsCreateOrConnectWithoutProfessionsInput | ProfessionToolsCreateOrConnectWithoutProfessionsInput[]
+    upsert?: ProfessionToolsUpsertWithWhereUniqueWithoutProfessionsInput | ProfessionToolsUpsertWithWhereUniqueWithoutProfessionsInput[]
+    createMany?: ProfessionToolsCreateManyProfessionsInputEnvelope
+    set?: ProfessionToolsWhereUniqueInput | ProfessionToolsWhereUniqueInput[]
+    disconnect?: ProfessionToolsWhereUniqueInput | ProfessionToolsWhereUniqueInput[]
+    delete?: ProfessionToolsWhereUniqueInput | ProfessionToolsWhereUniqueInput[]
+    connect?: ProfessionToolsWhereUniqueInput | ProfessionToolsWhereUniqueInput[]
+    update?: ProfessionToolsUpdateWithWhereUniqueWithoutProfessionsInput | ProfessionToolsUpdateWithWhereUniqueWithoutProfessionsInput[]
+    updateMany?: ProfessionToolsUpdateManyWithWhereWithoutProfessionsInput | ProfessionToolsUpdateManyWithWhereWithoutProfessionsInput[]
+    deleteMany?: ProfessionToolsScalarWhereInput | ProfessionToolsScalarWhereInput[]
+  }
+
+  export type MasterProfessionsUncheckedUpdateManyWithoutProfessionNestedInput = {
+    create?: XOR<MasterProfessionsCreateWithoutProfessionInput, MasterProfessionsUncheckedCreateWithoutProfessionInput> | MasterProfessionsCreateWithoutProfessionInput[] | MasterProfessionsUncheckedCreateWithoutProfessionInput[]
+    connectOrCreate?: MasterProfessionsCreateOrConnectWithoutProfessionInput | MasterProfessionsCreateOrConnectWithoutProfessionInput[]
+    upsert?: MasterProfessionsUpsertWithWhereUniqueWithoutProfessionInput | MasterProfessionsUpsertWithWhereUniqueWithoutProfessionInput[]
+    createMany?: MasterProfessionsCreateManyProfessionInputEnvelope
+    set?: MasterProfessionsWhereUniqueInput | MasterProfessionsWhereUniqueInput[]
+    disconnect?: MasterProfessionsWhereUniqueInput | MasterProfessionsWhereUniqueInput[]
+    delete?: MasterProfessionsWhereUniqueInput | MasterProfessionsWhereUniqueInput[]
+    connect?: MasterProfessionsWhereUniqueInput | MasterProfessionsWhereUniqueInput[]
+    update?: MasterProfessionsUpdateWithWhereUniqueWithoutProfessionInput | MasterProfessionsUpdateWithWhereUniqueWithoutProfessionInput[]
+    updateMany?: MasterProfessionsUpdateManyWithWhereWithoutProfessionInput | MasterProfessionsUpdateManyWithWhereWithoutProfessionInput[]
+    deleteMany?: MasterProfessionsScalarWhereInput | MasterProfessionsScalarWhereInput[]
+  }
+
+  export type BacketUncheckedUpdateManyWithoutProfessionNestedInput = {
+    create?: XOR<BacketCreateWithoutProfessionInput, BacketUncheckedCreateWithoutProfessionInput> | BacketCreateWithoutProfessionInput[] | BacketUncheckedCreateWithoutProfessionInput[]
+    connectOrCreate?: BacketCreateOrConnectWithoutProfessionInput | BacketCreateOrConnectWithoutProfessionInput[]
+    upsert?: BacketUpsertWithWhereUniqueWithoutProfessionInput | BacketUpsertWithWhereUniqueWithoutProfessionInput[]
+    createMany?: BacketCreateManyProfessionInputEnvelope
+    set?: BacketWhereUniqueInput | BacketWhereUniqueInput[]
+    disconnect?: BacketWhereUniqueInput | BacketWhereUniqueInput[]
+    delete?: BacketWhereUniqueInput | BacketWhereUniqueInput[]
+    connect?: BacketWhereUniqueInput | BacketWhereUniqueInput[]
+    update?: BacketUpdateWithWhereUniqueWithoutProfessionInput | BacketUpdateWithWhereUniqueWithoutProfessionInput[]
+    updateMany?: BacketUpdateManyWithWhereWithoutProfessionInput | BacketUpdateManyWithWhereWithoutProfessionInput[]
+    deleteMany?: BacketScalarWhereInput | BacketScalarWhereInput[]
+  }
+
+  export type OrderItemsUncheckedUpdateManyWithoutProfessionNestedInput = {
+    create?: XOR<OrderItemsCreateWithoutProfessionInput, OrderItemsUncheckedCreateWithoutProfessionInput> | OrderItemsCreateWithoutProfessionInput[] | OrderItemsUncheckedCreateWithoutProfessionInput[]
+    connectOrCreate?: OrderItemsCreateOrConnectWithoutProfessionInput | OrderItemsCreateOrConnectWithoutProfessionInput[]
+    upsert?: OrderItemsUpsertWithWhereUniqueWithoutProfessionInput | OrderItemsUpsertWithWhereUniqueWithoutProfessionInput[]
+    createMany?: OrderItemsCreateManyProfessionInputEnvelope
+    set?: OrderItemsWhereUniqueInput | OrderItemsWhereUniqueInput[]
+    disconnect?: OrderItemsWhereUniqueInput | OrderItemsWhereUniqueInput[]
+    delete?: OrderItemsWhereUniqueInput | OrderItemsWhereUniqueInput[]
+    connect?: OrderItemsWhereUniqueInput | OrderItemsWhereUniqueInput[]
+    update?: OrderItemsUpdateWithWhereUniqueWithoutProfessionInput | OrderItemsUpdateWithWhereUniqueWithoutProfessionInput[]
+    updateMany?: OrderItemsUpdateManyWithWhereWithoutProfessionInput | OrderItemsUpdateManyWithWhereWithoutProfessionInput[]
+    deleteMany?: OrderItemsScalarWhereInput | OrderItemsScalarWhereInput[]
+  }
+
+  export type ProfessionLevelsUncheckedUpdateManyWithoutProfessionNestedInput = {
+    create?: XOR<ProfessionLevelsCreateWithoutProfessionInput, ProfessionLevelsUncheckedCreateWithoutProfessionInput> | ProfessionLevelsCreateWithoutProfessionInput[] | ProfessionLevelsUncheckedCreateWithoutProfessionInput[]
+    connectOrCreate?: ProfessionLevelsCreateOrConnectWithoutProfessionInput | ProfessionLevelsCreateOrConnectWithoutProfessionInput[]
+    upsert?: ProfessionLevelsUpsertWithWhereUniqueWithoutProfessionInput | ProfessionLevelsUpsertWithWhereUniqueWithoutProfessionInput[]
+    createMany?: ProfessionLevelsCreateManyProfessionInputEnvelope
+    set?: ProfessionLevelsWhereUniqueInput | ProfessionLevelsWhereUniqueInput[]
+    disconnect?: ProfessionLevelsWhereUniqueInput | ProfessionLevelsWhereUniqueInput[]
+    delete?: ProfessionLevelsWhereUniqueInput | ProfessionLevelsWhereUniqueInput[]
+    connect?: ProfessionLevelsWhereUniqueInput | ProfessionLevelsWhereUniqueInput[]
+    update?: ProfessionLevelsUpdateWithWhereUniqueWithoutProfessionInput | ProfessionLevelsUpdateWithWhereUniqueWithoutProfessionInput[]
+    updateMany?: ProfessionLevelsUpdateManyWithWhereWithoutProfessionInput | ProfessionLevelsUpdateManyWithWhereWithoutProfessionInput[]
+    deleteMany?: ProfessionLevelsScalarWhereInput | ProfessionLevelsScalarWhereInput[]
+  }
+
+  export type ProfessionToolsUncheckedUpdateManyWithoutProfessionsNestedInput = {
+    create?: XOR<ProfessionToolsCreateWithoutProfessionsInput, ProfessionToolsUncheckedCreateWithoutProfessionsInput> | ProfessionToolsCreateWithoutProfessionsInput[] | ProfessionToolsUncheckedCreateWithoutProfessionsInput[]
+    connectOrCreate?: ProfessionToolsCreateOrConnectWithoutProfessionsInput | ProfessionToolsCreateOrConnectWithoutProfessionsInput[]
+    upsert?: ProfessionToolsUpsertWithWhereUniqueWithoutProfessionsInput | ProfessionToolsUpsertWithWhereUniqueWithoutProfessionsInput[]
+    createMany?: ProfessionToolsCreateManyProfessionsInputEnvelope
+    set?: ProfessionToolsWhereUniqueInput | ProfessionToolsWhereUniqueInput[]
+    disconnect?: ProfessionToolsWhereUniqueInput | ProfessionToolsWhereUniqueInput[]
+    delete?: ProfessionToolsWhereUniqueInput | ProfessionToolsWhereUniqueInput[]
+    connect?: ProfessionToolsWhereUniqueInput | ProfessionToolsWhereUniqueInput[]
+    update?: ProfessionToolsUpdateWithWhereUniqueWithoutProfessionsInput | ProfessionToolsUpdateWithWhereUniqueWithoutProfessionsInput[]
+    updateMany?: ProfessionToolsUpdateManyWithWhereWithoutProfessionsInput | ProfessionToolsUpdateManyWithWhereWithoutProfessionsInput[]
+    deleteMany?: ProfessionToolsScalarWhereInput | ProfessionToolsScalarWhereInput[]
+  }
+
+  export type ProfessionsCreateNestedOneWithoutMasterProfessionsInput = {
+    create?: XOR<ProfessionsCreateWithoutMasterProfessionsInput, ProfessionsUncheckedCreateWithoutMasterProfessionsInput>
+    connectOrCreate?: ProfessionsCreateOrConnectWithoutMasterProfessionsInput
+    connect?: ProfessionsWhereUniqueInput
+  }
+
+  export type LevelsCreateNestedOneWithoutMasterProfessionsInput = {
+    create?: XOR<LevelsCreateWithoutMasterProfessionsInput, LevelsUncheckedCreateWithoutMasterProfessionsInput>
+    connectOrCreate?: LevelsCreateOrConnectWithoutMasterProfessionsInput
+    connect?: LevelsWhereUniqueInput
+  }
+
+  export type MastersCreateNestedOneWithoutMasterProfessionsInput = {
+    create?: XOR<MastersCreateWithoutMasterProfessionsInput, MastersUncheckedCreateWithoutMasterProfessionsInput>
+    connectOrCreate?: MastersCreateOrConnectWithoutMasterProfessionsInput
+    connect?: MastersWhereUniqueInput
+  }
+
+  export type DecimalFieldUpdateOperationsInput = {
+    set?: Decimal | DecimalJsLike | number | string
+    increment?: Decimal | DecimalJsLike | number | string
+    decrement?: Decimal | DecimalJsLike | number | string
+    multiply?: Decimal | DecimalJsLike | number | string
+    divide?: Decimal | DecimalJsLike | number | string
+  }
+
+  export type ProfessionsUpdateOneRequiredWithoutMasterProfessionsNestedInput = {
+    create?: XOR<ProfessionsCreateWithoutMasterProfessionsInput, ProfessionsUncheckedCreateWithoutMasterProfessionsInput>
+    connectOrCreate?: ProfessionsCreateOrConnectWithoutMasterProfessionsInput
+    upsert?: ProfessionsUpsertWithoutMasterProfessionsInput
+    connect?: ProfessionsWhereUniqueInput
+    update?: XOR<XOR<ProfessionsUpdateToOneWithWhereWithoutMasterProfessionsInput, ProfessionsUpdateWithoutMasterProfessionsInput>, ProfessionsUncheckedUpdateWithoutMasterProfessionsInput>
+  }
+
+  export type LevelsUpdateOneRequiredWithoutMasterProfessionsNestedInput = {
+    create?: XOR<LevelsCreateWithoutMasterProfessionsInput, LevelsUncheckedCreateWithoutMasterProfessionsInput>
+    connectOrCreate?: LevelsCreateOrConnectWithoutMasterProfessionsInput
+    upsert?: LevelsUpsertWithoutMasterProfessionsInput
+    connect?: LevelsWhereUniqueInput
+    update?: XOR<XOR<LevelsUpdateToOneWithWhereWithoutMasterProfessionsInput, LevelsUpdateWithoutMasterProfessionsInput>, LevelsUncheckedUpdateWithoutMasterProfessionsInput>
+  }
+
+  export type MastersUpdateOneRequiredWithoutMasterProfessionsNestedInput = {
+    create?: XOR<MastersCreateWithoutMasterProfessionsInput, MastersUncheckedCreateWithoutMasterProfessionsInput>
+    connectOrCreate?: MastersCreateOrConnectWithoutMasterProfessionsInput
+    upsert?: MastersUpsertWithoutMasterProfessionsInput
+    connect?: MastersWhereUniqueInput
+    update?: XOR<XOR<MastersUpdateToOneWithWhereWithoutMasterProfessionsInput, MastersUpdateWithoutMasterProfessionsInput>, MastersUncheckedUpdateWithoutMasterProfessionsInput>
+  }
+
+  export type ProfessionsCreateNestedOneWithoutProfessionLevelsInput = {
+    create?: XOR<ProfessionsCreateWithoutProfessionLevelsInput, ProfessionsUncheckedCreateWithoutProfessionLevelsInput>
+    connectOrCreate?: ProfessionsCreateOrConnectWithoutProfessionLevelsInput
+    connect?: ProfessionsWhereUniqueInput
+  }
+
+  export type LevelsCreateNestedOneWithoutProfessionLevelsInput = {
+    create?: XOR<LevelsCreateWithoutProfessionLevelsInput, LevelsUncheckedCreateWithoutProfessionLevelsInput>
+    connectOrCreate?: LevelsCreateOrConnectWithoutProfessionLevelsInput
+    connect?: LevelsWhereUniqueInput
+  }
+
+  export type ProfessionsUpdateOneRequiredWithoutProfessionLevelsNestedInput = {
+    create?: XOR<ProfessionsCreateWithoutProfessionLevelsInput, ProfessionsUncheckedCreateWithoutProfessionLevelsInput>
+    connectOrCreate?: ProfessionsCreateOrConnectWithoutProfessionLevelsInput
+    upsert?: ProfessionsUpsertWithoutProfessionLevelsInput
+    connect?: ProfessionsWhereUniqueInput
+    update?: XOR<XOR<ProfessionsUpdateToOneWithWhereWithoutProfessionLevelsInput, ProfessionsUpdateWithoutProfessionLevelsInput>, ProfessionsUncheckedUpdateWithoutProfessionLevelsInput>
+  }
+
+  export type LevelsUpdateOneRequiredWithoutProfessionLevelsNestedInput = {
+    create?: XOR<LevelsCreateWithoutProfessionLevelsInput, LevelsUncheckedCreateWithoutProfessionLevelsInput>
+    connectOrCreate?: LevelsCreateOrConnectWithoutProfessionLevelsInput
+    upsert?: LevelsUpsertWithoutProfessionLevelsInput
+    connect?: LevelsWhereUniqueInput
+    update?: XOR<XOR<LevelsUpdateToOneWithWhereWithoutProfessionLevelsInput, LevelsUpdateWithoutProfessionLevelsInput>, LevelsUncheckedUpdateWithoutProfessionLevelsInput>
+  }
+
+  export type BrandsCreateNestedOneWithoutToolsInput = {
+    create?: XOR<BrandsCreateWithoutToolsInput, BrandsUncheckedCreateWithoutToolsInput>
+    connectOrCreate?: BrandsCreateOrConnectWithoutToolsInput
+    connect?: BrandsWhereUniqueInput
+  }
+
+  export type CapacityCreateNestedOneWithoutToolsInput = {
+    create?: XOR<CapacityCreateWithoutToolsInput, CapacityUncheckedCreateWithoutToolsInput>
+    connectOrCreate?: CapacityCreateOrConnectWithoutToolsInput
+    connect?: CapacityWhereUniqueInput
+  }
+
+  export type SizesCreateNestedOneWithoutToolsInput = {
+    create?: XOR<SizesCreateWithoutToolsInput, SizesUncheckedCreateWithoutToolsInput>
+    connectOrCreate?: SizesCreateOrConnectWithoutToolsInput
+    connect?: SizesWhereUniqueInput
+  }
+
+  export type BacketCreateNestedManyWithoutToolsInput = {
+    create?: XOR<BacketCreateWithoutToolsInput, BacketUncheckedCreateWithoutToolsInput> | BacketCreateWithoutToolsInput[] | BacketUncheckedCreateWithoutToolsInput[]
+    connectOrCreate?: BacketCreateOrConnectWithoutToolsInput | BacketCreateOrConnectWithoutToolsInput[]
+    createMany?: BacketCreateManyToolsInputEnvelope
+    connect?: BacketWhereUniqueInput | BacketWhereUniqueInput[]
+  }
+
+  export type OrderItemsCreateNestedManyWithoutToolInput = {
+    create?: XOR<OrderItemsCreateWithoutToolInput, OrderItemsUncheckedCreateWithoutToolInput> | OrderItemsCreateWithoutToolInput[] | OrderItemsUncheckedCreateWithoutToolInput[]
+    connectOrCreate?: OrderItemsCreateOrConnectWithoutToolInput | OrderItemsCreateOrConnectWithoutToolInput[]
+    createMany?: OrderItemsCreateManyToolInputEnvelope
+    connect?: OrderItemsWhereUniqueInput | OrderItemsWhereUniqueInput[]
+  }
+
+  export type ProfessionToolsCreateNestedManyWithoutToolsInput = {
+    create?: XOR<ProfessionToolsCreateWithoutToolsInput, ProfessionToolsUncheckedCreateWithoutToolsInput> | ProfessionToolsCreateWithoutToolsInput[] | ProfessionToolsUncheckedCreateWithoutToolsInput[]
+    connectOrCreate?: ProfessionToolsCreateOrConnectWithoutToolsInput | ProfessionToolsCreateOrConnectWithoutToolsInput[]
+    createMany?: ProfessionToolsCreateManyToolsInputEnvelope
+    connect?: ProfessionToolsWhereUniqueInput | ProfessionToolsWhereUniqueInput[]
+  }
+
+  export type BacketUncheckedCreateNestedManyWithoutToolsInput = {
+    create?: XOR<BacketCreateWithoutToolsInput, BacketUncheckedCreateWithoutToolsInput> | BacketCreateWithoutToolsInput[] | BacketUncheckedCreateWithoutToolsInput[]
+    connectOrCreate?: BacketCreateOrConnectWithoutToolsInput | BacketCreateOrConnectWithoutToolsInput[]
+    createMany?: BacketCreateManyToolsInputEnvelope
+    connect?: BacketWhereUniqueInput | BacketWhereUniqueInput[]
+  }
+
+  export type OrderItemsUncheckedCreateNestedManyWithoutToolInput = {
+    create?: XOR<OrderItemsCreateWithoutToolInput, OrderItemsUncheckedCreateWithoutToolInput> | OrderItemsCreateWithoutToolInput[] | OrderItemsUncheckedCreateWithoutToolInput[]
+    connectOrCreate?: OrderItemsCreateOrConnectWithoutToolInput | OrderItemsCreateOrConnectWithoutToolInput[]
+    createMany?: OrderItemsCreateManyToolInputEnvelope
+    connect?: OrderItemsWhereUniqueInput | OrderItemsWhereUniqueInput[]
+  }
+
+  export type ProfessionToolsUncheckedCreateNestedManyWithoutToolsInput = {
+    create?: XOR<ProfessionToolsCreateWithoutToolsInput, ProfessionToolsUncheckedCreateWithoutToolsInput> | ProfessionToolsCreateWithoutToolsInput[] | ProfessionToolsUncheckedCreateWithoutToolsInput[]
+    connectOrCreate?: ProfessionToolsCreateOrConnectWithoutToolsInput | ProfessionToolsCreateOrConnectWithoutToolsInput[]
+    createMany?: ProfessionToolsCreateManyToolsInputEnvelope
+    connect?: ProfessionToolsWhereUniqueInput | ProfessionToolsWhereUniqueInput[]
+  }
+
+  export type BrandsUpdateOneRequiredWithoutToolsNestedInput = {
+    create?: XOR<BrandsCreateWithoutToolsInput, BrandsUncheckedCreateWithoutToolsInput>
+    connectOrCreate?: BrandsCreateOrConnectWithoutToolsInput
+    upsert?: BrandsUpsertWithoutToolsInput
+    connect?: BrandsWhereUniqueInput
+    update?: XOR<XOR<BrandsUpdateToOneWithWhereWithoutToolsInput, BrandsUpdateWithoutToolsInput>, BrandsUncheckedUpdateWithoutToolsInput>
+  }
+
+  export type CapacityUpdateOneRequiredWithoutToolsNestedInput = {
+    create?: XOR<CapacityCreateWithoutToolsInput, CapacityUncheckedCreateWithoutToolsInput>
+    connectOrCreate?: CapacityCreateOrConnectWithoutToolsInput
+    upsert?: CapacityUpsertWithoutToolsInput
+    connect?: CapacityWhereUniqueInput
+    update?: XOR<XOR<CapacityUpdateToOneWithWhereWithoutToolsInput, CapacityUpdateWithoutToolsInput>, CapacityUncheckedUpdateWithoutToolsInput>
+  }
+
+  export type SizesUpdateOneRequiredWithoutToolsNestedInput = {
+    create?: XOR<SizesCreateWithoutToolsInput, SizesUncheckedCreateWithoutToolsInput>
+    connectOrCreate?: SizesCreateOrConnectWithoutToolsInput
+    upsert?: SizesUpsertWithoutToolsInput
+    connect?: SizesWhereUniqueInput
+    update?: XOR<XOR<SizesUpdateToOneWithWhereWithoutToolsInput, SizesUpdateWithoutToolsInput>, SizesUncheckedUpdateWithoutToolsInput>
+  }
+
+  export type BacketUpdateManyWithoutToolsNestedInput = {
+    create?: XOR<BacketCreateWithoutToolsInput, BacketUncheckedCreateWithoutToolsInput> | BacketCreateWithoutToolsInput[] | BacketUncheckedCreateWithoutToolsInput[]
+    connectOrCreate?: BacketCreateOrConnectWithoutToolsInput | BacketCreateOrConnectWithoutToolsInput[]
+    upsert?: BacketUpsertWithWhereUniqueWithoutToolsInput | BacketUpsertWithWhereUniqueWithoutToolsInput[]
+    createMany?: BacketCreateManyToolsInputEnvelope
+    set?: BacketWhereUniqueInput | BacketWhereUniqueInput[]
+    disconnect?: BacketWhereUniqueInput | BacketWhereUniqueInput[]
+    delete?: BacketWhereUniqueInput | BacketWhereUniqueInput[]
+    connect?: BacketWhereUniqueInput | BacketWhereUniqueInput[]
+    update?: BacketUpdateWithWhereUniqueWithoutToolsInput | BacketUpdateWithWhereUniqueWithoutToolsInput[]
+    updateMany?: BacketUpdateManyWithWhereWithoutToolsInput | BacketUpdateManyWithWhereWithoutToolsInput[]
+    deleteMany?: BacketScalarWhereInput | BacketScalarWhereInput[]
+  }
+
+  export type OrderItemsUpdateManyWithoutToolNestedInput = {
+    create?: XOR<OrderItemsCreateWithoutToolInput, OrderItemsUncheckedCreateWithoutToolInput> | OrderItemsCreateWithoutToolInput[] | OrderItemsUncheckedCreateWithoutToolInput[]
+    connectOrCreate?: OrderItemsCreateOrConnectWithoutToolInput | OrderItemsCreateOrConnectWithoutToolInput[]
+    upsert?: OrderItemsUpsertWithWhereUniqueWithoutToolInput | OrderItemsUpsertWithWhereUniqueWithoutToolInput[]
+    createMany?: OrderItemsCreateManyToolInputEnvelope
+    set?: OrderItemsWhereUniqueInput | OrderItemsWhereUniqueInput[]
+    disconnect?: OrderItemsWhereUniqueInput | OrderItemsWhereUniqueInput[]
+    delete?: OrderItemsWhereUniqueInput | OrderItemsWhereUniqueInput[]
+    connect?: OrderItemsWhereUniqueInput | OrderItemsWhereUniqueInput[]
+    update?: OrderItemsUpdateWithWhereUniqueWithoutToolInput | OrderItemsUpdateWithWhereUniqueWithoutToolInput[]
+    updateMany?: OrderItemsUpdateManyWithWhereWithoutToolInput | OrderItemsUpdateManyWithWhereWithoutToolInput[]
+    deleteMany?: OrderItemsScalarWhereInput | OrderItemsScalarWhereInput[]
+  }
+
+  export type ProfessionToolsUpdateManyWithoutToolsNestedInput = {
+    create?: XOR<ProfessionToolsCreateWithoutToolsInput, ProfessionToolsUncheckedCreateWithoutToolsInput> | ProfessionToolsCreateWithoutToolsInput[] | ProfessionToolsUncheckedCreateWithoutToolsInput[]
+    connectOrCreate?: ProfessionToolsCreateOrConnectWithoutToolsInput | ProfessionToolsCreateOrConnectWithoutToolsInput[]
+    upsert?: ProfessionToolsUpsertWithWhereUniqueWithoutToolsInput | ProfessionToolsUpsertWithWhereUniqueWithoutToolsInput[]
+    createMany?: ProfessionToolsCreateManyToolsInputEnvelope
+    set?: ProfessionToolsWhereUniqueInput | ProfessionToolsWhereUniqueInput[]
+    disconnect?: ProfessionToolsWhereUniqueInput | ProfessionToolsWhereUniqueInput[]
+    delete?: ProfessionToolsWhereUniqueInput | ProfessionToolsWhereUniqueInput[]
+    connect?: ProfessionToolsWhereUniqueInput | ProfessionToolsWhereUniqueInput[]
+    update?: ProfessionToolsUpdateWithWhereUniqueWithoutToolsInput | ProfessionToolsUpdateWithWhereUniqueWithoutToolsInput[]
+    updateMany?: ProfessionToolsUpdateManyWithWhereWithoutToolsInput | ProfessionToolsUpdateManyWithWhereWithoutToolsInput[]
+    deleteMany?: ProfessionToolsScalarWhereInput | ProfessionToolsScalarWhereInput[]
+  }
+
+  export type BacketUncheckedUpdateManyWithoutToolsNestedInput = {
+    create?: XOR<BacketCreateWithoutToolsInput, BacketUncheckedCreateWithoutToolsInput> | BacketCreateWithoutToolsInput[] | BacketUncheckedCreateWithoutToolsInput[]
+    connectOrCreate?: BacketCreateOrConnectWithoutToolsInput | BacketCreateOrConnectWithoutToolsInput[]
+    upsert?: BacketUpsertWithWhereUniqueWithoutToolsInput | BacketUpsertWithWhereUniqueWithoutToolsInput[]
+    createMany?: BacketCreateManyToolsInputEnvelope
+    set?: BacketWhereUniqueInput | BacketWhereUniqueInput[]
+    disconnect?: BacketWhereUniqueInput | BacketWhereUniqueInput[]
+    delete?: BacketWhereUniqueInput | BacketWhereUniqueInput[]
+    connect?: BacketWhereUniqueInput | BacketWhereUniqueInput[]
+    update?: BacketUpdateWithWhereUniqueWithoutToolsInput | BacketUpdateWithWhereUniqueWithoutToolsInput[]
+    updateMany?: BacketUpdateManyWithWhereWithoutToolsInput | BacketUpdateManyWithWhereWithoutToolsInput[]
+    deleteMany?: BacketScalarWhereInput | BacketScalarWhereInput[]
+  }
+
+  export type OrderItemsUncheckedUpdateManyWithoutToolNestedInput = {
+    create?: XOR<OrderItemsCreateWithoutToolInput, OrderItemsUncheckedCreateWithoutToolInput> | OrderItemsCreateWithoutToolInput[] | OrderItemsUncheckedCreateWithoutToolInput[]
+    connectOrCreate?: OrderItemsCreateOrConnectWithoutToolInput | OrderItemsCreateOrConnectWithoutToolInput[]
+    upsert?: OrderItemsUpsertWithWhereUniqueWithoutToolInput | OrderItemsUpsertWithWhereUniqueWithoutToolInput[]
+    createMany?: OrderItemsCreateManyToolInputEnvelope
+    set?: OrderItemsWhereUniqueInput | OrderItemsWhereUniqueInput[]
+    disconnect?: OrderItemsWhereUniqueInput | OrderItemsWhereUniqueInput[]
+    delete?: OrderItemsWhereUniqueInput | OrderItemsWhereUniqueInput[]
+    connect?: OrderItemsWhereUniqueInput | OrderItemsWhereUniqueInput[]
+    update?: OrderItemsUpdateWithWhereUniqueWithoutToolInput | OrderItemsUpdateWithWhereUniqueWithoutToolInput[]
+    updateMany?: OrderItemsUpdateManyWithWhereWithoutToolInput | OrderItemsUpdateManyWithWhereWithoutToolInput[]
+    deleteMany?: OrderItemsScalarWhereInput | OrderItemsScalarWhereInput[]
+  }
+
+  export type ProfessionToolsUncheckedUpdateManyWithoutToolsNestedInput = {
+    create?: XOR<ProfessionToolsCreateWithoutToolsInput, ProfessionToolsUncheckedCreateWithoutToolsInput> | ProfessionToolsCreateWithoutToolsInput[] | ProfessionToolsUncheckedCreateWithoutToolsInput[]
+    connectOrCreate?: ProfessionToolsCreateOrConnectWithoutToolsInput | ProfessionToolsCreateOrConnectWithoutToolsInput[]
+    upsert?: ProfessionToolsUpsertWithWhereUniqueWithoutToolsInput | ProfessionToolsUpsertWithWhereUniqueWithoutToolsInput[]
+    createMany?: ProfessionToolsCreateManyToolsInputEnvelope
+    set?: ProfessionToolsWhereUniqueInput | ProfessionToolsWhereUniqueInput[]
+    disconnect?: ProfessionToolsWhereUniqueInput | ProfessionToolsWhereUniqueInput[]
+    delete?: ProfessionToolsWhereUniqueInput | ProfessionToolsWhereUniqueInput[]
+    connect?: ProfessionToolsWhereUniqueInput | ProfessionToolsWhereUniqueInput[]
+    update?: ProfessionToolsUpdateWithWhereUniqueWithoutToolsInput | ProfessionToolsUpdateWithWhereUniqueWithoutToolsInput[]
+    updateMany?: ProfessionToolsUpdateManyWithWhereWithoutToolsInput | ProfessionToolsUpdateManyWithWhereWithoutToolsInput[]
+    deleteMany?: ProfessionToolsScalarWhereInput | ProfessionToolsScalarWhereInput[]
+  }
+
+  export type ProfessionsCreateNestedOneWithoutProfessionToolsInput = {
+    create?: XOR<ProfessionsCreateWithoutProfessionToolsInput, ProfessionsUncheckedCreateWithoutProfessionToolsInput>
+    connectOrCreate?: ProfessionsCreateOrConnectWithoutProfessionToolsInput
+    connect?: ProfessionsWhereUniqueInput
+  }
+
+  export type ToolsCreateNestedOneWithoutProfessionToolsInput = {
+    create?: XOR<ToolsCreateWithoutProfessionToolsInput, ToolsUncheckedCreateWithoutProfessionToolsInput>
+    connectOrCreate?: ToolsCreateOrConnectWithoutProfessionToolsInput
+    connect?: ToolsWhereUniqueInput
+  }
+
+  export type ProfessionsUpdateOneRequiredWithoutProfessionToolsNestedInput = {
+    create?: XOR<ProfessionsCreateWithoutProfessionToolsInput, ProfessionsUncheckedCreateWithoutProfessionToolsInput>
+    connectOrCreate?: ProfessionsCreateOrConnectWithoutProfessionToolsInput
+    upsert?: ProfessionsUpsertWithoutProfessionToolsInput
+    connect?: ProfessionsWhereUniqueInput
+    update?: XOR<XOR<ProfessionsUpdateToOneWithWhereWithoutProfessionToolsInput, ProfessionsUpdateWithoutProfessionToolsInput>, ProfessionsUncheckedUpdateWithoutProfessionToolsInput>
+  }
+
+  export type ToolsUpdateOneRequiredWithoutProfessionToolsNestedInput = {
+    create?: XOR<ToolsCreateWithoutProfessionToolsInput, ToolsUncheckedCreateWithoutProfessionToolsInput>
+    connectOrCreate?: ToolsCreateOrConnectWithoutProfessionToolsInput
+    upsert?: ToolsUpsertWithoutProfessionToolsInput
+    connect?: ToolsWhereUniqueInput
+    update?: XOR<XOR<ToolsUpdateToOneWithWhereWithoutProfessionToolsInput, ToolsUpdateWithoutProfessionToolsInput>, ToolsUncheckedUpdateWithoutProfessionToolsInput>
+  }
+
+  export type UsersCreateNestedOneWithoutBacketInput = {
+    create?: XOR<UsersCreateWithoutBacketInput, UsersUncheckedCreateWithoutBacketInput>
+    connectOrCreate?: UsersCreateOrConnectWithoutBacketInput
+    connect?: UsersWhereUniqueInput
+  }
+
+  export type ProfessionsCreateNestedOneWithoutBacketInput = {
+    create?: XOR<ProfessionsCreateWithoutBacketInput, ProfessionsUncheckedCreateWithoutBacketInput>
+    connectOrCreate?: ProfessionsCreateOrConnectWithoutBacketInput
+    connect?: ProfessionsWhereUniqueInput
+  }
+
+  export type ToolsCreateNestedOneWithoutBacketInput = {
+    create?: XOR<ToolsCreateWithoutBacketInput, ToolsUncheckedCreateWithoutBacketInput>
+    connectOrCreate?: ToolsCreateOrConnectWithoutBacketInput
+    connect?: ToolsWhereUniqueInput
+  }
+
+  export type LevelsCreateNestedOneWithoutBacketInput = {
+    create?: XOR<LevelsCreateWithoutBacketInput, LevelsUncheckedCreateWithoutBacketInput>
+    connectOrCreate?: LevelsCreateOrConnectWithoutBacketInput
+    connect?: LevelsWhereUniqueInput
+  }
+
+  export type EnumBacketMeasureFieldUpdateOperationsInput = {
+    set?: $Enums.BacketMeasure
+  }
+
+  export type UsersUpdateOneRequiredWithoutBacketNestedInput = {
+    create?: XOR<UsersCreateWithoutBacketInput, UsersUncheckedCreateWithoutBacketInput>
+    connectOrCreate?: UsersCreateOrConnectWithoutBacketInput
+    upsert?: UsersUpsertWithoutBacketInput
+    connect?: UsersWhereUniqueInput
+    update?: XOR<XOR<UsersUpdateToOneWithWhereWithoutBacketInput, UsersUpdateWithoutBacketInput>, UsersUncheckedUpdateWithoutBacketInput>
+  }
+
+  export type ProfessionsUpdateOneRequiredWithoutBacketNestedInput = {
+    create?: XOR<ProfessionsCreateWithoutBacketInput, ProfessionsUncheckedCreateWithoutBacketInput>
+    connectOrCreate?: ProfessionsCreateOrConnectWithoutBacketInput
+    upsert?: ProfessionsUpsertWithoutBacketInput
+    connect?: ProfessionsWhereUniqueInput
+    update?: XOR<XOR<ProfessionsUpdateToOneWithWhereWithoutBacketInput, ProfessionsUpdateWithoutBacketInput>, ProfessionsUncheckedUpdateWithoutBacketInput>
+  }
+
+  export type ToolsUpdateOneRequiredWithoutBacketNestedInput = {
+    create?: XOR<ToolsCreateWithoutBacketInput, ToolsUncheckedCreateWithoutBacketInput>
+    connectOrCreate?: ToolsCreateOrConnectWithoutBacketInput
+    upsert?: ToolsUpsertWithoutBacketInput
+    connect?: ToolsWhereUniqueInput
+    update?: XOR<XOR<ToolsUpdateToOneWithWhereWithoutBacketInput, ToolsUpdateWithoutBacketInput>, ToolsUncheckedUpdateWithoutBacketInput>
+  }
+
+  export type LevelsUpdateOneRequiredWithoutBacketNestedInput = {
+    create?: XOR<LevelsCreateWithoutBacketInput, LevelsUncheckedCreateWithoutBacketInput>
+    connectOrCreate?: LevelsCreateOrConnectWithoutBacketInput
+    upsert?: LevelsUpsertWithoutBacketInput
+    connect?: LevelsWhereUniqueInput
+    update?: XOR<XOR<LevelsUpdateToOneWithWhereWithoutBacketInput, LevelsUpdateWithoutBacketInput>, LevelsUncheckedUpdateWithoutBacketInput>
+  }
+
+  export type CommentsCreateNestedOneWithoutOrdersInput = {
+    create?: XOR<CommentsCreateWithoutOrdersInput, CommentsUncheckedCreateWithoutOrdersInput>
+    connectOrCreate?: CommentsCreateOrConnectWithoutOrdersInput
+    connect?: CommentsWhereUniqueInput
+  }
+
+  export type OrderItemsCreateNestedManyWithoutOrderInput = {
+    create?: XOR<OrderItemsCreateWithoutOrderInput, OrderItemsUncheckedCreateWithoutOrderInput> | OrderItemsCreateWithoutOrderInput[] | OrderItemsUncheckedCreateWithoutOrderInput[]
+    connectOrCreate?: OrderItemsCreateOrConnectWithoutOrderInput | OrderItemsCreateOrConnectWithoutOrderInput[]
+    createMany?: OrderItemsCreateManyOrderInputEnvelope
+    connect?: OrderItemsWhereUniqueInput | OrderItemsWhereUniqueInput[]
+  }
+
+  export type OrderItemsUncheckedCreateNestedManyWithoutOrderInput = {
+    create?: XOR<OrderItemsCreateWithoutOrderInput, OrderItemsUncheckedCreateWithoutOrderInput> | OrderItemsCreateWithoutOrderInput[] | OrderItemsUncheckedCreateWithoutOrderInput[]
+    connectOrCreate?: OrderItemsCreateOrConnectWithoutOrderInput | OrderItemsCreateOrConnectWithoutOrderInput[]
+    createMany?: OrderItemsCreateManyOrderInputEnvelope
+    connect?: OrderItemsWhereUniqueInput | OrderItemsWhereUniqueInput[]
+  }
+
+  export type EnumPaymentTypeFieldUpdateOperationsInput = {
+    set?: $Enums.PaymentType
+  }
+
+  export type EnumOrderStatusFieldUpdateOperationsInput = {
+    set?: $Enums.OrderStatus
+  }
+
+  export type CommentsUpdateOneWithoutOrdersNestedInput = {
+    create?: XOR<CommentsCreateWithoutOrdersInput, CommentsUncheckedCreateWithoutOrdersInput>
+    connectOrCreate?: CommentsCreateOrConnectWithoutOrdersInput
+    upsert?: CommentsUpsertWithoutOrdersInput
+    disconnect?: CommentsWhereInput | boolean
+    delete?: CommentsWhereInput | boolean
+    connect?: CommentsWhereUniqueInput
+    update?: XOR<XOR<CommentsUpdateToOneWithWhereWithoutOrdersInput, CommentsUpdateWithoutOrdersInput>, CommentsUncheckedUpdateWithoutOrdersInput>
+  }
+
+  export type OrderItemsUpdateManyWithoutOrderNestedInput = {
+    create?: XOR<OrderItemsCreateWithoutOrderInput, OrderItemsUncheckedCreateWithoutOrderInput> | OrderItemsCreateWithoutOrderInput[] | OrderItemsUncheckedCreateWithoutOrderInput[]
+    connectOrCreate?: OrderItemsCreateOrConnectWithoutOrderInput | OrderItemsCreateOrConnectWithoutOrderInput[]
+    upsert?: OrderItemsUpsertWithWhereUniqueWithoutOrderInput | OrderItemsUpsertWithWhereUniqueWithoutOrderInput[]
+    createMany?: OrderItemsCreateManyOrderInputEnvelope
+    set?: OrderItemsWhereUniqueInput | OrderItemsWhereUniqueInput[]
+    disconnect?: OrderItemsWhereUniqueInput | OrderItemsWhereUniqueInput[]
+    delete?: OrderItemsWhereUniqueInput | OrderItemsWhereUniqueInput[]
+    connect?: OrderItemsWhereUniqueInput | OrderItemsWhereUniqueInput[]
+    update?: OrderItemsUpdateWithWhereUniqueWithoutOrderInput | OrderItemsUpdateWithWhereUniqueWithoutOrderInput[]
+    updateMany?: OrderItemsUpdateManyWithWhereWithoutOrderInput | OrderItemsUpdateManyWithWhereWithoutOrderInput[]
+    deleteMany?: OrderItemsScalarWhereInput | OrderItemsScalarWhereInput[]
+  }
+
+  export type NullableStringFieldUpdateOperationsInput = {
+    set?: string | null
+  }
+
+  export type OrderItemsUncheckedUpdateManyWithoutOrderNestedInput = {
+    create?: XOR<OrderItemsCreateWithoutOrderInput, OrderItemsUncheckedCreateWithoutOrderInput> | OrderItemsCreateWithoutOrderInput[] | OrderItemsUncheckedCreateWithoutOrderInput[]
+    connectOrCreate?: OrderItemsCreateOrConnectWithoutOrderInput | OrderItemsCreateOrConnectWithoutOrderInput[]
+    upsert?: OrderItemsUpsertWithWhereUniqueWithoutOrderInput | OrderItemsUpsertWithWhereUniqueWithoutOrderInput[]
+    createMany?: OrderItemsCreateManyOrderInputEnvelope
+    set?: OrderItemsWhereUniqueInput | OrderItemsWhereUniqueInput[]
+    disconnect?: OrderItemsWhereUniqueInput | OrderItemsWhereUniqueInput[]
+    delete?: OrderItemsWhereUniqueInput | OrderItemsWhereUniqueInput[]
+    connect?: OrderItemsWhereUniqueInput | OrderItemsWhereUniqueInput[]
+    update?: OrderItemsUpdateWithWhereUniqueWithoutOrderInput | OrderItemsUpdateWithWhereUniqueWithoutOrderInput[]
+    updateMany?: OrderItemsUpdateManyWithWhereWithoutOrderInput | OrderItemsUpdateManyWithWhereWithoutOrderInput[]
+    deleteMany?: OrderItemsScalarWhereInput | OrderItemsScalarWhereInput[]
+  }
+
+  export type OrdersCreateNestedOneWithoutOrderItemsInput = {
+    create?: XOR<OrdersCreateWithoutOrderItemsInput, OrdersUncheckedCreateWithoutOrderItemsInput>
+    connectOrCreate?: OrdersCreateOrConnectWithoutOrderItemsInput
+    connect?: OrdersWhereUniqueInput
+  }
+
+  export type ProfessionsCreateNestedOneWithoutOrderItemsInput = {
+    create?: XOR<ProfessionsCreateWithoutOrderItemsInput, ProfessionsUncheckedCreateWithoutOrderItemsInput>
+    connectOrCreate?: ProfessionsCreateOrConnectWithoutOrderItemsInput
+    connect?: ProfessionsWhereUniqueInput
+  }
+
+  export type ToolsCreateNestedOneWithoutOrderItemsInput = {
+    create?: XOR<ToolsCreateWithoutOrderItemsInput, ToolsUncheckedCreateWithoutOrderItemsInput>
+    connectOrCreate?: ToolsCreateOrConnectWithoutOrderItemsInput
+    connect?: ToolsWhereUniqueInput
+  }
+
+  export type LevelsCreateNestedOneWithoutOrderItemsInput = {
+    create?: XOR<LevelsCreateWithoutOrderItemsInput, LevelsUncheckedCreateWithoutOrderItemsInput>
+    connectOrCreate?: LevelsCreateOrConnectWithoutOrderItemsInput
+    connect?: LevelsWhereUniqueInput
+  }
+
+  export type EnumOrderItemMeasureFieldUpdateOperationsInput = {
+    set?: $Enums.OrderItemMeasure
+  }
+
+  export type OrdersUpdateOneRequiredWithoutOrderItemsNestedInput = {
+    create?: XOR<OrdersCreateWithoutOrderItemsInput, OrdersUncheckedCreateWithoutOrderItemsInput>
+    connectOrCreate?: OrdersCreateOrConnectWithoutOrderItemsInput
+    upsert?: OrdersUpsertWithoutOrderItemsInput
+    connect?: OrdersWhereUniqueInput
+    update?: XOR<XOR<OrdersUpdateToOneWithWhereWithoutOrderItemsInput, OrdersUpdateWithoutOrderItemsInput>, OrdersUncheckedUpdateWithoutOrderItemsInput>
+  }
+
+  export type ProfessionsUpdateOneRequiredWithoutOrderItemsNestedInput = {
+    create?: XOR<ProfessionsCreateWithoutOrderItemsInput, ProfessionsUncheckedCreateWithoutOrderItemsInput>
+    connectOrCreate?: ProfessionsCreateOrConnectWithoutOrderItemsInput
+    upsert?: ProfessionsUpsertWithoutOrderItemsInput
+    connect?: ProfessionsWhereUniqueInput
+    update?: XOR<XOR<ProfessionsUpdateToOneWithWhereWithoutOrderItemsInput, ProfessionsUpdateWithoutOrderItemsInput>, ProfessionsUncheckedUpdateWithoutOrderItemsInput>
+  }
+
+  export type ToolsUpdateOneRequiredWithoutOrderItemsNestedInput = {
+    create?: XOR<ToolsCreateWithoutOrderItemsInput, ToolsUncheckedCreateWithoutOrderItemsInput>
+    connectOrCreate?: ToolsCreateOrConnectWithoutOrderItemsInput
+    upsert?: ToolsUpsertWithoutOrderItemsInput
+    connect?: ToolsWhereUniqueInput
+    update?: XOR<XOR<ToolsUpdateToOneWithWhereWithoutOrderItemsInput, ToolsUpdateWithoutOrderItemsInput>, ToolsUncheckedUpdateWithoutOrderItemsInput>
+  }
+
+  export type LevelsUpdateOneRequiredWithoutOrderItemsNestedInput = {
+    create?: XOR<LevelsCreateWithoutOrderItemsInput, LevelsUncheckedCreateWithoutOrderItemsInput>
+    connectOrCreate?: LevelsCreateOrConnectWithoutOrderItemsInput
+    upsert?: LevelsUpsertWithoutOrderItemsInput
+    connect?: LevelsWhereUniqueInput
+    update?: XOR<XOR<LevelsUpdateToOneWithWhereWithoutOrderItemsInput, LevelsUpdateWithoutOrderItemsInput>, LevelsUncheckedUpdateWithoutOrderItemsInput>
   }
 
   export type NestedStringFilter<$PrismaModel = never> = {
@@ -20716,6 +36983,172 @@ export namespace Prisma {
     _max?: NestedFloatFilter<$PrismaModel>
   }
 
+  export type NestedBoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
+  }
+
+  export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
+  }
+
+  export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedIntFilter<$PrismaModel>
+    _min?: NestedIntFilter<$PrismaModel>
+    _max?: NestedIntFilter<$PrismaModel>
+  }
+
+  export type NestedDecimalFilter<$PrismaModel = never> = {
+    equals?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    in?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
+    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
+    lt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    lte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    not?: NestedDecimalFilter<$PrismaModel> | Decimal | DecimalJsLike | number | string
+  }
+
+  export type NestedDecimalWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    in?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
+    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
+    lt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    lte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    not?: NestedDecimalWithAggregatesFilter<$PrismaModel> | Decimal | DecimalJsLike | number | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedDecimalFilter<$PrismaModel>
+    _sum?: NestedDecimalFilter<$PrismaModel>
+    _min?: NestedDecimalFilter<$PrismaModel>
+    _max?: NestedDecimalFilter<$PrismaModel>
+  }
+
+  export type NestedEnumBacketMeasureFilter<$PrismaModel = never> = {
+    equals?: $Enums.BacketMeasure | EnumBacketMeasureFieldRefInput<$PrismaModel>
+    in?: $Enums.BacketMeasure[] | ListEnumBacketMeasureFieldRefInput<$PrismaModel>
+    notIn?: $Enums.BacketMeasure[] | ListEnumBacketMeasureFieldRefInput<$PrismaModel>
+    not?: NestedEnumBacketMeasureFilter<$PrismaModel> | $Enums.BacketMeasure
+  }
+
+  export type NestedEnumBacketMeasureWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.BacketMeasure | EnumBacketMeasureFieldRefInput<$PrismaModel>
+    in?: $Enums.BacketMeasure[] | ListEnumBacketMeasureFieldRefInput<$PrismaModel>
+    notIn?: $Enums.BacketMeasure[] | ListEnumBacketMeasureFieldRefInput<$PrismaModel>
+    not?: NestedEnumBacketMeasureWithAggregatesFilter<$PrismaModel> | $Enums.BacketMeasure
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumBacketMeasureFilter<$PrismaModel>
+    _max?: NestedEnumBacketMeasureFilter<$PrismaModel>
+  }
+
+  export type NestedEnumPaymentTypeFilter<$PrismaModel = never> = {
+    equals?: $Enums.PaymentType | EnumPaymentTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.PaymentType[] | ListEnumPaymentTypeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.PaymentType[] | ListEnumPaymentTypeFieldRefInput<$PrismaModel>
+    not?: NestedEnumPaymentTypeFilter<$PrismaModel> | $Enums.PaymentType
+  }
+
+  export type NestedEnumOrderStatusFilter<$PrismaModel = never> = {
+    equals?: $Enums.OrderStatus | EnumOrderStatusFieldRefInput<$PrismaModel>
+    in?: $Enums.OrderStatus[] | ListEnumOrderStatusFieldRefInput<$PrismaModel>
+    notIn?: $Enums.OrderStatus[] | ListEnumOrderStatusFieldRefInput<$PrismaModel>
+    not?: NestedEnumOrderStatusFilter<$PrismaModel> | $Enums.OrderStatus
+  }
+
+  export type NestedStringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  }
+
+  export type NestedEnumPaymentTypeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.PaymentType | EnumPaymentTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.PaymentType[] | ListEnumPaymentTypeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.PaymentType[] | ListEnumPaymentTypeFieldRefInput<$PrismaModel>
+    not?: NestedEnumPaymentTypeWithAggregatesFilter<$PrismaModel> | $Enums.PaymentType
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumPaymentTypeFilter<$PrismaModel>
+    _max?: NestedEnumPaymentTypeFilter<$PrismaModel>
+  }
+
+  export type NestedEnumOrderStatusWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.OrderStatus | EnumOrderStatusFieldRefInput<$PrismaModel>
+    in?: $Enums.OrderStatus[] | ListEnumOrderStatusFieldRefInput<$PrismaModel>
+    notIn?: $Enums.OrderStatus[] | ListEnumOrderStatusFieldRefInput<$PrismaModel>
+    not?: NestedEnumOrderStatusWithAggregatesFilter<$PrismaModel> | $Enums.OrderStatus
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumOrderStatusFilter<$PrismaModel>
+    _max?: NestedEnumOrderStatusFilter<$PrismaModel>
+  }
+
+  export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedStringNullableFilter<$PrismaModel>
+    _max?: NestedStringNullableFilter<$PrismaModel>
+  }
+
+  export type NestedIntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
+  }
+
+  export type NestedEnumOrderItemMeasureFilter<$PrismaModel = never> = {
+    equals?: $Enums.OrderItemMeasure | EnumOrderItemMeasureFieldRefInput<$PrismaModel>
+    in?: $Enums.OrderItemMeasure[] | ListEnumOrderItemMeasureFieldRefInput<$PrismaModel>
+    notIn?: $Enums.OrderItemMeasure[] | ListEnumOrderItemMeasureFieldRefInput<$PrismaModel>
+    not?: NestedEnumOrderItemMeasureFilter<$PrismaModel> | $Enums.OrderItemMeasure
+  }
+
+  export type NestedEnumOrderItemMeasureWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.OrderItemMeasure | EnumOrderItemMeasureFieldRefInput<$PrismaModel>
+    in?: $Enums.OrderItemMeasure[] | ListEnumOrderItemMeasureFieldRefInput<$PrismaModel>
+    notIn?: $Enums.OrderItemMeasure[] | ListEnumOrderItemMeasureFieldRefInput<$PrismaModel>
+    not?: NestedEnumOrderItemMeasureWithAggregatesFilter<$PrismaModel> | $Enums.OrderItemMeasure
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumOrderItemMeasureFilter<$PrismaModel>
+    _max?: NestedEnumOrderItemMeasureFilter<$PrismaModel>
+  }
+
   export type UsersCreateWithoutRegionInput = {
     id?: string
     fullName: string
@@ -20726,6 +37159,9 @@ export namespace Prisma {
     avatar: string
     createdAt?: Date | string
     updatedAt?: Date | string
+    Backet?: BacketCreateNestedManyWithoutOwnerInput
+    Comments?: CommentsCreateNestedManyWithoutUserInput
+    Sessions?: SessionsCreateNestedManyWithoutUserInput
   }
 
   export type UsersUncheckedCreateWithoutRegionInput = {
@@ -20738,6 +37174,9 @@ export namespace Prisma {
     avatar: string
     createdAt?: Date | string
     updatedAt?: Date | string
+    Backet?: BacketUncheckedCreateNestedManyWithoutOwnerInput
+    Comments?: CommentsUncheckedCreateNestedManyWithoutUserInput
+    Sessions?: SessionsUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UsersCreateOrConnectWithoutRegionInput = {
@@ -20805,6 +37244,88 @@ export namespace Prisma {
     create: XOR<RegionsCreateWithoutUsersInput, RegionsUncheckedCreateWithoutUsersInput>
   }
 
+  export type BacketCreateWithoutOwnerInput = {
+    id?: string
+    count: number
+    measure: $Enums.BacketMeasure
+    workingTime: number
+    totalPrice: Decimal | DecimalJsLike | number | string
+    profession: ProfessionsCreateNestedOneWithoutBacketInput
+    tools: ToolsCreateNestedOneWithoutBacketInput
+    level: LevelsCreateNestedOneWithoutBacketInput
+  }
+
+  export type BacketUncheckedCreateWithoutOwnerInput = {
+    id?: string
+    professionId: string
+    toolId: string
+    count: number
+    measure: $Enums.BacketMeasure
+    workingTime: number
+    totalPrice: Decimal | DecimalJsLike | number | string
+    levelId: string
+  }
+
+  export type BacketCreateOrConnectWithoutOwnerInput = {
+    where: BacketWhereUniqueInput
+    create: XOR<BacketCreateWithoutOwnerInput, BacketUncheckedCreateWithoutOwnerInput>
+  }
+
+  export type BacketCreateManyOwnerInputEnvelope = {
+    data: BacketCreateManyOwnerInput | BacketCreateManyOwnerInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type CommentsCreateWithoutUserInput = {
+    id?: string
+    message: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    Orders?: OrdersCreateNestedManyWithoutDeliveryCommentInput
+  }
+
+  export type CommentsUncheckedCreateWithoutUserInput = {
+    id?: string
+    message: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    Orders?: OrdersUncheckedCreateNestedManyWithoutDeliveryCommentInput
+  }
+
+  export type CommentsCreateOrConnectWithoutUserInput = {
+    where: CommentsWhereUniqueInput
+    create: XOR<CommentsCreateWithoutUserInput, CommentsUncheckedCreateWithoutUserInput>
+  }
+
+  export type CommentsCreateManyUserInputEnvelope = {
+    data: CommentsCreateManyUserInput | CommentsCreateManyUserInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type SessionsCreateWithoutUserInput = {
+    id?: string
+    ipAddress: string
+    deviceInfo: JsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+  }
+
+  export type SessionsUncheckedCreateWithoutUserInput = {
+    id?: string
+    ipAddress: string
+    deviceInfo: JsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+  }
+
+  export type SessionsCreateOrConnectWithoutUserInput = {
+    where: SessionsWhereUniqueInput
+    create: XOR<SessionsCreateWithoutUserInput, SessionsUncheckedCreateWithoutUserInput>
+  }
+
+  export type SessionsCreateManyUserInputEnvelope = {
+    data: SessionsCreateManyUserInput | SessionsCreateManyUserInput[]
+    skipDuplicates?: boolean
+  }
+
   export type RegionsUpsertWithoutUsersInput = {
     update: XOR<RegionsUpdateWithoutUsersInput, RegionsUncheckedUpdateWithoutUsersInput>
     create: XOR<RegionsCreateWithoutUsersInput, RegionsUncheckedCreateWithoutUsersInput>
@@ -20834,6 +37355,2561 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
+  export type BacketUpsertWithWhereUniqueWithoutOwnerInput = {
+    where: BacketWhereUniqueInput
+    update: XOR<BacketUpdateWithoutOwnerInput, BacketUncheckedUpdateWithoutOwnerInput>
+    create: XOR<BacketCreateWithoutOwnerInput, BacketUncheckedCreateWithoutOwnerInput>
+  }
+
+  export type BacketUpdateWithWhereUniqueWithoutOwnerInput = {
+    where: BacketWhereUniqueInput
+    data: XOR<BacketUpdateWithoutOwnerInput, BacketUncheckedUpdateWithoutOwnerInput>
+  }
+
+  export type BacketUpdateManyWithWhereWithoutOwnerInput = {
+    where: BacketScalarWhereInput
+    data: XOR<BacketUpdateManyMutationInput, BacketUncheckedUpdateManyWithoutOwnerInput>
+  }
+
+  export type BacketScalarWhereInput = {
+    AND?: BacketScalarWhereInput | BacketScalarWhereInput[]
+    OR?: BacketScalarWhereInput[]
+    NOT?: BacketScalarWhereInput | BacketScalarWhereInput[]
+    id?: StringFilter<"Backet"> | string
+    ownerId?: StringFilter<"Backet"> | string
+    professionId?: StringFilter<"Backet"> | string
+    toolId?: StringFilter<"Backet"> | string
+    count?: IntFilter<"Backet"> | number
+    measure?: EnumBacketMeasureFilter<"Backet"> | $Enums.BacketMeasure
+    workingTime?: IntFilter<"Backet"> | number
+    totalPrice?: DecimalFilter<"Backet"> | Decimal | DecimalJsLike | number | string
+    levelId?: StringFilter<"Backet"> | string
+  }
+
+  export type CommentsUpsertWithWhereUniqueWithoutUserInput = {
+    where: CommentsWhereUniqueInput
+    update: XOR<CommentsUpdateWithoutUserInput, CommentsUncheckedUpdateWithoutUserInput>
+    create: XOR<CommentsCreateWithoutUserInput, CommentsUncheckedCreateWithoutUserInput>
+  }
+
+  export type CommentsUpdateWithWhereUniqueWithoutUserInput = {
+    where: CommentsWhereUniqueInput
+    data: XOR<CommentsUpdateWithoutUserInput, CommentsUncheckedUpdateWithoutUserInput>
+  }
+
+  export type CommentsUpdateManyWithWhereWithoutUserInput = {
+    where: CommentsScalarWhereInput
+    data: XOR<CommentsUpdateManyMutationInput, CommentsUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type CommentsScalarWhereInput = {
+    AND?: CommentsScalarWhereInput | CommentsScalarWhereInput[]
+    OR?: CommentsScalarWhereInput[]
+    NOT?: CommentsScalarWhereInput | CommentsScalarWhereInput[]
+    id?: StringFilter<"Comments"> | string
+    message?: StringFilter<"Comments"> | string
+    userId?: StringFilter<"Comments"> | string
+    createdAt?: DateTimeFilter<"Comments"> | Date | string
+    updatedAt?: DateTimeFilter<"Comments"> | Date | string
+  }
+
+  export type SessionsUpsertWithWhereUniqueWithoutUserInput = {
+    where: SessionsWhereUniqueInput
+    update: XOR<SessionsUpdateWithoutUserInput, SessionsUncheckedUpdateWithoutUserInput>
+    create: XOR<SessionsCreateWithoutUserInput, SessionsUncheckedCreateWithoutUserInput>
+  }
+
+  export type SessionsUpdateWithWhereUniqueWithoutUserInput = {
+    where: SessionsWhereUniqueInput
+    data: XOR<SessionsUpdateWithoutUserInput, SessionsUncheckedUpdateWithoutUserInput>
+  }
+
+  export type SessionsUpdateManyWithWhereWithoutUserInput = {
+    where: SessionsScalarWhereInput
+    data: XOR<SessionsUpdateManyMutationInput, SessionsUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type SessionsScalarWhereInput = {
+    AND?: SessionsScalarWhereInput | SessionsScalarWhereInput[]
+    OR?: SessionsScalarWhereInput[]
+    NOT?: SessionsScalarWhereInput | SessionsScalarWhereInput[]
+    id?: StringFilter<"Sessions"> | string
+    userId?: StringFilter<"Sessions"> | string
+    ipAddress?: StringFilter<"Sessions"> | string
+    deviceInfo?: JsonFilter<"Sessions">
+    createdAt?: DateTimeFilter<"Sessions"> | Date | string
+  }
+
+  export type UsersCreateWithoutSessionsInput = {
+    id?: string
+    fullName: string
+    phone: string
+    password: string
+    role: $Enums.UserRole
+    status?: $Enums.UserStatus
+    avatar: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    region: RegionsCreateNestedOneWithoutUsersInput
+    Backet?: BacketCreateNestedManyWithoutOwnerInput
+    Comments?: CommentsCreateNestedManyWithoutUserInput
+  }
+
+  export type UsersUncheckedCreateWithoutSessionsInput = {
+    id?: string
+    fullName: string
+    phone: string
+    password: string
+    role: $Enums.UserRole
+    status?: $Enums.UserStatus
+    avatar: string
+    regionId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    Backet?: BacketUncheckedCreateNestedManyWithoutOwnerInput
+    Comments?: CommentsUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type UsersCreateOrConnectWithoutSessionsInput = {
+    where: UsersWhereUniqueInput
+    create: XOR<UsersCreateWithoutSessionsInput, UsersUncheckedCreateWithoutSessionsInput>
+  }
+
+  export type UsersUpsertWithoutSessionsInput = {
+    update: XOR<UsersUpdateWithoutSessionsInput, UsersUncheckedUpdateWithoutSessionsInput>
+    create: XOR<UsersCreateWithoutSessionsInput, UsersUncheckedCreateWithoutSessionsInput>
+    where?: UsersWhereInput
+  }
+
+  export type UsersUpdateToOneWithWhereWithoutSessionsInput = {
+    where?: UsersWhereInput
+    data: XOR<UsersUpdateWithoutSessionsInput, UsersUncheckedUpdateWithoutSessionsInput>
+  }
+
+  export type UsersUpdateWithoutSessionsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    fullName?: StringFieldUpdateOperationsInput | string
+    phone?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    role?: EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
+    status?: EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+    avatar?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    region?: RegionsUpdateOneRequiredWithoutUsersNestedInput
+    Backet?: BacketUpdateManyWithoutOwnerNestedInput
+    Comments?: CommentsUpdateManyWithoutUserNestedInput
+  }
+
+  export type UsersUncheckedUpdateWithoutSessionsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    fullName?: StringFieldUpdateOperationsInput | string
+    phone?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    role?: EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
+    status?: EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+    avatar?: StringFieldUpdateOperationsInput | string
+    regionId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    Backet?: BacketUncheckedUpdateManyWithoutOwnerNestedInput
+    Comments?: CommentsUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type UsersCreateWithoutCommentsInput = {
+    id?: string
+    fullName: string
+    phone: string
+    password: string
+    role: $Enums.UserRole
+    status?: $Enums.UserStatus
+    avatar: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    region: RegionsCreateNestedOneWithoutUsersInput
+    Backet?: BacketCreateNestedManyWithoutOwnerInput
+    Sessions?: SessionsCreateNestedManyWithoutUserInput
+  }
+
+  export type UsersUncheckedCreateWithoutCommentsInput = {
+    id?: string
+    fullName: string
+    phone: string
+    password: string
+    role: $Enums.UserRole
+    status?: $Enums.UserStatus
+    avatar: string
+    regionId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    Backet?: BacketUncheckedCreateNestedManyWithoutOwnerInput
+    Sessions?: SessionsUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type UsersCreateOrConnectWithoutCommentsInput = {
+    where: UsersWhereUniqueInput
+    create: XOR<UsersCreateWithoutCommentsInput, UsersUncheckedCreateWithoutCommentsInput>
+  }
+
+  export type OrdersCreateWithoutDeliveryCommentInput = {
+    id?: string
+    ownerId: string
+    address: string
+    latitude: string
+    longitude: string
+    date: Date | string
+    totalPrice: Decimal | DecimalJsLike | number | string
+    paymentType: $Enums.PaymentType
+    withDelivery: boolean
+    status: $Enums.OrderStatus
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    OrderItems?: OrderItemsCreateNestedManyWithoutOrderInput
+  }
+
+  export type OrdersUncheckedCreateWithoutDeliveryCommentInput = {
+    id?: string
+    ownerId: string
+    address: string
+    latitude: string
+    longitude: string
+    date: Date | string
+    totalPrice: Decimal | DecimalJsLike | number | string
+    paymentType: $Enums.PaymentType
+    withDelivery: boolean
+    status: $Enums.OrderStatus
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    OrderItems?: OrderItemsUncheckedCreateNestedManyWithoutOrderInput
+  }
+
+  export type OrdersCreateOrConnectWithoutDeliveryCommentInput = {
+    where: OrdersWhereUniqueInput
+    create: XOR<OrdersCreateWithoutDeliveryCommentInput, OrdersUncheckedCreateWithoutDeliveryCommentInput>
+  }
+
+  export type OrdersCreateManyDeliveryCommentInputEnvelope = {
+    data: OrdersCreateManyDeliveryCommentInput | OrdersCreateManyDeliveryCommentInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type UsersUpsertWithoutCommentsInput = {
+    update: XOR<UsersUpdateWithoutCommentsInput, UsersUncheckedUpdateWithoutCommentsInput>
+    create: XOR<UsersCreateWithoutCommentsInput, UsersUncheckedCreateWithoutCommentsInput>
+    where?: UsersWhereInput
+  }
+
+  export type UsersUpdateToOneWithWhereWithoutCommentsInput = {
+    where?: UsersWhereInput
+    data: XOR<UsersUpdateWithoutCommentsInput, UsersUncheckedUpdateWithoutCommentsInput>
+  }
+
+  export type UsersUpdateWithoutCommentsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    fullName?: StringFieldUpdateOperationsInput | string
+    phone?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    role?: EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
+    status?: EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+    avatar?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    region?: RegionsUpdateOneRequiredWithoutUsersNestedInput
+    Backet?: BacketUpdateManyWithoutOwnerNestedInput
+    Sessions?: SessionsUpdateManyWithoutUserNestedInput
+  }
+
+  export type UsersUncheckedUpdateWithoutCommentsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    fullName?: StringFieldUpdateOperationsInput | string
+    phone?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    role?: EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
+    status?: EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+    avatar?: StringFieldUpdateOperationsInput | string
+    regionId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    Backet?: BacketUncheckedUpdateManyWithoutOwnerNestedInput
+    Sessions?: SessionsUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type OrdersUpsertWithWhereUniqueWithoutDeliveryCommentInput = {
+    where: OrdersWhereUniqueInput
+    update: XOR<OrdersUpdateWithoutDeliveryCommentInput, OrdersUncheckedUpdateWithoutDeliveryCommentInput>
+    create: XOR<OrdersCreateWithoutDeliveryCommentInput, OrdersUncheckedCreateWithoutDeliveryCommentInput>
+  }
+
+  export type OrdersUpdateWithWhereUniqueWithoutDeliveryCommentInput = {
+    where: OrdersWhereUniqueInput
+    data: XOR<OrdersUpdateWithoutDeliveryCommentInput, OrdersUncheckedUpdateWithoutDeliveryCommentInput>
+  }
+
+  export type OrdersUpdateManyWithWhereWithoutDeliveryCommentInput = {
+    where: OrdersScalarWhereInput
+    data: XOR<OrdersUpdateManyMutationInput, OrdersUncheckedUpdateManyWithoutDeliveryCommentInput>
+  }
+
+  export type OrdersScalarWhereInput = {
+    AND?: OrdersScalarWhereInput | OrdersScalarWhereInput[]
+    OR?: OrdersScalarWhereInput[]
+    NOT?: OrdersScalarWhereInput | OrdersScalarWhereInput[]
+    id?: StringFilter<"Orders"> | string
+    ownerId?: StringFilter<"Orders"> | string
+    address?: StringFilter<"Orders"> | string
+    latitude?: StringFilter<"Orders"> | string
+    longitude?: StringFilter<"Orders"> | string
+    date?: DateTimeFilter<"Orders"> | Date | string
+    totalPrice?: DecimalFilter<"Orders"> | Decimal | DecimalJsLike | number | string
+    paymentType?: EnumPaymentTypeFilter<"Orders"> | $Enums.PaymentType
+    withDelivery?: BoolFilter<"Orders"> | boolean
+    status?: EnumOrderStatusFilter<"Orders"> | $Enums.OrderStatus
+    deliveryCommentId?: StringNullableFilter<"Orders"> | string | null
+    createdAt?: DateTimeFilter<"Orders"> | Date | string
+    updatedAt?: DateTimeFilter<"Orders"> | Date | string
+  }
+
+  export type MasterProfessionsCreateWithoutLevelInput = {
+    id?: string
+    minWorkingHours: number
+    priceHourly: Decimal | DecimalJsLike | number | string
+    priceDaily: Decimal | DecimalJsLike | number | string
+    experience: number
+    profession: ProfessionsCreateNestedOneWithoutMasterProfessionsInput
+    master: MastersCreateNestedOneWithoutMasterProfessionsInput
+  }
+
+  export type MasterProfessionsUncheckedCreateWithoutLevelInput = {
+    id?: string
+    professionId: string
+    minWorkingHours: number
+    priceHourly: Decimal | DecimalJsLike | number | string
+    priceDaily: Decimal | DecimalJsLike | number | string
+    experience: number
+    masterId: string
+  }
+
+  export type MasterProfessionsCreateOrConnectWithoutLevelInput = {
+    where: MasterProfessionsWhereUniqueInput
+    create: XOR<MasterProfessionsCreateWithoutLevelInput, MasterProfessionsUncheckedCreateWithoutLevelInput>
+  }
+
+  export type MasterProfessionsCreateManyLevelInputEnvelope = {
+    data: MasterProfessionsCreateManyLevelInput | MasterProfessionsCreateManyLevelInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type BacketCreateWithoutLevelInput = {
+    id?: string
+    count: number
+    measure: $Enums.BacketMeasure
+    workingTime: number
+    totalPrice: Decimal | DecimalJsLike | number | string
+    owner: UsersCreateNestedOneWithoutBacketInput
+    profession: ProfessionsCreateNestedOneWithoutBacketInput
+    tools: ToolsCreateNestedOneWithoutBacketInput
+  }
+
+  export type BacketUncheckedCreateWithoutLevelInput = {
+    id?: string
+    ownerId: string
+    professionId: string
+    toolId: string
+    count: number
+    measure: $Enums.BacketMeasure
+    workingTime: number
+    totalPrice: Decimal | DecimalJsLike | number | string
+  }
+
+  export type BacketCreateOrConnectWithoutLevelInput = {
+    where: BacketWhereUniqueInput
+    create: XOR<BacketCreateWithoutLevelInput, BacketUncheckedCreateWithoutLevelInput>
+  }
+
+  export type BacketCreateManyLevelInputEnvelope = {
+    data: BacketCreateManyLevelInput | BacketCreateManyLevelInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type OrderItemsCreateWithoutLevelInput = {
+    id?: string
+    measure: $Enums.OrderItemMeasure
+    workingTime: number
+    price: Decimal | DecimalJsLike | number | string
+    count: number
+    order: OrdersCreateNestedOneWithoutOrderItemsInput
+    profession: ProfessionsCreateNestedOneWithoutOrderItemsInput
+    tool: ToolsCreateNestedOneWithoutOrderItemsInput
+  }
+
+  export type OrderItemsUncheckedCreateWithoutLevelInput = {
+    id?: string
+    orderId: string
+    professionId: string
+    toolId: string
+    measure: $Enums.OrderItemMeasure
+    workingTime: number
+    price: Decimal | DecimalJsLike | number | string
+    count: number
+  }
+
+  export type OrderItemsCreateOrConnectWithoutLevelInput = {
+    where: OrderItemsWhereUniqueInput
+    create: XOR<OrderItemsCreateWithoutLevelInput, OrderItemsUncheckedCreateWithoutLevelInput>
+  }
+
+  export type OrderItemsCreateManyLevelInputEnvelope = {
+    data: OrderItemsCreateManyLevelInput | OrderItemsCreateManyLevelInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type ProfessionLevelsCreateWithoutLevelInput = {
+    id?: string
+    minWorkingHours: number
+    priceHourly: Decimal | DecimalJsLike | number | string
+    priceDaily: Decimal | DecimalJsLike | number | string
+    profession: ProfessionsCreateNestedOneWithoutProfessionLevelsInput
+  }
+
+  export type ProfessionLevelsUncheckedCreateWithoutLevelInput = {
+    id?: string
+    professionId: string
+    minWorkingHours: number
+    priceHourly: Decimal | DecimalJsLike | number | string
+    priceDaily: Decimal | DecimalJsLike | number | string
+  }
+
+  export type ProfessionLevelsCreateOrConnectWithoutLevelInput = {
+    where: ProfessionLevelsWhereUniqueInput
+    create: XOR<ProfessionLevelsCreateWithoutLevelInput, ProfessionLevelsUncheckedCreateWithoutLevelInput>
+  }
+
+  export type ProfessionLevelsCreateManyLevelInputEnvelope = {
+    data: ProfessionLevelsCreateManyLevelInput | ProfessionLevelsCreateManyLevelInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type MasterProfessionsUpsertWithWhereUniqueWithoutLevelInput = {
+    where: MasterProfessionsWhereUniqueInput
+    update: XOR<MasterProfessionsUpdateWithoutLevelInput, MasterProfessionsUncheckedUpdateWithoutLevelInput>
+    create: XOR<MasterProfessionsCreateWithoutLevelInput, MasterProfessionsUncheckedCreateWithoutLevelInput>
+  }
+
+  export type MasterProfessionsUpdateWithWhereUniqueWithoutLevelInput = {
+    where: MasterProfessionsWhereUniqueInput
+    data: XOR<MasterProfessionsUpdateWithoutLevelInput, MasterProfessionsUncheckedUpdateWithoutLevelInput>
+  }
+
+  export type MasterProfessionsUpdateManyWithWhereWithoutLevelInput = {
+    where: MasterProfessionsScalarWhereInput
+    data: XOR<MasterProfessionsUpdateManyMutationInput, MasterProfessionsUncheckedUpdateManyWithoutLevelInput>
+  }
+
+  export type MasterProfessionsScalarWhereInput = {
+    AND?: MasterProfessionsScalarWhereInput | MasterProfessionsScalarWhereInput[]
+    OR?: MasterProfessionsScalarWhereInput[]
+    NOT?: MasterProfessionsScalarWhereInput | MasterProfessionsScalarWhereInput[]
+    id?: StringFilter<"MasterProfessions"> | string
+    professionId?: StringFilter<"MasterProfessions"> | string
+    minWorkingHours?: IntFilter<"MasterProfessions"> | number
+    levelId?: StringFilter<"MasterProfessions"> | string
+    priceHourly?: DecimalFilter<"MasterProfessions"> | Decimal | DecimalJsLike | number | string
+    priceDaily?: DecimalFilter<"MasterProfessions"> | Decimal | DecimalJsLike | number | string
+    experience?: FloatFilter<"MasterProfessions"> | number
+    masterId?: StringFilter<"MasterProfessions"> | string
+  }
+
+  export type BacketUpsertWithWhereUniqueWithoutLevelInput = {
+    where: BacketWhereUniqueInput
+    update: XOR<BacketUpdateWithoutLevelInput, BacketUncheckedUpdateWithoutLevelInput>
+    create: XOR<BacketCreateWithoutLevelInput, BacketUncheckedCreateWithoutLevelInput>
+  }
+
+  export type BacketUpdateWithWhereUniqueWithoutLevelInput = {
+    where: BacketWhereUniqueInput
+    data: XOR<BacketUpdateWithoutLevelInput, BacketUncheckedUpdateWithoutLevelInput>
+  }
+
+  export type BacketUpdateManyWithWhereWithoutLevelInput = {
+    where: BacketScalarWhereInput
+    data: XOR<BacketUpdateManyMutationInput, BacketUncheckedUpdateManyWithoutLevelInput>
+  }
+
+  export type OrderItemsUpsertWithWhereUniqueWithoutLevelInput = {
+    where: OrderItemsWhereUniqueInput
+    update: XOR<OrderItemsUpdateWithoutLevelInput, OrderItemsUncheckedUpdateWithoutLevelInput>
+    create: XOR<OrderItemsCreateWithoutLevelInput, OrderItemsUncheckedCreateWithoutLevelInput>
+  }
+
+  export type OrderItemsUpdateWithWhereUniqueWithoutLevelInput = {
+    where: OrderItemsWhereUniqueInput
+    data: XOR<OrderItemsUpdateWithoutLevelInput, OrderItemsUncheckedUpdateWithoutLevelInput>
+  }
+
+  export type OrderItemsUpdateManyWithWhereWithoutLevelInput = {
+    where: OrderItemsScalarWhereInput
+    data: XOR<OrderItemsUpdateManyMutationInput, OrderItemsUncheckedUpdateManyWithoutLevelInput>
+  }
+
+  export type OrderItemsScalarWhereInput = {
+    AND?: OrderItemsScalarWhereInput | OrderItemsScalarWhereInput[]
+    OR?: OrderItemsScalarWhereInput[]
+    NOT?: OrderItemsScalarWhereInput | OrderItemsScalarWhereInput[]
+    id?: StringFilter<"OrderItems"> | string
+    orderId?: StringFilter<"OrderItems"> | string
+    professionId?: StringFilter<"OrderItems"> | string
+    toolId?: StringFilter<"OrderItems"> | string
+    levelId?: StringFilter<"OrderItems"> | string
+    measure?: EnumOrderItemMeasureFilter<"OrderItems"> | $Enums.OrderItemMeasure
+    workingTime?: IntFilter<"OrderItems"> | number
+    price?: DecimalFilter<"OrderItems"> | Decimal | DecimalJsLike | number | string
+    count?: IntFilter<"OrderItems"> | number
+  }
+
+  export type ProfessionLevelsUpsertWithWhereUniqueWithoutLevelInput = {
+    where: ProfessionLevelsWhereUniqueInput
+    update: XOR<ProfessionLevelsUpdateWithoutLevelInput, ProfessionLevelsUncheckedUpdateWithoutLevelInput>
+    create: XOR<ProfessionLevelsCreateWithoutLevelInput, ProfessionLevelsUncheckedCreateWithoutLevelInput>
+  }
+
+  export type ProfessionLevelsUpdateWithWhereUniqueWithoutLevelInput = {
+    where: ProfessionLevelsWhereUniqueInput
+    data: XOR<ProfessionLevelsUpdateWithoutLevelInput, ProfessionLevelsUncheckedUpdateWithoutLevelInput>
+  }
+
+  export type ProfessionLevelsUpdateManyWithWhereWithoutLevelInput = {
+    where: ProfessionLevelsScalarWhereInput
+    data: XOR<ProfessionLevelsUpdateManyMutationInput, ProfessionLevelsUncheckedUpdateManyWithoutLevelInput>
+  }
+
+  export type ProfessionLevelsScalarWhereInput = {
+    AND?: ProfessionLevelsScalarWhereInput | ProfessionLevelsScalarWhereInput[]
+    OR?: ProfessionLevelsScalarWhereInput[]
+    NOT?: ProfessionLevelsScalarWhereInput | ProfessionLevelsScalarWhereInput[]
+    id?: StringFilter<"ProfessionLevels"> | string
+    professionId?: StringFilter<"ProfessionLevels"> | string
+    levelId?: StringFilter<"ProfessionLevels"> | string
+    minWorkingHours?: IntFilter<"ProfessionLevels"> | number
+    priceHourly?: DecimalFilter<"ProfessionLevels"> | Decimal | DecimalJsLike | number | string
+    priceDaily?: DecimalFilter<"ProfessionLevels"> | Decimal | DecimalJsLike | number | string
+  }
+
+  export type ToolsCreateWithoutCapacityInput = {
+    id?: string
+    code: string
+    nameUz: string
+    nameRu: string
+    nameEn: string
+    descriptionUz: string
+    descriptionRu: string
+    descriptionEn: string
+    price: Decimal | DecimalJsLike | number | string
+    quantity: number
+    image: string
+    isAvailable: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    brand: BrandsCreateNestedOneWithoutToolsInput
+    size: SizesCreateNestedOneWithoutToolsInput
+    Backet?: BacketCreateNestedManyWithoutToolsInput
+    OrderItems?: OrderItemsCreateNestedManyWithoutToolInput
+    ProfessionTools?: ProfessionToolsCreateNestedManyWithoutToolsInput
+  }
+
+  export type ToolsUncheckedCreateWithoutCapacityInput = {
+    id?: string
+    code: string
+    nameUz: string
+    nameRu: string
+    nameEn: string
+    descriptionUz: string
+    descriptionRu: string
+    descriptionEn: string
+    price: Decimal | DecimalJsLike | number | string
+    quantity: number
+    brandId: string
+    sizeId: string
+    image: string
+    isAvailable: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    Backet?: BacketUncheckedCreateNestedManyWithoutToolsInput
+    OrderItems?: OrderItemsUncheckedCreateNestedManyWithoutToolInput
+    ProfessionTools?: ProfessionToolsUncheckedCreateNestedManyWithoutToolsInput
+  }
+
+  export type ToolsCreateOrConnectWithoutCapacityInput = {
+    where: ToolsWhereUniqueInput
+    create: XOR<ToolsCreateWithoutCapacityInput, ToolsUncheckedCreateWithoutCapacityInput>
+  }
+
+  export type ToolsCreateManyCapacityInputEnvelope = {
+    data: ToolsCreateManyCapacityInput | ToolsCreateManyCapacityInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type ToolsUpsertWithWhereUniqueWithoutCapacityInput = {
+    where: ToolsWhereUniqueInput
+    update: XOR<ToolsUpdateWithoutCapacityInput, ToolsUncheckedUpdateWithoutCapacityInput>
+    create: XOR<ToolsCreateWithoutCapacityInput, ToolsUncheckedCreateWithoutCapacityInput>
+  }
+
+  export type ToolsUpdateWithWhereUniqueWithoutCapacityInput = {
+    where: ToolsWhereUniqueInput
+    data: XOR<ToolsUpdateWithoutCapacityInput, ToolsUncheckedUpdateWithoutCapacityInput>
+  }
+
+  export type ToolsUpdateManyWithWhereWithoutCapacityInput = {
+    where: ToolsScalarWhereInput
+    data: XOR<ToolsUpdateManyMutationInput, ToolsUncheckedUpdateManyWithoutCapacityInput>
+  }
+
+  export type ToolsScalarWhereInput = {
+    AND?: ToolsScalarWhereInput | ToolsScalarWhereInput[]
+    OR?: ToolsScalarWhereInput[]
+    NOT?: ToolsScalarWhereInput | ToolsScalarWhereInput[]
+    id?: StringFilter<"Tools"> | string
+    code?: StringFilter<"Tools"> | string
+    nameUz?: StringFilter<"Tools"> | string
+    nameRu?: StringFilter<"Tools"> | string
+    nameEn?: StringFilter<"Tools"> | string
+    descriptionUz?: StringFilter<"Tools"> | string
+    descriptionRu?: StringFilter<"Tools"> | string
+    descriptionEn?: StringFilter<"Tools"> | string
+    price?: DecimalFilter<"Tools"> | Decimal | DecimalJsLike | number | string
+    quantity?: IntFilter<"Tools"> | number
+    brandId?: StringFilter<"Tools"> | string
+    capacityId?: StringFilter<"Tools"> | string
+    sizeId?: StringFilter<"Tools"> | string
+    image?: StringFilter<"Tools"> | string
+    isAvailable?: BoolFilter<"Tools"> | boolean
+    createdAt?: DateTimeFilter<"Tools"> | Date | string
+    updatedAt?: DateTimeFilter<"Tools"> | Date | string
+  }
+
+  export type ToolsCreateWithoutSizeInput = {
+    id?: string
+    code: string
+    nameUz: string
+    nameRu: string
+    nameEn: string
+    descriptionUz: string
+    descriptionRu: string
+    descriptionEn: string
+    price: Decimal | DecimalJsLike | number | string
+    quantity: number
+    image: string
+    isAvailable: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    brand: BrandsCreateNestedOneWithoutToolsInput
+    capacity: CapacityCreateNestedOneWithoutToolsInput
+    Backet?: BacketCreateNestedManyWithoutToolsInput
+    OrderItems?: OrderItemsCreateNestedManyWithoutToolInput
+    ProfessionTools?: ProfessionToolsCreateNestedManyWithoutToolsInput
+  }
+
+  export type ToolsUncheckedCreateWithoutSizeInput = {
+    id?: string
+    code: string
+    nameUz: string
+    nameRu: string
+    nameEn: string
+    descriptionUz: string
+    descriptionRu: string
+    descriptionEn: string
+    price: Decimal | DecimalJsLike | number | string
+    quantity: number
+    brandId: string
+    capacityId: string
+    image: string
+    isAvailable: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    Backet?: BacketUncheckedCreateNestedManyWithoutToolsInput
+    OrderItems?: OrderItemsUncheckedCreateNestedManyWithoutToolInput
+    ProfessionTools?: ProfessionToolsUncheckedCreateNestedManyWithoutToolsInput
+  }
+
+  export type ToolsCreateOrConnectWithoutSizeInput = {
+    where: ToolsWhereUniqueInput
+    create: XOR<ToolsCreateWithoutSizeInput, ToolsUncheckedCreateWithoutSizeInput>
+  }
+
+  export type ToolsCreateManySizeInputEnvelope = {
+    data: ToolsCreateManySizeInput | ToolsCreateManySizeInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type ToolsUpsertWithWhereUniqueWithoutSizeInput = {
+    where: ToolsWhereUniqueInput
+    update: XOR<ToolsUpdateWithoutSizeInput, ToolsUncheckedUpdateWithoutSizeInput>
+    create: XOR<ToolsCreateWithoutSizeInput, ToolsUncheckedCreateWithoutSizeInput>
+  }
+
+  export type ToolsUpdateWithWhereUniqueWithoutSizeInput = {
+    where: ToolsWhereUniqueInput
+    data: XOR<ToolsUpdateWithoutSizeInput, ToolsUncheckedUpdateWithoutSizeInput>
+  }
+
+  export type ToolsUpdateManyWithWhereWithoutSizeInput = {
+    where: ToolsScalarWhereInput
+    data: XOR<ToolsUpdateManyMutationInput, ToolsUncheckedUpdateManyWithoutSizeInput>
+  }
+
+  export type ToolsCreateWithoutBrandInput = {
+    id?: string
+    code: string
+    nameUz: string
+    nameRu: string
+    nameEn: string
+    descriptionUz: string
+    descriptionRu: string
+    descriptionEn: string
+    price: Decimal | DecimalJsLike | number | string
+    quantity: number
+    image: string
+    isAvailable: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    capacity: CapacityCreateNestedOneWithoutToolsInput
+    size: SizesCreateNestedOneWithoutToolsInput
+    Backet?: BacketCreateNestedManyWithoutToolsInput
+    OrderItems?: OrderItemsCreateNestedManyWithoutToolInput
+    ProfessionTools?: ProfessionToolsCreateNestedManyWithoutToolsInput
+  }
+
+  export type ToolsUncheckedCreateWithoutBrandInput = {
+    id?: string
+    code: string
+    nameUz: string
+    nameRu: string
+    nameEn: string
+    descriptionUz: string
+    descriptionRu: string
+    descriptionEn: string
+    price: Decimal | DecimalJsLike | number | string
+    quantity: number
+    capacityId: string
+    sizeId: string
+    image: string
+    isAvailable: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    Backet?: BacketUncheckedCreateNestedManyWithoutToolsInput
+    OrderItems?: OrderItemsUncheckedCreateNestedManyWithoutToolInput
+    ProfessionTools?: ProfessionToolsUncheckedCreateNestedManyWithoutToolsInput
+  }
+
+  export type ToolsCreateOrConnectWithoutBrandInput = {
+    where: ToolsWhereUniqueInput
+    create: XOR<ToolsCreateWithoutBrandInput, ToolsUncheckedCreateWithoutBrandInput>
+  }
+
+  export type ToolsCreateManyBrandInputEnvelope = {
+    data: ToolsCreateManyBrandInput | ToolsCreateManyBrandInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type ToolsUpsertWithWhereUniqueWithoutBrandInput = {
+    where: ToolsWhereUniqueInput
+    update: XOR<ToolsUpdateWithoutBrandInput, ToolsUncheckedUpdateWithoutBrandInput>
+    create: XOR<ToolsCreateWithoutBrandInput, ToolsUncheckedCreateWithoutBrandInput>
+  }
+
+  export type ToolsUpdateWithWhereUniqueWithoutBrandInput = {
+    where: ToolsWhereUniqueInput
+    data: XOR<ToolsUpdateWithoutBrandInput, ToolsUncheckedUpdateWithoutBrandInput>
+  }
+
+  export type ToolsUpdateManyWithWhereWithoutBrandInput = {
+    where: ToolsScalarWhereInput
+    data: XOR<ToolsUpdateManyMutationInput, ToolsUncheckedUpdateManyWithoutBrandInput>
+  }
+
+  export type MasterProfessionsCreateWithoutMasterInput = {
+    id?: string
+    minWorkingHours: number
+    priceHourly: Decimal | DecimalJsLike | number | string
+    priceDaily: Decimal | DecimalJsLike | number | string
+    experience: number
+    profession: ProfessionsCreateNestedOneWithoutMasterProfessionsInput
+    level: LevelsCreateNestedOneWithoutMasterProfessionsInput
+  }
+
+  export type MasterProfessionsUncheckedCreateWithoutMasterInput = {
+    id?: string
+    professionId: string
+    minWorkingHours: number
+    levelId: string
+    priceHourly: Decimal | DecimalJsLike | number | string
+    priceDaily: Decimal | DecimalJsLike | number | string
+    experience: number
+  }
+
+  export type MasterProfessionsCreateOrConnectWithoutMasterInput = {
+    where: MasterProfessionsWhereUniqueInput
+    create: XOR<MasterProfessionsCreateWithoutMasterInput, MasterProfessionsUncheckedCreateWithoutMasterInput>
+  }
+
+  export type MasterProfessionsCreateManyMasterInputEnvelope = {
+    data: MasterProfessionsCreateManyMasterInput | MasterProfessionsCreateManyMasterInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type MasterProfessionsUpsertWithWhereUniqueWithoutMasterInput = {
+    where: MasterProfessionsWhereUniqueInput
+    update: XOR<MasterProfessionsUpdateWithoutMasterInput, MasterProfessionsUncheckedUpdateWithoutMasterInput>
+    create: XOR<MasterProfessionsCreateWithoutMasterInput, MasterProfessionsUncheckedCreateWithoutMasterInput>
+  }
+
+  export type MasterProfessionsUpdateWithWhereUniqueWithoutMasterInput = {
+    where: MasterProfessionsWhereUniqueInput
+    data: XOR<MasterProfessionsUpdateWithoutMasterInput, MasterProfessionsUncheckedUpdateWithoutMasterInput>
+  }
+
+  export type MasterProfessionsUpdateManyWithWhereWithoutMasterInput = {
+    where: MasterProfessionsScalarWhereInput
+    data: XOR<MasterProfessionsUpdateManyMutationInput, MasterProfessionsUncheckedUpdateManyWithoutMasterInput>
+  }
+
+  export type MasterProfessionsCreateWithoutProfessionInput = {
+    id?: string
+    minWorkingHours: number
+    priceHourly: Decimal | DecimalJsLike | number | string
+    priceDaily: Decimal | DecimalJsLike | number | string
+    experience: number
+    level: LevelsCreateNestedOneWithoutMasterProfessionsInput
+    master: MastersCreateNestedOneWithoutMasterProfessionsInput
+  }
+
+  export type MasterProfessionsUncheckedCreateWithoutProfessionInput = {
+    id?: string
+    minWorkingHours: number
+    levelId: string
+    priceHourly: Decimal | DecimalJsLike | number | string
+    priceDaily: Decimal | DecimalJsLike | number | string
+    experience: number
+    masterId: string
+  }
+
+  export type MasterProfessionsCreateOrConnectWithoutProfessionInput = {
+    where: MasterProfessionsWhereUniqueInput
+    create: XOR<MasterProfessionsCreateWithoutProfessionInput, MasterProfessionsUncheckedCreateWithoutProfessionInput>
+  }
+
+  export type MasterProfessionsCreateManyProfessionInputEnvelope = {
+    data: MasterProfessionsCreateManyProfessionInput | MasterProfessionsCreateManyProfessionInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type BacketCreateWithoutProfessionInput = {
+    id?: string
+    count: number
+    measure: $Enums.BacketMeasure
+    workingTime: number
+    totalPrice: Decimal | DecimalJsLike | number | string
+    owner: UsersCreateNestedOneWithoutBacketInput
+    tools: ToolsCreateNestedOneWithoutBacketInput
+    level: LevelsCreateNestedOneWithoutBacketInput
+  }
+
+  export type BacketUncheckedCreateWithoutProfessionInput = {
+    id?: string
+    ownerId: string
+    toolId: string
+    count: number
+    measure: $Enums.BacketMeasure
+    workingTime: number
+    totalPrice: Decimal | DecimalJsLike | number | string
+    levelId: string
+  }
+
+  export type BacketCreateOrConnectWithoutProfessionInput = {
+    where: BacketWhereUniqueInput
+    create: XOR<BacketCreateWithoutProfessionInput, BacketUncheckedCreateWithoutProfessionInput>
+  }
+
+  export type BacketCreateManyProfessionInputEnvelope = {
+    data: BacketCreateManyProfessionInput | BacketCreateManyProfessionInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type OrderItemsCreateWithoutProfessionInput = {
+    id?: string
+    measure: $Enums.OrderItemMeasure
+    workingTime: number
+    price: Decimal | DecimalJsLike | number | string
+    count: number
+    order: OrdersCreateNestedOneWithoutOrderItemsInput
+    tool: ToolsCreateNestedOneWithoutOrderItemsInput
+    level: LevelsCreateNestedOneWithoutOrderItemsInput
+  }
+
+  export type OrderItemsUncheckedCreateWithoutProfessionInput = {
+    id?: string
+    orderId: string
+    toolId: string
+    levelId: string
+    measure: $Enums.OrderItemMeasure
+    workingTime: number
+    price: Decimal | DecimalJsLike | number | string
+    count: number
+  }
+
+  export type OrderItemsCreateOrConnectWithoutProfessionInput = {
+    where: OrderItemsWhereUniqueInput
+    create: XOR<OrderItemsCreateWithoutProfessionInput, OrderItemsUncheckedCreateWithoutProfessionInput>
+  }
+
+  export type OrderItemsCreateManyProfessionInputEnvelope = {
+    data: OrderItemsCreateManyProfessionInput | OrderItemsCreateManyProfessionInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type ProfessionLevelsCreateWithoutProfessionInput = {
+    id?: string
+    minWorkingHours: number
+    priceHourly: Decimal | DecimalJsLike | number | string
+    priceDaily: Decimal | DecimalJsLike | number | string
+    level: LevelsCreateNestedOneWithoutProfessionLevelsInput
+  }
+
+  export type ProfessionLevelsUncheckedCreateWithoutProfessionInput = {
+    id?: string
+    levelId: string
+    minWorkingHours: number
+    priceHourly: Decimal | DecimalJsLike | number | string
+    priceDaily: Decimal | DecimalJsLike | number | string
+  }
+
+  export type ProfessionLevelsCreateOrConnectWithoutProfessionInput = {
+    where: ProfessionLevelsWhereUniqueInput
+    create: XOR<ProfessionLevelsCreateWithoutProfessionInput, ProfessionLevelsUncheckedCreateWithoutProfessionInput>
+  }
+
+  export type ProfessionLevelsCreateManyProfessionInputEnvelope = {
+    data: ProfessionLevelsCreateManyProfessionInput | ProfessionLevelsCreateManyProfessionInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type ProfessionToolsCreateWithoutProfessionsInput = {
+    id?: string
+    tools: ToolsCreateNestedOneWithoutProfessionToolsInput
+  }
+
+  export type ProfessionToolsUncheckedCreateWithoutProfessionsInput = {
+    id?: string
+    toolId: string
+  }
+
+  export type ProfessionToolsCreateOrConnectWithoutProfessionsInput = {
+    where: ProfessionToolsWhereUniqueInput
+    create: XOR<ProfessionToolsCreateWithoutProfessionsInput, ProfessionToolsUncheckedCreateWithoutProfessionsInput>
+  }
+
+  export type ProfessionToolsCreateManyProfessionsInputEnvelope = {
+    data: ProfessionToolsCreateManyProfessionsInput | ProfessionToolsCreateManyProfessionsInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type MasterProfessionsUpsertWithWhereUniqueWithoutProfessionInput = {
+    where: MasterProfessionsWhereUniqueInput
+    update: XOR<MasterProfessionsUpdateWithoutProfessionInput, MasterProfessionsUncheckedUpdateWithoutProfessionInput>
+    create: XOR<MasterProfessionsCreateWithoutProfessionInput, MasterProfessionsUncheckedCreateWithoutProfessionInput>
+  }
+
+  export type MasterProfessionsUpdateWithWhereUniqueWithoutProfessionInput = {
+    where: MasterProfessionsWhereUniqueInput
+    data: XOR<MasterProfessionsUpdateWithoutProfessionInput, MasterProfessionsUncheckedUpdateWithoutProfessionInput>
+  }
+
+  export type MasterProfessionsUpdateManyWithWhereWithoutProfessionInput = {
+    where: MasterProfessionsScalarWhereInput
+    data: XOR<MasterProfessionsUpdateManyMutationInput, MasterProfessionsUncheckedUpdateManyWithoutProfessionInput>
+  }
+
+  export type BacketUpsertWithWhereUniqueWithoutProfessionInput = {
+    where: BacketWhereUniqueInput
+    update: XOR<BacketUpdateWithoutProfessionInput, BacketUncheckedUpdateWithoutProfessionInput>
+    create: XOR<BacketCreateWithoutProfessionInput, BacketUncheckedCreateWithoutProfessionInput>
+  }
+
+  export type BacketUpdateWithWhereUniqueWithoutProfessionInput = {
+    where: BacketWhereUniqueInput
+    data: XOR<BacketUpdateWithoutProfessionInput, BacketUncheckedUpdateWithoutProfessionInput>
+  }
+
+  export type BacketUpdateManyWithWhereWithoutProfessionInput = {
+    where: BacketScalarWhereInput
+    data: XOR<BacketUpdateManyMutationInput, BacketUncheckedUpdateManyWithoutProfessionInput>
+  }
+
+  export type OrderItemsUpsertWithWhereUniqueWithoutProfessionInput = {
+    where: OrderItemsWhereUniqueInput
+    update: XOR<OrderItemsUpdateWithoutProfessionInput, OrderItemsUncheckedUpdateWithoutProfessionInput>
+    create: XOR<OrderItemsCreateWithoutProfessionInput, OrderItemsUncheckedCreateWithoutProfessionInput>
+  }
+
+  export type OrderItemsUpdateWithWhereUniqueWithoutProfessionInput = {
+    where: OrderItemsWhereUniqueInput
+    data: XOR<OrderItemsUpdateWithoutProfessionInput, OrderItemsUncheckedUpdateWithoutProfessionInput>
+  }
+
+  export type OrderItemsUpdateManyWithWhereWithoutProfessionInput = {
+    where: OrderItemsScalarWhereInput
+    data: XOR<OrderItemsUpdateManyMutationInput, OrderItemsUncheckedUpdateManyWithoutProfessionInput>
+  }
+
+  export type ProfessionLevelsUpsertWithWhereUniqueWithoutProfessionInput = {
+    where: ProfessionLevelsWhereUniqueInput
+    update: XOR<ProfessionLevelsUpdateWithoutProfessionInput, ProfessionLevelsUncheckedUpdateWithoutProfessionInput>
+    create: XOR<ProfessionLevelsCreateWithoutProfessionInput, ProfessionLevelsUncheckedCreateWithoutProfessionInput>
+  }
+
+  export type ProfessionLevelsUpdateWithWhereUniqueWithoutProfessionInput = {
+    where: ProfessionLevelsWhereUniqueInput
+    data: XOR<ProfessionLevelsUpdateWithoutProfessionInput, ProfessionLevelsUncheckedUpdateWithoutProfessionInput>
+  }
+
+  export type ProfessionLevelsUpdateManyWithWhereWithoutProfessionInput = {
+    where: ProfessionLevelsScalarWhereInput
+    data: XOR<ProfessionLevelsUpdateManyMutationInput, ProfessionLevelsUncheckedUpdateManyWithoutProfessionInput>
+  }
+
+  export type ProfessionToolsUpsertWithWhereUniqueWithoutProfessionsInput = {
+    where: ProfessionToolsWhereUniqueInput
+    update: XOR<ProfessionToolsUpdateWithoutProfessionsInput, ProfessionToolsUncheckedUpdateWithoutProfessionsInput>
+    create: XOR<ProfessionToolsCreateWithoutProfessionsInput, ProfessionToolsUncheckedCreateWithoutProfessionsInput>
+  }
+
+  export type ProfessionToolsUpdateWithWhereUniqueWithoutProfessionsInput = {
+    where: ProfessionToolsWhereUniqueInput
+    data: XOR<ProfessionToolsUpdateWithoutProfessionsInput, ProfessionToolsUncheckedUpdateWithoutProfessionsInput>
+  }
+
+  export type ProfessionToolsUpdateManyWithWhereWithoutProfessionsInput = {
+    where: ProfessionToolsScalarWhereInput
+    data: XOR<ProfessionToolsUpdateManyMutationInput, ProfessionToolsUncheckedUpdateManyWithoutProfessionsInput>
+  }
+
+  export type ProfessionToolsScalarWhereInput = {
+    AND?: ProfessionToolsScalarWhereInput | ProfessionToolsScalarWhereInput[]
+    OR?: ProfessionToolsScalarWhereInput[]
+    NOT?: ProfessionToolsScalarWhereInput | ProfessionToolsScalarWhereInput[]
+    id?: StringFilter<"ProfessionTools"> | string
+    professionId?: StringFilter<"ProfessionTools"> | string
+    toolId?: StringFilter<"ProfessionTools"> | string
+  }
+
+  export type ProfessionsCreateWithoutMasterProfessionsInput = {
+    id?: string
+    nameUz: string
+    nameRu: string
+    nameEn: string
+    avatar: string
+    status: boolean
+    Backet?: BacketCreateNestedManyWithoutProfessionInput
+    OrderItems?: OrderItemsCreateNestedManyWithoutProfessionInput
+    ProfessionLevels?: ProfessionLevelsCreateNestedManyWithoutProfessionInput
+    ProfessionTools?: ProfessionToolsCreateNestedManyWithoutProfessionsInput
+  }
+
+  export type ProfessionsUncheckedCreateWithoutMasterProfessionsInput = {
+    id?: string
+    nameUz: string
+    nameRu: string
+    nameEn: string
+    avatar: string
+    status: boolean
+    Backet?: BacketUncheckedCreateNestedManyWithoutProfessionInput
+    OrderItems?: OrderItemsUncheckedCreateNestedManyWithoutProfessionInput
+    ProfessionLevels?: ProfessionLevelsUncheckedCreateNestedManyWithoutProfessionInput
+    ProfessionTools?: ProfessionToolsUncheckedCreateNestedManyWithoutProfessionsInput
+  }
+
+  export type ProfessionsCreateOrConnectWithoutMasterProfessionsInput = {
+    where: ProfessionsWhereUniqueInput
+    create: XOR<ProfessionsCreateWithoutMasterProfessionsInput, ProfessionsUncheckedCreateWithoutMasterProfessionsInput>
+  }
+
+  export type LevelsCreateWithoutMasterProfessionsInput = {
+    id?: string
+    nameUz: string
+    nameRu: string
+    nameEn: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    Backet?: BacketCreateNestedManyWithoutLevelInput
+    OrderItems?: OrderItemsCreateNestedManyWithoutLevelInput
+    ProfessionLevels?: ProfessionLevelsCreateNestedManyWithoutLevelInput
+  }
+
+  export type LevelsUncheckedCreateWithoutMasterProfessionsInput = {
+    id?: string
+    nameUz: string
+    nameRu: string
+    nameEn: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    Backet?: BacketUncheckedCreateNestedManyWithoutLevelInput
+    OrderItems?: OrderItemsUncheckedCreateNestedManyWithoutLevelInput
+    ProfessionLevels?: ProfessionLevelsUncheckedCreateNestedManyWithoutLevelInput
+  }
+
+  export type LevelsCreateOrConnectWithoutMasterProfessionsInput = {
+    where: LevelsWhereUniqueInput
+    create: XOR<LevelsCreateWithoutMasterProfessionsInput, LevelsUncheckedCreateWithoutMasterProfessionsInput>
+  }
+
+  export type MastersCreateWithoutMasterProfessionsInput = {
+    id?: string
+    fullName: string
+    phone: string
+    status: boolean
+    dateOfBirth: number
+    avatar: string
+    passportImage: string
+    about: string
+  }
+
+  export type MastersUncheckedCreateWithoutMasterProfessionsInput = {
+    id?: string
+    fullName: string
+    phone: string
+    status: boolean
+    dateOfBirth: number
+    avatar: string
+    passportImage: string
+    about: string
+  }
+
+  export type MastersCreateOrConnectWithoutMasterProfessionsInput = {
+    where: MastersWhereUniqueInput
+    create: XOR<MastersCreateWithoutMasterProfessionsInput, MastersUncheckedCreateWithoutMasterProfessionsInput>
+  }
+
+  export type ProfessionsUpsertWithoutMasterProfessionsInput = {
+    update: XOR<ProfessionsUpdateWithoutMasterProfessionsInput, ProfessionsUncheckedUpdateWithoutMasterProfessionsInput>
+    create: XOR<ProfessionsCreateWithoutMasterProfessionsInput, ProfessionsUncheckedCreateWithoutMasterProfessionsInput>
+    where?: ProfessionsWhereInput
+  }
+
+  export type ProfessionsUpdateToOneWithWhereWithoutMasterProfessionsInput = {
+    where?: ProfessionsWhereInput
+    data: XOR<ProfessionsUpdateWithoutMasterProfessionsInput, ProfessionsUncheckedUpdateWithoutMasterProfessionsInput>
+  }
+
+  export type ProfessionsUpdateWithoutMasterProfessionsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    nameUz?: StringFieldUpdateOperationsInput | string
+    nameRu?: StringFieldUpdateOperationsInput | string
+    nameEn?: StringFieldUpdateOperationsInput | string
+    avatar?: StringFieldUpdateOperationsInput | string
+    status?: BoolFieldUpdateOperationsInput | boolean
+    Backet?: BacketUpdateManyWithoutProfessionNestedInput
+    OrderItems?: OrderItemsUpdateManyWithoutProfessionNestedInput
+    ProfessionLevels?: ProfessionLevelsUpdateManyWithoutProfessionNestedInput
+    ProfessionTools?: ProfessionToolsUpdateManyWithoutProfessionsNestedInput
+  }
+
+  export type ProfessionsUncheckedUpdateWithoutMasterProfessionsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    nameUz?: StringFieldUpdateOperationsInput | string
+    nameRu?: StringFieldUpdateOperationsInput | string
+    nameEn?: StringFieldUpdateOperationsInput | string
+    avatar?: StringFieldUpdateOperationsInput | string
+    status?: BoolFieldUpdateOperationsInput | boolean
+    Backet?: BacketUncheckedUpdateManyWithoutProfessionNestedInput
+    OrderItems?: OrderItemsUncheckedUpdateManyWithoutProfessionNestedInput
+    ProfessionLevels?: ProfessionLevelsUncheckedUpdateManyWithoutProfessionNestedInput
+    ProfessionTools?: ProfessionToolsUncheckedUpdateManyWithoutProfessionsNestedInput
+  }
+
+  export type LevelsUpsertWithoutMasterProfessionsInput = {
+    update: XOR<LevelsUpdateWithoutMasterProfessionsInput, LevelsUncheckedUpdateWithoutMasterProfessionsInput>
+    create: XOR<LevelsCreateWithoutMasterProfessionsInput, LevelsUncheckedCreateWithoutMasterProfessionsInput>
+    where?: LevelsWhereInput
+  }
+
+  export type LevelsUpdateToOneWithWhereWithoutMasterProfessionsInput = {
+    where?: LevelsWhereInput
+    data: XOR<LevelsUpdateWithoutMasterProfessionsInput, LevelsUncheckedUpdateWithoutMasterProfessionsInput>
+  }
+
+  export type LevelsUpdateWithoutMasterProfessionsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    nameUz?: StringFieldUpdateOperationsInput | string
+    nameRu?: StringFieldUpdateOperationsInput | string
+    nameEn?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    Backet?: BacketUpdateManyWithoutLevelNestedInput
+    OrderItems?: OrderItemsUpdateManyWithoutLevelNestedInput
+    ProfessionLevels?: ProfessionLevelsUpdateManyWithoutLevelNestedInput
+  }
+
+  export type LevelsUncheckedUpdateWithoutMasterProfessionsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    nameUz?: StringFieldUpdateOperationsInput | string
+    nameRu?: StringFieldUpdateOperationsInput | string
+    nameEn?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    Backet?: BacketUncheckedUpdateManyWithoutLevelNestedInput
+    OrderItems?: OrderItemsUncheckedUpdateManyWithoutLevelNestedInput
+    ProfessionLevels?: ProfessionLevelsUncheckedUpdateManyWithoutLevelNestedInput
+  }
+
+  export type MastersUpsertWithoutMasterProfessionsInput = {
+    update: XOR<MastersUpdateWithoutMasterProfessionsInput, MastersUncheckedUpdateWithoutMasterProfessionsInput>
+    create: XOR<MastersCreateWithoutMasterProfessionsInput, MastersUncheckedCreateWithoutMasterProfessionsInput>
+    where?: MastersWhereInput
+  }
+
+  export type MastersUpdateToOneWithWhereWithoutMasterProfessionsInput = {
+    where?: MastersWhereInput
+    data: XOR<MastersUpdateWithoutMasterProfessionsInput, MastersUncheckedUpdateWithoutMasterProfessionsInput>
+  }
+
+  export type MastersUpdateWithoutMasterProfessionsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    fullName?: StringFieldUpdateOperationsInput | string
+    phone?: StringFieldUpdateOperationsInput | string
+    status?: BoolFieldUpdateOperationsInput | boolean
+    dateOfBirth?: IntFieldUpdateOperationsInput | number
+    avatar?: StringFieldUpdateOperationsInput | string
+    passportImage?: StringFieldUpdateOperationsInput | string
+    about?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type MastersUncheckedUpdateWithoutMasterProfessionsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    fullName?: StringFieldUpdateOperationsInput | string
+    phone?: StringFieldUpdateOperationsInput | string
+    status?: BoolFieldUpdateOperationsInput | boolean
+    dateOfBirth?: IntFieldUpdateOperationsInput | number
+    avatar?: StringFieldUpdateOperationsInput | string
+    passportImage?: StringFieldUpdateOperationsInput | string
+    about?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ProfessionsCreateWithoutProfessionLevelsInput = {
+    id?: string
+    nameUz: string
+    nameRu: string
+    nameEn: string
+    avatar: string
+    status: boolean
+    MasterProfessions?: MasterProfessionsCreateNestedManyWithoutProfessionInput
+    Backet?: BacketCreateNestedManyWithoutProfessionInput
+    OrderItems?: OrderItemsCreateNestedManyWithoutProfessionInput
+    ProfessionTools?: ProfessionToolsCreateNestedManyWithoutProfessionsInput
+  }
+
+  export type ProfessionsUncheckedCreateWithoutProfessionLevelsInput = {
+    id?: string
+    nameUz: string
+    nameRu: string
+    nameEn: string
+    avatar: string
+    status: boolean
+    MasterProfessions?: MasterProfessionsUncheckedCreateNestedManyWithoutProfessionInput
+    Backet?: BacketUncheckedCreateNestedManyWithoutProfessionInput
+    OrderItems?: OrderItemsUncheckedCreateNestedManyWithoutProfessionInput
+    ProfessionTools?: ProfessionToolsUncheckedCreateNestedManyWithoutProfessionsInput
+  }
+
+  export type ProfessionsCreateOrConnectWithoutProfessionLevelsInput = {
+    where: ProfessionsWhereUniqueInput
+    create: XOR<ProfessionsCreateWithoutProfessionLevelsInput, ProfessionsUncheckedCreateWithoutProfessionLevelsInput>
+  }
+
+  export type LevelsCreateWithoutProfessionLevelsInput = {
+    id?: string
+    nameUz: string
+    nameRu: string
+    nameEn: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    MasterProfessions?: MasterProfessionsCreateNestedManyWithoutLevelInput
+    Backet?: BacketCreateNestedManyWithoutLevelInput
+    OrderItems?: OrderItemsCreateNestedManyWithoutLevelInput
+  }
+
+  export type LevelsUncheckedCreateWithoutProfessionLevelsInput = {
+    id?: string
+    nameUz: string
+    nameRu: string
+    nameEn: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    MasterProfessions?: MasterProfessionsUncheckedCreateNestedManyWithoutLevelInput
+    Backet?: BacketUncheckedCreateNestedManyWithoutLevelInput
+    OrderItems?: OrderItemsUncheckedCreateNestedManyWithoutLevelInput
+  }
+
+  export type LevelsCreateOrConnectWithoutProfessionLevelsInput = {
+    where: LevelsWhereUniqueInput
+    create: XOR<LevelsCreateWithoutProfessionLevelsInput, LevelsUncheckedCreateWithoutProfessionLevelsInput>
+  }
+
+  export type ProfessionsUpsertWithoutProfessionLevelsInput = {
+    update: XOR<ProfessionsUpdateWithoutProfessionLevelsInput, ProfessionsUncheckedUpdateWithoutProfessionLevelsInput>
+    create: XOR<ProfessionsCreateWithoutProfessionLevelsInput, ProfessionsUncheckedCreateWithoutProfessionLevelsInput>
+    where?: ProfessionsWhereInput
+  }
+
+  export type ProfessionsUpdateToOneWithWhereWithoutProfessionLevelsInput = {
+    where?: ProfessionsWhereInput
+    data: XOR<ProfessionsUpdateWithoutProfessionLevelsInput, ProfessionsUncheckedUpdateWithoutProfessionLevelsInput>
+  }
+
+  export type ProfessionsUpdateWithoutProfessionLevelsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    nameUz?: StringFieldUpdateOperationsInput | string
+    nameRu?: StringFieldUpdateOperationsInput | string
+    nameEn?: StringFieldUpdateOperationsInput | string
+    avatar?: StringFieldUpdateOperationsInput | string
+    status?: BoolFieldUpdateOperationsInput | boolean
+    MasterProfessions?: MasterProfessionsUpdateManyWithoutProfessionNestedInput
+    Backet?: BacketUpdateManyWithoutProfessionNestedInput
+    OrderItems?: OrderItemsUpdateManyWithoutProfessionNestedInput
+    ProfessionTools?: ProfessionToolsUpdateManyWithoutProfessionsNestedInput
+  }
+
+  export type ProfessionsUncheckedUpdateWithoutProfessionLevelsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    nameUz?: StringFieldUpdateOperationsInput | string
+    nameRu?: StringFieldUpdateOperationsInput | string
+    nameEn?: StringFieldUpdateOperationsInput | string
+    avatar?: StringFieldUpdateOperationsInput | string
+    status?: BoolFieldUpdateOperationsInput | boolean
+    MasterProfessions?: MasterProfessionsUncheckedUpdateManyWithoutProfessionNestedInput
+    Backet?: BacketUncheckedUpdateManyWithoutProfessionNestedInput
+    OrderItems?: OrderItemsUncheckedUpdateManyWithoutProfessionNestedInput
+    ProfessionTools?: ProfessionToolsUncheckedUpdateManyWithoutProfessionsNestedInput
+  }
+
+  export type LevelsUpsertWithoutProfessionLevelsInput = {
+    update: XOR<LevelsUpdateWithoutProfessionLevelsInput, LevelsUncheckedUpdateWithoutProfessionLevelsInput>
+    create: XOR<LevelsCreateWithoutProfessionLevelsInput, LevelsUncheckedCreateWithoutProfessionLevelsInput>
+    where?: LevelsWhereInput
+  }
+
+  export type LevelsUpdateToOneWithWhereWithoutProfessionLevelsInput = {
+    where?: LevelsWhereInput
+    data: XOR<LevelsUpdateWithoutProfessionLevelsInput, LevelsUncheckedUpdateWithoutProfessionLevelsInput>
+  }
+
+  export type LevelsUpdateWithoutProfessionLevelsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    nameUz?: StringFieldUpdateOperationsInput | string
+    nameRu?: StringFieldUpdateOperationsInput | string
+    nameEn?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    MasterProfessions?: MasterProfessionsUpdateManyWithoutLevelNestedInput
+    Backet?: BacketUpdateManyWithoutLevelNestedInput
+    OrderItems?: OrderItemsUpdateManyWithoutLevelNestedInput
+  }
+
+  export type LevelsUncheckedUpdateWithoutProfessionLevelsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    nameUz?: StringFieldUpdateOperationsInput | string
+    nameRu?: StringFieldUpdateOperationsInput | string
+    nameEn?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    MasterProfessions?: MasterProfessionsUncheckedUpdateManyWithoutLevelNestedInput
+    Backet?: BacketUncheckedUpdateManyWithoutLevelNestedInput
+    OrderItems?: OrderItemsUncheckedUpdateManyWithoutLevelNestedInput
+  }
+
+  export type BrandsCreateWithoutToolsInput = {
+    id?: string
+    nameUz: string
+    nameRu: string
+    nameEn: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type BrandsUncheckedCreateWithoutToolsInput = {
+    id?: string
+    nameUz: string
+    nameRu: string
+    nameEn: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type BrandsCreateOrConnectWithoutToolsInput = {
+    where: BrandsWhereUniqueInput
+    create: XOR<BrandsCreateWithoutToolsInput, BrandsUncheckedCreateWithoutToolsInput>
+  }
+
+  export type CapacityCreateWithoutToolsInput = {
+    id?: string
+    nameUz: string
+    nameRu: string
+    nameEn: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type CapacityUncheckedCreateWithoutToolsInput = {
+    id?: string
+    nameUz: string
+    nameRu: string
+    nameEn: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type CapacityCreateOrConnectWithoutToolsInput = {
+    where: CapacityWhereUniqueInput
+    create: XOR<CapacityCreateWithoutToolsInput, CapacityUncheckedCreateWithoutToolsInput>
+  }
+
+  export type SizesCreateWithoutToolsInput = {
+    id?: string
+    nameUz: string
+    nameRu: string
+    nameEn: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type SizesUncheckedCreateWithoutToolsInput = {
+    id?: string
+    nameUz: string
+    nameRu: string
+    nameEn: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type SizesCreateOrConnectWithoutToolsInput = {
+    where: SizesWhereUniqueInput
+    create: XOR<SizesCreateWithoutToolsInput, SizesUncheckedCreateWithoutToolsInput>
+  }
+
+  export type BacketCreateWithoutToolsInput = {
+    id?: string
+    count: number
+    measure: $Enums.BacketMeasure
+    workingTime: number
+    totalPrice: Decimal | DecimalJsLike | number | string
+    owner: UsersCreateNestedOneWithoutBacketInput
+    profession: ProfessionsCreateNestedOneWithoutBacketInput
+    level: LevelsCreateNestedOneWithoutBacketInput
+  }
+
+  export type BacketUncheckedCreateWithoutToolsInput = {
+    id?: string
+    ownerId: string
+    professionId: string
+    count: number
+    measure: $Enums.BacketMeasure
+    workingTime: number
+    totalPrice: Decimal | DecimalJsLike | number | string
+    levelId: string
+  }
+
+  export type BacketCreateOrConnectWithoutToolsInput = {
+    where: BacketWhereUniqueInput
+    create: XOR<BacketCreateWithoutToolsInput, BacketUncheckedCreateWithoutToolsInput>
+  }
+
+  export type BacketCreateManyToolsInputEnvelope = {
+    data: BacketCreateManyToolsInput | BacketCreateManyToolsInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type OrderItemsCreateWithoutToolInput = {
+    id?: string
+    measure: $Enums.OrderItemMeasure
+    workingTime: number
+    price: Decimal | DecimalJsLike | number | string
+    count: number
+    order: OrdersCreateNestedOneWithoutOrderItemsInput
+    profession: ProfessionsCreateNestedOneWithoutOrderItemsInput
+    level: LevelsCreateNestedOneWithoutOrderItemsInput
+  }
+
+  export type OrderItemsUncheckedCreateWithoutToolInput = {
+    id?: string
+    orderId: string
+    professionId: string
+    levelId: string
+    measure: $Enums.OrderItemMeasure
+    workingTime: number
+    price: Decimal | DecimalJsLike | number | string
+    count: number
+  }
+
+  export type OrderItemsCreateOrConnectWithoutToolInput = {
+    where: OrderItemsWhereUniqueInput
+    create: XOR<OrderItemsCreateWithoutToolInput, OrderItemsUncheckedCreateWithoutToolInput>
+  }
+
+  export type OrderItemsCreateManyToolInputEnvelope = {
+    data: OrderItemsCreateManyToolInput | OrderItemsCreateManyToolInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type ProfessionToolsCreateWithoutToolsInput = {
+    id?: string
+    professions: ProfessionsCreateNestedOneWithoutProfessionToolsInput
+  }
+
+  export type ProfessionToolsUncheckedCreateWithoutToolsInput = {
+    id?: string
+    professionId: string
+  }
+
+  export type ProfessionToolsCreateOrConnectWithoutToolsInput = {
+    where: ProfessionToolsWhereUniqueInput
+    create: XOR<ProfessionToolsCreateWithoutToolsInput, ProfessionToolsUncheckedCreateWithoutToolsInput>
+  }
+
+  export type ProfessionToolsCreateManyToolsInputEnvelope = {
+    data: ProfessionToolsCreateManyToolsInput | ProfessionToolsCreateManyToolsInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type BrandsUpsertWithoutToolsInput = {
+    update: XOR<BrandsUpdateWithoutToolsInput, BrandsUncheckedUpdateWithoutToolsInput>
+    create: XOR<BrandsCreateWithoutToolsInput, BrandsUncheckedCreateWithoutToolsInput>
+    where?: BrandsWhereInput
+  }
+
+  export type BrandsUpdateToOneWithWhereWithoutToolsInput = {
+    where?: BrandsWhereInput
+    data: XOR<BrandsUpdateWithoutToolsInput, BrandsUncheckedUpdateWithoutToolsInput>
+  }
+
+  export type BrandsUpdateWithoutToolsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    nameUz?: StringFieldUpdateOperationsInput | string
+    nameRu?: StringFieldUpdateOperationsInput | string
+    nameEn?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BrandsUncheckedUpdateWithoutToolsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    nameUz?: StringFieldUpdateOperationsInput | string
+    nameRu?: StringFieldUpdateOperationsInput | string
+    nameEn?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CapacityUpsertWithoutToolsInput = {
+    update: XOR<CapacityUpdateWithoutToolsInput, CapacityUncheckedUpdateWithoutToolsInput>
+    create: XOR<CapacityCreateWithoutToolsInput, CapacityUncheckedCreateWithoutToolsInput>
+    where?: CapacityWhereInput
+  }
+
+  export type CapacityUpdateToOneWithWhereWithoutToolsInput = {
+    where?: CapacityWhereInput
+    data: XOR<CapacityUpdateWithoutToolsInput, CapacityUncheckedUpdateWithoutToolsInput>
+  }
+
+  export type CapacityUpdateWithoutToolsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    nameUz?: StringFieldUpdateOperationsInput | string
+    nameRu?: StringFieldUpdateOperationsInput | string
+    nameEn?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CapacityUncheckedUpdateWithoutToolsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    nameUz?: StringFieldUpdateOperationsInput | string
+    nameRu?: StringFieldUpdateOperationsInput | string
+    nameEn?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SizesUpsertWithoutToolsInput = {
+    update: XOR<SizesUpdateWithoutToolsInput, SizesUncheckedUpdateWithoutToolsInput>
+    create: XOR<SizesCreateWithoutToolsInput, SizesUncheckedCreateWithoutToolsInput>
+    where?: SizesWhereInput
+  }
+
+  export type SizesUpdateToOneWithWhereWithoutToolsInput = {
+    where?: SizesWhereInput
+    data: XOR<SizesUpdateWithoutToolsInput, SizesUncheckedUpdateWithoutToolsInput>
+  }
+
+  export type SizesUpdateWithoutToolsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    nameUz?: StringFieldUpdateOperationsInput | string
+    nameRu?: StringFieldUpdateOperationsInput | string
+    nameEn?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SizesUncheckedUpdateWithoutToolsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    nameUz?: StringFieldUpdateOperationsInput | string
+    nameRu?: StringFieldUpdateOperationsInput | string
+    nameEn?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BacketUpsertWithWhereUniqueWithoutToolsInput = {
+    where: BacketWhereUniqueInput
+    update: XOR<BacketUpdateWithoutToolsInput, BacketUncheckedUpdateWithoutToolsInput>
+    create: XOR<BacketCreateWithoutToolsInput, BacketUncheckedCreateWithoutToolsInput>
+  }
+
+  export type BacketUpdateWithWhereUniqueWithoutToolsInput = {
+    where: BacketWhereUniqueInput
+    data: XOR<BacketUpdateWithoutToolsInput, BacketUncheckedUpdateWithoutToolsInput>
+  }
+
+  export type BacketUpdateManyWithWhereWithoutToolsInput = {
+    where: BacketScalarWhereInput
+    data: XOR<BacketUpdateManyMutationInput, BacketUncheckedUpdateManyWithoutToolsInput>
+  }
+
+  export type OrderItemsUpsertWithWhereUniqueWithoutToolInput = {
+    where: OrderItemsWhereUniqueInput
+    update: XOR<OrderItemsUpdateWithoutToolInput, OrderItemsUncheckedUpdateWithoutToolInput>
+    create: XOR<OrderItemsCreateWithoutToolInput, OrderItemsUncheckedCreateWithoutToolInput>
+  }
+
+  export type OrderItemsUpdateWithWhereUniqueWithoutToolInput = {
+    where: OrderItemsWhereUniqueInput
+    data: XOR<OrderItemsUpdateWithoutToolInput, OrderItemsUncheckedUpdateWithoutToolInput>
+  }
+
+  export type OrderItemsUpdateManyWithWhereWithoutToolInput = {
+    where: OrderItemsScalarWhereInput
+    data: XOR<OrderItemsUpdateManyMutationInput, OrderItemsUncheckedUpdateManyWithoutToolInput>
+  }
+
+  export type ProfessionToolsUpsertWithWhereUniqueWithoutToolsInput = {
+    where: ProfessionToolsWhereUniqueInput
+    update: XOR<ProfessionToolsUpdateWithoutToolsInput, ProfessionToolsUncheckedUpdateWithoutToolsInput>
+    create: XOR<ProfessionToolsCreateWithoutToolsInput, ProfessionToolsUncheckedCreateWithoutToolsInput>
+  }
+
+  export type ProfessionToolsUpdateWithWhereUniqueWithoutToolsInput = {
+    where: ProfessionToolsWhereUniqueInput
+    data: XOR<ProfessionToolsUpdateWithoutToolsInput, ProfessionToolsUncheckedUpdateWithoutToolsInput>
+  }
+
+  export type ProfessionToolsUpdateManyWithWhereWithoutToolsInput = {
+    where: ProfessionToolsScalarWhereInput
+    data: XOR<ProfessionToolsUpdateManyMutationInput, ProfessionToolsUncheckedUpdateManyWithoutToolsInput>
+  }
+
+  export type ProfessionsCreateWithoutProfessionToolsInput = {
+    id?: string
+    nameUz: string
+    nameRu: string
+    nameEn: string
+    avatar: string
+    status: boolean
+    MasterProfessions?: MasterProfessionsCreateNestedManyWithoutProfessionInput
+    Backet?: BacketCreateNestedManyWithoutProfessionInput
+    OrderItems?: OrderItemsCreateNestedManyWithoutProfessionInput
+    ProfessionLevels?: ProfessionLevelsCreateNestedManyWithoutProfessionInput
+  }
+
+  export type ProfessionsUncheckedCreateWithoutProfessionToolsInput = {
+    id?: string
+    nameUz: string
+    nameRu: string
+    nameEn: string
+    avatar: string
+    status: boolean
+    MasterProfessions?: MasterProfessionsUncheckedCreateNestedManyWithoutProfessionInput
+    Backet?: BacketUncheckedCreateNestedManyWithoutProfessionInput
+    OrderItems?: OrderItemsUncheckedCreateNestedManyWithoutProfessionInput
+    ProfessionLevels?: ProfessionLevelsUncheckedCreateNestedManyWithoutProfessionInput
+  }
+
+  export type ProfessionsCreateOrConnectWithoutProfessionToolsInput = {
+    where: ProfessionsWhereUniqueInput
+    create: XOR<ProfessionsCreateWithoutProfessionToolsInput, ProfessionsUncheckedCreateWithoutProfessionToolsInput>
+  }
+
+  export type ToolsCreateWithoutProfessionToolsInput = {
+    id?: string
+    code: string
+    nameUz: string
+    nameRu: string
+    nameEn: string
+    descriptionUz: string
+    descriptionRu: string
+    descriptionEn: string
+    price: Decimal | DecimalJsLike | number | string
+    quantity: number
+    image: string
+    isAvailable: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    brand: BrandsCreateNestedOneWithoutToolsInput
+    capacity: CapacityCreateNestedOneWithoutToolsInput
+    size: SizesCreateNestedOneWithoutToolsInput
+    Backet?: BacketCreateNestedManyWithoutToolsInput
+    OrderItems?: OrderItemsCreateNestedManyWithoutToolInput
+  }
+
+  export type ToolsUncheckedCreateWithoutProfessionToolsInput = {
+    id?: string
+    code: string
+    nameUz: string
+    nameRu: string
+    nameEn: string
+    descriptionUz: string
+    descriptionRu: string
+    descriptionEn: string
+    price: Decimal | DecimalJsLike | number | string
+    quantity: number
+    brandId: string
+    capacityId: string
+    sizeId: string
+    image: string
+    isAvailable: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    Backet?: BacketUncheckedCreateNestedManyWithoutToolsInput
+    OrderItems?: OrderItemsUncheckedCreateNestedManyWithoutToolInput
+  }
+
+  export type ToolsCreateOrConnectWithoutProfessionToolsInput = {
+    where: ToolsWhereUniqueInput
+    create: XOR<ToolsCreateWithoutProfessionToolsInput, ToolsUncheckedCreateWithoutProfessionToolsInput>
+  }
+
+  export type ProfessionsUpsertWithoutProfessionToolsInput = {
+    update: XOR<ProfessionsUpdateWithoutProfessionToolsInput, ProfessionsUncheckedUpdateWithoutProfessionToolsInput>
+    create: XOR<ProfessionsCreateWithoutProfessionToolsInput, ProfessionsUncheckedCreateWithoutProfessionToolsInput>
+    where?: ProfessionsWhereInput
+  }
+
+  export type ProfessionsUpdateToOneWithWhereWithoutProfessionToolsInput = {
+    where?: ProfessionsWhereInput
+    data: XOR<ProfessionsUpdateWithoutProfessionToolsInput, ProfessionsUncheckedUpdateWithoutProfessionToolsInput>
+  }
+
+  export type ProfessionsUpdateWithoutProfessionToolsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    nameUz?: StringFieldUpdateOperationsInput | string
+    nameRu?: StringFieldUpdateOperationsInput | string
+    nameEn?: StringFieldUpdateOperationsInput | string
+    avatar?: StringFieldUpdateOperationsInput | string
+    status?: BoolFieldUpdateOperationsInput | boolean
+    MasterProfessions?: MasterProfessionsUpdateManyWithoutProfessionNestedInput
+    Backet?: BacketUpdateManyWithoutProfessionNestedInput
+    OrderItems?: OrderItemsUpdateManyWithoutProfessionNestedInput
+    ProfessionLevels?: ProfessionLevelsUpdateManyWithoutProfessionNestedInput
+  }
+
+  export type ProfessionsUncheckedUpdateWithoutProfessionToolsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    nameUz?: StringFieldUpdateOperationsInput | string
+    nameRu?: StringFieldUpdateOperationsInput | string
+    nameEn?: StringFieldUpdateOperationsInput | string
+    avatar?: StringFieldUpdateOperationsInput | string
+    status?: BoolFieldUpdateOperationsInput | boolean
+    MasterProfessions?: MasterProfessionsUncheckedUpdateManyWithoutProfessionNestedInput
+    Backet?: BacketUncheckedUpdateManyWithoutProfessionNestedInput
+    OrderItems?: OrderItemsUncheckedUpdateManyWithoutProfessionNestedInput
+    ProfessionLevels?: ProfessionLevelsUncheckedUpdateManyWithoutProfessionNestedInput
+  }
+
+  export type ToolsUpsertWithoutProfessionToolsInput = {
+    update: XOR<ToolsUpdateWithoutProfessionToolsInput, ToolsUncheckedUpdateWithoutProfessionToolsInput>
+    create: XOR<ToolsCreateWithoutProfessionToolsInput, ToolsUncheckedCreateWithoutProfessionToolsInput>
+    where?: ToolsWhereInput
+  }
+
+  export type ToolsUpdateToOneWithWhereWithoutProfessionToolsInput = {
+    where?: ToolsWhereInput
+    data: XOR<ToolsUpdateWithoutProfessionToolsInput, ToolsUncheckedUpdateWithoutProfessionToolsInput>
+  }
+
+  export type ToolsUpdateWithoutProfessionToolsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    code?: StringFieldUpdateOperationsInput | string
+    nameUz?: StringFieldUpdateOperationsInput | string
+    nameRu?: StringFieldUpdateOperationsInput | string
+    nameEn?: StringFieldUpdateOperationsInput | string
+    descriptionUz?: StringFieldUpdateOperationsInput | string
+    descriptionRu?: StringFieldUpdateOperationsInput | string
+    descriptionEn?: StringFieldUpdateOperationsInput | string
+    price?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    quantity?: IntFieldUpdateOperationsInput | number
+    image?: StringFieldUpdateOperationsInput | string
+    isAvailable?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    brand?: BrandsUpdateOneRequiredWithoutToolsNestedInput
+    capacity?: CapacityUpdateOneRequiredWithoutToolsNestedInput
+    size?: SizesUpdateOneRequiredWithoutToolsNestedInput
+    Backet?: BacketUpdateManyWithoutToolsNestedInput
+    OrderItems?: OrderItemsUpdateManyWithoutToolNestedInput
+  }
+
+  export type ToolsUncheckedUpdateWithoutProfessionToolsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    code?: StringFieldUpdateOperationsInput | string
+    nameUz?: StringFieldUpdateOperationsInput | string
+    nameRu?: StringFieldUpdateOperationsInput | string
+    nameEn?: StringFieldUpdateOperationsInput | string
+    descriptionUz?: StringFieldUpdateOperationsInput | string
+    descriptionRu?: StringFieldUpdateOperationsInput | string
+    descriptionEn?: StringFieldUpdateOperationsInput | string
+    price?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    quantity?: IntFieldUpdateOperationsInput | number
+    brandId?: StringFieldUpdateOperationsInput | string
+    capacityId?: StringFieldUpdateOperationsInput | string
+    sizeId?: StringFieldUpdateOperationsInput | string
+    image?: StringFieldUpdateOperationsInput | string
+    isAvailable?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    Backet?: BacketUncheckedUpdateManyWithoutToolsNestedInput
+    OrderItems?: OrderItemsUncheckedUpdateManyWithoutToolNestedInput
+  }
+
+  export type UsersCreateWithoutBacketInput = {
+    id?: string
+    fullName: string
+    phone: string
+    password: string
+    role: $Enums.UserRole
+    status?: $Enums.UserStatus
+    avatar: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    region: RegionsCreateNestedOneWithoutUsersInput
+    Comments?: CommentsCreateNestedManyWithoutUserInput
+    Sessions?: SessionsCreateNestedManyWithoutUserInput
+  }
+
+  export type UsersUncheckedCreateWithoutBacketInput = {
+    id?: string
+    fullName: string
+    phone: string
+    password: string
+    role: $Enums.UserRole
+    status?: $Enums.UserStatus
+    avatar: string
+    regionId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    Comments?: CommentsUncheckedCreateNestedManyWithoutUserInput
+    Sessions?: SessionsUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type UsersCreateOrConnectWithoutBacketInput = {
+    where: UsersWhereUniqueInput
+    create: XOR<UsersCreateWithoutBacketInput, UsersUncheckedCreateWithoutBacketInput>
+  }
+
+  export type ProfessionsCreateWithoutBacketInput = {
+    id?: string
+    nameUz: string
+    nameRu: string
+    nameEn: string
+    avatar: string
+    status: boolean
+    MasterProfessions?: MasterProfessionsCreateNestedManyWithoutProfessionInput
+    OrderItems?: OrderItemsCreateNestedManyWithoutProfessionInput
+    ProfessionLevels?: ProfessionLevelsCreateNestedManyWithoutProfessionInput
+    ProfessionTools?: ProfessionToolsCreateNestedManyWithoutProfessionsInput
+  }
+
+  export type ProfessionsUncheckedCreateWithoutBacketInput = {
+    id?: string
+    nameUz: string
+    nameRu: string
+    nameEn: string
+    avatar: string
+    status: boolean
+    MasterProfessions?: MasterProfessionsUncheckedCreateNestedManyWithoutProfessionInput
+    OrderItems?: OrderItemsUncheckedCreateNestedManyWithoutProfessionInput
+    ProfessionLevels?: ProfessionLevelsUncheckedCreateNestedManyWithoutProfessionInput
+    ProfessionTools?: ProfessionToolsUncheckedCreateNestedManyWithoutProfessionsInput
+  }
+
+  export type ProfessionsCreateOrConnectWithoutBacketInput = {
+    where: ProfessionsWhereUniqueInput
+    create: XOR<ProfessionsCreateWithoutBacketInput, ProfessionsUncheckedCreateWithoutBacketInput>
+  }
+
+  export type ToolsCreateWithoutBacketInput = {
+    id?: string
+    code: string
+    nameUz: string
+    nameRu: string
+    nameEn: string
+    descriptionUz: string
+    descriptionRu: string
+    descriptionEn: string
+    price: Decimal | DecimalJsLike | number | string
+    quantity: number
+    image: string
+    isAvailable: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    brand: BrandsCreateNestedOneWithoutToolsInput
+    capacity: CapacityCreateNestedOneWithoutToolsInput
+    size: SizesCreateNestedOneWithoutToolsInput
+    OrderItems?: OrderItemsCreateNestedManyWithoutToolInput
+    ProfessionTools?: ProfessionToolsCreateNestedManyWithoutToolsInput
+  }
+
+  export type ToolsUncheckedCreateWithoutBacketInput = {
+    id?: string
+    code: string
+    nameUz: string
+    nameRu: string
+    nameEn: string
+    descriptionUz: string
+    descriptionRu: string
+    descriptionEn: string
+    price: Decimal | DecimalJsLike | number | string
+    quantity: number
+    brandId: string
+    capacityId: string
+    sizeId: string
+    image: string
+    isAvailable: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    OrderItems?: OrderItemsUncheckedCreateNestedManyWithoutToolInput
+    ProfessionTools?: ProfessionToolsUncheckedCreateNestedManyWithoutToolsInput
+  }
+
+  export type ToolsCreateOrConnectWithoutBacketInput = {
+    where: ToolsWhereUniqueInput
+    create: XOR<ToolsCreateWithoutBacketInput, ToolsUncheckedCreateWithoutBacketInput>
+  }
+
+  export type LevelsCreateWithoutBacketInput = {
+    id?: string
+    nameUz: string
+    nameRu: string
+    nameEn: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    MasterProfessions?: MasterProfessionsCreateNestedManyWithoutLevelInput
+    OrderItems?: OrderItemsCreateNestedManyWithoutLevelInput
+    ProfessionLevels?: ProfessionLevelsCreateNestedManyWithoutLevelInput
+  }
+
+  export type LevelsUncheckedCreateWithoutBacketInput = {
+    id?: string
+    nameUz: string
+    nameRu: string
+    nameEn: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    MasterProfessions?: MasterProfessionsUncheckedCreateNestedManyWithoutLevelInput
+    OrderItems?: OrderItemsUncheckedCreateNestedManyWithoutLevelInput
+    ProfessionLevels?: ProfessionLevelsUncheckedCreateNestedManyWithoutLevelInput
+  }
+
+  export type LevelsCreateOrConnectWithoutBacketInput = {
+    where: LevelsWhereUniqueInput
+    create: XOR<LevelsCreateWithoutBacketInput, LevelsUncheckedCreateWithoutBacketInput>
+  }
+
+  export type UsersUpsertWithoutBacketInput = {
+    update: XOR<UsersUpdateWithoutBacketInput, UsersUncheckedUpdateWithoutBacketInput>
+    create: XOR<UsersCreateWithoutBacketInput, UsersUncheckedCreateWithoutBacketInput>
+    where?: UsersWhereInput
+  }
+
+  export type UsersUpdateToOneWithWhereWithoutBacketInput = {
+    where?: UsersWhereInput
+    data: XOR<UsersUpdateWithoutBacketInput, UsersUncheckedUpdateWithoutBacketInput>
+  }
+
+  export type UsersUpdateWithoutBacketInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    fullName?: StringFieldUpdateOperationsInput | string
+    phone?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    role?: EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
+    status?: EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+    avatar?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    region?: RegionsUpdateOneRequiredWithoutUsersNestedInput
+    Comments?: CommentsUpdateManyWithoutUserNestedInput
+    Sessions?: SessionsUpdateManyWithoutUserNestedInput
+  }
+
+  export type UsersUncheckedUpdateWithoutBacketInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    fullName?: StringFieldUpdateOperationsInput | string
+    phone?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    role?: EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
+    status?: EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+    avatar?: StringFieldUpdateOperationsInput | string
+    regionId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    Comments?: CommentsUncheckedUpdateManyWithoutUserNestedInput
+    Sessions?: SessionsUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type ProfessionsUpsertWithoutBacketInput = {
+    update: XOR<ProfessionsUpdateWithoutBacketInput, ProfessionsUncheckedUpdateWithoutBacketInput>
+    create: XOR<ProfessionsCreateWithoutBacketInput, ProfessionsUncheckedCreateWithoutBacketInput>
+    where?: ProfessionsWhereInput
+  }
+
+  export type ProfessionsUpdateToOneWithWhereWithoutBacketInput = {
+    where?: ProfessionsWhereInput
+    data: XOR<ProfessionsUpdateWithoutBacketInput, ProfessionsUncheckedUpdateWithoutBacketInput>
+  }
+
+  export type ProfessionsUpdateWithoutBacketInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    nameUz?: StringFieldUpdateOperationsInput | string
+    nameRu?: StringFieldUpdateOperationsInput | string
+    nameEn?: StringFieldUpdateOperationsInput | string
+    avatar?: StringFieldUpdateOperationsInput | string
+    status?: BoolFieldUpdateOperationsInput | boolean
+    MasterProfessions?: MasterProfessionsUpdateManyWithoutProfessionNestedInput
+    OrderItems?: OrderItemsUpdateManyWithoutProfessionNestedInput
+    ProfessionLevels?: ProfessionLevelsUpdateManyWithoutProfessionNestedInput
+    ProfessionTools?: ProfessionToolsUpdateManyWithoutProfessionsNestedInput
+  }
+
+  export type ProfessionsUncheckedUpdateWithoutBacketInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    nameUz?: StringFieldUpdateOperationsInput | string
+    nameRu?: StringFieldUpdateOperationsInput | string
+    nameEn?: StringFieldUpdateOperationsInput | string
+    avatar?: StringFieldUpdateOperationsInput | string
+    status?: BoolFieldUpdateOperationsInput | boolean
+    MasterProfessions?: MasterProfessionsUncheckedUpdateManyWithoutProfessionNestedInput
+    OrderItems?: OrderItemsUncheckedUpdateManyWithoutProfessionNestedInput
+    ProfessionLevels?: ProfessionLevelsUncheckedUpdateManyWithoutProfessionNestedInput
+    ProfessionTools?: ProfessionToolsUncheckedUpdateManyWithoutProfessionsNestedInput
+  }
+
+  export type ToolsUpsertWithoutBacketInput = {
+    update: XOR<ToolsUpdateWithoutBacketInput, ToolsUncheckedUpdateWithoutBacketInput>
+    create: XOR<ToolsCreateWithoutBacketInput, ToolsUncheckedCreateWithoutBacketInput>
+    where?: ToolsWhereInput
+  }
+
+  export type ToolsUpdateToOneWithWhereWithoutBacketInput = {
+    where?: ToolsWhereInput
+    data: XOR<ToolsUpdateWithoutBacketInput, ToolsUncheckedUpdateWithoutBacketInput>
+  }
+
+  export type ToolsUpdateWithoutBacketInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    code?: StringFieldUpdateOperationsInput | string
+    nameUz?: StringFieldUpdateOperationsInput | string
+    nameRu?: StringFieldUpdateOperationsInput | string
+    nameEn?: StringFieldUpdateOperationsInput | string
+    descriptionUz?: StringFieldUpdateOperationsInput | string
+    descriptionRu?: StringFieldUpdateOperationsInput | string
+    descriptionEn?: StringFieldUpdateOperationsInput | string
+    price?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    quantity?: IntFieldUpdateOperationsInput | number
+    image?: StringFieldUpdateOperationsInput | string
+    isAvailable?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    brand?: BrandsUpdateOneRequiredWithoutToolsNestedInput
+    capacity?: CapacityUpdateOneRequiredWithoutToolsNestedInput
+    size?: SizesUpdateOneRequiredWithoutToolsNestedInput
+    OrderItems?: OrderItemsUpdateManyWithoutToolNestedInput
+    ProfessionTools?: ProfessionToolsUpdateManyWithoutToolsNestedInput
+  }
+
+  export type ToolsUncheckedUpdateWithoutBacketInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    code?: StringFieldUpdateOperationsInput | string
+    nameUz?: StringFieldUpdateOperationsInput | string
+    nameRu?: StringFieldUpdateOperationsInput | string
+    nameEn?: StringFieldUpdateOperationsInput | string
+    descriptionUz?: StringFieldUpdateOperationsInput | string
+    descriptionRu?: StringFieldUpdateOperationsInput | string
+    descriptionEn?: StringFieldUpdateOperationsInput | string
+    price?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    quantity?: IntFieldUpdateOperationsInput | number
+    brandId?: StringFieldUpdateOperationsInput | string
+    capacityId?: StringFieldUpdateOperationsInput | string
+    sizeId?: StringFieldUpdateOperationsInput | string
+    image?: StringFieldUpdateOperationsInput | string
+    isAvailable?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    OrderItems?: OrderItemsUncheckedUpdateManyWithoutToolNestedInput
+    ProfessionTools?: ProfessionToolsUncheckedUpdateManyWithoutToolsNestedInput
+  }
+
+  export type LevelsUpsertWithoutBacketInput = {
+    update: XOR<LevelsUpdateWithoutBacketInput, LevelsUncheckedUpdateWithoutBacketInput>
+    create: XOR<LevelsCreateWithoutBacketInput, LevelsUncheckedCreateWithoutBacketInput>
+    where?: LevelsWhereInput
+  }
+
+  export type LevelsUpdateToOneWithWhereWithoutBacketInput = {
+    where?: LevelsWhereInput
+    data: XOR<LevelsUpdateWithoutBacketInput, LevelsUncheckedUpdateWithoutBacketInput>
+  }
+
+  export type LevelsUpdateWithoutBacketInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    nameUz?: StringFieldUpdateOperationsInput | string
+    nameRu?: StringFieldUpdateOperationsInput | string
+    nameEn?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    MasterProfessions?: MasterProfessionsUpdateManyWithoutLevelNestedInput
+    OrderItems?: OrderItemsUpdateManyWithoutLevelNestedInput
+    ProfessionLevels?: ProfessionLevelsUpdateManyWithoutLevelNestedInput
+  }
+
+  export type LevelsUncheckedUpdateWithoutBacketInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    nameUz?: StringFieldUpdateOperationsInput | string
+    nameRu?: StringFieldUpdateOperationsInput | string
+    nameEn?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    MasterProfessions?: MasterProfessionsUncheckedUpdateManyWithoutLevelNestedInput
+    OrderItems?: OrderItemsUncheckedUpdateManyWithoutLevelNestedInput
+    ProfessionLevels?: ProfessionLevelsUncheckedUpdateManyWithoutLevelNestedInput
+  }
+
+  export type CommentsCreateWithoutOrdersInput = {
+    id?: string
+    message: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    user: UsersCreateNestedOneWithoutCommentsInput
+  }
+
+  export type CommentsUncheckedCreateWithoutOrdersInput = {
+    id?: string
+    message: string
+    userId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type CommentsCreateOrConnectWithoutOrdersInput = {
+    where: CommentsWhereUniqueInput
+    create: XOR<CommentsCreateWithoutOrdersInput, CommentsUncheckedCreateWithoutOrdersInput>
+  }
+
+  export type OrderItemsCreateWithoutOrderInput = {
+    id?: string
+    measure: $Enums.OrderItemMeasure
+    workingTime: number
+    price: Decimal | DecimalJsLike | number | string
+    count: number
+    profession: ProfessionsCreateNestedOneWithoutOrderItemsInput
+    tool: ToolsCreateNestedOneWithoutOrderItemsInput
+    level: LevelsCreateNestedOneWithoutOrderItemsInput
+  }
+
+  export type OrderItemsUncheckedCreateWithoutOrderInput = {
+    id?: string
+    professionId: string
+    toolId: string
+    levelId: string
+    measure: $Enums.OrderItemMeasure
+    workingTime: number
+    price: Decimal | DecimalJsLike | number | string
+    count: number
+  }
+
+  export type OrderItemsCreateOrConnectWithoutOrderInput = {
+    where: OrderItemsWhereUniqueInput
+    create: XOR<OrderItemsCreateWithoutOrderInput, OrderItemsUncheckedCreateWithoutOrderInput>
+  }
+
+  export type OrderItemsCreateManyOrderInputEnvelope = {
+    data: OrderItemsCreateManyOrderInput | OrderItemsCreateManyOrderInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type CommentsUpsertWithoutOrdersInput = {
+    update: XOR<CommentsUpdateWithoutOrdersInput, CommentsUncheckedUpdateWithoutOrdersInput>
+    create: XOR<CommentsCreateWithoutOrdersInput, CommentsUncheckedCreateWithoutOrdersInput>
+    where?: CommentsWhereInput
+  }
+
+  export type CommentsUpdateToOneWithWhereWithoutOrdersInput = {
+    where?: CommentsWhereInput
+    data: XOR<CommentsUpdateWithoutOrdersInput, CommentsUncheckedUpdateWithoutOrdersInput>
+  }
+
+  export type CommentsUpdateWithoutOrdersInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    message?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UsersUpdateOneRequiredWithoutCommentsNestedInput
+  }
+
+  export type CommentsUncheckedUpdateWithoutOrdersInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    message?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type OrderItemsUpsertWithWhereUniqueWithoutOrderInput = {
+    where: OrderItemsWhereUniqueInput
+    update: XOR<OrderItemsUpdateWithoutOrderInput, OrderItemsUncheckedUpdateWithoutOrderInput>
+    create: XOR<OrderItemsCreateWithoutOrderInput, OrderItemsUncheckedCreateWithoutOrderInput>
+  }
+
+  export type OrderItemsUpdateWithWhereUniqueWithoutOrderInput = {
+    where: OrderItemsWhereUniqueInput
+    data: XOR<OrderItemsUpdateWithoutOrderInput, OrderItemsUncheckedUpdateWithoutOrderInput>
+  }
+
+  export type OrderItemsUpdateManyWithWhereWithoutOrderInput = {
+    where: OrderItemsScalarWhereInput
+    data: XOR<OrderItemsUpdateManyMutationInput, OrderItemsUncheckedUpdateManyWithoutOrderInput>
+  }
+
+  export type OrdersCreateWithoutOrderItemsInput = {
+    id?: string
+    ownerId: string
+    address: string
+    latitude: string
+    longitude: string
+    date: Date | string
+    totalPrice: Decimal | DecimalJsLike | number | string
+    paymentType: $Enums.PaymentType
+    withDelivery: boolean
+    status: $Enums.OrderStatus
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    deliveryComment?: CommentsCreateNestedOneWithoutOrdersInput
+  }
+
+  export type OrdersUncheckedCreateWithoutOrderItemsInput = {
+    id?: string
+    ownerId: string
+    address: string
+    latitude: string
+    longitude: string
+    date: Date | string
+    totalPrice: Decimal | DecimalJsLike | number | string
+    paymentType: $Enums.PaymentType
+    withDelivery: boolean
+    status: $Enums.OrderStatus
+    deliveryCommentId?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type OrdersCreateOrConnectWithoutOrderItemsInput = {
+    where: OrdersWhereUniqueInput
+    create: XOR<OrdersCreateWithoutOrderItemsInput, OrdersUncheckedCreateWithoutOrderItemsInput>
+  }
+
+  export type ProfessionsCreateWithoutOrderItemsInput = {
+    id?: string
+    nameUz: string
+    nameRu: string
+    nameEn: string
+    avatar: string
+    status: boolean
+    MasterProfessions?: MasterProfessionsCreateNestedManyWithoutProfessionInput
+    Backet?: BacketCreateNestedManyWithoutProfessionInput
+    ProfessionLevels?: ProfessionLevelsCreateNestedManyWithoutProfessionInput
+    ProfessionTools?: ProfessionToolsCreateNestedManyWithoutProfessionsInput
+  }
+
+  export type ProfessionsUncheckedCreateWithoutOrderItemsInput = {
+    id?: string
+    nameUz: string
+    nameRu: string
+    nameEn: string
+    avatar: string
+    status: boolean
+    MasterProfessions?: MasterProfessionsUncheckedCreateNestedManyWithoutProfessionInput
+    Backet?: BacketUncheckedCreateNestedManyWithoutProfessionInput
+    ProfessionLevels?: ProfessionLevelsUncheckedCreateNestedManyWithoutProfessionInput
+    ProfessionTools?: ProfessionToolsUncheckedCreateNestedManyWithoutProfessionsInput
+  }
+
+  export type ProfessionsCreateOrConnectWithoutOrderItemsInput = {
+    where: ProfessionsWhereUniqueInput
+    create: XOR<ProfessionsCreateWithoutOrderItemsInput, ProfessionsUncheckedCreateWithoutOrderItemsInput>
+  }
+
+  export type ToolsCreateWithoutOrderItemsInput = {
+    id?: string
+    code: string
+    nameUz: string
+    nameRu: string
+    nameEn: string
+    descriptionUz: string
+    descriptionRu: string
+    descriptionEn: string
+    price: Decimal | DecimalJsLike | number | string
+    quantity: number
+    image: string
+    isAvailable: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    brand: BrandsCreateNestedOneWithoutToolsInput
+    capacity: CapacityCreateNestedOneWithoutToolsInput
+    size: SizesCreateNestedOneWithoutToolsInput
+    Backet?: BacketCreateNestedManyWithoutToolsInput
+    ProfessionTools?: ProfessionToolsCreateNestedManyWithoutToolsInput
+  }
+
+  export type ToolsUncheckedCreateWithoutOrderItemsInput = {
+    id?: string
+    code: string
+    nameUz: string
+    nameRu: string
+    nameEn: string
+    descriptionUz: string
+    descriptionRu: string
+    descriptionEn: string
+    price: Decimal | DecimalJsLike | number | string
+    quantity: number
+    brandId: string
+    capacityId: string
+    sizeId: string
+    image: string
+    isAvailable: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    Backet?: BacketUncheckedCreateNestedManyWithoutToolsInput
+    ProfessionTools?: ProfessionToolsUncheckedCreateNestedManyWithoutToolsInput
+  }
+
+  export type ToolsCreateOrConnectWithoutOrderItemsInput = {
+    where: ToolsWhereUniqueInput
+    create: XOR<ToolsCreateWithoutOrderItemsInput, ToolsUncheckedCreateWithoutOrderItemsInput>
+  }
+
+  export type LevelsCreateWithoutOrderItemsInput = {
+    id?: string
+    nameUz: string
+    nameRu: string
+    nameEn: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    MasterProfessions?: MasterProfessionsCreateNestedManyWithoutLevelInput
+    Backet?: BacketCreateNestedManyWithoutLevelInput
+    ProfessionLevels?: ProfessionLevelsCreateNestedManyWithoutLevelInput
+  }
+
+  export type LevelsUncheckedCreateWithoutOrderItemsInput = {
+    id?: string
+    nameUz: string
+    nameRu: string
+    nameEn: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    MasterProfessions?: MasterProfessionsUncheckedCreateNestedManyWithoutLevelInput
+    Backet?: BacketUncheckedCreateNestedManyWithoutLevelInput
+    ProfessionLevels?: ProfessionLevelsUncheckedCreateNestedManyWithoutLevelInput
+  }
+
+  export type LevelsCreateOrConnectWithoutOrderItemsInput = {
+    where: LevelsWhereUniqueInput
+    create: XOR<LevelsCreateWithoutOrderItemsInput, LevelsUncheckedCreateWithoutOrderItemsInput>
+  }
+
+  export type OrdersUpsertWithoutOrderItemsInput = {
+    update: XOR<OrdersUpdateWithoutOrderItemsInput, OrdersUncheckedUpdateWithoutOrderItemsInput>
+    create: XOR<OrdersCreateWithoutOrderItemsInput, OrdersUncheckedCreateWithoutOrderItemsInput>
+    where?: OrdersWhereInput
+  }
+
+  export type OrdersUpdateToOneWithWhereWithoutOrderItemsInput = {
+    where?: OrdersWhereInput
+    data: XOR<OrdersUpdateWithoutOrderItemsInput, OrdersUncheckedUpdateWithoutOrderItemsInput>
+  }
+
+  export type OrdersUpdateWithoutOrderItemsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    ownerId?: StringFieldUpdateOperationsInput | string
+    address?: StringFieldUpdateOperationsInput | string
+    latitude?: StringFieldUpdateOperationsInput | string
+    longitude?: StringFieldUpdateOperationsInput | string
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    totalPrice?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    paymentType?: EnumPaymentTypeFieldUpdateOperationsInput | $Enums.PaymentType
+    withDelivery?: BoolFieldUpdateOperationsInput | boolean
+    status?: EnumOrderStatusFieldUpdateOperationsInput | $Enums.OrderStatus
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    deliveryComment?: CommentsUpdateOneWithoutOrdersNestedInput
+  }
+
+  export type OrdersUncheckedUpdateWithoutOrderItemsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    ownerId?: StringFieldUpdateOperationsInput | string
+    address?: StringFieldUpdateOperationsInput | string
+    latitude?: StringFieldUpdateOperationsInput | string
+    longitude?: StringFieldUpdateOperationsInput | string
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    totalPrice?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    paymentType?: EnumPaymentTypeFieldUpdateOperationsInput | $Enums.PaymentType
+    withDelivery?: BoolFieldUpdateOperationsInput | boolean
+    status?: EnumOrderStatusFieldUpdateOperationsInput | $Enums.OrderStatus
+    deliveryCommentId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ProfessionsUpsertWithoutOrderItemsInput = {
+    update: XOR<ProfessionsUpdateWithoutOrderItemsInput, ProfessionsUncheckedUpdateWithoutOrderItemsInput>
+    create: XOR<ProfessionsCreateWithoutOrderItemsInput, ProfessionsUncheckedCreateWithoutOrderItemsInput>
+    where?: ProfessionsWhereInput
+  }
+
+  export type ProfessionsUpdateToOneWithWhereWithoutOrderItemsInput = {
+    where?: ProfessionsWhereInput
+    data: XOR<ProfessionsUpdateWithoutOrderItemsInput, ProfessionsUncheckedUpdateWithoutOrderItemsInput>
+  }
+
+  export type ProfessionsUpdateWithoutOrderItemsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    nameUz?: StringFieldUpdateOperationsInput | string
+    nameRu?: StringFieldUpdateOperationsInput | string
+    nameEn?: StringFieldUpdateOperationsInput | string
+    avatar?: StringFieldUpdateOperationsInput | string
+    status?: BoolFieldUpdateOperationsInput | boolean
+    MasterProfessions?: MasterProfessionsUpdateManyWithoutProfessionNestedInput
+    Backet?: BacketUpdateManyWithoutProfessionNestedInput
+    ProfessionLevels?: ProfessionLevelsUpdateManyWithoutProfessionNestedInput
+    ProfessionTools?: ProfessionToolsUpdateManyWithoutProfessionsNestedInput
+  }
+
+  export type ProfessionsUncheckedUpdateWithoutOrderItemsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    nameUz?: StringFieldUpdateOperationsInput | string
+    nameRu?: StringFieldUpdateOperationsInput | string
+    nameEn?: StringFieldUpdateOperationsInput | string
+    avatar?: StringFieldUpdateOperationsInput | string
+    status?: BoolFieldUpdateOperationsInput | boolean
+    MasterProfessions?: MasterProfessionsUncheckedUpdateManyWithoutProfessionNestedInput
+    Backet?: BacketUncheckedUpdateManyWithoutProfessionNestedInput
+    ProfessionLevels?: ProfessionLevelsUncheckedUpdateManyWithoutProfessionNestedInput
+    ProfessionTools?: ProfessionToolsUncheckedUpdateManyWithoutProfessionsNestedInput
+  }
+
+  export type ToolsUpsertWithoutOrderItemsInput = {
+    update: XOR<ToolsUpdateWithoutOrderItemsInput, ToolsUncheckedUpdateWithoutOrderItemsInput>
+    create: XOR<ToolsCreateWithoutOrderItemsInput, ToolsUncheckedCreateWithoutOrderItemsInput>
+    where?: ToolsWhereInput
+  }
+
+  export type ToolsUpdateToOneWithWhereWithoutOrderItemsInput = {
+    where?: ToolsWhereInput
+    data: XOR<ToolsUpdateWithoutOrderItemsInput, ToolsUncheckedUpdateWithoutOrderItemsInput>
+  }
+
+  export type ToolsUpdateWithoutOrderItemsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    code?: StringFieldUpdateOperationsInput | string
+    nameUz?: StringFieldUpdateOperationsInput | string
+    nameRu?: StringFieldUpdateOperationsInput | string
+    nameEn?: StringFieldUpdateOperationsInput | string
+    descriptionUz?: StringFieldUpdateOperationsInput | string
+    descriptionRu?: StringFieldUpdateOperationsInput | string
+    descriptionEn?: StringFieldUpdateOperationsInput | string
+    price?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    quantity?: IntFieldUpdateOperationsInput | number
+    image?: StringFieldUpdateOperationsInput | string
+    isAvailable?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    brand?: BrandsUpdateOneRequiredWithoutToolsNestedInput
+    capacity?: CapacityUpdateOneRequiredWithoutToolsNestedInput
+    size?: SizesUpdateOneRequiredWithoutToolsNestedInput
+    Backet?: BacketUpdateManyWithoutToolsNestedInput
+    ProfessionTools?: ProfessionToolsUpdateManyWithoutToolsNestedInput
+  }
+
+  export type ToolsUncheckedUpdateWithoutOrderItemsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    code?: StringFieldUpdateOperationsInput | string
+    nameUz?: StringFieldUpdateOperationsInput | string
+    nameRu?: StringFieldUpdateOperationsInput | string
+    nameEn?: StringFieldUpdateOperationsInput | string
+    descriptionUz?: StringFieldUpdateOperationsInput | string
+    descriptionRu?: StringFieldUpdateOperationsInput | string
+    descriptionEn?: StringFieldUpdateOperationsInput | string
+    price?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    quantity?: IntFieldUpdateOperationsInput | number
+    brandId?: StringFieldUpdateOperationsInput | string
+    capacityId?: StringFieldUpdateOperationsInput | string
+    sizeId?: StringFieldUpdateOperationsInput | string
+    image?: StringFieldUpdateOperationsInput | string
+    isAvailable?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    Backet?: BacketUncheckedUpdateManyWithoutToolsNestedInput
+    ProfessionTools?: ProfessionToolsUncheckedUpdateManyWithoutToolsNestedInput
+  }
+
+  export type LevelsUpsertWithoutOrderItemsInput = {
+    update: XOR<LevelsUpdateWithoutOrderItemsInput, LevelsUncheckedUpdateWithoutOrderItemsInput>
+    create: XOR<LevelsCreateWithoutOrderItemsInput, LevelsUncheckedCreateWithoutOrderItemsInput>
+    where?: LevelsWhereInput
+  }
+
+  export type LevelsUpdateToOneWithWhereWithoutOrderItemsInput = {
+    where?: LevelsWhereInput
+    data: XOR<LevelsUpdateWithoutOrderItemsInput, LevelsUncheckedUpdateWithoutOrderItemsInput>
+  }
+
+  export type LevelsUpdateWithoutOrderItemsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    nameUz?: StringFieldUpdateOperationsInput | string
+    nameRu?: StringFieldUpdateOperationsInput | string
+    nameEn?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    MasterProfessions?: MasterProfessionsUpdateManyWithoutLevelNestedInput
+    Backet?: BacketUpdateManyWithoutLevelNestedInput
+    ProfessionLevels?: ProfessionLevelsUpdateManyWithoutLevelNestedInput
+  }
+
+  export type LevelsUncheckedUpdateWithoutOrderItemsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    nameUz?: StringFieldUpdateOperationsInput | string
+    nameRu?: StringFieldUpdateOperationsInput | string
+    nameEn?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    MasterProfessions?: MasterProfessionsUncheckedUpdateManyWithoutLevelNestedInput
+    Backet?: BacketUncheckedUpdateManyWithoutLevelNestedInput
+    ProfessionLevels?: ProfessionLevelsUncheckedUpdateManyWithoutLevelNestedInput
+  }
+
   export type UsersCreateManyRegionInput = {
     id?: string
     fullName: string
@@ -20856,6 +39932,9 @@ export namespace Prisma {
     avatar?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    Backet?: BacketUpdateManyWithoutOwnerNestedInput
+    Comments?: CommentsUpdateManyWithoutUserNestedInput
+    Sessions?: SessionsUpdateManyWithoutUserNestedInput
   }
 
   export type UsersUncheckedUpdateWithoutRegionInput = {
@@ -20868,6 +39947,9 @@ export namespace Prisma {
     avatar?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    Backet?: BacketUncheckedUpdateManyWithoutOwnerNestedInput
+    Comments?: CommentsUncheckedUpdateManyWithoutUserNestedInput
+    Sessions?: SessionsUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UsersUncheckedUpdateManyWithoutRegionInput = {
@@ -20880,6 +39962,948 @@ export namespace Prisma {
     avatar?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BacketCreateManyOwnerInput = {
+    id?: string
+    professionId: string
+    toolId: string
+    count: number
+    measure: $Enums.BacketMeasure
+    workingTime: number
+    totalPrice: Decimal | DecimalJsLike | number | string
+    levelId: string
+  }
+
+  export type CommentsCreateManyUserInput = {
+    id?: string
+    message: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type SessionsCreateManyUserInput = {
+    id?: string
+    ipAddress: string
+    deviceInfo: JsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+  }
+
+  export type BacketUpdateWithoutOwnerInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    count?: IntFieldUpdateOperationsInput | number
+    measure?: EnumBacketMeasureFieldUpdateOperationsInput | $Enums.BacketMeasure
+    workingTime?: IntFieldUpdateOperationsInput | number
+    totalPrice?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    profession?: ProfessionsUpdateOneRequiredWithoutBacketNestedInput
+    tools?: ToolsUpdateOneRequiredWithoutBacketNestedInput
+    level?: LevelsUpdateOneRequiredWithoutBacketNestedInput
+  }
+
+  export type BacketUncheckedUpdateWithoutOwnerInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    professionId?: StringFieldUpdateOperationsInput | string
+    toolId?: StringFieldUpdateOperationsInput | string
+    count?: IntFieldUpdateOperationsInput | number
+    measure?: EnumBacketMeasureFieldUpdateOperationsInput | $Enums.BacketMeasure
+    workingTime?: IntFieldUpdateOperationsInput | number
+    totalPrice?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    levelId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type BacketUncheckedUpdateManyWithoutOwnerInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    professionId?: StringFieldUpdateOperationsInput | string
+    toolId?: StringFieldUpdateOperationsInput | string
+    count?: IntFieldUpdateOperationsInput | number
+    measure?: EnumBacketMeasureFieldUpdateOperationsInput | $Enums.BacketMeasure
+    workingTime?: IntFieldUpdateOperationsInput | number
+    totalPrice?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    levelId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type CommentsUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    message?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    Orders?: OrdersUpdateManyWithoutDeliveryCommentNestedInput
+  }
+
+  export type CommentsUncheckedUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    message?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    Orders?: OrdersUncheckedUpdateManyWithoutDeliveryCommentNestedInput
+  }
+
+  export type CommentsUncheckedUpdateManyWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    message?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SessionsUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    ipAddress?: StringFieldUpdateOperationsInput | string
+    deviceInfo?: JsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SessionsUncheckedUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    ipAddress?: StringFieldUpdateOperationsInput | string
+    deviceInfo?: JsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SessionsUncheckedUpdateManyWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    ipAddress?: StringFieldUpdateOperationsInput | string
+    deviceInfo?: JsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type OrdersCreateManyDeliveryCommentInput = {
+    id?: string
+    ownerId: string
+    address: string
+    latitude: string
+    longitude: string
+    date: Date | string
+    totalPrice: Decimal | DecimalJsLike | number | string
+    paymentType: $Enums.PaymentType
+    withDelivery: boolean
+    status: $Enums.OrderStatus
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type OrdersUpdateWithoutDeliveryCommentInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    ownerId?: StringFieldUpdateOperationsInput | string
+    address?: StringFieldUpdateOperationsInput | string
+    latitude?: StringFieldUpdateOperationsInput | string
+    longitude?: StringFieldUpdateOperationsInput | string
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    totalPrice?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    paymentType?: EnumPaymentTypeFieldUpdateOperationsInput | $Enums.PaymentType
+    withDelivery?: BoolFieldUpdateOperationsInput | boolean
+    status?: EnumOrderStatusFieldUpdateOperationsInput | $Enums.OrderStatus
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    OrderItems?: OrderItemsUpdateManyWithoutOrderNestedInput
+  }
+
+  export type OrdersUncheckedUpdateWithoutDeliveryCommentInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    ownerId?: StringFieldUpdateOperationsInput | string
+    address?: StringFieldUpdateOperationsInput | string
+    latitude?: StringFieldUpdateOperationsInput | string
+    longitude?: StringFieldUpdateOperationsInput | string
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    totalPrice?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    paymentType?: EnumPaymentTypeFieldUpdateOperationsInput | $Enums.PaymentType
+    withDelivery?: BoolFieldUpdateOperationsInput | boolean
+    status?: EnumOrderStatusFieldUpdateOperationsInput | $Enums.OrderStatus
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    OrderItems?: OrderItemsUncheckedUpdateManyWithoutOrderNestedInput
+  }
+
+  export type OrdersUncheckedUpdateManyWithoutDeliveryCommentInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    ownerId?: StringFieldUpdateOperationsInput | string
+    address?: StringFieldUpdateOperationsInput | string
+    latitude?: StringFieldUpdateOperationsInput | string
+    longitude?: StringFieldUpdateOperationsInput | string
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    totalPrice?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    paymentType?: EnumPaymentTypeFieldUpdateOperationsInput | $Enums.PaymentType
+    withDelivery?: BoolFieldUpdateOperationsInput | boolean
+    status?: EnumOrderStatusFieldUpdateOperationsInput | $Enums.OrderStatus
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type MasterProfessionsCreateManyLevelInput = {
+    id?: string
+    professionId: string
+    minWorkingHours: number
+    priceHourly: Decimal | DecimalJsLike | number | string
+    priceDaily: Decimal | DecimalJsLike | number | string
+    experience: number
+    masterId: string
+  }
+
+  export type BacketCreateManyLevelInput = {
+    id?: string
+    ownerId: string
+    professionId: string
+    toolId: string
+    count: number
+    measure: $Enums.BacketMeasure
+    workingTime: number
+    totalPrice: Decimal | DecimalJsLike | number | string
+  }
+
+  export type OrderItemsCreateManyLevelInput = {
+    id?: string
+    orderId: string
+    professionId: string
+    toolId: string
+    measure: $Enums.OrderItemMeasure
+    workingTime: number
+    price: Decimal | DecimalJsLike | number | string
+    count: number
+  }
+
+  export type ProfessionLevelsCreateManyLevelInput = {
+    id?: string
+    professionId: string
+    minWorkingHours: number
+    priceHourly: Decimal | DecimalJsLike | number | string
+    priceDaily: Decimal | DecimalJsLike | number | string
+  }
+
+  export type MasterProfessionsUpdateWithoutLevelInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    minWorkingHours?: IntFieldUpdateOperationsInput | number
+    priceHourly?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    priceDaily?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    experience?: FloatFieldUpdateOperationsInput | number
+    profession?: ProfessionsUpdateOneRequiredWithoutMasterProfessionsNestedInput
+    master?: MastersUpdateOneRequiredWithoutMasterProfessionsNestedInput
+  }
+
+  export type MasterProfessionsUncheckedUpdateWithoutLevelInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    professionId?: StringFieldUpdateOperationsInput | string
+    minWorkingHours?: IntFieldUpdateOperationsInput | number
+    priceHourly?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    priceDaily?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    experience?: FloatFieldUpdateOperationsInput | number
+    masterId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type MasterProfessionsUncheckedUpdateManyWithoutLevelInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    professionId?: StringFieldUpdateOperationsInput | string
+    minWorkingHours?: IntFieldUpdateOperationsInput | number
+    priceHourly?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    priceDaily?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    experience?: FloatFieldUpdateOperationsInput | number
+    masterId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type BacketUpdateWithoutLevelInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    count?: IntFieldUpdateOperationsInput | number
+    measure?: EnumBacketMeasureFieldUpdateOperationsInput | $Enums.BacketMeasure
+    workingTime?: IntFieldUpdateOperationsInput | number
+    totalPrice?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    owner?: UsersUpdateOneRequiredWithoutBacketNestedInput
+    profession?: ProfessionsUpdateOneRequiredWithoutBacketNestedInput
+    tools?: ToolsUpdateOneRequiredWithoutBacketNestedInput
+  }
+
+  export type BacketUncheckedUpdateWithoutLevelInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    ownerId?: StringFieldUpdateOperationsInput | string
+    professionId?: StringFieldUpdateOperationsInput | string
+    toolId?: StringFieldUpdateOperationsInput | string
+    count?: IntFieldUpdateOperationsInput | number
+    measure?: EnumBacketMeasureFieldUpdateOperationsInput | $Enums.BacketMeasure
+    workingTime?: IntFieldUpdateOperationsInput | number
+    totalPrice?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+  }
+
+  export type BacketUncheckedUpdateManyWithoutLevelInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    ownerId?: StringFieldUpdateOperationsInput | string
+    professionId?: StringFieldUpdateOperationsInput | string
+    toolId?: StringFieldUpdateOperationsInput | string
+    count?: IntFieldUpdateOperationsInput | number
+    measure?: EnumBacketMeasureFieldUpdateOperationsInput | $Enums.BacketMeasure
+    workingTime?: IntFieldUpdateOperationsInput | number
+    totalPrice?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+  }
+
+  export type OrderItemsUpdateWithoutLevelInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    measure?: EnumOrderItemMeasureFieldUpdateOperationsInput | $Enums.OrderItemMeasure
+    workingTime?: IntFieldUpdateOperationsInput | number
+    price?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    count?: IntFieldUpdateOperationsInput | number
+    order?: OrdersUpdateOneRequiredWithoutOrderItemsNestedInput
+    profession?: ProfessionsUpdateOneRequiredWithoutOrderItemsNestedInput
+    tool?: ToolsUpdateOneRequiredWithoutOrderItemsNestedInput
+  }
+
+  export type OrderItemsUncheckedUpdateWithoutLevelInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    orderId?: StringFieldUpdateOperationsInput | string
+    professionId?: StringFieldUpdateOperationsInput | string
+    toolId?: StringFieldUpdateOperationsInput | string
+    measure?: EnumOrderItemMeasureFieldUpdateOperationsInput | $Enums.OrderItemMeasure
+    workingTime?: IntFieldUpdateOperationsInput | number
+    price?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    count?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type OrderItemsUncheckedUpdateManyWithoutLevelInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    orderId?: StringFieldUpdateOperationsInput | string
+    professionId?: StringFieldUpdateOperationsInput | string
+    toolId?: StringFieldUpdateOperationsInput | string
+    measure?: EnumOrderItemMeasureFieldUpdateOperationsInput | $Enums.OrderItemMeasure
+    workingTime?: IntFieldUpdateOperationsInput | number
+    price?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    count?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type ProfessionLevelsUpdateWithoutLevelInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    minWorkingHours?: IntFieldUpdateOperationsInput | number
+    priceHourly?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    priceDaily?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    profession?: ProfessionsUpdateOneRequiredWithoutProfessionLevelsNestedInput
+  }
+
+  export type ProfessionLevelsUncheckedUpdateWithoutLevelInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    professionId?: StringFieldUpdateOperationsInput | string
+    minWorkingHours?: IntFieldUpdateOperationsInput | number
+    priceHourly?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    priceDaily?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+  }
+
+  export type ProfessionLevelsUncheckedUpdateManyWithoutLevelInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    professionId?: StringFieldUpdateOperationsInput | string
+    minWorkingHours?: IntFieldUpdateOperationsInput | number
+    priceHourly?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    priceDaily?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+  }
+
+  export type ToolsCreateManyCapacityInput = {
+    id?: string
+    code: string
+    nameUz: string
+    nameRu: string
+    nameEn: string
+    descriptionUz: string
+    descriptionRu: string
+    descriptionEn: string
+    price: Decimal | DecimalJsLike | number | string
+    quantity: number
+    brandId: string
+    sizeId: string
+    image: string
+    isAvailable: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ToolsUpdateWithoutCapacityInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    code?: StringFieldUpdateOperationsInput | string
+    nameUz?: StringFieldUpdateOperationsInput | string
+    nameRu?: StringFieldUpdateOperationsInput | string
+    nameEn?: StringFieldUpdateOperationsInput | string
+    descriptionUz?: StringFieldUpdateOperationsInput | string
+    descriptionRu?: StringFieldUpdateOperationsInput | string
+    descriptionEn?: StringFieldUpdateOperationsInput | string
+    price?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    quantity?: IntFieldUpdateOperationsInput | number
+    image?: StringFieldUpdateOperationsInput | string
+    isAvailable?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    brand?: BrandsUpdateOneRequiredWithoutToolsNestedInput
+    size?: SizesUpdateOneRequiredWithoutToolsNestedInput
+    Backet?: BacketUpdateManyWithoutToolsNestedInput
+    OrderItems?: OrderItemsUpdateManyWithoutToolNestedInput
+    ProfessionTools?: ProfessionToolsUpdateManyWithoutToolsNestedInput
+  }
+
+  export type ToolsUncheckedUpdateWithoutCapacityInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    code?: StringFieldUpdateOperationsInput | string
+    nameUz?: StringFieldUpdateOperationsInput | string
+    nameRu?: StringFieldUpdateOperationsInput | string
+    nameEn?: StringFieldUpdateOperationsInput | string
+    descriptionUz?: StringFieldUpdateOperationsInput | string
+    descriptionRu?: StringFieldUpdateOperationsInput | string
+    descriptionEn?: StringFieldUpdateOperationsInput | string
+    price?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    quantity?: IntFieldUpdateOperationsInput | number
+    brandId?: StringFieldUpdateOperationsInput | string
+    sizeId?: StringFieldUpdateOperationsInput | string
+    image?: StringFieldUpdateOperationsInput | string
+    isAvailable?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    Backet?: BacketUncheckedUpdateManyWithoutToolsNestedInput
+    OrderItems?: OrderItemsUncheckedUpdateManyWithoutToolNestedInput
+    ProfessionTools?: ProfessionToolsUncheckedUpdateManyWithoutToolsNestedInput
+  }
+
+  export type ToolsUncheckedUpdateManyWithoutCapacityInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    code?: StringFieldUpdateOperationsInput | string
+    nameUz?: StringFieldUpdateOperationsInput | string
+    nameRu?: StringFieldUpdateOperationsInput | string
+    nameEn?: StringFieldUpdateOperationsInput | string
+    descriptionUz?: StringFieldUpdateOperationsInput | string
+    descriptionRu?: StringFieldUpdateOperationsInput | string
+    descriptionEn?: StringFieldUpdateOperationsInput | string
+    price?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    quantity?: IntFieldUpdateOperationsInput | number
+    brandId?: StringFieldUpdateOperationsInput | string
+    sizeId?: StringFieldUpdateOperationsInput | string
+    image?: StringFieldUpdateOperationsInput | string
+    isAvailable?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ToolsCreateManySizeInput = {
+    id?: string
+    code: string
+    nameUz: string
+    nameRu: string
+    nameEn: string
+    descriptionUz: string
+    descriptionRu: string
+    descriptionEn: string
+    price: Decimal | DecimalJsLike | number | string
+    quantity: number
+    brandId: string
+    capacityId: string
+    image: string
+    isAvailable: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ToolsUpdateWithoutSizeInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    code?: StringFieldUpdateOperationsInput | string
+    nameUz?: StringFieldUpdateOperationsInput | string
+    nameRu?: StringFieldUpdateOperationsInput | string
+    nameEn?: StringFieldUpdateOperationsInput | string
+    descriptionUz?: StringFieldUpdateOperationsInput | string
+    descriptionRu?: StringFieldUpdateOperationsInput | string
+    descriptionEn?: StringFieldUpdateOperationsInput | string
+    price?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    quantity?: IntFieldUpdateOperationsInput | number
+    image?: StringFieldUpdateOperationsInput | string
+    isAvailable?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    brand?: BrandsUpdateOneRequiredWithoutToolsNestedInput
+    capacity?: CapacityUpdateOneRequiredWithoutToolsNestedInput
+    Backet?: BacketUpdateManyWithoutToolsNestedInput
+    OrderItems?: OrderItemsUpdateManyWithoutToolNestedInput
+    ProfessionTools?: ProfessionToolsUpdateManyWithoutToolsNestedInput
+  }
+
+  export type ToolsUncheckedUpdateWithoutSizeInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    code?: StringFieldUpdateOperationsInput | string
+    nameUz?: StringFieldUpdateOperationsInput | string
+    nameRu?: StringFieldUpdateOperationsInput | string
+    nameEn?: StringFieldUpdateOperationsInput | string
+    descriptionUz?: StringFieldUpdateOperationsInput | string
+    descriptionRu?: StringFieldUpdateOperationsInput | string
+    descriptionEn?: StringFieldUpdateOperationsInput | string
+    price?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    quantity?: IntFieldUpdateOperationsInput | number
+    brandId?: StringFieldUpdateOperationsInput | string
+    capacityId?: StringFieldUpdateOperationsInput | string
+    image?: StringFieldUpdateOperationsInput | string
+    isAvailable?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    Backet?: BacketUncheckedUpdateManyWithoutToolsNestedInput
+    OrderItems?: OrderItemsUncheckedUpdateManyWithoutToolNestedInput
+    ProfessionTools?: ProfessionToolsUncheckedUpdateManyWithoutToolsNestedInput
+  }
+
+  export type ToolsUncheckedUpdateManyWithoutSizeInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    code?: StringFieldUpdateOperationsInput | string
+    nameUz?: StringFieldUpdateOperationsInput | string
+    nameRu?: StringFieldUpdateOperationsInput | string
+    nameEn?: StringFieldUpdateOperationsInput | string
+    descriptionUz?: StringFieldUpdateOperationsInput | string
+    descriptionRu?: StringFieldUpdateOperationsInput | string
+    descriptionEn?: StringFieldUpdateOperationsInput | string
+    price?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    quantity?: IntFieldUpdateOperationsInput | number
+    brandId?: StringFieldUpdateOperationsInput | string
+    capacityId?: StringFieldUpdateOperationsInput | string
+    image?: StringFieldUpdateOperationsInput | string
+    isAvailable?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ToolsCreateManyBrandInput = {
+    id?: string
+    code: string
+    nameUz: string
+    nameRu: string
+    nameEn: string
+    descriptionUz: string
+    descriptionRu: string
+    descriptionEn: string
+    price: Decimal | DecimalJsLike | number | string
+    quantity: number
+    capacityId: string
+    sizeId: string
+    image: string
+    isAvailable: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ToolsUpdateWithoutBrandInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    code?: StringFieldUpdateOperationsInput | string
+    nameUz?: StringFieldUpdateOperationsInput | string
+    nameRu?: StringFieldUpdateOperationsInput | string
+    nameEn?: StringFieldUpdateOperationsInput | string
+    descriptionUz?: StringFieldUpdateOperationsInput | string
+    descriptionRu?: StringFieldUpdateOperationsInput | string
+    descriptionEn?: StringFieldUpdateOperationsInput | string
+    price?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    quantity?: IntFieldUpdateOperationsInput | number
+    image?: StringFieldUpdateOperationsInput | string
+    isAvailable?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    capacity?: CapacityUpdateOneRequiredWithoutToolsNestedInput
+    size?: SizesUpdateOneRequiredWithoutToolsNestedInput
+    Backet?: BacketUpdateManyWithoutToolsNestedInput
+    OrderItems?: OrderItemsUpdateManyWithoutToolNestedInput
+    ProfessionTools?: ProfessionToolsUpdateManyWithoutToolsNestedInput
+  }
+
+  export type ToolsUncheckedUpdateWithoutBrandInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    code?: StringFieldUpdateOperationsInput | string
+    nameUz?: StringFieldUpdateOperationsInput | string
+    nameRu?: StringFieldUpdateOperationsInput | string
+    nameEn?: StringFieldUpdateOperationsInput | string
+    descriptionUz?: StringFieldUpdateOperationsInput | string
+    descriptionRu?: StringFieldUpdateOperationsInput | string
+    descriptionEn?: StringFieldUpdateOperationsInput | string
+    price?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    quantity?: IntFieldUpdateOperationsInput | number
+    capacityId?: StringFieldUpdateOperationsInput | string
+    sizeId?: StringFieldUpdateOperationsInput | string
+    image?: StringFieldUpdateOperationsInput | string
+    isAvailable?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    Backet?: BacketUncheckedUpdateManyWithoutToolsNestedInput
+    OrderItems?: OrderItemsUncheckedUpdateManyWithoutToolNestedInput
+    ProfessionTools?: ProfessionToolsUncheckedUpdateManyWithoutToolsNestedInput
+  }
+
+  export type ToolsUncheckedUpdateManyWithoutBrandInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    code?: StringFieldUpdateOperationsInput | string
+    nameUz?: StringFieldUpdateOperationsInput | string
+    nameRu?: StringFieldUpdateOperationsInput | string
+    nameEn?: StringFieldUpdateOperationsInput | string
+    descriptionUz?: StringFieldUpdateOperationsInput | string
+    descriptionRu?: StringFieldUpdateOperationsInput | string
+    descriptionEn?: StringFieldUpdateOperationsInput | string
+    price?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    quantity?: IntFieldUpdateOperationsInput | number
+    capacityId?: StringFieldUpdateOperationsInput | string
+    sizeId?: StringFieldUpdateOperationsInput | string
+    image?: StringFieldUpdateOperationsInput | string
+    isAvailable?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type MasterProfessionsCreateManyMasterInput = {
+    id?: string
+    professionId: string
+    minWorkingHours: number
+    levelId: string
+    priceHourly: Decimal | DecimalJsLike | number | string
+    priceDaily: Decimal | DecimalJsLike | number | string
+    experience: number
+  }
+
+  export type MasterProfessionsUpdateWithoutMasterInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    minWorkingHours?: IntFieldUpdateOperationsInput | number
+    priceHourly?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    priceDaily?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    experience?: FloatFieldUpdateOperationsInput | number
+    profession?: ProfessionsUpdateOneRequiredWithoutMasterProfessionsNestedInput
+    level?: LevelsUpdateOneRequiredWithoutMasterProfessionsNestedInput
+  }
+
+  export type MasterProfessionsUncheckedUpdateWithoutMasterInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    professionId?: StringFieldUpdateOperationsInput | string
+    minWorkingHours?: IntFieldUpdateOperationsInput | number
+    levelId?: StringFieldUpdateOperationsInput | string
+    priceHourly?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    priceDaily?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    experience?: FloatFieldUpdateOperationsInput | number
+  }
+
+  export type MasterProfessionsUncheckedUpdateManyWithoutMasterInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    professionId?: StringFieldUpdateOperationsInput | string
+    minWorkingHours?: IntFieldUpdateOperationsInput | number
+    levelId?: StringFieldUpdateOperationsInput | string
+    priceHourly?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    priceDaily?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    experience?: FloatFieldUpdateOperationsInput | number
+  }
+
+  export type MasterProfessionsCreateManyProfessionInput = {
+    id?: string
+    minWorkingHours: number
+    levelId: string
+    priceHourly: Decimal | DecimalJsLike | number | string
+    priceDaily: Decimal | DecimalJsLike | number | string
+    experience: number
+    masterId: string
+  }
+
+  export type BacketCreateManyProfessionInput = {
+    id?: string
+    ownerId: string
+    toolId: string
+    count: number
+    measure: $Enums.BacketMeasure
+    workingTime: number
+    totalPrice: Decimal | DecimalJsLike | number | string
+    levelId: string
+  }
+
+  export type OrderItemsCreateManyProfessionInput = {
+    id?: string
+    orderId: string
+    toolId: string
+    levelId: string
+    measure: $Enums.OrderItemMeasure
+    workingTime: number
+    price: Decimal | DecimalJsLike | number | string
+    count: number
+  }
+
+  export type ProfessionLevelsCreateManyProfessionInput = {
+    id?: string
+    levelId: string
+    minWorkingHours: number
+    priceHourly: Decimal | DecimalJsLike | number | string
+    priceDaily: Decimal | DecimalJsLike | number | string
+  }
+
+  export type ProfessionToolsCreateManyProfessionsInput = {
+    id?: string
+    toolId: string
+  }
+
+  export type MasterProfessionsUpdateWithoutProfessionInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    minWorkingHours?: IntFieldUpdateOperationsInput | number
+    priceHourly?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    priceDaily?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    experience?: FloatFieldUpdateOperationsInput | number
+    level?: LevelsUpdateOneRequiredWithoutMasterProfessionsNestedInput
+    master?: MastersUpdateOneRequiredWithoutMasterProfessionsNestedInput
+  }
+
+  export type MasterProfessionsUncheckedUpdateWithoutProfessionInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    minWorkingHours?: IntFieldUpdateOperationsInput | number
+    levelId?: StringFieldUpdateOperationsInput | string
+    priceHourly?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    priceDaily?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    experience?: FloatFieldUpdateOperationsInput | number
+    masterId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type MasterProfessionsUncheckedUpdateManyWithoutProfessionInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    minWorkingHours?: IntFieldUpdateOperationsInput | number
+    levelId?: StringFieldUpdateOperationsInput | string
+    priceHourly?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    priceDaily?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    experience?: FloatFieldUpdateOperationsInput | number
+    masterId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type BacketUpdateWithoutProfessionInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    count?: IntFieldUpdateOperationsInput | number
+    measure?: EnumBacketMeasureFieldUpdateOperationsInput | $Enums.BacketMeasure
+    workingTime?: IntFieldUpdateOperationsInput | number
+    totalPrice?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    owner?: UsersUpdateOneRequiredWithoutBacketNestedInput
+    tools?: ToolsUpdateOneRequiredWithoutBacketNestedInput
+    level?: LevelsUpdateOneRequiredWithoutBacketNestedInput
+  }
+
+  export type BacketUncheckedUpdateWithoutProfessionInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    ownerId?: StringFieldUpdateOperationsInput | string
+    toolId?: StringFieldUpdateOperationsInput | string
+    count?: IntFieldUpdateOperationsInput | number
+    measure?: EnumBacketMeasureFieldUpdateOperationsInput | $Enums.BacketMeasure
+    workingTime?: IntFieldUpdateOperationsInput | number
+    totalPrice?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    levelId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type BacketUncheckedUpdateManyWithoutProfessionInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    ownerId?: StringFieldUpdateOperationsInput | string
+    toolId?: StringFieldUpdateOperationsInput | string
+    count?: IntFieldUpdateOperationsInput | number
+    measure?: EnumBacketMeasureFieldUpdateOperationsInput | $Enums.BacketMeasure
+    workingTime?: IntFieldUpdateOperationsInput | number
+    totalPrice?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    levelId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type OrderItemsUpdateWithoutProfessionInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    measure?: EnumOrderItemMeasureFieldUpdateOperationsInput | $Enums.OrderItemMeasure
+    workingTime?: IntFieldUpdateOperationsInput | number
+    price?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    count?: IntFieldUpdateOperationsInput | number
+    order?: OrdersUpdateOneRequiredWithoutOrderItemsNestedInput
+    tool?: ToolsUpdateOneRequiredWithoutOrderItemsNestedInput
+    level?: LevelsUpdateOneRequiredWithoutOrderItemsNestedInput
+  }
+
+  export type OrderItemsUncheckedUpdateWithoutProfessionInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    orderId?: StringFieldUpdateOperationsInput | string
+    toolId?: StringFieldUpdateOperationsInput | string
+    levelId?: StringFieldUpdateOperationsInput | string
+    measure?: EnumOrderItemMeasureFieldUpdateOperationsInput | $Enums.OrderItemMeasure
+    workingTime?: IntFieldUpdateOperationsInput | number
+    price?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    count?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type OrderItemsUncheckedUpdateManyWithoutProfessionInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    orderId?: StringFieldUpdateOperationsInput | string
+    toolId?: StringFieldUpdateOperationsInput | string
+    levelId?: StringFieldUpdateOperationsInput | string
+    measure?: EnumOrderItemMeasureFieldUpdateOperationsInput | $Enums.OrderItemMeasure
+    workingTime?: IntFieldUpdateOperationsInput | number
+    price?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    count?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type ProfessionLevelsUpdateWithoutProfessionInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    minWorkingHours?: IntFieldUpdateOperationsInput | number
+    priceHourly?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    priceDaily?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    level?: LevelsUpdateOneRequiredWithoutProfessionLevelsNestedInput
+  }
+
+  export type ProfessionLevelsUncheckedUpdateWithoutProfessionInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    levelId?: StringFieldUpdateOperationsInput | string
+    minWorkingHours?: IntFieldUpdateOperationsInput | number
+    priceHourly?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    priceDaily?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+  }
+
+  export type ProfessionLevelsUncheckedUpdateManyWithoutProfessionInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    levelId?: StringFieldUpdateOperationsInput | string
+    minWorkingHours?: IntFieldUpdateOperationsInput | number
+    priceHourly?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    priceDaily?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+  }
+
+  export type ProfessionToolsUpdateWithoutProfessionsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    tools?: ToolsUpdateOneRequiredWithoutProfessionToolsNestedInput
+  }
+
+  export type ProfessionToolsUncheckedUpdateWithoutProfessionsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    toolId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ProfessionToolsUncheckedUpdateManyWithoutProfessionsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    toolId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type BacketCreateManyToolsInput = {
+    id?: string
+    ownerId: string
+    professionId: string
+    count: number
+    measure: $Enums.BacketMeasure
+    workingTime: number
+    totalPrice: Decimal | DecimalJsLike | number | string
+    levelId: string
+  }
+
+  export type OrderItemsCreateManyToolInput = {
+    id?: string
+    orderId: string
+    professionId: string
+    levelId: string
+    measure: $Enums.OrderItemMeasure
+    workingTime: number
+    price: Decimal | DecimalJsLike | number | string
+    count: number
+  }
+
+  export type ProfessionToolsCreateManyToolsInput = {
+    id?: string
+    professionId: string
+  }
+
+  export type BacketUpdateWithoutToolsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    count?: IntFieldUpdateOperationsInput | number
+    measure?: EnumBacketMeasureFieldUpdateOperationsInput | $Enums.BacketMeasure
+    workingTime?: IntFieldUpdateOperationsInput | number
+    totalPrice?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    owner?: UsersUpdateOneRequiredWithoutBacketNestedInput
+    profession?: ProfessionsUpdateOneRequiredWithoutBacketNestedInput
+    level?: LevelsUpdateOneRequiredWithoutBacketNestedInput
+  }
+
+  export type BacketUncheckedUpdateWithoutToolsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    ownerId?: StringFieldUpdateOperationsInput | string
+    professionId?: StringFieldUpdateOperationsInput | string
+    count?: IntFieldUpdateOperationsInput | number
+    measure?: EnumBacketMeasureFieldUpdateOperationsInput | $Enums.BacketMeasure
+    workingTime?: IntFieldUpdateOperationsInput | number
+    totalPrice?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    levelId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type BacketUncheckedUpdateManyWithoutToolsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    ownerId?: StringFieldUpdateOperationsInput | string
+    professionId?: StringFieldUpdateOperationsInput | string
+    count?: IntFieldUpdateOperationsInput | number
+    measure?: EnumBacketMeasureFieldUpdateOperationsInput | $Enums.BacketMeasure
+    workingTime?: IntFieldUpdateOperationsInput | number
+    totalPrice?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    levelId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type OrderItemsUpdateWithoutToolInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    measure?: EnumOrderItemMeasureFieldUpdateOperationsInput | $Enums.OrderItemMeasure
+    workingTime?: IntFieldUpdateOperationsInput | number
+    price?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    count?: IntFieldUpdateOperationsInput | number
+    order?: OrdersUpdateOneRequiredWithoutOrderItemsNestedInput
+    profession?: ProfessionsUpdateOneRequiredWithoutOrderItemsNestedInput
+    level?: LevelsUpdateOneRequiredWithoutOrderItemsNestedInput
+  }
+
+  export type OrderItemsUncheckedUpdateWithoutToolInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    orderId?: StringFieldUpdateOperationsInput | string
+    professionId?: StringFieldUpdateOperationsInput | string
+    levelId?: StringFieldUpdateOperationsInput | string
+    measure?: EnumOrderItemMeasureFieldUpdateOperationsInput | $Enums.OrderItemMeasure
+    workingTime?: IntFieldUpdateOperationsInput | number
+    price?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    count?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type OrderItemsUncheckedUpdateManyWithoutToolInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    orderId?: StringFieldUpdateOperationsInput | string
+    professionId?: StringFieldUpdateOperationsInput | string
+    levelId?: StringFieldUpdateOperationsInput | string
+    measure?: EnumOrderItemMeasureFieldUpdateOperationsInput | $Enums.OrderItemMeasure
+    workingTime?: IntFieldUpdateOperationsInput | number
+    price?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    count?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type ProfessionToolsUpdateWithoutToolsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    professions?: ProfessionsUpdateOneRequiredWithoutProfessionToolsNestedInput
+  }
+
+  export type ProfessionToolsUncheckedUpdateWithoutToolsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    professionId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ProfessionToolsUncheckedUpdateManyWithoutToolsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    professionId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type OrderItemsCreateManyOrderInput = {
+    id?: string
+    professionId: string
+    toolId: string
+    levelId: string
+    measure: $Enums.OrderItemMeasure
+    workingTime: number
+    price: Decimal | DecimalJsLike | number | string
+    count: number
+  }
+
+  export type OrderItemsUpdateWithoutOrderInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    measure?: EnumOrderItemMeasureFieldUpdateOperationsInput | $Enums.OrderItemMeasure
+    workingTime?: IntFieldUpdateOperationsInput | number
+    price?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    count?: IntFieldUpdateOperationsInput | number
+    profession?: ProfessionsUpdateOneRequiredWithoutOrderItemsNestedInput
+    tool?: ToolsUpdateOneRequiredWithoutOrderItemsNestedInput
+    level?: LevelsUpdateOneRequiredWithoutOrderItemsNestedInput
+  }
+
+  export type OrderItemsUncheckedUpdateWithoutOrderInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    professionId?: StringFieldUpdateOperationsInput | string
+    toolId?: StringFieldUpdateOperationsInput | string
+    levelId?: StringFieldUpdateOperationsInput | string
+    measure?: EnumOrderItemMeasureFieldUpdateOperationsInput | $Enums.OrderItemMeasure
+    workingTime?: IntFieldUpdateOperationsInput | number
+    price?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    count?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type OrderItemsUncheckedUpdateManyWithoutOrderInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    professionId?: StringFieldUpdateOperationsInput | string
+    toolId?: StringFieldUpdateOperationsInput | string
+    levelId?: StringFieldUpdateOperationsInput | string
+    measure?: EnumOrderItemMeasureFieldUpdateOperationsInput | $Enums.OrderItemMeasure
+    workingTime?: IntFieldUpdateOperationsInput | number
+    price?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    count?: IntFieldUpdateOperationsInput | number
   }
 
 

@@ -214,6 +214,7 @@ exports.Prisma.PartnersScalarFieldEnum = {
 exports.Prisma.CommentsScalarFieldEnum = {
   id: 'id',
   message: 'message',
+  userId: 'userId',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
@@ -261,6 +262,112 @@ exports.Prisma.BrandsScalarFieldEnum = {
   updatedAt: 'updatedAt'
 };
 
+exports.Prisma.MastersScalarFieldEnum = {
+  id: 'id',
+  fullName: 'fullName',
+  phone: 'phone',
+  status: 'status',
+  dateOfBirth: 'dateOfBirth',
+  avatar: 'avatar',
+  passportImage: 'passportImage',
+  about: 'about'
+};
+
+exports.Prisma.ProfessionsScalarFieldEnum = {
+  id: 'id',
+  nameUz: 'nameUz',
+  nameRu: 'nameRu',
+  nameEn: 'nameEn',
+  avatar: 'avatar',
+  status: 'status'
+};
+
+exports.Prisma.MasterProfessionsScalarFieldEnum = {
+  id: 'id',
+  professionId: 'professionId',
+  minWorkingHours: 'minWorkingHours',
+  levelId: 'levelId',
+  priceHourly: 'priceHourly',
+  priceDaily: 'priceDaily',
+  experience: 'experience',
+  masterId: 'masterId'
+};
+
+exports.Prisma.ProfessionLevelsScalarFieldEnum = {
+  id: 'id',
+  professionId: 'professionId',
+  levelId: 'levelId',
+  minWorkingHours: 'minWorkingHours',
+  priceHourly: 'priceHourly',
+  priceDaily: 'priceDaily'
+};
+
+exports.Prisma.ToolsScalarFieldEnum = {
+  id: 'id',
+  code: 'code',
+  nameUz: 'nameUz',
+  nameRu: 'nameRu',
+  nameEn: 'nameEn',
+  descriptionUz: 'descriptionUz',
+  descriptionRu: 'descriptionRu',
+  descriptionEn: 'descriptionEn',
+  price: 'price',
+  quantity: 'quantity',
+  brandId: 'brandId',
+  capacityId: 'capacityId',
+  sizeId: 'sizeId',
+  image: 'image',
+  isAvailable: 'isAvailable',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.ProfessionToolsScalarFieldEnum = {
+  id: 'id',
+  professionId: 'professionId',
+  toolId: 'toolId'
+};
+
+exports.Prisma.BacketScalarFieldEnum = {
+  id: 'id',
+  ownerId: 'ownerId',
+  professionId: 'professionId',
+  toolId: 'toolId',
+  count: 'count',
+  measure: 'measure',
+  workingTime: 'workingTime',
+  totalPrice: 'totalPrice',
+  levelId: 'levelId'
+};
+
+exports.Prisma.OrdersScalarFieldEnum = {
+  id: 'id',
+  ownerId: 'ownerId',
+  address: 'address',
+  latitude: 'latitude',
+  longitude: 'longitude',
+  date: 'date',
+  totalPrice: 'totalPrice',
+  paymentType: 'paymentType',
+  withDelivery: 'withDelivery',
+  status: 'status',
+  deliveryCommentId: 'deliveryCommentId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.OrderItemsScalarFieldEnum = {
+  id: 'id',
+  orderId: 'orderId',
+  professionId: 'professionId',
+  toolId: 'toolId',
+  levelId: 'levelId',
+  measure: 'measure',
+  workingTime: 'workingTime',
+  price: 'price',
+  count: 'count'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -280,6 +387,11 @@ exports.Prisma.JsonNullValueFilter = {
   JsonNull: Prisma.JsonNull,
   AnyNull: Prisma.AnyNull
 };
+
+exports.Prisma.NullsOrder = {
+  first: 'first',
+  last: 'last'
+};
 exports.UserRole = exports.$Enums.UserRole = {
   ADMIN: 'ADMIN',
   SUPER_ADMIN: 'SUPER_ADMIN',
@@ -291,6 +403,27 @@ exports.UserRole = exports.$Enums.UserRole = {
 exports.UserStatus = exports.$Enums.UserStatus = {
   ACTIVE: 'ACTIVE',
   INACTIVE: 'INACTIVE'
+};
+
+exports.BacketMeasure = exports.$Enums.BacketMeasure = {
+  DAY: 'DAY',
+  HOUR: 'HOUR'
+};
+
+exports.PaymentType = exports.$Enums.PaymentType = {
+  CARD: 'CARD',
+  CASH: 'CASH'
+};
+
+exports.OrderStatus = exports.$Enums.OrderStatus = {
+  PENDING: 'PENDING',
+  ACTIVATED: 'ACTIVATED',
+  REJECTED: 'REJECTED'
+};
+
+exports.OrderItemMeasure = exports.$Enums.OrderItemMeasure = {
+  DAY: 'DAY',
+  HOUR: 'HOUR'
 };
 
 exports.Prisma.ModelName = {
@@ -308,7 +441,16 @@ exports.Prisma.ModelName = {
   Levels: 'Levels',
   Capacity: 'Capacity',
   Sizes: 'Sizes',
-  Brands: 'Brands'
+  Brands: 'Brands',
+  Masters: 'Masters',
+  Professions: 'Professions',
+  MasterProfessions: 'MasterProfessions',
+  ProfessionLevels: 'ProfessionLevels',
+  Tools: 'Tools',
+  ProfessionTools: 'ProfessionTools',
+  Backet: 'Backet',
+  Orders: 'Orders',
+  OrderItems: 'OrderItems'
 };
 
 /**
