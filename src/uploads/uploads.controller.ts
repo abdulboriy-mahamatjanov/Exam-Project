@@ -1,13 +1,14 @@
 import {
   BadRequestException,
   Controller,
+  NotFoundException,
   Post,
   UploadedFile,
   UseInterceptors,
 } from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { ApiBody, ApiConsumes, ApiOperation, ApiTags } from '@nestjs/swagger';
-import { CloudinaryService } from 'nestjs-cloudinary';
+import { CloudinaryService } from './uploads.service';
 
 @ApiTags('Upload-Image')
 @Controller('uploads')
@@ -30,9 +31,11 @@ export class UploadsController {
   @Post()
   @UseInterceptors(FileInterceptor('file'))
   async uploadFile(@UploadedFile() file: Express.Multer.File) {
+    if (!file) throw new NotFoundException('File not found ❗');
+
     try {
-      const { url } = await this.cloudinaryService.uploadFile(file);
-      return { url };
+      const result = await this.cloudinaryService.uploadImage(file);
+      return { url: result.secure_url };
     } catch (error) {
       throw new BadRequestException(error.message);
     }
