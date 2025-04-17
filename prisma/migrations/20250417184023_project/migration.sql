@@ -5,13 +5,16 @@ CREATE TYPE "UserRole" AS ENUM ('ADMIN', 'SUPER_ADMIN', 'VIEWER_ADMIN', 'USER_FI
 CREATE TYPE "UserStatus" AS ENUM ('ACTIVE', 'INACTIVE');
 
 -- CreateEnum
-CREATE TYPE "ToolStatus" AS ENUM ('PENDING', 'ACCEPTED', 'REJECTED');
+CREATE TYPE "BacketMeasure" AS ENUM ('DAY', 'HOUR');
 
 -- CreateEnum
-CREATE TYPE "OrderPaymentType" AS ENUM ('PAYME', 'CLICK', 'CAHS', 'CARD');
+CREATE TYPE "PaymentType" AS ENUM ('CARD', 'CASH');
 
 -- CreateEnum
-CREATE TYPE "MeasureType" AS ENUM ('HOUR', 'DAY');
+CREATE TYPE "OrderStatus" AS ENUM ('PENDING', 'ACTIVATED', 'REJECTED');
+
+-- CreateEnum
+CREATE TYPE "OrderItemMeasure" AS ENUM ('DAY', 'HOUR');
 
 -- CreateTable
 CREATE TABLE "Regions" (
@@ -138,11 +141,21 @@ CREATE TABLE "Partners" (
 CREATE TABLE "Comments" (
     "id" TEXT NOT NULL,
     "message" TEXT NOT NULL,
-    "star" DOUBLE PRECISION NOT NULL,
+    "userId" TEXT NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
 
     CONSTRAINT "Comments_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
+CREATE TABLE "Stars" (
+    "id" TEXT NOT NULL,
+    "star" DOUBLE PRECISION NOT NULL,
+    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" TIMESTAMP(3) NOT NULL,
+
+    CONSTRAINT "Stars_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateTable
@@ -194,8 +207,61 @@ CREATE TABLE "Brands" (
 );
 
 -- CreateTable
+CREATE TABLE "Masters" (
+    "id" TEXT NOT NULL,
+    "fullName" TEXT NOT NULL,
+    "phone" TEXT NOT NULL,
+    "status" BOOLEAN NOT NULL,
+    "dateOfBirth" INTEGER NOT NULL,
+    "avatar" TEXT NOT NULL,
+    "passportImage" TEXT NOT NULL,
+    "about" TEXT NOT NULL,
+
+    CONSTRAINT "Masters_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
+CREATE TABLE "Professions" (
+    "id" TEXT NOT NULL,
+    "nameUz" TEXT NOT NULL,
+    "nameRu" TEXT NOT NULL,
+    "nameEn" TEXT NOT NULL,
+    "avatar" TEXT NOT NULL,
+    "status" BOOLEAN NOT NULL,
+
+    CONSTRAINT "Professions_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
+CREATE TABLE "MasterProfessions" (
+    "id" TEXT NOT NULL,
+    "professionId" TEXT NOT NULL,
+    "minWorkingHours" INTEGER NOT NULL,
+    "levelId" TEXT NOT NULL,
+    "priceHourly" DECIMAL(65,30) NOT NULL,
+    "priceDaily" DECIMAL(65,30) NOT NULL,
+    "experience" DOUBLE PRECISION NOT NULL,
+    "masterId" TEXT NOT NULL,
+
+    CONSTRAINT "MasterProfessions_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
+CREATE TABLE "ProfessionLevels" (
+    "id" TEXT NOT NULL,
+    "professionId" TEXT NOT NULL,
+    "levelId" TEXT NOT NULL,
+    "minWorkingHours" INTEGER NOT NULL,
+    "priceHourly" DECIMAL(65,30) NOT NULL,
+    "priceDaily" DECIMAL(65,30) NOT NULL,
+
+    CONSTRAINT "ProfessionLevels_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
 CREATE TABLE "Tools" (
     "id" TEXT NOT NULL,
+    "code" TEXT NOT NULL,
     "nameUz" TEXT NOT NULL,
     "nameRu" TEXT NOT NULL,
     "nameEn" TEXT NOT NULL,
@@ -205,10 +271,10 @@ CREATE TABLE "Tools" (
     "price" DECIMAL(65,30) NOT NULL,
     "quantity" INTEGER NOT NULL,
     "brandId" TEXT NOT NULL,
-    "status" "ToolStatus" NOT NULL,
     "capacityId" TEXT NOT NULL,
     "sizeId" TEXT NOT NULL,
     "image" TEXT NOT NULL,
+    "isAvailable" BOOLEAN NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
 
@@ -216,16 +282,42 @@ CREATE TABLE "Tools" (
 );
 
 -- CreateTable
+CREATE TABLE "ProfessionTools" (
+    "id" TEXT NOT NULL,
+    "professionId" TEXT NOT NULL,
+    "toolId" TEXT NOT NULL,
+
+    CONSTRAINT "ProfessionTools_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
+CREATE TABLE "Backet" (
+    "id" TEXT NOT NULL,
+    "ownerId" TEXT NOT NULL,
+    "professionId" TEXT NOT NULL,
+    "toolId" TEXT NOT NULL,
+    "count" INTEGER NOT NULL,
+    "measure" "BacketMeasure" NOT NULL,
+    "workingTime" INTEGER NOT NULL,
+    "totalPrice" DECIMAL(65,30) NOT NULL,
+    "levelId" TEXT NOT NULL,
+
+    CONSTRAINT "Backet_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
 CREATE TABLE "Orders" (
     "id" TEXT NOT NULL,
-    "totalPrice" DECIMAL(65,30) NOT NULL,
-    "location" TEXT NOT NULL,
+    "ownerId" TEXT NOT NULL,
     "address" TEXT NOT NULL,
+    "latitude" TEXT NOT NULL,
+    "longitude" TEXT NOT NULL,
     "date" TIMESTAMP(3) NOT NULL,
-    "paymentType" "OrderPaymentType" NOT NULL,
+    "totalPrice" DECIMAL(65,30) NOT NULL,
+    "paymentType" "PaymentType" NOT NULL,
     "withDelivery" BOOLEAN NOT NULL,
-    "status" BOOLEAN NOT NULL,
-    "commentId" TEXT NOT NULL,
+    "status" "OrderStatus" NOT NULL,
+    "deliveryCommentId" TEXT,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
 
@@ -233,63 +325,18 @@ CREATE TABLE "Orders" (
 );
 
 -- CreateTable
-CREATE TABLE "Products" (
-    "id" TEXT NOT NULL,
-    "nameUz" TEXT NOT NULL,
-    "nameRu" TEXT NOT NULL,
-    "nameEn" TEXT NOT NULL,
-    "image" TEXT NOT NULL,
-    "minWorkHours" TIMESTAMP(3) NOT NULL,
-    "levelId" TEXT NOT NULL,
-    "priceHourly" DECIMAL(65,30) NOT NULL,
-    "priceDaily" DECIMAL(65,30) NOT NULL,
-    "toolId" TEXT NOT NULL,
-    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    "updatedAt" TIMESTAMP(3) NOT NULL,
-
-    CONSTRAINT "Products_pkey" PRIMARY KEY ("id")
-);
-
--- CreateTable
-CREATE TABLE "Masters" (
-    "id" TEXT NOT NULL,
-    "fullNameUz" TEXT NOT NULL,
-    "fullNameRu" TEXT NOT NULL,
-    "fullNameEn" TEXT NOT NULL,
-    "phone" TEXT NOT NULL,
-    "status" BOOLEAN NOT NULL,
-    "dateOfBirth" TIMESTAMP(3) NOT NULL,
-    "avatar" TEXT NOT NULL,
-    "passportImage" TEXT NOT NULL,
-    "productId" TEXT NOT NULL,
-    "levelId" TEXT NOT NULL,
-    "priceHourly" DECIMAL(65,30) NOT NULL,
-    "priceDaily" DECIMAL(65,30) NOT NULL,
-    "experience" INTEGER NOT NULL,
-    "minWorkHours" TIMESTAMP(3) NOT NULL,
-    "commentId" TEXT NOT NULL,
-    "about" TEXT NOT NULL,
-    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    "updatedAt" TIMESTAMP(3) NOT NULL,
-
-    CONSTRAINT "Masters_pkey" PRIMARY KEY ("id")
-);
-
--- CreateTable
-CREATE TABLE "OrderWithProducts" (
+CREATE TABLE "OrderItems" (
     "id" TEXT NOT NULL,
     "orderId" TEXT NOT NULL,
-    "productId" TEXT NOT NULL,
-    "levelId" TEXT NOT NULL,
-    "count" INTEGER NOT NULL,
-    "quantity" DOUBLE PRECISION NOT NULL,
-    "measure" "MeasureType" NOT NULL,
+    "professionId" TEXT NOT NULL,
     "toolId" TEXT NOT NULL,
-    "toolCount" INTEGER NOT NULL,
-    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    "updatedAt" TIMESTAMP(3) NOT NULL,
+    "levelId" TEXT NOT NULL,
+    "measure" "OrderItemMeasure" NOT NULL,
+    "workingTime" INTEGER NOT NULL,
+    "price" DECIMAL(65,30) NOT NULL,
+    "count" INTEGER NOT NULL,
 
-    CONSTRAINT "OrderWithProducts_pkey" PRIMARY KEY ("id")
+    CONSTRAINT "OrderItems_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateIndex
@@ -307,8 +354,32 @@ CREATE UNIQUE INDEX "AboutOurPage_phone_key" ON "AboutOurPage"("phone");
 -- CreateIndex
 CREATE UNIQUE INDEX "Masters_phone_key" ON "Masters"("phone");
 
+-- CreateIndex
+CREATE UNIQUE INDEX "Tools_code_key" ON "Tools"("code");
+
 -- AddForeignKey
 ALTER TABLE "Users" ADD CONSTRAINT "Users_regionId_fkey" FOREIGN KEY ("regionId") REFERENCES "Regions"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "Sessions" ADD CONSTRAINT "Sessions_userId_fkey" FOREIGN KEY ("userId") REFERENCES "Users"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "Comments" ADD CONSTRAINT "Comments_userId_fkey" FOREIGN KEY ("userId") REFERENCES "Users"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "MasterProfessions" ADD CONSTRAINT "MasterProfessions_professionId_fkey" FOREIGN KEY ("professionId") REFERENCES "Professions"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "MasterProfessions" ADD CONSTRAINT "MasterProfessions_levelId_fkey" FOREIGN KEY ("levelId") REFERENCES "Levels"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "MasterProfessions" ADD CONSTRAINT "MasterProfessions_masterId_fkey" FOREIGN KEY ("masterId") REFERENCES "Masters"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "ProfessionLevels" ADD CONSTRAINT "ProfessionLevels_professionId_fkey" FOREIGN KEY ("professionId") REFERENCES "Professions"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "ProfessionLevels" ADD CONSTRAINT "ProfessionLevels_levelId_fkey" FOREIGN KEY ("levelId") REFERENCES "Levels"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE "Tools" ADD CONSTRAINT "Tools_brandId_fkey" FOREIGN KEY ("brandId") REFERENCES "Brands"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
@@ -320,28 +391,34 @@ ALTER TABLE "Tools" ADD CONSTRAINT "Tools_capacityId_fkey" FOREIGN KEY ("capacit
 ALTER TABLE "Tools" ADD CONSTRAINT "Tools_sizeId_fkey" FOREIGN KEY ("sizeId") REFERENCES "Sizes"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "Orders" ADD CONSTRAINT "Orders_commentId_fkey" FOREIGN KEY ("commentId") REFERENCES "Comments"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "ProfessionTools" ADD CONSTRAINT "ProfessionTools_professionId_fkey" FOREIGN KEY ("professionId") REFERENCES "Professions"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "Products" ADD CONSTRAINT "Products_levelId_fkey" FOREIGN KEY ("levelId") REFERENCES "Levels"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "ProfessionTools" ADD CONSTRAINT "ProfessionTools_toolId_fkey" FOREIGN KEY ("toolId") REFERENCES "Tools"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "Masters" ADD CONSTRAINT "Masters_productId_fkey" FOREIGN KEY ("productId") REFERENCES "Products"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "Backet" ADD CONSTRAINT "Backet_ownerId_fkey" FOREIGN KEY ("ownerId") REFERENCES "Users"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "Masters" ADD CONSTRAINT "Masters_levelId_fkey" FOREIGN KEY ("levelId") REFERENCES "Levels"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "Backet" ADD CONSTRAINT "Backet_professionId_fkey" FOREIGN KEY ("professionId") REFERENCES "Professions"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "Masters" ADD CONSTRAINT "Masters_commentId_fkey" FOREIGN KEY ("commentId") REFERENCES "Comments"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "Backet" ADD CONSTRAINT "Backet_toolId_fkey" FOREIGN KEY ("toolId") REFERENCES "Tools"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "OrderWithProducts" ADD CONSTRAINT "OrderWithProducts_orderId_fkey" FOREIGN KEY ("orderId") REFERENCES "Orders"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "Backet" ADD CONSTRAINT "Backet_levelId_fkey" FOREIGN KEY ("levelId") REFERENCES "Levels"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "OrderWithProducts" ADD CONSTRAINT "OrderWithProducts_productId_fkey" FOREIGN KEY ("productId") REFERENCES "Products"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "Orders" ADD CONSTRAINT "Orders_deliveryCommentId_fkey" FOREIGN KEY ("deliveryCommentId") REFERENCES "Comments"("id") ON DELETE SET NULL ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "OrderWithProducts" ADD CONSTRAINT "OrderWithProducts_levelId_fkey" FOREIGN KEY ("levelId") REFERENCES "Levels"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "OrderItems" ADD CONSTRAINT "OrderItems_orderId_fkey" FOREIGN KEY ("orderId") REFERENCES "Orders"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "OrderWithProducts" ADD CONSTRAINT "OrderWithProducts_toolId_fkey" FOREIGN KEY ("toolId") REFERENCES "Tools"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "OrderItems" ADD CONSTRAINT "OrderItems_professionId_fkey" FOREIGN KEY ("professionId") REFERENCES "Professions"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "OrderItems" ADD CONSTRAINT "OrderItems_toolId_fkey" FOREIGN KEY ("toolId") REFERENCES "Tools"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "OrderItems" ADD CONSTRAINT "OrderItems_levelId_fkey" FOREIGN KEY ("levelId") REFERENCES "Levels"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
