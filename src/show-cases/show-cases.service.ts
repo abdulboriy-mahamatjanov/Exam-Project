@@ -6,13 +6,25 @@ import {
 import { CreateShowCaseDto } from './dto/create-show-case.dto';
 import { UpdateShowCaseDto } from './dto/update-show-case.dto';
 import { PrismaService } from 'src/prisma/prisma.service';
+import { CloudinaryService } from 'src/uploads/uploads.service';
 
 @Injectable()
 export class ShowCasesService {
-  constructor(private readonly prisma: PrismaService) {}
+  constructor(
+    private readonly prisma: PrismaService,
+    private readonly cloudinaryService: CloudinaryService,
+  ) {}
 
   async create(createShowCaseDto: CreateShowCaseDto) {
     try {
+      let publicId = this.cloudinaryService.getPublicId(
+        createShowCaseDto.image,
+      );
+
+      const checkImage = await this.cloudinaryService.checkImage(publicId);
+      if (!checkImage)
+        throw new BadRequestException('Image is not available yet ❗');
+
       const newShowCases = await this.prisma.showCases.create({
         data: createShowCaseDto,
       });
@@ -88,6 +100,26 @@ export class ShowCasesService {
       const ShowCase = await this.findOne(id);
       if (!ShowCase) throw new NotFoundException('ShowCase not found ❗');
 
+      let oldPublicId = this.cloudinaryService.getPublicId(
+        ShowCase.ShowCase.image,
+      );
+      let newPublicId: string | null = null;
+
+      if (updateShowCaseDto.image) {
+        newPublicId = this.cloudinaryService.getPublicId(
+          updateShowCaseDto.image,
+        );
+
+        const checkPublicId =
+          await this.cloudinaryService.checkImage(newPublicId);
+        if (!checkPublicId)
+          throw new BadRequestException('Image is not available yet ❗');
+
+        if (oldPublicId !== newPublicId) {
+          await this.cloudinaryService.deleteImage(oldPublicId);
+        }
+      }
+
       const newShowCases = await this.prisma.showCases.update({
         data: updateShowCaseDto,
         where: { id },
@@ -103,6 +135,15 @@ export class ShowCasesService {
     try {
       const ShowCase = await this.findOne(id);
       if (!ShowCase) throw new NotFoundException('ShowCase not found ❗');
+
+      let publicId = this.cloudinaryService.getPublicId(
+        ShowCase.ShowCase.image,
+      );
+
+      let checkImage = await this.cloudinaryService.checkImage(publicId);
+      if (checkImage) {
+        await this.cloudinaryService.deleteImage(publicId);
+      }
 
       await this.prisma.showCases.delete({ where: { id } });
       return { message: 'ShowCase is successfully deleted ✅' };
