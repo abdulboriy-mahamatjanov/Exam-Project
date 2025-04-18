@@ -267,7 +267,7 @@ exports.Prisma.MastersScalarFieldEnum = {
   fullName: 'fullName',
   phone: 'phone',
   status: 'status',
-  dateOfBirth: 'dateOfBirth',
+  birthYear: 'birthYear',
   avatar: 'avatar',
   passportImage: 'passportImage',
   about: 'about'

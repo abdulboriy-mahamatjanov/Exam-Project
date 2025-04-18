@@ -192,7 +192,7 @@ model Masters {
   fullName          String
   phone             String              @unique
   status            Boolean
-  dateOfBirth       Int
+  birthYear         Int
   avatar            String
   passportImage     String
   about             String

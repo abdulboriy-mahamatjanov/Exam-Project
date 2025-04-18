@@ -19535,11 +19535,11 @@ export namespace Prisma {
   }
 
   export type MastersAvgAggregateOutputType = {
-    dateOfBirth: number | null
+    birthYear: number | null
   }
 
   export type MastersSumAggregateOutputType = {
-    dateOfBirth: number | null
+    birthYear: number | null
   }
 
   export type MastersMinAggregateOutputType = {
@@ -19547,7 +19547,7 @@ export namespace Prisma {
     fullName: string | null
     phone: string | null
     status: boolean | null
-    dateOfBirth: number | null
+    birthYear: number | null
     avatar: string | null
     passportImage: string | null
     about: string | null
@@ -19558,7 +19558,7 @@ export namespace Prisma {
     fullName: string | null
     phone: string | null
     status: boolean | null
-    dateOfBirth: number | null
+    birthYear: number | null
     avatar: string | null
     passportImage: string | null
     about: string | null
@@ -19569,7 +19569,7 @@ export namespace Prisma {
     fullName: number
     phone: number
     status: number
-    dateOfBirth: number
+    birthYear: number
     avatar: number
     passportImage: number
     about: number
@@ -19578,11 +19578,11 @@ export namespace Prisma {
 
 
   export type MastersAvgAggregateInputType = {
-    dateOfBirth?: true
+    birthYear?: true
   }
 
   export type MastersSumAggregateInputType = {
-    dateOfBirth?: true
+    birthYear?: true
   }
 
   export type MastersMinAggregateInputType = {
@@ -19590,7 +19590,7 @@ export namespace Prisma {
     fullName?: true
     phone?: true
     status?: true
-    dateOfBirth?: true
+    birthYear?: true
     avatar?: true
     passportImage?: true
     about?: true
@@ -19601,7 +19601,7 @@ export namespace Prisma {
     fullName?: true
     phone?: true
     status?: true
-    dateOfBirth?: true
+    birthYear?: true
     avatar?: true
     passportImage?: true
     about?: true
@@ -19612,7 +19612,7 @@ export namespace Prisma {
     fullName?: true
     phone?: true
     status?: true
-    dateOfBirth?: true
+    birthYear?: true
     avatar?: true
     passportImage?: true
     about?: true
@@ -19710,7 +19710,7 @@ export namespace Prisma {
     fullName: string
     phone: string
     status: boolean
-    dateOfBirth: number
+    birthYear: number
     avatar: string
     passportImage: string
     about: string
@@ -19740,7 +19740,7 @@ export namespace Prisma {
     fullName?: boolean
     phone?: boolean
     status?: boolean
-    dateOfBirth?: boolean
+    birthYear?: boolean
     avatar?: boolean
     passportImage?: boolean
     about?: boolean
@@ -19753,7 +19753,7 @@ export namespace Prisma {
     fullName?: boolean
     phone?: boolean
     status?: boolean
-    dateOfBirth?: boolean
+    birthYear?: boolean
     avatar?: boolean
     passportImage?: boolean
     about?: boolean
@@ -19764,7 +19764,7 @@ export namespace Prisma {
     fullName?: boolean
     phone?: boolean
     status?: boolean
-    dateOfBirth?: boolean
+    birthYear?: boolean
     avatar?: boolean
     passportImage?: boolean
     about?: boolean
@@ -19775,13 +19775,13 @@ export namespace Prisma {
     fullName?: boolean
     phone?: boolean
     status?: boolean
-    dateOfBirth?: boolean
+    birthYear?: boolean
     avatar?: boolean
     passportImage?: boolean
     about?: boolean
   }
 
-  export type MastersOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "fullName" | "phone" | "status" | "dateOfBirth" | "avatar" | "passportImage" | "about", ExtArgs["result"]["masters"]>
+  export type MastersOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "fullName" | "phone" | "status" | "birthYear" | "avatar" | "passportImage" | "about", ExtArgs["result"]["masters"]>
   export type MastersInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     MasterProfessions?: boolean | Masters$MasterProfessionsArgs<ExtArgs>
     _count?: boolean | MastersCountOutputTypeDefaultArgs<ExtArgs>
@@ -19799,7 +19799,7 @@ export namespace Prisma {
       fullName: string
       phone: string
       status: boolean
-      dateOfBirth: number
+      birthYear: number
       avatar: string
       passportImage: string
       about: string
@@ -20231,7 +20231,7 @@ export namespace Prisma {
     readonly fullName: FieldRef<"Masters", 'String'>
     readonly phone: FieldRef<"Masters", 'String'>
     readonly status: FieldRef<"Masters", 'Boolean'>
-    readonly dateOfBirth: FieldRef<"Masters", 'Int'>
+    readonly birthYear: FieldRef<"Masters", 'Int'>
     readonly avatar: FieldRef<"Masters", 'String'>
     readonly passportImage: FieldRef<"Masters", 'String'>
     readonly about: FieldRef<"Masters", 'String'>
@@ -30340,7 +30340,7 @@ export namespace Prisma {
     fullName: 'fullName',
     phone: 'phone',
     status: 'status',
-    dateOfBirth: 'dateOfBirth',
+    birthYear: 'birthYear',
     avatar: 'avatar',
     passportImage: 'passportImage',
     about: 'about'
@@ -31651,7 +31651,7 @@ export namespace Prisma {
     fullName?: StringFilter<"Masters"> | string
     phone?: StringFilter<"Masters"> | string
     status?: BoolFilter<"Masters"> | boolean
-    dateOfBirth?: IntFilter<"Masters"> | number
+    birthYear?: IntFilter<"Masters"> | number
     avatar?: StringFilter<"Masters"> | string
     passportImage?: StringFilter<"Masters"> | string
     about?: StringFilter<"Masters"> | string
@@ -31663,7 +31663,7 @@ export namespace Prisma {
     fullName?: SortOrder
     phone?: SortOrder
     status?: SortOrder
-    dateOfBirth?: SortOrder
+    birthYear?: SortOrder
     avatar?: SortOrder
     passportImage?: SortOrder
     about?: SortOrder
@@ -31678,7 +31678,7 @@ export namespace Prisma {
     NOT?: MastersWhereInput | MastersWhereInput[]
     fullName?: StringFilter<"Masters"> | string
     status?: BoolFilter<"Masters"> | boolean
-    dateOfBirth?: IntFilter<"Masters"> | number
+    birthYear?: IntFilter<"Masters"> | number
     avatar?: StringFilter<"Masters"> | string
     passportImage?: StringFilter<"Masters"> | string
     about?: StringFilter<"Masters"> | string
@@ -31690,7 +31690,7 @@ export namespace Prisma {
     fullName?: SortOrder
     phone?: SortOrder
     status?: SortOrder
-    dateOfBirth?: SortOrder
+    birthYear?: SortOrder
     avatar?: SortOrder
     passportImage?: SortOrder
     about?: SortOrder
@@ -31709,7 +31709,7 @@ export namespace Prisma {
     fullName?: StringWithAggregatesFilter<"Masters"> | string
     phone?: StringWithAggregatesFilter<"Masters"> | string
     status?: BoolWithAggregatesFilter<"Masters"> | boolean
-    dateOfBirth?: IntWithAggregatesFilter<"Masters"> | number
+    birthYear?: IntWithAggregatesFilter<"Masters"> | number
     avatar?: StringWithAggregatesFilter<"Masters"> | string
     passportImage?: StringWithAggregatesFilter<"Masters"> | string
     about?: StringWithAggregatesFilter<"Masters"> | string
@@ -33447,7 +33447,7 @@ export namespace Prisma {
     fullName: string
     phone: string
     status: boolean
-    dateOfBirth: number
+    birthYear: number
     avatar: string
     passportImage: string
     about: string
@@ -33459,7 +33459,7 @@ export namespace Prisma {
     fullName: string
     phone: string
     status: boolean
-    dateOfBirth: number
+    birthYear: number
     avatar: string
     passportImage: string
     about: string
@@ -33471,7 +33471,7 @@ export namespace Prisma {
     fullName?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
     status?: BoolFieldUpdateOperationsInput | boolean
-    dateOfBirth?: IntFieldUpdateOperationsInput | number
+    birthYear?: IntFieldUpdateOperationsInput | number
     avatar?: StringFieldUpdateOperationsInput | string
     passportImage?: StringFieldUpdateOperationsInput | string
     about?: StringFieldUpdateOperationsInput | string
@@ -33483,7 +33483,7 @@ export namespace Prisma {
     fullName?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
     status?: BoolFieldUpdateOperationsInput | boolean
-    dateOfBirth?: IntFieldUpdateOperationsInput | number
+    birthYear?: IntFieldUpdateOperationsInput | number
     avatar?: StringFieldUpdateOperationsInput | string
     passportImage?: StringFieldUpdateOperationsInput | string
     about?: StringFieldUpdateOperationsInput | string
@@ -33495,7 +33495,7 @@ export namespace Prisma {
     fullName: string
     phone: string
     status: boolean
-    dateOfBirth: number
+    birthYear: number
     avatar: string
     passportImage: string
     about: string
@@ -33506,7 +33506,7 @@ export namespace Prisma {
     fullName?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
     status?: BoolFieldUpdateOperationsInput | boolean
-    dateOfBirth?: IntFieldUpdateOperationsInput | number
+    birthYear?: IntFieldUpdateOperationsInput | number
     avatar?: StringFieldUpdateOperationsInput | string
     passportImage?: StringFieldUpdateOperationsInput | string
     about?: StringFieldUpdateOperationsInput | string
@@ -33517,7 +33517,7 @@ export namespace Prisma {
     fullName?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
     status?: BoolFieldUpdateOperationsInput | boolean
-    dateOfBirth?: IntFieldUpdateOperationsInput | number
+    birthYear?: IntFieldUpdateOperationsInput | number
     avatar?: StringFieldUpdateOperationsInput | string
     passportImage?: StringFieldUpdateOperationsInput | string
     about?: StringFieldUpdateOperationsInput | string
@@ -34933,14 +34933,14 @@ export namespace Prisma {
     fullName?: SortOrder
     phone?: SortOrder
     status?: SortOrder
-    dateOfBirth?: SortOrder
+    birthYear?: SortOrder
     avatar?: SortOrder
     passportImage?: SortOrder
     about?: SortOrder
   }
 
   export type MastersAvgOrderByAggregateInput = {
-    dateOfBirth?: SortOrder
+    birthYear?: SortOrder
   }
 
   export type MastersMaxOrderByAggregateInput = {
@@ -34948,7 +34948,7 @@ export namespace Prisma {
     fullName?: SortOrder
     phone?: SortOrder
     status?: SortOrder
-    dateOfBirth?: SortOrder
+    birthYear?: SortOrder
     avatar?: SortOrder
     passportImage?: SortOrder
     about?: SortOrder
@@ -34959,14 +34959,14 @@ export namespace Prisma {
     fullName?: SortOrder
     phone?: SortOrder
     status?: SortOrder
-    dateOfBirth?: SortOrder
+    birthYear?: SortOrder
     avatar?: SortOrder
     passportImage?: SortOrder
     about?: SortOrder
   }
 
   export type MastersSumOrderByAggregateInput = {
-    dateOfBirth?: SortOrder
+    birthYear?: SortOrder
   }
 
   export type BoolWithAggregatesFilter<$PrismaModel = never> = {
@@ -38467,7 +38467,7 @@ export namespace Prisma {
     fullName: string
     phone: string
     status: boolean
-    dateOfBirth: number
+    birthYear: number
     avatar: string
     passportImage: string
     about: string
@@ -38478,7 +38478,7 @@ export namespace Prisma {
     fullName: string
     phone: string
     status: boolean
-    dateOfBirth: number
+    birthYear: number
     avatar: string
     passportImage: string
     about: string
@@ -38577,7 +38577,7 @@ export namespace Prisma {
     fullName?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
     status?: BoolFieldUpdateOperationsInput | boolean
-    dateOfBirth?: IntFieldUpdateOperationsInput | number
+    birthYear?: IntFieldUpdateOperationsInput | number
     avatar?: StringFieldUpdateOperationsInput | string
     passportImage?: StringFieldUpdateOperationsInput | string
     about?: StringFieldUpdateOperationsInput | string
@@ -38588,7 +38588,7 @@ export namespace Prisma {
     fullName?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
     status?: BoolFieldUpdateOperationsInput | boolean
-    dateOfBirth?: IntFieldUpdateOperationsInput | number
+    birthYear?: IntFieldUpdateOperationsInput | number
     avatar?: StringFieldUpdateOperationsInput | string
     passportImage?: StringFieldUpdateOperationsInput | string
     about?: StringFieldUpdateOperationsInput | string
