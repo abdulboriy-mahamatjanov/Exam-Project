@@ -16,7 +16,7 @@ export class RegionService {
       const Region = await this.prisma.regions.findFirst({ where: { id } });
       if (!Region) throw new NotFoundException('Region not found ❗');
 
-      return { Region };
+      return Region;
     } catch (error) {
       throw new BadRequestException(error.message);
     }
@@ -28,7 +28,7 @@ export class RegionService {
         data: createRegionDto,
       });
 
-      return { NewRegions };
+      return NewRegions;
     } catch (error) {
       throw new BadRequestException(error.message);
     }
@@ -76,10 +76,7 @@ export class RegionService {
         orderBy: { [orders]: order },
       });
 
-      if (!Regions.length)
-        return { message: 'Regions are not available yet ❗' };
-
-      return { Regions };
+      return Regions;
     } catch (error) {
       throw new BadRequestException(error.message);
     }
@@ -89,7 +86,7 @@ export class RegionService {
     try {
       const Region = await this.findRegion(id);
 
-      return { Region };
+      return Region;
     } catch (error) {
       throw new BadRequestException(error.message);
     }
@@ -104,7 +101,7 @@ export class RegionService {
         where: { id },
       });
 
-      return { NewRegions };
+      return NewRegions;
     } catch (error) {
       throw new BadRequestException(error.message);
     }
