@@ -5,7 +5,7 @@ CREATE TYPE "UserRole" AS ENUM ('ADMIN', 'SUPER_ADMIN', 'VIEWER_ADMIN', 'USER_FI
 CREATE TYPE "UserStatus" AS ENUM ('ACTIVE', 'INACTIVE');
 
 -- CreateEnum
-CREATE TYPE "BacketMeasure" AS ENUM ('DAY', 'HOUR');
+CREATE TYPE "timeEnum" AS ENUM ('DAY', 'HOUR');
 
 -- CreateEnum
 CREATE TYPE "PaymentType" AS ENUM ('CARD', 'CASH');
@@ -212,7 +212,7 @@ CREATE TABLE "Masters" (
     "fullName" TEXT NOT NULL,
     "phone" TEXT NOT NULL,
     "status" BOOLEAN NOT NULL,
-    "dateOfBirth" INTEGER NOT NULL,
+    "birthYear" INTEGER NOT NULL,
     "avatar" TEXT NOT NULL,
     "passportImage" TEXT NOT NULL,
     "about" TEXT NOT NULL,
@@ -240,7 +240,7 @@ CREATE TABLE "MasterProfessions" (
     "levelId" TEXT NOT NULL,
     "priceHourly" DECIMAL(65,30) NOT NULL,
     "priceDaily" DECIMAL(65,30) NOT NULL,
-    "experience" DOUBLE PRECISION NOT NULL,
+    "experience" TEXT NOT NULL,
     "masterId" TEXT NOT NULL,
 
     CONSTRAINT "MasterProfessions_pkey" PRIMARY KEY ("id")
@@ -297,7 +297,8 @@ CREATE TABLE "Backet" (
     "professionId" TEXT NOT NULL,
     "toolId" TEXT NOT NULL,
     "count" INTEGER NOT NULL,
-    "measure" "BacketMeasure" NOT NULL,
+    "timeUnit" "timeEnum" NOT NULL,
+    "measure" INTEGER NOT NULL,
     "workingTime" INTEGER NOT NULL,
     "totalPrice" DECIMAL(65,30) NOT NULL,
     "levelId" TEXT NOT NULL,

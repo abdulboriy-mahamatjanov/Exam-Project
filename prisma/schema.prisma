@@ -222,7 +222,7 @@ model MasterProfessions {
   level           Levels      @relation(fields: [levelId], references: [id])
   priceHourly     Decimal
   priceDaily      Decimal
-  experience      Float
+  experience      String
   masterId        String
   master          Masters     @relation(fields: [masterId], references: [id], onDelete: Cascade)
 }
