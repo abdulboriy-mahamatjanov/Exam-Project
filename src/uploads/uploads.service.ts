@@ -21,9 +21,7 @@ export class CloudinaryService {
       const result = await cloudinary.api.resource(publicId);
       return result;
     } catch (error) {
-      if (error.http_code === 404) {
-        return false;
-      }
+      if (error.http_code === 404) return false;
     }
   }
 
@@ -35,7 +33,10 @@ export class CloudinaryService {
 
   async deleteImage(publicId: string) {
     try {
-      await cloudinary.uploader.destroy(publicId);
+      const exitImage = await this.checkImage(publicId);
+      if (exitImage) {
+        await cloudinary.uploader.destroy(exitImage);
+      }
     } catch (error) {
       throw new BadRequestException(error.message);
     }
