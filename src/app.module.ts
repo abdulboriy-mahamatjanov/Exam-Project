@@ -19,6 +19,8 @@ import { BrandsModule } from './brands/brands.module';
 import { SizesModule } from './sizes/sizes.module';
 import { CommentsModule } from './comments/comments.module';
 import { MasterModule } from './master/master.module';
+import { ProfessionsModule } from './professions/professions.module';
+import { MasterprofessionsModule } from './masterprofessions/masterprofessions.module';
 
 @Module({
   imports: [
@@ -50,6 +52,8 @@ import { MasterModule } from './master/master.module';
     SizesModule,
     CommentsModule,
     MasterModule,
+    ProfessionsModule,
+    MasterprofessionsModule,
   ],
   controllers: [],
   providers: [],
