@@ -48,14 +48,8 @@ export class UserService {
           fullName: order,
         },
       });
-      if (!Users.length) return { message: 'No Users found' };
 
-      const data = {
-        Users,
-        Length: Users.length,
-      };
-
-      return { data };
+      return Users;
     } catch (error) {
       throw new BadRequestException(error.message);
     }
@@ -63,13 +57,14 @@ export class UserService {
 
   async findOne(id: string) {
     try {
-      const User = await this.prisma.users.findFirst({
+      const findUser = await this.prisma.users.findFirst({
         where: { id },
         include: { region: true },
       });
-      if (!User) throw new NotFoundException('User not found ❗');
 
-      return { User };
+      if (findUser) throw new NotFoundException('User not found ❗');
+
+      return { findUser };
     } catch (error) {
       throw new BadRequestException(error.message);
     }
@@ -77,8 +72,7 @@ export class UserService {
 
   async update(id: string, updateUserDto: UpdateAuthDto) {
     try {
-      const user = await this.findOne(id);
-
+      const user = await this.prisma.users.findFirst({ where: { id } });
       if (!user) throw new NotFoundException('User not found ❗');
 
       const checkRegion = await this.prisma.regions.findFirst({
@@ -86,7 +80,7 @@ export class UserService {
       });
       if (!checkRegion) throw new NotFoundException('Region not found ❗');
 
-      let oldPublicId = this.cloudinaryService.getPublicId(user.User.avatar);
+      let oldPublicId = this.cloudinaryService.getPublicId(user.avatar);
       let newPublicId: string | null = null;
 
       if (updateUserDto.avatar) {
@@ -117,10 +111,10 @@ export class UserService {
 
   async remove(id: string) {
     try {
-      const user = await this.findOne(id);
+      const user = await this.prisma.users.findFirst({ where: { id } });
       if (!user) throw new NotFoundException('User not found ❗');
 
-      let publicId = this.cloudinaryService.getPublicId(user.User.avatar);
+      let publicId = this.cloudinaryService.getPublicId(user.avatar);
       let checkImage = await this.cloudinaryService.checkImage(publicId);
 
       if (checkImage) {
