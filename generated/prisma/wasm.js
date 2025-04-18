@@ -334,6 +334,7 @@ exports.Prisma.BacketScalarFieldEnum = {
   professionId: 'professionId',
   toolId: 'toolId',
   count: 'count',
+  timeUnit: 'timeUnit',
   measure: 'measure',
   workingTime: 'workingTime',
   totalPrice: 'totalPrice',
@@ -405,7 +406,7 @@ exports.UserStatus = exports.$Enums.UserStatus = {
   INACTIVE: 'INACTIVE'
 };
 
-exports.BacketMeasure = exports.$Enums.BacketMeasure = {
+exports.timeEnum = exports.$Enums.timeEnum = {
   DAY: 'DAY',
   HOUR: 'HOUR'
 };

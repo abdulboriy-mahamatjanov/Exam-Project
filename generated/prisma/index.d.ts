@@ -157,12 +157,12 @@ export const UserStatus: {
 export type UserStatus = (typeof UserStatus)[keyof typeof UserStatus]
 
 
-export const BacketMeasure: {
+export const timeEnum: {
   DAY: 'DAY',
   HOUR: 'HOUR'
 };
 
-export type BacketMeasure = (typeof BacketMeasure)[keyof typeof BacketMeasure]
+export type timeEnum = (typeof timeEnum)[keyof typeof timeEnum]
 
 
 export const PaymentType: {
@@ -199,9 +199,9 @@ export type UserStatus = $Enums.UserStatus
 
 export const UserStatus: typeof $Enums.UserStatus
 
-export type BacketMeasure = $Enums.BacketMeasure
+export type timeEnum = $Enums.timeEnum
 
-export const BacketMeasure: typeof $Enums.BacketMeasure
+export const timeEnum: typeof $Enums.timeEnum
 
 export type PaymentType = $Enums.PaymentType
 
@@ -21876,14 +21876,12 @@ export namespace Prisma {
     minWorkingHours: number | null
     priceHourly: Decimal | null
     priceDaily: Decimal | null
-    experience: number | null
   }
 
   export type MasterProfessionsSumAggregateOutputType = {
     minWorkingHours: number | null
     priceHourly: Decimal | null
     priceDaily: Decimal | null
-    experience: number | null
   }
 
   export type MasterProfessionsMinAggregateOutputType = {
@@ -21893,7 +21891,7 @@ export namespace Prisma {
     levelId: string | null
     priceHourly: Decimal | null
     priceDaily: Decimal | null
-    experience: number | null
+    experience: string | null
     masterId: string | null
   }
 
@@ -21904,7 +21902,7 @@ export namespace Prisma {
     levelId: string | null
     priceHourly: Decimal | null
     priceDaily: Decimal | null
-    experience: number | null
+    experience: string | null
     masterId: string | null
   }
 
@@ -21925,14 +21923,12 @@ export namespace Prisma {
     minWorkingHours?: true
     priceHourly?: true
     priceDaily?: true
-    experience?: true
   }
 
   export type MasterProfessionsSumAggregateInputType = {
     minWorkingHours?: true
     priceHourly?: true
     priceDaily?: true
-    experience?: true
   }
 
   export type MasterProfessionsMinAggregateInputType = {
@@ -22062,7 +22058,7 @@ export namespace Prisma {
     levelId: string
     priceHourly: Decimal
     priceDaily: Decimal
-    experience: number
+    experience: string
     masterId: string
     _count: MasterProfessionsCountAggregateOutputType | null
     _avg: MasterProfessionsAvgAggregateOutputType | null
@@ -22169,7 +22165,7 @@ export namespace Prisma {
       levelId: string
       priceHourly: Prisma.Decimal
       priceDaily: Prisma.Decimal
-      experience: number
+      experience: string
       masterId: string
     }, ExtArgs["result"]["masterProfessions"]>
     composites: {}
@@ -22603,7 +22599,7 @@ export namespace Prisma {
     readonly levelId: FieldRef<"MasterProfessions", 'String'>
     readonly priceHourly: FieldRef<"MasterProfessions", 'Decimal'>
     readonly priceDaily: FieldRef<"MasterProfessions", 'Decimal'>
-    readonly experience: FieldRef<"MasterProfessions", 'Float'>
+    readonly experience: FieldRef<"MasterProfessions", 'String'>
     readonly masterId: FieldRef<"MasterProfessions", 'String'>
   }
     
@@ -26548,12 +26544,14 @@ export namespace Prisma {
 
   export type BacketAvgAggregateOutputType = {
     count: number | null
+    measure: number | null
     workingTime: number | null
     totalPrice: Decimal | null
   }
 
   export type BacketSumAggregateOutputType = {
     count: number | null
+    measure: number | null
     workingTime: number | null
     totalPrice: Decimal | null
   }
@@ -26564,7 +26562,8 @@ export namespace Prisma {
     professionId: string | null
     toolId: string | null
     count: number | null
-    measure: $Enums.BacketMeasure | null
+    timeUnit: $Enums.timeEnum | null
+    measure: number | null
     workingTime: number | null
     totalPrice: Decimal | null
     levelId: string | null
@@ -26576,7 +26575,8 @@ export namespace Prisma {
     professionId: string | null
     toolId: string | null
     count: number | null
-    measure: $Enums.BacketMeasure | null
+    timeUnit: $Enums.timeEnum | null
+    measure: number | null
     workingTime: number | null
     totalPrice: Decimal | null
     levelId: string | null
@@ -26588,6 +26588,7 @@ export namespace Prisma {
     professionId: number
     toolId: number
     count: number
+    timeUnit: number
     measure: number
     workingTime: number
     totalPrice: number
@@ -26598,12 +26599,14 @@ export namespace Prisma {
 
   export type BacketAvgAggregateInputType = {
     count?: true
+    measure?: true
     workingTime?: true
     totalPrice?: true
   }
 
   export type BacketSumAggregateInputType = {
     count?: true
+    measure?: true
     workingTime?: true
     totalPrice?: true
   }
@@ -26614,6 +26617,7 @@ export namespace Prisma {
     professionId?: true
     toolId?: true
     count?: true
+    timeUnit?: true
     measure?: true
     workingTime?: true
     totalPrice?: true
@@ -26626,6 +26630,7 @@ export namespace Prisma {
     professionId?: true
     toolId?: true
     count?: true
+    timeUnit?: true
     measure?: true
     workingTime?: true
     totalPrice?: true
@@ -26638,6 +26643,7 @@ export namespace Prisma {
     professionId?: true
     toolId?: true
     count?: true
+    timeUnit?: true
     measure?: true
     workingTime?: true
     totalPrice?: true
@@ -26737,7 +26743,8 @@ export namespace Prisma {
     professionId: string
     toolId: string
     count: number
-    measure: $Enums.BacketMeasure
+    timeUnit: $Enums.timeEnum
+    measure: number
     workingTime: number
     totalPrice: Decimal
     levelId: string
@@ -26768,6 +26775,7 @@ export namespace Prisma {
     professionId?: boolean
     toolId?: boolean
     count?: boolean
+    timeUnit?: boolean
     measure?: boolean
     workingTime?: boolean
     totalPrice?: boolean
@@ -26784,6 +26792,7 @@ export namespace Prisma {
     professionId?: boolean
     toolId?: boolean
     count?: boolean
+    timeUnit?: boolean
     measure?: boolean
     workingTime?: boolean
     totalPrice?: boolean
@@ -26800,6 +26809,7 @@ export namespace Prisma {
     professionId?: boolean
     toolId?: boolean
     count?: boolean
+    timeUnit?: boolean
     measure?: boolean
     workingTime?: boolean
     totalPrice?: boolean
@@ -26816,13 +26826,14 @@ export namespace Prisma {
     professionId?: boolean
     toolId?: boolean
     count?: boolean
+    timeUnit?: boolean
     measure?: boolean
     workingTime?: boolean
     totalPrice?: boolean
     levelId?: boolean
   }
 
-  export type BacketOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "ownerId" | "professionId" | "toolId" | "count" | "measure" | "workingTime" | "totalPrice" | "levelId", ExtArgs["result"]["backet"]>
+  export type BacketOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "ownerId" | "professionId" | "toolId" | "count" | "timeUnit" | "measure" | "workingTime" | "totalPrice" | "levelId", ExtArgs["result"]["backet"]>
   export type BacketInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     owner?: boolean | UsersDefaultArgs<ExtArgs>
     profession?: boolean | ProfessionsDefaultArgs<ExtArgs>
@@ -26856,7 +26867,8 @@ export namespace Prisma {
       professionId: string
       toolId: string
       count: number
-      measure: $Enums.BacketMeasure
+      timeUnit: $Enums.timeEnum
+      measure: number
       workingTime: number
       totalPrice: Prisma.Decimal
       levelId: string
@@ -27292,7 +27304,8 @@ export namespace Prisma {
     readonly professionId: FieldRef<"Backet", 'String'>
     readonly toolId: FieldRef<"Backet", 'String'>
     readonly count: FieldRef<"Backet", 'Int'>
-    readonly measure: FieldRef<"Backet", 'BacketMeasure'>
+    readonly timeUnit: FieldRef<"Backet", 'timeEnum'>
+    readonly measure: FieldRef<"Backet", 'Int'>
     readonly workingTime: FieldRef<"Backet", 'Int'>
     readonly totalPrice: FieldRef<"Backet", 'Decimal'>
     readonly levelId: FieldRef<"Backet", 'String'>
@@ -30425,6 +30438,7 @@ export namespace Prisma {
     professionId: 'professionId',
     toolId: 'toolId',
     count: 'count',
+    timeUnit: 'timeUnit',
     measure: 'measure',
     workingTime: 'workingTime',
     totalPrice: 'totalPrice',
@@ -30633,16 +30647,16 @@ export namespace Prisma {
 
 
   /**
-   * Reference to a field of type 'BacketMeasure'
+   * Reference to a field of type 'timeEnum'
    */
-  export type EnumBacketMeasureFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BacketMeasure'>
+  export type EnumtimeEnumFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'timeEnum'>
     
 
 
   /**
-   * Reference to a field of type 'BacketMeasure[]'
+   * Reference to a field of type 'timeEnum[]'
    */
-  export type ListEnumBacketMeasureFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BacketMeasure[]'>
+  export type ListEnumtimeEnumFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'timeEnum[]'>
     
 
 
@@ -31797,7 +31811,7 @@ export namespace Prisma {
     levelId?: StringFilter<"MasterProfessions"> | string
     priceHourly?: DecimalFilter<"MasterProfessions"> | Decimal | DecimalJsLike | number | string
     priceDaily?: DecimalFilter<"MasterProfessions"> | Decimal | DecimalJsLike | number | string
-    experience?: FloatFilter<"MasterProfessions"> | number
+    experience?: StringFilter<"MasterProfessions"> | string
     masterId?: StringFilter<"MasterProfessions"> | string
     profession?: XOR<ProfessionsScalarRelationFilter, ProfessionsWhereInput>
     level?: XOR<LevelsScalarRelationFilter, LevelsWhereInput>
@@ -31828,7 +31842,7 @@ export namespace Prisma {
     levelId?: StringFilter<"MasterProfessions"> | string
     priceHourly?: DecimalFilter<"MasterProfessions"> | Decimal | DecimalJsLike | number | string
     priceDaily?: DecimalFilter<"MasterProfessions"> | Decimal | DecimalJsLike | number | string
-    experience?: FloatFilter<"MasterProfessions"> | number
+    experience?: StringFilter<"MasterProfessions"> | string
     masterId?: StringFilter<"MasterProfessions"> | string
     profession?: XOR<ProfessionsScalarRelationFilter, ProfessionsWhereInput>
     level?: XOR<LevelsScalarRelationFilter, LevelsWhereInput>
@@ -31861,7 +31875,7 @@ export namespace Prisma {
     levelId?: StringWithAggregatesFilter<"MasterProfessions"> | string
     priceHourly?: DecimalWithAggregatesFilter<"MasterProfessions"> | Decimal | DecimalJsLike | number | string
     priceDaily?: DecimalWithAggregatesFilter<"MasterProfessions"> | Decimal | DecimalJsLike | number | string
-    experience?: FloatWithAggregatesFilter<"MasterProfessions"> | number
+    experience?: StringWithAggregatesFilter<"MasterProfessions"> | string
     masterId?: StringWithAggregatesFilter<"MasterProfessions"> | string
   }
 
@@ -32119,7 +32133,8 @@ export namespace Prisma {
     professionId?: StringFilter<"Backet"> | string
     toolId?: StringFilter<"Backet"> | string
     count?: IntFilter<"Backet"> | number
-    measure?: EnumBacketMeasureFilter<"Backet"> | $Enums.BacketMeasure
+    timeUnit?: EnumtimeEnumFilter<"Backet"> | $Enums.timeEnum
+    measure?: IntFilter<"Backet"> | number
     workingTime?: IntFilter<"Backet"> | number
     totalPrice?: DecimalFilter<"Backet"> | Decimal | DecimalJsLike | number | string
     levelId?: StringFilter<"Backet"> | string
@@ -32135,6 +32150,7 @@ export namespace Prisma {
     professionId?: SortOrder
     toolId?: SortOrder
     count?: SortOrder
+    timeUnit?: SortOrder
     measure?: SortOrder
     workingTime?: SortOrder
     totalPrice?: SortOrder
@@ -32154,7 +32170,8 @@ export namespace Prisma {
     professionId?: StringFilter<"Backet"> | string
     toolId?: StringFilter<"Backet"> | string
     count?: IntFilter<"Backet"> | number
-    measure?: EnumBacketMeasureFilter<"Backet"> | $Enums.BacketMeasure
+    timeUnit?: EnumtimeEnumFilter<"Backet"> | $Enums.timeEnum
+    measure?: IntFilter<"Backet"> | number
     workingTime?: IntFilter<"Backet"> | number
     totalPrice?: DecimalFilter<"Backet"> | Decimal | DecimalJsLike | number | string
     levelId?: StringFilter<"Backet"> | string
@@ -32170,6 +32187,7 @@ export namespace Prisma {
     professionId?: SortOrder
     toolId?: SortOrder
     count?: SortOrder
+    timeUnit?: SortOrder
     measure?: SortOrder
     workingTime?: SortOrder
     totalPrice?: SortOrder
@@ -32190,7 +32208,8 @@ export namespace Prisma {
     professionId?: StringWithAggregatesFilter<"Backet"> | string
     toolId?: StringWithAggregatesFilter<"Backet"> | string
     count?: IntWithAggregatesFilter<"Backet"> | number
-    measure?: EnumBacketMeasureWithAggregatesFilter<"Backet"> | $Enums.BacketMeasure
+    timeUnit?: EnumtimeEnumWithAggregatesFilter<"Backet"> | $Enums.timeEnum
+    measure?: IntWithAggregatesFilter<"Backet"> | number
     workingTime?: IntWithAggregatesFilter<"Backet"> | number
     totalPrice?: DecimalWithAggregatesFilter<"Backet"> | Decimal | DecimalJsLike | number | string
     levelId?: StringWithAggregatesFilter<"Backet"> | string
@@ -33611,7 +33630,7 @@ export namespace Prisma {
     minWorkingHours: number
     priceHourly: Decimal | DecimalJsLike | number | string
     priceDaily: Decimal | DecimalJsLike | number | string
-    experience: number
+    experience: string
     profession: ProfessionsCreateNestedOneWithoutMasterProfessionsInput
     level: LevelsCreateNestedOneWithoutMasterProfessionsInput
     master: MastersCreateNestedOneWithoutMasterProfessionsInput
@@ -33624,7 +33643,7 @@ export namespace Prisma {
     levelId: string
     priceHourly: Decimal | DecimalJsLike | number | string
     priceDaily: Decimal | DecimalJsLike | number | string
-    experience: number
+    experience: string
     masterId: string
   }
 
@@ -33633,7 +33652,7 @@ export namespace Prisma {
     minWorkingHours?: IntFieldUpdateOperationsInput | number
     priceHourly?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     priceDaily?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
-    experience?: FloatFieldUpdateOperationsInput | number
+    experience?: StringFieldUpdateOperationsInput | string
     profession?: ProfessionsUpdateOneRequiredWithoutMasterProfessionsNestedInput
     level?: LevelsUpdateOneRequiredWithoutMasterProfessionsNestedInput
     master?: MastersUpdateOneRequiredWithoutMasterProfessionsNestedInput
@@ -33646,7 +33665,7 @@ export namespace Prisma {
     levelId?: StringFieldUpdateOperationsInput | string
     priceHourly?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     priceDaily?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
-    experience?: FloatFieldUpdateOperationsInput | number
+    experience?: StringFieldUpdateOperationsInput | string
     masterId?: StringFieldUpdateOperationsInput | string
   }
 
@@ -33657,7 +33676,7 @@ export namespace Prisma {
     levelId: string
     priceHourly: Decimal | DecimalJsLike | number | string
     priceDaily: Decimal | DecimalJsLike | number | string
-    experience: number
+    experience: string
     masterId: string
   }
 
@@ -33666,7 +33685,7 @@ export namespace Prisma {
     minWorkingHours?: IntFieldUpdateOperationsInput | number
     priceHourly?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     priceDaily?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
-    experience?: FloatFieldUpdateOperationsInput | number
+    experience?: StringFieldUpdateOperationsInput | string
   }
 
   export type MasterProfessionsUncheckedUpdateManyInput = {
@@ -33676,7 +33695,7 @@ export namespace Prisma {
     levelId?: StringFieldUpdateOperationsInput | string
     priceHourly?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     priceDaily?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
-    experience?: FloatFieldUpdateOperationsInput | number
+    experience?: StringFieldUpdateOperationsInput | string
     masterId?: StringFieldUpdateOperationsInput | string
   }
 
@@ -33933,7 +33952,8 @@ export namespace Prisma {
   export type BacketCreateInput = {
     id?: string
     count: number
-    measure: $Enums.BacketMeasure
+    timeUnit: $Enums.timeEnum
+    measure: number
     workingTime: number
     totalPrice: Decimal | DecimalJsLike | number | string
     owner: UsersCreateNestedOneWithoutBacketInput
@@ -33948,7 +33968,8 @@ export namespace Prisma {
     professionId: string
     toolId: string
     count: number
-    measure: $Enums.BacketMeasure
+    timeUnit: $Enums.timeEnum
+    measure: number
     workingTime: number
     totalPrice: Decimal | DecimalJsLike | number | string
     levelId: string
@@ -33957,7 +33978,8 @@ export namespace Prisma {
   export type BacketUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     count?: IntFieldUpdateOperationsInput | number
-    measure?: EnumBacketMeasureFieldUpdateOperationsInput | $Enums.BacketMeasure
+    timeUnit?: EnumtimeEnumFieldUpdateOperationsInput | $Enums.timeEnum
+    measure?: IntFieldUpdateOperationsInput | number
     workingTime?: IntFieldUpdateOperationsInput | number
     totalPrice?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     owner?: UsersUpdateOneRequiredWithoutBacketNestedInput
@@ -33972,7 +33994,8 @@ export namespace Prisma {
     professionId?: StringFieldUpdateOperationsInput | string
     toolId?: StringFieldUpdateOperationsInput | string
     count?: IntFieldUpdateOperationsInput | number
-    measure?: EnumBacketMeasureFieldUpdateOperationsInput | $Enums.BacketMeasure
+    timeUnit?: EnumtimeEnumFieldUpdateOperationsInput | $Enums.timeEnum
+    measure?: IntFieldUpdateOperationsInput | number
     workingTime?: IntFieldUpdateOperationsInput | number
     totalPrice?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     levelId?: StringFieldUpdateOperationsInput | string
@@ -33984,7 +34007,8 @@ export namespace Prisma {
     professionId: string
     toolId: string
     count: number
-    measure: $Enums.BacketMeasure
+    timeUnit: $Enums.timeEnum
+    measure: number
     workingTime: number
     totalPrice: Decimal | DecimalJsLike | number | string
     levelId: string
@@ -33993,7 +34017,8 @@ export namespace Prisma {
   export type BacketUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     count?: IntFieldUpdateOperationsInput | number
-    measure?: EnumBacketMeasureFieldUpdateOperationsInput | $Enums.BacketMeasure
+    timeUnit?: EnumtimeEnumFieldUpdateOperationsInput | $Enums.timeEnum
+    measure?: IntFieldUpdateOperationsInput | number
     workingTime?: IntFieldUpdateOperationsInput | number
     totalPrice?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
   }
@@ -34004,7 +34029,8 @@ export namespace Prisma {
     professionId?: StringFieldUpdateOperationsInput | string
     toolId?: StringFieldUpdateOperationsInput | string
     count?: IntFieldUpdateOperationsInput | number
-    measure?: EnumBacketMeasureFieldUpdateOperationsInput | $Enums.BacketMeasure
+    timeUnit?: EnumtimeEnumFieldUpdateOperationsInput | $Enums.timeEnum
+    measure?: IntFieldUpdateOperationsInput | number
     workingTime?: IntFieldUpdateOperationsInput | number
     totalPrice?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     levelId?: StringFieldUpdateOperationsInput | string
@@ -35071,7 +35097,6 @@ export namespace Prisma {
     minWorkingHours?: SortOrder
     priceHourly?: SortOrder
     priceDaily?: SortOrder
-    experience?: SortOrder
   }
 
   export type MasterProfessionsMaxOrderByAggregateInput = {
@@ -35100,7 +35125,6 @@ export namespace Prisma {
     minWorkingHours?: SortOrder
     priceHourly?: SortOrder
     priceDaily?: SortOrder
-    experience?: SortOrder
   }
 
   export type DecimalWithAggregatesFilter<$PrismaModel = never> = {
@@ -35266,11 +35290,11 @@ export namespace Prisma {
     toolId?: SortOrder
   }
 
-  export type EnumBacketMeasureFilter<$PrismaModel = never> = {
-    equals?: $Enums.BacketMeasure | EnumBacketMeasureFieldRefInput<$PrismaModel>
-    in?: $Enums.BacketMeasure[] | ListEnumBacketMeasureFieldRefInput<$PrismaModel>
-    notIn?: $Enums.BacketMeasure[] | ListEnumBacketMeasureFieldRefInput<$PrismaModel>
-    not?: NestedEnumBacketMeasureFilter<$PrismaModel> | $Enums.BacketMeasure
+  export type EnumtimeEnumFilter<$PrismaModel = never> = {
+    equals?: $Enums.timeEnum | EnumtimeEnumFieldRefInput<$PrismaModel>
+    in?: $Enums.timeEnum[] | ListEnumtimeEnumFieldRefInput<$PrismaModel>
+    notIn?: $Enums.timeEnum[] | ListEnumtimeEnumFieldRefInput<$PrismaModel>
+    not?: NestedEnumtimeEnumFilter<$PrismaModel> | $Enums.timeEnum
   }
 
   export type BacketCountOrderByAggregateInput = {
@@ -35279,6 +35303,7 @@ export namespace Prisma {
     professionId?: SortOrder
     toolId?: SortOrder
     count?: SortOrder
+    timeUnit?: SortOrder
     measure?: SortOrder
     workingTime?: SortOrder
     totalPrice?: SortOrder
@@ -35287,6 +35312,7 @@ export namespace Prisma {
 
   export type BacketAvgOrderByAggregateInput = {
     count?: SortOrder
+    measure?: SortOrder
     workingTime?: SortOrder
     totalPrice?: SortOrder
   }
@@ -35297,6 +35323,7 @@ export namespace Prisma {
     professionId?: SortOrder
     toolId?: SortOrder
     count?: SortOrder
+    timeUnit?: SortOrder
     measure?: SortOrder
     workingTime?: SortOrder
     totalPrice?: SortOrder
@@ -35309,6 +35336,7 @@ export namespace Prisma {
     professionId?: SortOrder
     toolId?: SortOrder
     count?: SortOrder
+    timeUnit?: SortOrder
     measure?: SortOrder
     workingTime?: SortOrder
     totalPrice?: SortOrder
@@ -35317,18 +35345,19 @@ export namespace Prisma {
 
   export type BacketSumOrderByAggregateInput = {
     count?: SortOrder
+    measure?: SortOrder
     workingTime?: SortOrder
     totalPrice?: SortOrder
   }
 
-  export type EnumBacketMeasureWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: $Enums.BacketMeasure | EnumBacketMeasureFieldRefInput<$PrismaModel>
-    in?: $Enums.BacketMeasure[] | ListEnumBacketMeasureFieldRefInput<$PrismaModel>
-    notIn?: $Enums.BacketMeasure[] | ListEnumBacketMeasureFieldRefInput<$PrismaModel>
-    not?: NestedEnumBacketMeasureWithAggregatesFilter<$PrismaModel> | $Enums.BacketMeasure
+  export type EnumtimeEnumWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.timeEnum | EnumtimeEnumFieldRefInput<$PrismaModel>
+    in?: $Enums.timeEnum[] | ListEnumtimeEnumFieldRefInput<$PrismaModel>
+    notIn?: $Enums.timeEnum[] | ListEnumtimeEnumFieldRefInput<$PrismaModel>
+    not?: NestedEnumtimeEnumWithAggregatesFilter<$PrismaModel> | $Enums.timeEnum
     _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedEnumBacketMeasureFilter<$PrismaModel>
-    _max?: NestedEnumBacketMeasureFilter<$PrismaModel>
+    _min?: NestedEnumtimeEnumFilter<$PrismaModel>
+    _max?: NestedEnumtimeEnumFilter<$PrismaModel>
   }
 
   export type EnumPaymentTypeFilter<$PrismaModel = never> = {
@@ -36666,8 +36695,8 @@ export namespace Prisma {
     connect?: LevelsWhereUniqueInput
   }
 
-  export type EnumBacketMeasureFieldUpdateOperationsInput = {
-    set?: $Enums.BacketMeasure
+  export type EnumtimeEnumFieldUpdateOperationsInput = {
+    set?: $Enums.timeEnum
   }
 
   export type UsersUpdateOneRequiredWithoutBacketNestedInput = {
@@ -37039,21 +37068,21 @@ export namespace Prisma {
     _max?: NestedDecimalFilter<$PrismaModel>
   }
 
-  export type NestedEnumBacketMeasureFilter<$PrismaModel = never> = {
-    equals?: $Enums.BacketMeasure | EnumBacketMeasureFieldRefInput<$PrismaModel>
-    in?: $Enums.BacketMeasure[] | ListEnumBacketMeasureFieldRefInput<$PrismaModel>
-    notIn?: $Enums.BacketMeasure[] | ListEnumBacketMeasureFieldRefInput<$PrismaModel>
-    not?: NestedEnumBacketMeasureFilter<$PrismaModel> | $Enums.BacketMeasure
+  export type NestedEnumtimeEnumFilter<$PrismaModel = never> = {
+    equals?: $Enums.timeEnum | EnumtimeEnumFieldRefInput<$PrismaModel>
+    in?: $Enums.timeEnum[] | ListEnumtimeEnumFieldRefInput<$PrismaModel>
+    notIn?: $Enums.timeEnum[] | ListEnumtimeEnumFieldRefInput<$PrismaModel>
+    not?: NestedEnumtimeEnumFilter<$PrismaModel> | $Enums.timeEnum
   }
 
-  export type NestedEnumBacketMeasureWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: $Enums.BacketMeasure | EnumBacketMeasureFieldRefInput<$PrismaModel>
-    in?: $Enums.BacketMeasure[] | ListEnumBacketMeasureFieldRefInput<$PrismaModel>
-    notIn?: $Enums.BacketMeasure[] | ListEnumBacketMeasureFieldRefInput<$PrismaModel>
-    not?: NestedEnumBacketMeasureWithAggregatesFilter<$PrismaModel> | $Enums.BacketMeasure
+  export type NestedEnumtimeEnumWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.timeEnum | EnumtimeEnumFieldRefInput<$PrismaModel>
+    in?: $Enums.timeEnum[] | ListEnumtimeEnumFieldRefInput<$PrismaModel>
+    notIn?: $Enums.timeEnum[] | ListEnumtimeEnumFieldRefInput<$PrismaModel>
+    not?: NestedEnumtimeEnumWithAggregatesFilter<$PrismaModel> | $Enums.timeEnum
     _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedEnumBacketMeasureFilter<$PrismaModel>
-    _max?: NestedEnumBacketMeasureFilter<$PrismaModel>
+    _min?: NestedEnumtimeEnumFilter<$PrismaModel>
+    _max?: NestedEnumtimeEnumFilter<$PrismaModel>
   }
 
   export type NestedEnumPaymentTypeFilter<$PrismaModel = never> = {
@@ -37247,7 +37276,8 @@ export namespace Prisma {
   export type BacketCreateWithoutOwnerInput = {
     id?: string
     count: number
-    measure: $Enums.BacketMeasure
+    timeUnit: $Enums.timeEnum
+    measure: number
     workingTime: number
     totalPrice: Decimal | DecimalJsLike | number | string
     profession: ProfessionsCreateNestedOneWithoutBacketInput
@@ -37260,7 +37290,8 @@ export namespace Prisma {
     professionId: string
     toolId: string
     count: number
-    measure: $Enums.BacketMeasure
+    timeUnit: $Enums.timeEnum
+    measure: number
     workingTime: number
     totalPrice: Decimal | DecimalJsLike | number | string
     levelId: string
@@ -37380,7 +37411,8 @@ export namespace Prisma {
     professionId?: StringFilter<"Backet"> | string
     toolId?: StringFilter<"Backet"> | string
     count?: IntFilter<"Backet"> | number
-    measure?: EnumBacketMeasureFilter<"Backet"> | $Enums.BacketMeasure
+    timeUnit?: EnumtimeEnumFilter<"Backet"> | $Enums.timeEnum
+    measure?: IntFilter<"Backet"> | number
     workingTime?: IntFilter<"Backet"> | number
     totalPrice?: DecimalFilter<"Backet"> | Decimal | DecimalJsLike | number | string
     levelId?: StringFilter<"Backet"> | string
@@ -37674,7 +37706,7 @@ export namespace Prisma {
     minWorkingHours: number
     priceHourly: Decimal | DecimalJsLike | number | string
     priceDaily: Decimal | DecimalJsLike | number | string
-    experience: number
+    experience: string
     profession: ProfessionsCreateNestedOneWithoutMasterProfessionsInput
     master: MastersCreateNestedOneWithoutMasterProfessionsInput
   }
@@ -37685,7 +37717,7 @@ export namespace Prisma {
     minWorkingHours: number
     priceHourly: Decimal | DecimalJsLike | number | string
     priceDaily: Decimal | DecimalJsLike | number | string
-    experience: number
+    experience: string
     masterId: string
   }
 
@@ -37702,7 +37734,8 @@ export namespace Prisma {
   export type BacketCreateWithoutLevelInput = {
     id?: string
     count: number
-    measure: $Enums.BacketMeasure
+    timeUnit: $Enums.timeEnum
+    measure: number
     workingTime: number
     totalPrice: Decimal | DecimalJsLike | number | string
     owner: UsersCreateNestedOneWithoutBacketInput
@@ -37716,7 +37749,8 @@ export namespace Prisma {
     professionId: string
     toolId: string
     count: number
-    measure: $Enums.BacketMeasure
+    timeUnit: $Enums.timeEnum
+    measure: number
     workingTime: number
     totalPrice: Decimal | DecimalJsLike | number | string
   }
@@ -37815,7 +37849,7 @@ export namespace Prisma {
     levelId?: StringFilter<"MasterProfessions"> | string
     priceHourly?: DecimalFilter<"MasterProfessions"> | Decimal | DecimalJsLike | number | string
     priceDaily?: DecimalFilter<"MasterProfessions"> | Decimal | DecimalJsLike | number | string
-    experience?: FloatFilter<"MasterProfessions"> | number
+    experience?: StringFilter<"MasterProfessions"> | string
     masterId?: StringFilter<"MasterProfessions"> | string
   }
 
@@ -38132,7 +38166,7 @@ export namespace Prisma {
     minWorkingHours: number
     priceHourly: Decimal | DecimalJsLike | number | string
     priceDaily: Decimal | DecimalJsLike | number | string
-    experience: number
+    experience: string
     profession: ProfessionsCreateNestedOneWithoutMasterProfessionsInput
     level: LevelsCreateNestedOneWithoutMasterProfessionsInput
   }
@@ -38144,7 +38178,7 @@ export namespace Prisma {
     levelId: string
     priceHourly: Decimal | DecimalJsLike | number | string
     priceDaily: Decimal | DecimalJsLike | number | string
-    experience: number
+    experience: string
   }
 
   export type MasterProfessionsCreateOrConnectWithoutMasterInput = {
@@ -38178,7 +38212,7 @@ export namespace Prisma {
     minWorkingHours: number
     priceHourly: Decimal | DecimalJsLike | number | string
     priceDaily: Decimal | DecimalJsLike | number | string
-    experience: number
+    experience: string
     level: LevelsCreateNestedOneWithoutMasterProfessionsInput
     master: MastersCreateNestedOneWithoutMasterProfessionsInput
   }
@@ -38189,7 +38223,7 @@ export namespace Prisma {
     levelId: string
     priceHourly: Decimal | DecimalJsLike | number | string
     priceDaily: Decimal | DecimalJsLike | number | string
-    experience: number
+    experience: string
     masterId: string
   }
 
@@ -38206,7 +38240,8 @@ export namespace Prisma {
   export type BacketCreateWithoutProfessionInput = {
     id?: string
     count: number
-    measure: $Enums.BacketMeasure
+    timeUnit: $Enums.timeEnum
+    measure: number
     workingTime: number
     totalPrice: Decimal | DecimalJsLike | number | string
     owner: UsersCreateNestedOneWithoutBacketInput
@@ -38219,7 +38254,8 @@ export namespace Prisma {
     ownerId: string
     toolId: string
     count: number
-    measure: $Enums.BacketMeasure
+    timeUnit: $Enums.timeEnum
+    measure: number
     workingTime: number
     totalPrice: Decimal | DecimalJsLike | number | string
     levelId: string
@@ -38798,7 +38834,8 @@ export namespace Prisma {
   export type BacketCreateWithoutToolsInput = {
     id?: string
     count: number
-    measure: $Enums.BacketMeasure
+    timeUnit: $Enums.timeEnum
+    measure: number
     workingTime: number
     totalPrice: Decimal | DecimalJsLike | number | string
     owner: UsersCreateNestedOneWithoutBacketInput
@@ -38811,7 +38848,8 @@ export namespace Prisma {
     ownerId: string
     professionId: string
     count: number
-    measure: $Enums.BacketMeasure
+    timeUnit: $Enums.timeEnum
+    measure: number
     workingTime: number
     totalPrice: Decimal | DecimalJsLike | number | string
     levelId: string
@@ -39969,7 +40007,8 @@ export namespace Prisma {
     professionId: string
     toolId: string
     count: number
-    measure: $Enums.BacketMeasure
+    timeUnit: $Enums.timeEnum
+    measure: number
     workingTime: number
     totalPrice: Decimal | DecimalJsLike | number | string
     levelId: string
@@ -39992,7 +40031,8 @@ export namespace Prisma {
   export type BacketUpdateWithoutOwnerInput = {
     id?: StringFieldUpdateOperationsInput | string
     count?: IntFieldUpdateOperationsInput | number
-    measure?: EnumBacketMeasureFieldUpdateOperationsInput | $Enums.BacketMeasure
+    timeUnit?: EnumtimeEnumFieldUpdateOperationsInput | $Enums.timeEnum
+    measure?: IntFieldUpdateOperationsInput | number
     workingTime?: IntFieldUpdateOperationsInput | number
     totalPrice?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     profession?: ProfessionsUpdateOneRequiredWithoutBacketNestedInput
@@ -40005,7 +40045,8 @@ export namespace Prisma {
     professionId?: StringFieldUpdateOperationsInput | string
     toolId?: StringFieldUpdateOperationsInput | string
     count?: IntFieldUpdateOperationsInput | number
-    measure?: EnumBacketMeasureFieldUpdateOperationsInput | $Enums.BacketMeasure
+    timeUnit?: EnumtimeEnumFieldUpdateOperationsInput | $Enums.timeEnum
+    measure?: IntFieldUpdateOperationsInput | number
     workingTime?: IntFieldUpdateOperationsInput | number
     totalPrice?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     levelId?: StringFieldUpdateOperationsInput | string
@@ -40016,7 +40057,8 @@ export namespace Prisma {
     professionId?: StringFieldUpdateOperationsInput | string
     toolId?: StringFieldUpdateOperationsInput | string
     count?: IntFieldUpdateOperationsInput | number
-    measure?: EnumBacketMeasureFieldUpdateOperationsInput | $Enums.BacketMeasure
+    timeUnit?: EnumtimeEnumFieldUpdateOperationsInput | $Enums.timeEnum
+    measure?: IntFieldUpdateOperationsInput | number
     workingTime?: IntFieldUpdateOperationsInput | number
     totalPrice?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     levelId?: StringFieldUpdateOperationsInput | string
@@ -40134,7 +40176,7 @@ export namespace Prisma {
     minWorkingHours: number
     priceHourly: Decimal | DecimalJsLike | number | string
     priceDaily: Decimal | DecimalJsLike | number | string
-    experience: number
+    experience: string
     masterId: string
   }
 
@@ -40144,7 +40186,8 @@ export namespace Prisma {
     professionId: string
     toolId: string
     count: number
-    measure: $Enums.BacketMeasure
+    timeUnit: $Enums.timeEnum
+    measure: number
     workingTime: number
     totalPrice: Decimal | DecimalJsLike | number | string
   }
@@ -40173,7 +40216,7 @@ export namespace Prisma {
     minWorkingHours?: IntFieldUpdateOperationsInput | number
     priceHourly?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     priceDaily?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
-    experience?: FloatFieldUpdateOperationsInput | number
+    experience?: StringFieldUpdateOperationsInput | string
     profession?: ProfessionsUpdateOneRequiredWithoutMasterProfessionsNestedInput
     master?: MastersUpdateOneRequiredWithoutMasterProfessionsNestedInput
   }
@@ -40184,7 +40227,7 @@ export namespace Prisma {
     minWorkingHours?: IntFieldUpdateOperationsInput | number
     priceHourly?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     priceDaily?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
-    experience?: FloatFieldUpdateOperationsInput | number
+    experience?: StringFieldUpdateOperationsInput | string
     masterId?: StringFieldUpdateOperationsInput | string
   }
 
@@ -40194,14 +40237,15 @@ export namespace Prisma {
     minWorkingHours?: IntFieldUpdateOperationsInput | number
     priceHourly?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     priceDaily?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
-    experience?: FloatFieldUpdateOperationsInput | number
+    experience?: StringFieldUpdateOperationsInput | string
     masterId?: StringFieldUpdateOperationsInput | string
   }
 
   export type BacketUpdateWithoutLevelInput = {
     id?: StringFieldUpdateOperationsInput | string
     count?: IntFieldUpdateOperationsInput | number
-    measure?: EnumBacketMeasureFieldUpdateOperationsInput | $Enums.BacketMeasure
+    timeUnit?: EnumtimeEnumFieldUpdateOperationsInput | $Enums.timeEnum
+    measure?: IntFieldUpdateOperationsInput | number
     workingTime?: IntFieldUpdateOperationsInput | number
     totalPrice?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     owner?: UsersUpdateOneRequiredWithoutBacketNestedInput
@@ -40215,7 +40259,8 @@ export namespace Prisma {
     professionId?: StringFieldUpdateOperationsInput | string
     toolId?: StringFieldUpdateOperationsInput | string
     count?: IntFieldUpdateOperationsInput | number
-    measure?: EnumBacketMeasureFieldUpdateOperationsInput | $Enums.BacketMeasure
+    timeUnit?: EnumtimeEnumFieldUpdateOperationsInput | $Enums.timeEnum
+    measure?: IntFieldUpdateOperationsInput | number
     workingTime?: IntFieldUpdateOperationsInput | number
     totalPrice?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
   }
@@ -40226,7 +40271,8 @@ export namespace Prisma {
     professionId?: StringFieldUpdateOperationsInput | string
     toolId?: StringFieldUpdateOperationsInput | string
     count?: IntFieldUpdateOperationsInput | number
-    measure?: EnumBacketMeasureFieldUpdateOperationsInput | $Enums.BacketMeasure
+    timeUnit?: EnumtimeEnumFieldUpdateOperationsInput | $Enums.timeEnum
+    measure?: IntFieldUpdateOperationsInput | number
     workingTime?: IntFieldUpdateOperationsInput | number
     totalPrice?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
   }
@@ -40541,7 +40587,7 @@ export namespace Prisma {
     levelId: string
     priceHourly: Decimal | DecimalJsLike | number | string
     priceDaily: Decimal | DecimalJsLike | number | string
-    experience: number
+    experience: string
   }
 
   export type MasterProfessionsUpdateWithoutMasterInput = {
@@ -40549,7 +40595,7 @@ export namespace Prisma {
     minWorkingHours?: IntFieldUpdateOperationsInput | number
     priceHourly?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     priceDaily?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
-    experience?: FloatFieldUpdateOperationsInput | number
+    experience?: StringFieldUpdateOperationsInput | string
     profession?: ProfessionsUpdateOneRequiredWithoutMasterProfessionsNestedInput
     level?: LevelsUpdateOneRequiredWithoutMasterProfessionsNestedInput
   }
@@ -40561,7 +40607,7 @@ export namespace Prisma {
     levelId?: StringFieldUpdateOperationsInput | string
     priceHourly?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     priceDaily?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
-    experience?: FloatFieldUpdateOperationsInput | number
+    experience?: StringFieldUpdateOperationsInput | string
   }
 
   export type MasterProfessionsUncheckedUpdateManyWithoutMasterInput = {
@@ -40571,7 +40617,7 @@ export namespace Prisma {
     levelId?: StringFieldUpdateOperationsInput | string
     priceHourly?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     priceDaily?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
-    experience?: FloatFieldUpdateOperationsInput | number
+    experience?: StringFieldUpdateOperationsInput | string
   }
 
   export type MasterProfessionsCreateManyProfessionInput = {
@@ -40580,7 +40626,7 @@ export namespace Prisma {
     levelId: string
     priceHourly: Decimal | DecimalJsLike | number | string
     priceDaily: Decimal | DecimalJsLike | number | string
-    experience: number
+    experience: string
     masterId: string
   }
 
@@ -40589,7 +40635,8 @@ export namespace Prisma {
     ownerId: string
     toolId: string
     count: number
-    measure: $Enums.BacketMeasure
+    timeUnit: $Enums.timeEnum
+    measure: number
     workingTime: number
     totalPrice: Decimal | DecimalJsLike | number | string
     levelId: string
@@ -40624,7 +40671,7 @@ export namespace Prisma {
     minWorkingHours?: IntFieldUpdateOperationsInput | number
     priceHourly?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     priceDaily?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
-    experience?: FloatFieldUpdateOperationsInput | number
+    experience?: StringFieldUpdateOperationsInput | string
     level?: LevelsUpdateOneRequiredWithoutMasterProfessionsNestedInput
     master?: MastersUpdateOneRequiredWithoutMasterProfessionsNestedInput
   }
@@ -40635,7 +40682,7 @@ export namespace Prisma {
     levelId?: StringFieldUpdateOperationsInput | string
     priceHourly?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     priceDaily?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
-    experience?: FloatFieldUpdateOperationsInput | number
+    experience?: StringFieldUpdateOperationsInput | string
     masterId?: StringFieldUpdateOperationsInput | string
   }
 
@@ -40645,14 +40692,15 @@ export namespace Prisma {
     levelId?: StringFieldUpdateOperationsInput | string
     priceHourly?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     priceDaily?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
-    experience?: FloatFieldUpdateOperationsInput | number
+    experience?: StringFieldUpdateOperationsInput | string
     masterId?: StringFieldUpdateOperationsInput | string
   }
 
   export type BacketUpdateWithoutProfessionInput = {
     id?: StringFieldUpdateOperationsInput | string
     count?: IntFieldUpdateOperationsInput | number
-    measure?: EnumBacketMeasureFieldUpdateOperationsInput | $Enums.BacketMeasure
+    timeUnit?: EnumtimeEnumFieldUpdateOperationsInput | $Enums.timeEnum
+    measure?: IntFieldUpdateOperationsInput | number
     workingTime?: IntFieldUpdateOperationsInput | number
     totalPrice?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     owner?: UsersUpdateOneRequiredWithoutBacketNestedInput
@@ -40665,7 +40713,8 @@ export namespace Prisma {
     ownerId?: StringFieldUpdateOperationsInput | string
     toolId?: StringFieldUpdateOperationsInput | string
     count?: IntFieldUpdateOperationsInput | number
-    measure?: EnumBacketMeasureFieldUpdateOperationsInput | $Enums.BacketMeasure
+    timeUnit?: EnumtimeEnumFieldUpdateOperationsInput | $Enums.timeEnum
+    measure?: IntFieldUpdateOperationsInput | number
     workingTime?: IntFieldUpdateOperationsInput | number
     totalPrice?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     levelId?: StringFieldUpdateOperationsInput | string
@@ -40676,7 +40725,8 @@ export namespace Prisma {
     ownerId?: StringFieldUpdateOperationsInput | string
     toolId?: StringFieldUpdateOperationsInput | string
     count?: IntFieldUpdateOperationsInput | number
-    measure?: EnumBacketMeasureFieldUpdateOperationsInput | $Enums.BacketMeasure
+    timeUnit?: EnumtimeEnumFieldUpdateOperationsInput | $Enums.timeEnum
+    measure?: IntFieldUpdateOperationsInput | number
     workingTime?: IntFieldUpdateOperationsInput | number
     totalPrice?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     levelId?: StringFieldUpdateOperationsInput | string
@@ -40759,7 +40809,8 @@ export namespace Prisma {
     ownerId: string
     professionId: string
     count: number
-    measure: $Enums.BacketMeasure
+    timeUnit: $Enums.timeEnum
+    measure: number
     workingTime: number
     totalPrice: Decimal | DecimalJsLike | number | string
     levelId: string
@@ -40784,7 +40835,8 @@ export namespace Prisma {
   export type BacketUpdateWithoutToolsInput = {
     id?: StringFieldUpdateOperationsInput | string
     count?: IntFieldUpdateOperationsInput | number
-    measure?: EnumBacketMeasureFieldUpdateOperationsInput | $Enums.BacketMeasure
+    timeUnit?: EnumtimeEnumFieldUpdateOperationsInput | $Enums.timeEnum
+    measure?: IntFieldUpdateOperationsInput | number
     workingTime?: IntFieldUpdateOperationsInput | number
     totalPrice?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     owner?: UsersUpdateOneRequiredWithoutBacketNestedInput
@@ -40797,7 +40849,8 @@ export namespace Prisma {
     ownerId?: StringFieldUpdateOperationsInput | string
     professionId?: StringFieldUpdateOperationsInput | string
     count?: IntFieldUpdateOperationsInput | number
-    measure?: EnumBacketMeasureFieldUpdateOperationsInput | $Enums.BacketMeasure
+    timeUnit?: EnumtimeEnumFieldUpdateOperationsInput | $Enums.timeEnum
+    measure?: IntFieldUpdateOperationsInput | number
     workingTime?: IntFieldUpdateOperationsInput | number
     totalPrice?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     levelId?: StringFieldUpdateOperationsInput | string
@@ -40808,7 +40861,8 @@ export namespace Prisma {
     ownerId?: StringFieldUpdateOperationsInput | string
     professionId?: StringFieldUpdateOperationsInput | string
     count?: IntFieldUpdateOperationsInput | number
-    measure?: EnumBacketMeasureFieldUpdateOperationsInput | $Enums.BacketMeasure
+    timeUnit?: EnumtimeEnumFieldUpdateOperationsInput | $Enums.timeEnum
+    measure?: IntFieldUpdateOperationsInput | number
     workingTime?: IntFieldUpdateOperationsInput | number
     totalPrice?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     levelId?: StringFieldUpdateOperationsInput | string
