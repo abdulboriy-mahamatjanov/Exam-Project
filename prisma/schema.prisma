@@ -192,7 +192,7 @@ model Masters {
   fullName          String
   phone             String              @unique
   status            Boolean
-  dateOfBirth       Int
+  birthYear         Int
   avatar            String
   passportImage     String
   about             String
@@ -272,25 +272,26 @@ model ProfessionTools {
   tools        Tools       @relation(fields: [toolId], references: [id])
 }
 
-enum BacketMeasure {
+enum timeEnum {
   DAY
   HOUR
 }
 
 model Backet {
-  id           String        @id @default(uuid())
+  id           String      @id @default(uuid())
   ownerId      String
-  owner        Users         @relation(fields: [ownerId], references: [id], onDelete: Cascade)
+  owner        Users       @relation(fields: [ownerId], references: [id], onDelete: Cascade)
   professionId String
-  profession   Professions   @relation(fields: [professionId], references: [id], onDelete: Restrict)
+  profession   Professions @relation(fields: [professionId], references: [id], onDelete: Restrict)
   toolId       String
-  tools        Tools         @relation(fields: [toolId], references: [id], onDelete: Restrict)
+  tools        Tools       @relation(fields: [toolId], references: [id], onDelete: Restrict)
   count        Int
-  measure      BacketMeasure
+  timeUnit     timeEnum
+  measure      Int
   workingTime  Int
   totalPrice   Decimal
   levelId      String
-  level        Levels        @relation(fields: [levelId], references: [id], onDelete: Restrict)
+  level        Levels      @relation(fields: [levelId], references: [id], onDelete: Restrict)
 }
 
 enum PaymentType {
