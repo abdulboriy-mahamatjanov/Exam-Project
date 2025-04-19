@@ -2,6 +2,7 @@ import { ApiProperty, PartialType } from '@nestjs/swagger';
 import { CreateMasterprofessionDto } from './create-masterprofession.dto';
 import { IsNumber, IsPositive, IsString } from 'class-validator';
 import { Decimal } from 'generated/prisma/runtime/library';
+import { UUID } from 'crypto';
 
 export class UpdateMasterprofessionDto extends PartialType(
   CreateMasterprofessionDto,

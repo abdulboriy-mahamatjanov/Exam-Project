@@ -43,13 +43,27 @@ export class MasterService {
           "Master's passportImage is not available yet ❗",
         );
 
+      for (const profession of createMasterDto.masterProfessions) {
+        const checkProfession = await this.prisma.professions.findFirst({
+          where: { id: profession.professionId },
+        });
+        if (!checkProfession)
+          throw new BadRequestException('Profession is not available yet ❗');
+
+        const checkLevel = await this.prisma.levels.findFirst({
+          where: { id: profession.levelId },
+        });
+        if (!checkLevel)
+          throw new BadRequestException('Level is not available yet ❗');
+      }
+
       const NewMaster = await this.prisma.masters.create({
         data: createMasterDto,
       });
 
       return { NewMaster };
     } catch (error) {
-      throw new BadRequestException(error.message);
+      throw new BadRequestException("nimadir nito", error.message);
     }
   }
 

@@ -34,11 +34,13 @@ export class ToolsController {
     return this.toolsService.findOne(id);
   }
 
+  @ApiOperation({ summary: 'Update Tools By ID' })
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateToolDto: UpdateToolDto) {
     return this.toolsService.update(id, updateToolDto);
   }
 
+  @ApiOperation({ summary: 'Delete Tools By ID' })
   @Delete(':id')
   remove(@Param('id') id: string) {
     return this.toolsService.remove(id);

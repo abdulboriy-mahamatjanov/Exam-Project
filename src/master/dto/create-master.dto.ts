@@ -1,12 +1,18 @@
-import { ApiProperty } from '@nestjs/swagger';
+import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
+import { Type } from 'class-transformer';
 import {
+  IsArray,
   IsBoolean,
   IsNotEmpty,
   IsNumber,
   IsOptional,
   IsPhoneNumber,
+  IsPositive,
   IsString,
+  IsUUID,
+  ValidateNested,
 } from 'class-validator';
+import { CreateMasterprofessionDto } from './create-masterprofession.dto';
 
 export class CreateMasterDto {
   @ApiProperty({ example: 'Benjamin Franklin' })
@@ -27,19 +33,18 @@ export class CreateMasterDto {
   @ApiProperty({ example: 20 })
   @IsNumber()
   @IsNotEmpty()
+  @IsPositive()
   birthYear: number;
 
   @ApiProperty({
-    example:
-      'https://res.cloudinary.com/dnle8xg73/image/upload/v1744949382/qc1ajczrdk9ablukbqln.jpg',
+    example: 'Image url',
   })
   @IsString()
   @IsNotEmpty()
   avatar: string;
 
   @ApiProperty({
-    example:
-      'https://res.cloudinary.com/dnle8xg73/image/upload/v1744949382/qc1ajczrdk9ablukbqln.jpg',
+    example: 'PassportImage url',
   })
   @IsString()
   @IsNotEmpty()
@@ -49,4 +54,11 @@ export class CreateMasterDto {
   @IsString()
   @IsNotEmpty()
   about: string;
+
+  @ApiPropertyOptional({ type: [CreateMasterprofessionDto] })
+  @IsArray()
+  @IsOptional()
+  @ValidateNested({ each: true })
+  @Type(() => CreateMasterprofessionDto)
+  masterProfessions: CreateMasterprofessionDto[];
 }

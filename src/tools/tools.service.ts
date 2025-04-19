@@ -65,6 +65,32 @@ export class ToolsService {
 
   async update(id: string, updateToolDto: UpdateToolDto) {
     try {
+      const Tool = await this.prisma.tools.findFirst({ where: { id } });
+      if (!Tool) throw new NotFoundException('Tool not found ❗');
+
+      let checkBrand = await this.prisma.brands.findFirst({
+        where: { id: updateToolDto.brandId },
+      });
+      if (!checkBrand) throw new NotFoundException('Brand not found ❗');
+
+      let checkSize = await this.prisma.sizes.findFirst({
+        where: { id: updateToolDto.sizeId },
+      });
+      if (!checkSize) throw new NotFoundException('Size not found ❗');
+
+      let checkCapacity = await this.prisma.capacity.findFirst({
+        where: { id: updateToolDto.capacityId },
+      });
+      if (!checkCapacity) throw new NotFoundException('Capacity not found ❗');
+
+      const code = generateToolCode();
+      
+      const NewTools = await this.prisma.tools.update({
+        data: { ...updateToolDto, code },
+        where: { id },
+      });
+
+      return { NewTools };
     } catch (error) {
       throw new BadRequestException(error.message);
     }
@@ -72,6 +98,11 @@ export class ToolsService {
 
   async remove(id: string) {
     try {
+      const Tool = await this.prisma.tools.findFirst({ where: { id } });
+      if (!Tool) throw new NotFoundException('Tool not found ❗');
+
+      await this.prisma.tools.delete({ where: { id } });
+      return { message: 'Tool is successfully deleted ✅' };
     } catch (error) {
       throw new BadRequestException(error.message);
     }

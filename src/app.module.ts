@@ -20,7 +20,6 @@ import { SizesModule } from './sizes/sizes.module';
 import { CommentsModule } from './comments/comments.module';
 import { MasterModule } from './master/master.module';
 import { ProfessionsModule } from './professions/professions.module';
-import { MasterprofessionsModule } from './masterprofessions/masterprofessions.module';
 import { ProfessionLevelsModule } from './profession-levels/profession-levels.module';
 import { ToolsModule } from './tools/tools.module';
 
@@ -55,12 +54,10 @@ import { ToolsModule } from './tools/tools.module';
     CommentsModule,
     MasterModule,
     ProfessionsModule,
-    MasterprofessionsModule,
     ProfessionLevelsModule,
     ToolsModule,
   ],
   controllers: [],
   providers: [],
 })
-
 export class AppModule {}

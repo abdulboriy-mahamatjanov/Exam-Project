@@ -1,10 +1,19 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsNotEmpty, IsNumber, IsPositive, IsString } from 'class-validator';
+import {
+  IsNotEmpty,
+  IsNumber,
+  IsOptional,
+  IsPositive,
+  IsString,
+  IsUUID,
+  Min,
+} from 'class-validator';
+import { UUID } from 'crypto';
 import { Decimal } from 'generated/prisma/runtime/library';
 
 export class CreateMasterprofessionDto {
-  @ApiProperty({ example: '74481eb1-54ee-45bc-9f4f-351f0f0b7fff' })
-  @IsString()
+  @ApiProperty({ example: 'uuid' })
+  @IsUUID()
   @IsNotEmpty()
   professionId: string;
 
@@ -12,10 +21,11 @@ export class CreateMasterprofessionDto {
   @IsNumber()
   @IsNotEmpty()
   @IsPositive()
+  @Min(1)
   minWorkingHours: number;
 
-  @ApiProperty({ example: '8c562674-ac4b-4892-917c-f66fbecea3ad' })
-  @IsString()
+  @ApiProperty({ example: 'uuid' })
+  @IsUUID()
   @IsNotEmpty()
   levelId: string;
 
@@ -36,8 +46,8 @@ export class CreateMasterprofessionDto {
   @IsNotEmpty()
   experience: string;
 
-  @ApiProperty({ example: '1f71e2e2-b876-4ccb-a9f5-d93680151692' })
+  @ApiProperty({ example: 'uuid' })
   @IsString()
-  @IsNotEmpty()
-  masterId: string;
+  @IsOptional()
+  masterId?: string;
 }
