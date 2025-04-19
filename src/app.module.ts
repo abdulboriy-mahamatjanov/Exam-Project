@@ -21,6 +21,8 @@ import { CommentsModule } from './comments/comments.module';
 import { MasterModule } from './master/master.module';
 import { ProfessionsModule } from './professions/professions.module';
 import { MasterprofessionsModule } from './masterprofessions/masterprofessions.module';
+import { ProfessionLevelsModule } from './profession-levels/profession-levels.module';
+import { ToolsModule } from './tools/tools.module';
 
 @Module({
   imports: [
@@ -54,6 +56,8 @@ import { MasterprofessionsModule } from './masterprofessions/masterprofessions.m
     MasterModule,
     ProfessionsModule,
     MasterprofessionsModule,
+    ProfessionLevelsModule,
+    ToolsModule,
   ],
   controllers: [],
   providers: [],

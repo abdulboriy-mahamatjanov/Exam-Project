@@ -58,9 +58,7 @@ export class SizesService {
         },
       });
 
-      if (!Sizes.length) return { message: 'No Sizes found' };
-
-      return { Sizes };
+      return Sizes;
     } catch (error) {
       throw new BadRequestException(error.message);
     }
