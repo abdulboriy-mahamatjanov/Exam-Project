@@ -58,9 +58,7 @@ export class BrandsService {
         },
       });
 
-      if (!Brands.length) return { message: 'No Brands found' };
-
-      return { Brands };
+      return Brands;
     } catch (error) {
       throw new BadRequestException(error.message);
     }
