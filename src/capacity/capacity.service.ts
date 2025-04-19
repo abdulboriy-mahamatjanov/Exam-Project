@@ -58,9 +58,7 @@ export class CapacityService {
         },
       });
 
-      if (!Capacities.length) return { message: 'No Capacities found' };
-
-      return { Capacities };
+      return Capacities;
     } catch (error) {
       throw new BadRequestException(error.message);
     }
