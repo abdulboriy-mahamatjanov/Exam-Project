@@ -58,9 +58,7 @@ export class LevelsService {
         },
       });
 
-      if (!Levels.length) return { message: 'No Levels found' };
-
-      return { Levels };
+      return Levels;
     } catch (error) {
       throw new BadRequestException(error.message);
     }
