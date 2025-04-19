@@ -83,10 +83,7 @@ export class MasterService {
         },
       });
 
-      if (!Masters.length)
-        return { message: 'Masters are not available yet ❗' };
-
-      return { Masters };
+      return Masters;
     } catch (error) {
       throw new BadRequestException(error.message);
     }
@@ -94,7 +91,9 @@ export class MasterService {
 
   async findOne(id: string) {
     try {
-      const Master = await this.prisma.masters.findFirst({ where: { id } });
+      const Master = await this.prisma.masters.findFirst({
+        where: { id },
+      });
       if (!Master) throw new NotFoundException('Master not found ❗');
 
       return { Master };
