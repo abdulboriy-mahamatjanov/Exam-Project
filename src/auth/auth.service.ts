@@ -232,9 +232,9 @@ export class AuthService {
   }
 
   async deleteSessions(req: Request, id: string) {
-    try {
+    try { 
       const findSession = await this.prisma.sessions.findFirst({
-        where: { id },
+        where: { id }, 
       });
       if (!findSession) throw new NotFoundException('Session not found ❗');
 
