@@ -70,6 +70,26 @@ export class ProfessionsService {
             },
           ],
         },
+
+        include: {
+          ProfessionLevels: {
+            select: {
+              id: true,
+              minWorkingHours: true,
+              priceHourly: true,
+              priceDaily: true,
+              level: true,
+            },
+          },
+
+          ProfessionTools: {
+            select: {
+              id: true,
+              tools: true,
+            },
+          },
+        },
+
         skip: (page - 1) * limit,
         take: Number(limit),
 
@@ -86,6 +106,24 @@ export class ProfessionsService {
     try {
       const Profession = await this.prisma.professions.findFirst({
         where: { id },
+        include: {
+          ProfessionLevels: {
+            select: {
+              id: true,
+              minWorkingHours: true,
+              priceHourly: true,
+              priceDaily: true,
+              level: true,
+            },
+          },
+
+          ProfessionTools: {
+            select: {
+              id: true,
+              tools: true,
+            },
+          },
+        },
       });
 
       if (!Profession) throw new NotFoundException('Profession not found ❗');

@@ -20,11 +20,10 @@ export class CreateProfessionDto {
   @ApiProperty({ example: true, default: true })
   @IsBoolean()
   @IsOptional()
-  status: boolean;
+  status: boolean = true;
 
   @ApiProperty({
-    example:
-      'https://res.cloudinary.com/dnle8xg73/image/upload/v1744974271/opy1it4zmk1bkrr6ycgf.jpg',
+    example: 'Profession Image Url',
   })
   @IsString()
   @IsNotEmpty()
