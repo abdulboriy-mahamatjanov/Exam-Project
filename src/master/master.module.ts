@@ -6,4 +6,5 @@ import { MasterController } from './master.controller';
   controllers: [MasterController],
   providers: [MasterService],
 })
+
 export class MasterModule {}

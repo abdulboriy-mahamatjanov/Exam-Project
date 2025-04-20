@@ -23,14 +23,17 @@ export class MasterController {
   constructor(private readonly masterService: MasterService) {}
 
   @ApiOperation({ summary: 'Create a new Masters with MasterDto' })
-  // @Roles(UserRoles.ADMIN)
-  // @UseGuards(RoleGuard)
-  // @UseGuards(AuthGuard)
+  @Roles(UserRoles.ADMIN)
+  @UseGuards(RoleGuard)
+  @UseGuards(AuthGuard)
   @Post()
   create(@Body() createMasterDto: CreateMasterDto) {
     return this.masterService.create(createMasterDto);
   }
 
+  @Roles(UserRoles.ADMIN, UserRoles.VIEWER_ADMIN)
+  @UseGuards(RoleGuard)
+  @UseGuards(AuthGuard)
   @ApiOperation({ summary: 'Get all Masters' })
   @ApiQuery({ name: 'page', required: false, type: Number })
   @ApiQuery({ name: 'limit', required: false, type: Number })
@@ -46,18 +49,27 @@ export class MasterController {
     return this.masterService.findAll(query);
   }
 
+  @Roles(UserRoles.ADMIN, UserRoles.VIEWER_ADMIN)
+  @UseGuards(RoleGuard)
+  @UseGuards(AuthGuard)
   @ApiOperation({ summary: 'Get one Master By ID' })
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.masterService.findOne(id);
   }
 
+  @Roles(UserRoles.ADMIN)
+  @UseGuards(RoleGuard)
+  @UseGuards(AuthGuard)
   @ApiOperation({ summary: 'Update Masters By ID' })
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateMasterDto: UpdateMasterDto) {
     return this.masterService.update(id, updateMasterDto);
   }
 
+  @Roles(UserRoles.ADMIN)
+  @UseGuards(RoleGuard)
+  @UseGuards(AuthGuard)
   @ApiOperation({ summary: 'Delete Masters By ID' })
   @Delete(':id')
   remove(@Param('id') id: string) {

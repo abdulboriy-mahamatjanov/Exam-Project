@@ -1,40 +1,49 @@
 import { ApiProperty, PartialType } from '@nestjs/swagger';
 import { CreateMasterprofessionDto } from './create-masterprofession.dto';
-import { IsNumber, IsPositive, IsString } from 'class-validator';
+import {
+  IsNumber,
+  IsOptional,
+  IsPositive,
+  IsString,
+  Min,
+} from 'class-validator';
 import { Decimal } from 'generated/prisma/runtime/library';
-import { UUID } from 'crypto';
 
 export class UpdateMasterprofessionDto extends PartialType(
   CreateMasterprofessionDto,
 ) {
-  @ApiProperty({ example: '74481eb1-54ee-45bc-9f4f-351f0f0b7fff' })
+  @ApiProperty({ example: 'profession-uuid' })
   @IsString()
+  @IsOptional()
   professionId?: string;
 
-  @ApiProperty({ example: '4' })
+  @ApiProperty({ example: 4 })
   @IsNumber()
   @IsPositive()
+  @Min(1)
+  @IsOptional()
   minWorkingHours?: number;
 
-  @ApiProperty({ example: '8c562674-ac4b-4892-917c-f66fbecea3ad' })
+  @ApiProperty({ example: 'level-uuid' })
   @IsString()
+  @IsOptional()
   levelId?: string;
 
-  @ApiProperty({ example: 10.000 })
+  @ApiProperty({ example: 17000 })
   @IsNumber()
   @IsPositive()
+  @IsOptional()
   priceHourly?: Decimal;
 
-  @ApiProperty({ example: 100.000 })
+  @ApiProperty({ example: 50000 })
   @IsNumber()
   @IsPositive()
+  @IsOptional()
   priceDaily?: Decimal;
 
-  @ApiProperty({ example: '5-years' })
-  @IsString()
-  experience?: string;
-
-  @ApiProperty({ example: '1f71e2e2-b876-4ccb-a9f5-d93680151692' })
-  @IsString()
-  masterId?: string;
+  @ApiProperty({ example: 5 })
+  @IsNumber()
+  @IsPositive()
+  @IsOptional()
+  experience?: number;
 }

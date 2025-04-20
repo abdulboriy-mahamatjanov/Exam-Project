@@ -17,8 +17,10 @@ export class MasterService {
 
   async create(createMasterDto: CreateMasterDto) {
     try {
+      const { masterProfessions, ...masterData } = createMasterDto;
+
       const checkMaster = await this.prisma.masters.findUnique({
-        where: { phone: createMasterDto.phone },
+        where: { phone: masterData.phone },
       });
 
       if (checkMaster)
@@ -26,44 +28,67 @@ export class MasterService {
           `This ${checkMaster.phone} PhoneNumber already in use ❗`,
         );
 
-      const masterAvatar = this.cloudinary.getPublicId(createMasterDto.avatar);
-      const checkMasterAvatar = await this.cloudinary.checkImage(masterAvatar);
-      if (!checkMasterAvatar)
-        throw new BadRequestException(
-          "Master's avatar is not available yet ❗",
-        );
-
+      const masterAvatar = this.cloudinary.getPublicId(masterData.avatar);
       const masterPassportImage = this.cloudinary.getPublicId(
         createMasterDto.passportImage,
       );
-      const checkPassportImage =
-        await this.cloudinary.checkImage(masterPassportImage);
-      if (!checkPassportImage)
+
+      const [checkAvatar, checkPassportImage] = await Promise.all([
+        this.cloudinary.checkImage(masterAvatar),
+        this.cloudinary.checkImage(masterPassportImage),
+      ]);
+
+      if (!checkAvatar) {
+        throw new BadRequestException(
+          "Master's avatar is not available yet ❗",
+        );
+      }
+
+      if (!checkPassportImage) {
         throw new BadRequestException(
           "Master's passportImage is not available yet ❗",
         );
-
-      for (const profession of createMasterDto.masterProfessions) {
-        const checkProfession = await this.prisma.professions.findFirst({
-          where: { id: profession.professionId },
-        });
-        if (!checkProfession)
-          throw new BadRequestException('Profession is not available yet ❗');
-
-        const checkLevel = await this.prisma.levels.findFirst({
-          where: { id: profession.levelId },
-        });
-        if (!checkLevel)
-          throw new BadRequestException('Level is not available yet ❗');
       }
 
-      const NewMaster = await this.prisma.masters.create({
-        data: createMasterDto,
-      });
+      const NewMaster = await this.prisma.masters.create({ data: masterData });
 
-      return { NewMaster };
+      if (masterProfessions?.length) {
+        for (const item of masterProfessions) {
+          const [checkProfession, checkLevel] = await Promise.all([
+            await this.prisma.professions.findUnique({
+              where: { id: item.professionId },
+            }),
+
+            await this.prisma.levels.findUnique({
+              where: { id: item.levelId },
+            }),
+          ]);
+
+          if (!checkProfession) {
+            throw new BadRequestException('Profession is not available yet ❗');
+          }
+
+          if (!checkLevel) {
+            throw new BadRequestException('Level is not available yet ❗');
+          }
+        }
+
+        await this.prisma.masterProfessions.createMany({
+          data: masterProfessions.map((val) => ({
+            masterId: NewMaster.id,
+            professionId: val.professionId,
+            minWorkingHours: val.minWorkingHours,
+            levelId: val.levelId,
+            priceHourly: val.priceHourly,
+            priceDaily: val.priceDaily,
+            experience: val.experience,
+          })),
+        });
+      }
+
+      return { master: NewMaster };
     } catch (error) {
-      throw new BadRequestException("nimadir nito", error.message);
+      throw new BadRequestException(error.message);
     }
   }
 
@@ -89,6 +114,20 @@ export class MasterService {
           ],
         },
 
+        include: {
+          MasterProfessions: {
+            select: {
+              id: true,
+              minWorkingHours: true,
+              priceHourly: true,
+              priceDaily: true,
+              experience: true,
+              level: true,
+              profession: true,
+            },
+          },
+        },
+
         skip: (page - 1) * limit,
         take: Number(limit),
 
@@ -97,7 +136,17 @@ export class MasterService {
         },
       });
 
-      return Masters;
+      const total = await this.prisma.masters.count();
+      const totalPages = Math.ceil(total / limit);
+
+      let Pagedata = {
+        total,
+        totalPages,
+        currentPage: page,
+        pageSize: limit,
+      };
+
+      return { Masters, Pagedata };
     } catch (error) {
       throw new BadRequestException(error.message);
     }
@@ -107,6 +156,19 @@ export class MasterService {
     try {
       const Master = await this.prisma.masters.findFirst({
         where: { id },
+        include: {
+          MasterProfessions: {
+            select: {
+              id: true,
+              minWorkingHours: true,
+              priceHourly: true,
+              priceDaily: true,
+              experience: true,
+              level: true,
+              profession: true,
+            },
+          },
+        },
       });
       if (!Master) throw new NotFoundException('Master not found ❗');
 
@@ -118,6 +180,8 @@ export class MasterService {
 
   async update(id: string, updateMasterDto: UpdateMasterDto) {
     try {
+      const { masterProfessions, ...masterData } = updateMasterDto;
+
       const findMaster = await this.findOne(id);
       if (!findMaster) throw new NotFoundException('Master not found ❗');
 
@@ -135,12 +199,32 @@ export class MasterService {
           );
       }
 
-      const NewMaster = await this.prisma.masters.update({
-        data: updateMasterDto,
+      const updatedMaster = await this.prisma.masters.update({
         where: { id },
+        data: masterData,
       });
 
-      return { NewMaster };
+      if (masterProfessions && masterProfessions.length > 0) {
+        await this.prisma.masterProfessions.deleteMany({
+          where: { masterId: id },
+        });
+
+        const newMaterProfessions = masterProfessions.map((val) => ({
+          masterId: updatedMaster.id,
+          professionId: val.professionId,
+          minWorkingHours: val.minWorkingHours,
+          levelId: val.levelId,
+          priceHourly: val.priceHourly,
+          priceDaily: val.priceDaily,
+          experience: val.experience,
+        }));
+
+        await this.prisma.masterProfessions.createMany({
+          data: newMaterProfessions,
+        });
+      }
+
+      return { updatedMaster };
     } catch (error) {
       throw new BadRequestException(error.message);
     }

@@ -5,27 +5,25 @@ import {
   IsOptional,
   IsPositive,
   IsString,
-  IsUUID,
   Min,
 } from 'class-validator';
-import { UUID } from 'crypto';
 import { Decimal } from 'generated/prisma/runtime/library';
 
 export class CreateMasterprofessionDto {
-  @ApiProperty({ example: 'uuid' })
-  @IsUUID()
+  @ApiProperty({ example: 'professon-uuid' })
+  @IsString()
   @IsNotEmpty()
   professionId: string;
 
-  @ApiProperty({ example: 4 })
+  @ApiProperty({ example: 5 })
   @IsNumber()
   @IsNotEmpty()
   @IsPositive()
   @Min(1)
   minWorkingHours: number;
 
-  @ApiProperty({ example: 'uuid' })
-  @IsUUID()
+  @ApiProperty({ example: 'level-uuid' })
+  @IsString()
   @IsNotEmpty()
   levelId: string;
 
@@ -41,13 +39,9 @@ export class CreateMasterprofessionDto {
   @IsPositive()
   priceDaily: Decimal;
 
-  @ApiProperty({ example: '5-years' })
-  @IsString()
+  @ApiProperty({ example: 5 })
+  @IsNumber()
   @IsNotEmpty()
-  experience: string;
-
-  @ApiProperty({ example: 'uuid' })
-  @IsString()
-  @IsOptional()
-  masterId?: string;
+  @IsPositive()
+  experience: number;
 }

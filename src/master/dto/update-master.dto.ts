@@ -1,10 +1,11 @@
-import { ApiProperty, PartialType } from '@nestjs/swagger';
+import { ApiProperty, ApiPropertyOptional, PartialType } from '@nestjs/swagger';
 import { CreateMasterDto } from './create-master.dto';
 import {
   IsBoolean,
   IsNumber,
   IsOptional,
   IsPhoneNumber,
+  IsPositive,
   IsString,
 } from 'class-validator';
 
@@ -22,30 +23,29 @@ export class UpdateMasterDto extends PartialType(CreateMasterDto) {
   @ApiProperty({ example: true, default: true })
   @IsBoolean()
   @IsOptional()
-  status?: boolean;
+  status?: boolean = true;
 
   @ApiProperty({ example: 24 })
   @IsNumber()
   @IsOptional()
+  @IsPositive()
   birthYear?: number;
 
   @ApiProperty({
-    example:
-      'https://res.cloudinary.com/dnle8xg73/image/upload/v1744949382/qc1ajczrdk9ablukbqln.jpg',
+    example: 'New Avatar Url',
   })
   @IsString()
   @IsOptional()
   avatar?: string;
 
   @ApiProperty({
-    example:
-      'https://res.cloudinary.com/dnle8xg73/image/upload/v1744949382/qc1ajczrdk9ablukbqln.jpg',
+    example: 'New PassportImage Url',
   })
   @IsString()
   @IsOptional()
   passportImage?: string;
 
-  @ApiProperty({ example: "I'm a electrician" })
+  @ApiProperty({ example: "I'm Plumber" })
   @IsString()
   @IsOptional()
   about?: string;

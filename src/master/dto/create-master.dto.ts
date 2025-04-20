@@ -9,7 +9,6 @@ import {
   IsPhoneNumber,
   IsPositive,
   IsString,
-  IsUUID,
   ValidateNested,
 } from 'class-validator';
 import { CreateMasterprofessionDto } from './create-masterprofession.dto';
@@ -28,7 +27,7 @@ export class CreateMasterDto {
   @ApiProperty({ example: true, default: true })
   @IsBoolean()
   @IsOptional()
-  status: boolean;
+  status: boolean = true;
 
   @ApiProperty({ example: 20 })
   @IsNumber()
@@ -56,9 +55,8 @@ export class CreateMasterDto {
   about: string;
 
   @ApiPropertyOptional({ type: [CreateMasterprofessionDto] })
-  @IsArray()
-  @IsOptional()
   @ValidateNested({ each: true })
+  @IsArray()
   @Type(() => CreateMasterprofessionDto)
   masterProfessions: CreateMasterprofessionDto[];
 }
