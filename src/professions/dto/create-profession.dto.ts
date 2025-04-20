@@ -1,5 +1,13 @@
-import { ApiProperty } from '@nestjs/swagger';
-import { IsBoolean, IsNotEmpty, IsOptional, IsString } from 'class-validator';
+import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
+import { Type } from 'class-transformer';
+import {
+  IsArray,
+  IsBoolean,
+  IsNotEmpty,
+  IsOptional,
+  IsString,
+  ValidateNested,
+} from 'class-validator';
 
 export class CreateProfessionDto {
   @ApiProperty({ example: 'Elektrik' })
@@ -28,4 +36,9 @@ export class CreateProfessionDto {
   @IsString()
   @IsNotEmpty()
   avatar: string;
+
+  @ApiProperty({ example: ['first-tool-uuid', 'second-tool-uuid'] })
+  @IsArray()
+  @IsString({ each: true })
+  toolProfessions: string[];
 }

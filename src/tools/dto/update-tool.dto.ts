@@ -52,24 +52,23 @@ export class UpdateToolDto extends PartialType(CreateToolDto) {
   @IsOptional()
   quantity: number;
 
-  @ApiProperty({ example: '53a484dc-4963-4730-b418-604af5344790' })
+  @ApiProperty({ example: 'brand-uuid' })
   @IsString()
   @IsOptional()
   brandId: string;
 
-  @ApiProperty({ example: '3eb93f37-dbbe-499f-b813-d5cc68b040db' })
+  @ApiProperty({ example: 'capaticty-uuid' })
   @IsString()
   @IsOptional()
   capacityId: string;
 
-  @ApiProperty({ example: '5353e862-d3ea-484f-bb51-6d75cd0a66fb' })
+  @ApiProperty({ example: 'size-uuid' })
   @IsString()
   @IsOptional()
   sizeId: string;
 
   @ApiProperty({
-    example:
-      'https://res.cloudinary.com/dnle8xg73/image/upload/v1745077793/puh7wibpidargim0qmex.jpg',
+    example: 'ToolImage URL',
   })
   @IsString()
   @IsOptional()

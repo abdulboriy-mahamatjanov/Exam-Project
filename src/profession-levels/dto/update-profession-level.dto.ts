@@ -1,37 +1,36 @@
 import { ApiProperty, PartialType } from '@nestjs/swagger';
 import { CreateProfessionLevelDto } from './create-profession-level.dto';
-import {
-  IsDecimal,
-  IsNotEmpty,
-  IsNumber,
-  IsPositive,
-  IsString,
-} from 'class-validator';
+import { IsNumber, IsOptional, IsPositive, IsString } from 'class-validator';
 import { Decimal } from 'generated/prisma/runtime/library';
 
 export class UpdateProfessionLevelDto extends PartialType(
   CreateProfessionLevelDto,
 ) {
-  @ApiProperty({ example: '74481eb1-54ee-45bc-9f4f-351f0f0b7fff' })
+  @ApiProperty({ example: 'new Profession-uuid' })
   @IsString()
+  @IsOptional()
   professionId?: string;
 
-  @ApiProperty({ example: '8c562674-ac4b-4892-917c-f66fbecea3ad' })
+  @ApiProperty({ example: 'new Level-uuid' })
   @IsString()
+  @IsOptional()
   levelId?: string;
 
   @ApiProperty({ example: 6 })
   @IsNumber()
   @IsPositive()
+  @IsOptional()
   minWorkingHours?: number;
 
   @ApiProperty({ example: 40 })
-  @IsDecimal()
+  @IsNumber()
   @IsPositive()
+  @IsOptional()
   priceHourly?: Decimal;
 
   @ApiProperty({ example: 400 })
-  @IsDecimal()
+  @IsNumber()
   @IsPositive()
+  @IsOptional()
   priceDaily?: Decimal;
 }

@@ -38,20 +38,21 @@ enum UserStatus {
 }
 
 model Users {
-  id        String     @id @default(uuid())
-  fullName  String
-  phone     String     @unique
-  password  String
-  role      UserRole
-  status    UserStatus @default(INACTIVE)
-  avatar    String
-  regionId  String
-  region    Regions    @relation(fields: [regionId], references: [id], onDelete: Restrict)
-  createdAt DateTime   @default(now())
-  updatedAt DateTime   @updatedAt
-  Backet    Backet[]
-  Comments  Comments[]
-  Sessions  Sessions[]
+  id               String             @id @default(uuid())
+  fullName         String
+  phone            String             @unique
+  password         String
+  role             UserRole
+  status           UserStatus         @default(INACTIVE)
+  avatar           String
+  regionId         String
+  region           Regions            @relation(fields: [regionId], references: [id], onDelete: Restrict)
+  createdAt        DateTime           @default(now())
+  updatedAt        DateTime           @updatedAt
+  Backet           Backet[]
+  Comments         Comments[]
+  Sessions         Sessions[]
+  DataAboutCompany DataAboutCompany[]
 }
 
 model Sessions {
@@ -82,6 +83,8 @@ model DataAboutCompany {
   bankCode  String
   Oked      String
   address   String
+  userId    String
+  user      Users    @relation(fields: [userId], references: [id], onDelete: Cascade)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
@@ -222,7 +225,7 @@ model MasterProfessions {
   level           Levels      @relation(fields: [levelId], references: [id])
   priceHourly     Decimal
   priceDaily      Decimal
-  experience      String
+  experience      Int
   masterId        String
   master          Masters     @relation(fields: [masterId], references: [id], onDelete: Cascade)
 }
@@ -303,15 +306,15 @@ enum OrderStatus {
   PENDING
   ACTIVATED
   REJECTED
+  DELIVERED
 }
 
 model Orders {
   id                String       @id @default(uuid())
-  ownerId           String
   address           String
   latitude          String
   longitude         String
-  date              DateTime
+  date              DateTime     @default(now())
   totalPrice        Decimal
   paymentType       PaymentType
   withDelivery      Boolean
@@ -323,22 +326,22 @@ model Orders {
   OrderItems        OrderItems[]
 }
 
-enum OrderItemMeasure {
+enum OrderTimeUnit {
   DAY
   HOUR
 }
 
 model OrderItems {
-  id           String           @id @default(uuid())
+  id           String        @id @default(uuid())
   orderId      String
-  order        Orders           @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  order        Orders        @relation(fields: [orderId], references: [id], onDelete: Cascade)
   professionId String
-  profession   Professions      @relation(fields: [professionId], references: [id], onDelete: Restrict)
+  profession   Professions   @relation(fields: [professionId], references: [id], onDelete: Restrict)
   toolId       String
-  tool         Tools            @relation(fields: [toolId], references: [id])
+  tool         Tools         @relation(fields: [toolId], references: [id])
   levelId      String
-  level        Levels           @relation(fields: [levelId], references: [id], onDelete: Restrict)
-  measure      OrderItemMeasure
+  level        Levels        @relation(fields: [levelId], references: [id], onDelete: Restrict)
+  timeUnit     OrderTimeUnit
   workingTime  Int
   price        Decimal
   count        Int

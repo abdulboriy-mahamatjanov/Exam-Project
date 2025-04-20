@@ -5,16 +5,17 @@ import {
   IsNumber,
   IsPositive,
   IsString,
+  Min,
 } from 'class-validator';
 import { Decimal } from 'generated/prisma/runtime/library';
 
 export class CreateProfessionLevelDto {
-  @ApiProperty({ example: '74481eb1-54ee-45bc-9f4f-351f0f0b7fff' })
+  @ApiProperty({ example: 'profession-uuid' })
   @IsString()
   @IsNotEmpty()
   professionId: string;
 
-  @ApiProperty({ example: '8c562674-ac4b-4892-917c-f66fbecea3ad' })
+  @ApiProperty({ example: 'level-uuid' })
   @IsString()
   @IsNotEmpty()
   levelId: string;
@@ -23,16 +24,17 @@ export class CreateProfessionLevelDto {
   @IsNumber()
   @IsNotEmpty()
   @IsPositive()
+  @Min(1)
   minWorkingHours: number;
 
   @ApiProperty({ example: 40 })
-  @IsDecimal()
+  @IsNumber()
   @IsNotEmpty()
   @IsPositive()
   priceHourly: Decimal;
 
   @ApiProperty({ example: 400 })
-  @IsDecimal()
+  @IsNumber()
   @IsNotEmpty()
   @IsPositive()
   priceDaily: Decimal;

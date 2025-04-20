@@ -17,6 +17,8 @@ export class ProfessionsService {
 
   async create(createProfessionDto: CreateProfessionDto) {
     try {
+      const { toolProfessions, ...professionData } = createProfessionDto;
+
       let professionImage = this.cloudinary.getPublicId(
         createProfessionDto.avatar,
       );
@@ -24,11 +26,42 @@ export class ProfessionsService {
       if (!checkProfImage)
         throw new BadRequestException('Image is not available yet ❗');
 
-      const NewProfessions = await this.prisma.professions.create({
-        data: createProfessionDto,
+      const finTools = await this.prisma.tools.findMany({
+        where: {
+          id: {
+            in: toolProfessions,
+          },
+        },
+        select: {
+          id: true,
+        },
       });
 
-      return NewProfessions;
+      const checkTools = finTools.map((tool) => tool.id);
+      const invalidTools = toolProfessions.filter((id) =>
+        !checkTools.includes(id),
+      );
+
+      if (invalidTools.length > 0) {
+        throw new BadRequestException('Tool not found ❗');
+      }
+
+      const newprofession = await this.prisma.professions.create({
+        data: professionData,
+      });
+
+      if (toolProfessions && toolProfessions.length > 0) {
+        const toolProfessionsData = toolProfessions.map((toolId) => ({
+          professionId: newprofession.id,
+          toolId,
+        }));
+
+        await this.prisma.professionTools.createMany({
+          data: toolProfessionsData,
+        });
+      }
+
+      return { newprofession };
     } catch (error) {
       throw new BadRequestException(error.message);
     }

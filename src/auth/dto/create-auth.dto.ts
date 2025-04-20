@@ -1,5 +1,11 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsIn, IsNotEmpty, IsPhoneNumber, IsString } from 'class-validator';
+import {
+  IsIn,
+  IsNotEmpty,
+  IsPhoneNumber,
+  IsString,
+  Max,
+} from 'class-validator';
 import { UserRole } from 'generated/prisma';
 
 export class CreateAuthDto {
@@ -16,6 +22,7 @@ export class CreateAuthDto {
   @ApiProperty({ example: 'coder2o2' })
   @IsString()
   @IsNotEmpty()
+  @Max(8)
   password: string;
 
   @ApiProperty({
@@ -30,14 +37,13 @@ export class CreateAuthDto {
   role: UserRole;
 
   @ApiProperty({
-    example:
-      'http://res.cloudinary.com/dnle8xg73/image/upload/v1744607283/h3avie8voqhhdwc25uri.jpg',
+    example: 'Avatar URL',
   })
   @IsString()
   @IsNotEmpty()
   avatar: string;
 
-  @ApiProperty({ example: '0e11dcc2-27eb-4227-be0b-0030c6732832' })
+  @ApiProperty({ example: 'region-uuid' })
   @IsString()
   @IsNotEmpty()
   regionId: string;

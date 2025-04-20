@@ -12,7 +12,6 @@ import { PartrensModule } from './partrens/partrens.module';
 import { ContactsModule } from './contacts/contacts.module';
 import { FrequentlyAskedQuestionsModule } from './frequently_asked_questions/frequently_asked_questions.module';
 import { AboutPageModule } from './about-page/about-page.module';
-import { DataCompanyModule } from './data-company/data-company.module';
 import { LevelsModule } from './levels/levels.module';
 import { CapacityModule } from './capacity/capacity.module';
 import { BrandsModule } from './brands/brands.module';
@@ -22,6 +21,7 @@ import { MasterModule } from './master/master.module';
 import { ProfessionsModule } from './professions/professions.module';
 import { ProfessionLevelsModule } from './profession-levels/profession-levels.module';
 import { ToolsModule } from './tools/tools.module';
+import { OrdersModule } from './orders/orders.module';
 
 @Module({
   imports: [
@@ -46,7 +46,6 @@ import { ToolsModule } from './tools/tools.module';
     ContactsModule,
     FrequentlyAskedQuestionsModule,
     AboutPageModule,
-    DataCompanyModule,
     LevelsModule,
     CapacityModule,
     BrandsModule,
@@ -56,6 +55,7 @@ import { ToolsModule } from './tools/tools.module';
     ProfessionsModule,
     ProfessionLevelsModule,
     ToolsModule,
+    OrdersModule,
   ],
   controllers: [],
   providers: [],

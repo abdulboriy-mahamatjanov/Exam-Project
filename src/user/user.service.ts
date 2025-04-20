@@ -38,7 +38,17 @@ export class UserService {
         },
 
         include: {
-          region: true,
+          region: {
+            select: {
+              id: true,
+              nameUz: true,
+              nameRu: true,
+              nameEn: true,
+              createdAt: true,
+              updatedAt: true,
+            },
+          },
+          DataAboutCompany: true,
         },
 
         skip: (page - 1) * limit,

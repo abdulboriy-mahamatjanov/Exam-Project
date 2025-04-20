@@ -166,6 +166,7 @@ exports.Prisma.DataAboutCompanyScalarFieldEnum = {
   bankCode: 'bankCode',
   Oked: 'Oked',
   address: 'address',
+  userId: 'userId',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
@@ -343,7 +344,6 @@ exports.Prisma.BacketScalarFieldEnum = {
 
 exports.Prisma.OrdersScalarFieldEnum = {
   id: 'id',
-  ownerId: 'ownerId',
   address: 'address',
   latitude: 'latitude',
   longitude: 'longitude',
@@ -363,7 +363,7 @@ exports.Prisma.OrderItemsScalarFieldEnum = {
   professionId: 'professionId',
   toolId: 'toolId',
   levelId: 'levelId',
-  measure: 'measure',
+  timeUnit: 'timeUnit',
   workingTime: 'workingTime',
   price: 'price',
   count: 'count'
@@ -419,10 +419,11 @@ exports.PaymentType = exports.$Enums.PaymentType = {
 exports.OrderStatus = exports.$Enums.OrderStatus = {
   PENDING: 'PENDING',
   ACTIVATED: 'ACTIVATED',
-  REJECTED: 'REJECTED'
+  REJECTED: 'REJECTED',
+  DELIVERED: 'DELIVERED'
 };
 
-exports.OrderItemMeasure = exports.$Enums.OrderItemMeasure = {
+exports.OrderTimeUnit = exports.$Enums.OrderTimeUnit = {
   DAY: 'DAY',
   HOUR: 'HOUR'
 };

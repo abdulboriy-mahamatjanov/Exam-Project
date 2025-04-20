@@ -2,17 +2,17 @@ import { ApiProperty } from '@nestjs/swagger';
 import { IsNotEmpty, IsString } from 'class-validator';
 
 export class CreateLevelDto {
-  @ApiProperty({ example: 'Elektrik' })
+  @ApiProperty({ example: 'O‘rta daraja' })
   @IsString()
   @IsNotEmpty()
   nameUz: string;
 
-  @ApiProperty({ example: 'Електрик' })
+  @ApiProperty({ example: 'Средний уровень' })
   @IsString()
   @IsNotEmpty()
   nameRu: string;
 
-  @ApiProperty({ example: 'Electric' })
+  @ApiProperty({ example: 'InterMediate' })
   @IsString()
   @IsNotEmpty()
   nameEn: string;

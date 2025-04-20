@@ -28,7 +28,7 @@ export class ProfessionLevelsService {
         data: createProfessionLevelDto,
       });
 
-      return NewProfessionLevels;
+      return { NewProfessionLevels };
     } catch (error) {
       throw new BadRequestException(error.message);
     }
@@ -36,8 +36,30 @@ export class ProfessionLevelsService {
 
   async findAll() {
     try {
-      const ProfessionLevels = await this.prisma.professionLevels.findMany();
-
+      const ProfessionLevels = await this.prisma.professionLevels.findMany({
+        include: {
+          level: {
+            select: {
+              id: true,
+              nameUz: true,
+              nameRu: true,
+              nameEn: true,
+              createdAt: true,
+              updatedAt: true,
+            },
+          },
+          profession: {
+            select: {
+              id: true,
+              nameUz: true,
+              nameRu: true,
+              nameEn: true,
+              status: true,
+              avatar: true,
+            },
+          },
+        },
+      });
       return ProfessionLevels;
     } catch (error) {
       throw new BadRequestException(error.message);
@@ -83,7 +105,7 @@ export class ProfessionLevelsService {
         where: { id },
       });
 
-      return NewProfessionLevels;
+      return { NewProfessionLevels };
     } catch (error) {
       throw new BadRequestException(error.message);
     }

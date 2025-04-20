@@ -6,10 +6,14 @@ import {
 import { CreateToolDto, generateToolCode } from './dto/create-tool.dto';
 import { UpdateToolDto } from './dto/update-tool.dto';
 import { PrismaService } from 'src/prisma/prisma.service';
+import { CloudinaryService } from 'src/uploads/uploads.service';
 
 @Injectable()
 export class ToolsService {
-  constructor(private readonly prisma: PrismaService) {}
+  constructor(
+    private readonly prisma: PrismaService,
+    private readonly cloudinary: CloudinaryService,
+  ) {}
 
   async create(createToolDto: CreateToolDto) {
     try {
@@ -28,6 +32,12 @@ export class ToolsService {
       });
       if (!checkCapacity) throw new NotFoundException('Capacity not found ❗');
 
+      let toolImage = this.cloudinary.getPublicId(createToolDto.image);
+      let checkToolImage = await this.cloudinary.checkImage(toolImage);
+
+      if (!checkToolImage)
+        throw new BadRequestException('ToolImage is not available yet ❗');
+
       const code = generateToolCode();
       const NewTools = await this.prisma.tools.create({
         data: {
@@ -44,7 +54,46 @@ export class ToolsService {
 
   async findAll() {
     try {
-      const Tools = await this.prisma.tools.findMany();
+      const Tools = await this.prisma.tools.findMany({
+        include: {
+          size: {
+            select: {
+              id: true,
+              nameUz: true,
+              nameRu: true,
+              nameEn: true,
+              createdAt: true,
+              updatedAt: true,
+            },
+          },
+          capacity: {
+            select: {
+              id: true,
+              nameUz: true,
+              nameRu: true,
+              nameEn: true,
+              createdAt: true,
+              updatedAt: true,
+            },
+          },
+          brand: {
+            select: {
+              id: true,
+              nameUz: true,
+              nameRu: true,
+              nameEn: true,
+              createdAt: true,
+              updatedAt: true,
+            },
+          },
+          ProfessionTools: {
+            select: {
+              id: true,
+              professions: true,
+            },
+          },
+        },
+      });
 
       return Tools;
     } catch (error) {
@@ -54,7 +103,47 @@ export class ToolsService {
 
   async findOne(id: string) {
     try {
-      const Tool = await this.prisma.tools.findFirst({ where: { id } });
+      const Tool = await this.prisma.tools.findFirst({
+        where: { id },
+        include: {
+          size: {
+            select: {
+              id: true,
+              nameUz: true,
+              nameRu: true,
+              nameEn: true,
+              createdAt: true,
+              updatedAt: true,
+            },
+          },
+          brand: {
+            select: {
+              id: true,
+              nameUz: true,
+              nameRu: true,
+              nameEn: true,
+              createdAt: true,
+              updatedAt: true,
+            },
+          },
+          capacity: {
+            select: {
+              id: true,
+              nameUz: true,
+              nameRu: true,
+              nameEn: true,
+              createdAt: true,
+              updatedAt: true,
+            },
+          },
+          ProfessionTools: {
+            select: {
+              id: true,
+              professions: true,
+            },
+          },
+        },
+      });
       if (!Tool) throw new NotFoundException('Tool not found ❗');
 
       return Tool;
@@ -83,8 +172,20 @@ export class ToolsService {
       });
       if (!checkCapacity) throw new NotFoundException('Capacity not found ❗');
 
+      let oldToolImage = this.cloudinary.getPublicId(updateToolDto.image);
+      if (updateToolDto.image) {
+        let newToolImage = this.cloudinary.getPublicId(oldToolImage);
+
+        if (!newToolImage)
+          throw new BadRequestException('ToolImage is not available yet ❗');
+
+        if (oldToolImage !== newToolImage) {
+          await this.cloudinary.deleteImage(oldToolImage);
+        }
+      }
+
       const code = generateToolCode();
-      
+
       const NewTools = await this.prisma.tools.update({
         data: { ...updateToolDto, code },
         where: { id },
@@ -100,6 +201,10 @@ export class ToolsService {
     try {
       const Tool = await this.prisma.tools.findFirst({ where: { id } });
       if (!Tool) throw new NotFoundException('Tool not found ❗');
+
+      let toolImage = this.cloudinary.getPublicId(Tool.image);
+      const checkImage = await this.cloudinary.checkImage(toolImage);
+      if (checkImage) await this.cloudinary.deleteImage(toolImage);
 
       await this.prisma.tools.delete({ where: { id } });
       return { message: 'Tool is successfully deleted ✅' };

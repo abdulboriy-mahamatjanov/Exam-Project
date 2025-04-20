@@ -240,7 +240,7 @@ CREATE TABLE "MasterProfessions" (
     "levelId" TEXT NOT NULL,
     "priceHourly" DECIMAL(65,30) NOT NULL,
     "priceDaily" DECIMAL(65,30) NOT NULL,
-    "experience" TEXT NOT NULL,
+    "experience" INTEGER NOT NULL,
     "masterId" TEXT NOT NULL,
 
     CONSTRAINT "MasterProfessions_pkey" PRIMARY KEY ("id")

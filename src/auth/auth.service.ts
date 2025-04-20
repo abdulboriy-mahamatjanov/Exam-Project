@@ -10,7 +10,7 @@ import * as bcrypt from 'bcrypt';
 import { CreateAuthDto } from './dto/create-auth.dto';
 import { totp } from 'otplib';
 import { EskizService } from '../eskiz/eskiz.service';
-import { RegisterDto } from './dto/register-user.dto';
+import { RegisterDto, UserRoles } from './dto/register-user.dto';
 import { LoginDto } from './dto/login-user.dto';
 import { JwtService } from '@nestjs/jwt';
 import { Request } from 'express';
@@ -93,10 +93,32 @@ export class AuthService {
 
       const hashPass = bcrypt.hashSync(registerDto.password, 10);
 
-      const NewUser = {
-        ...registerDto,
-        password: hashPass,
-      };
+      const createdUser = await this.prisma.users.create({
+        data: {
+          fullName: registerDto.fullName,
+          phone: registerDto.phone,
+          password: hashPass,
+          regionId: registerDto.regionId,
+          avatar: registerDto.avatar,
+          role: registerDto.role,
+          DataAboutCompany:
+            registerDto.role === 'USER_YUR' && registerDto.dataCompany
+              ? {
+                  create: registerDto.dataCompany.map((val) => ({
+                    INN: val.INN,
+                    MFO: val.MFO,
+                    R_or_C: val.R_or_C,
+                    address: val.address,
+                    bankCode: val.bankCode,
+                    Oked: val.Oked,
+                  })),
+                }
+              : undefined,
+        },
+        include: {
+          DataAboutCompany: true,
+        },
+      });
 
       const otp = totp.generate(
         `${process.env.REGISTER_SECRET_KEY}_${registerDto.phone}`,
@@ -107,9 +129,8 @@ export class AuthService {
       //   `${registerDto.phone}`,
       // );
 
-      await this.prisma.users.create({ data: NewUser });
       return {
-        message: 'Registered successfully ✅',
+        createdUser,
         otp,
       };
     } catch (error) {
@@ -232,9 +253,9 @@ export class AuthService {
   }
 
   async deleteSessions(req: Request, id: string) {
-    try { 
+    try {
       const findSession = await this.prisma.sessions.findFirst({
-        where: { id }, 
+        where: { id },
       });
       if (!findSession) throw new NotFoundException('Session not found ❗');
 

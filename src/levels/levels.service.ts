@@ -50,6 +50,29 @@ export class LevelsService {
           ],
         },
 
+        include: {
+          ProfessionLevels: {
+            select: {
+              id: true,
+              minWorkingHours: true,
+              priceHourly: true,
+              priceDaily: true,
+              profession: true,
+            },
+          },
+
+          MasterProfessions: {
+            select: {
+              id: true,
+              minWorkingHours: true,
+              priceHourly: true,
+              priceDaily: true,
+              experience: true,
+              master: true,
+            },
+          },
+        },
+
         skip: (page - 1) * limit,
         take: Number(limit),
 
@@ -66,7 +89,32 @@ export class LevelsService {
 
   async findOne(id: string) {
     try {
-      const Level = await this.prisma.levels.findFirst({ where: { id } });
+      const Level = await this.prisma.levels.findFirst({
+        where: { id },
+
+        include: {
+          ProfessionLevels: {
+            select: {
+              id: true,
+              minWorkingHours: true,
+              priceHourly: true,
+              priceDaily: true,
+              profession: true,
+            },
+          },
+
+          MasterProfessions: {
+            select: {
+              id: true,
+              minWorkingHours: true,
+              priceHourly: true,
+              priceDaily: true,
+              experience: true,
+              master: true,
+            },
+          },
+        },
+      });
       if (!Level) throw new NotFoundException('Level not found ❗');
 
       return { Level };
