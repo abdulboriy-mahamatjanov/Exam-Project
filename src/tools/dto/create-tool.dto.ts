@@ -1,4 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
+import { Decimal } from '@prisma/client/runtime/library';
 import {
   IsBoolean,
   IsNotEmpty,
@@ -6,7 +7,6 @@ import {
   IsPositive,
   IsString,
 } from 'class-validator';
-import { Decimal } from 'generated/prisma/runtime/library';
 
 export class CreateToolDto {
   @ApiProperty({ example: 'Drill' })

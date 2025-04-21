@@ -7,7 +7,7 @@ import {
   IsPositive,
   IsString,
 } from 'class-validator';
-import { Decimal } from 'generated/prisma/runtime/library';
+import { Decimal } from '@prisma/client/runtime/library';
 
 export class UpdateToolDto extends PartialType(CreateToolDto) {
   @ApiProperty({ example: 'Drill' })

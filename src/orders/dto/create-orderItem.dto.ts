@@ -1,12 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
-import {
-  IsEnum,
-  IsNotEmpty,
-  IsNumber,
-  IsPositive,
-  IsString,
-} from 'class-validator';
-import { Decimal } from 'generated/prisma/runtime/library';
+import { Decimal } from '@prisma/client/runtime/library';
+import { IsNotEmpty, IsNumber, IsPositive, IsString } from 'class-validator';
 
 export enum OrderTimeUnit {
   DAY = 'DAY',

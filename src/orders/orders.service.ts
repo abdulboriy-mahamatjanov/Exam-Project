@@ -7,7 +7,7 @@ import { CreateOrderDto } from './dto/create-order.dto';
 import { UpdateOrderDto } from './dto/update-order.dto';
 import { PrismaService } from 'src/prisma/prisma.service';
 import { Request } from 'express';
-import { OrderStatus, Prisma } from 'generated/prisma';
+import { Prisma, OrderStatus } from '@prisma/client';
 
 @Injectable()
 export class OrdersService {
@@ -74,7 +74,7 @@ export class OrdersService {
             levelId: val.levelId,
             timeUnit: val.timeUnit,
             workingTime: val.workingTime,
-            price: new Prisma.Decimal(val.price),
+            price: val.price,
             count: val.count,
           })),
         });
