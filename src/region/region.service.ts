@@ -11,17 +11,6 @@ import { PrismaService } from '../prisma/prisma.service';
 export class RegionService {
   constructor(private prisma: PrismaService) {}
 
-  async findRegion(id: string) {
-    try {
-      const Region = await this.prisma.regions.findFirst({ where: { id } });
-      if (!Region) throw new NotFoundException('Region not found ❗');
-
-      return Region;
-    } catch (error) {
-      throw new BadRequestException(error.message);
-    }
-  }
-
   async create(createRegionDto: CreateRegionDto) {
     try {
       const NewRegions = await this.prisma.regions.create({
@@ -76,7 +65,17 @@ export class RegionService {
         orderBy: { [orders]: order },
       });
 
-      return Regions;
+      let total = await this.prisma.regions.count();
+      let totalPages = Math.ceil(total / limit);
+
+      let pageData = {
+        total,
+        totalPages,
+        currentPage: page,
+        pageSize: limit,
+      };
+
+      return { Regions, pageData };
     } catch (error) {
       throw new BadRequestException(error.message);
     }
@@ -84,9 +83,27 @@ export class RegionService {
 
   async findOne(id: string) {
     try {
-      const Region = await this.findRegion(id);
+      const findRegion = await this.prisma.regions.findFirst({
+        where: { id },
+        include: {
+          Users: {
+            select: {
+              id: true,
+              fullName: true,
+              phone: true,
+              password: true,
+              role: true,
+              status: true,
+              avatar: true,
+              createdAt: true,
+              updatedAt: true,
+            },
+          },
+        },
+      });
+      if (!findRegion) throw new NotFoundException('Region not found ❗');
 
-      return Region;
+      return findRegion;
     } catch (error) {
       throw new BadRequestException(error.message);
     }
@@ -94,14 +111,15 @@ export class RegionService {
 
   async update(id: string, updateRegionDto: UpdateRegionDto) {
     try {
-      await this.findRegion(id);
+      const findRegion = await this.prisma.regions.findFirst({ where: { id } });
+      if (!findRegion) throw new NotFoundException('Region not found ❗');
 
-      const NewRegions = await this.prisma.regions.update({
+      const newRegion = await this.prisma.regions.update({
         data: updateRegionDto,
         where: { id },
       });
 
-      return NewRegions;
+      return newRegion;
     } catch (error) {
       throw new BadRequestException(error.message);
     }
@@ -109,9 +127,11 @@ export class RegionService {
 
   async remove(id: string) {
     try {
-      await this.findRegion(id);
-      const deletedOrder = await this.prisma.regions.delete({ where: { id } });
-      return deletedOrder;
+      const findRegion = await this.prisma.regions.findFirst({ where: { id } });
+      if (!findRegion) throw new NotFoundException('Region not found ❗');
+
+      const deletedRegion = await this.prisma.regions.delete({ where: { id } });
+      return deletedRegion;
     } catch (error) {
       throw new BadRequestException(error.message);
     }

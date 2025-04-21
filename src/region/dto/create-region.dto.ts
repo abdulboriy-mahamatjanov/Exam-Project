@@ -3,17 +3,17 @@ import { IsNotEmpty, IsString } from 'class-validator';
 
 export class CreateRegionDto {
   @ApiProperty({ example: 'Toshkent' })
-  @IsString()
-  @IsNotEmpty()
+  @IsString({ message: 'Region NameUz is string ❗' })
+  @IsNotEmpty({ message: 'Region NameUz is reqired ❗' })
   nameUz: string;
 
   @ApiProperty({ example: 'Ташкент' })
-  @IsString()
-  @IsNotEmpty()
+  @IsString({ message: 'Region NameRu is string ❗' })
+  @IsNotEmpty({ message: 'Region NameRu is reqired ❗' })
   nameRu: string;
 
   @ApiProperty({ example: 'Tashkent' })
-  @IsString()
-  @IsNotEmpty()
+  @IsString({ message: 'Region NameEn is string ❗' })
+  @IsNotEmpty({ message: 'Region NameEn is reqired ❗' })
   nameEn: string;
 }
