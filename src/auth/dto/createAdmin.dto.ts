@@ -30,8 +30,4 @@ export class CreateAdminDto {
   @IsNotEmpty()
   @IsIn([UserRoles.SUPER_ADMIN])
   role: UserRoles.SUPER_ADMIN;
-
-  @ApiProperty({ example: 'region_id' })
-  @IsOptional()
-  regionId?: string;
 }

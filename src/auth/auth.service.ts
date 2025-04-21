@@ -50,11 +50,6 @@ export class AuthService {
           'You are not allowed to assign this role ❗',
         );
 
-      const checkRegion = await this.prisma.regions.findFirst({
-        where: { id: createAdminDto.regionId },
-      });
-      if (!checkRegion) throw new NotFoundException('Region not found ❗');
-
       const hashPass = bcrypt.hashSync(createAdminDto.password, 10);
 
       const newUser = await this.prisma.users.create({
