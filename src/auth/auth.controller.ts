@@ -16,18 +16,16 @@ import { LoginDto } from './dto/login-user.dto';
 import { RefreshTokenDto } from './dto/refreshtoken-atu.dto';
 import { Request } from 'express';
 import { AuthGuard } from 'src/guards/jwt_token.guard';
+import { CreateAdminDto } from './dto/createAdmin.dto';
 
 @ApiTags('Authorization')
 @Controller('auth')
 export class AuthController {
   constructor(private readonly authService: AuthService) {}
 
-  @ApiOperation({
-    summary: 'Create a new Super_Admin with FullName, phoneNumer ...',
-  })
-  @Post('/create-super_admin')
-  createSuperAdmin(@Body() createAuthDto: CreateAuthDto) {
-    return this.authService.createSuperAdmin(createAuthDto);
+  @Post('/createAdmin')
+  createSuperAdmin(@Body() createAdminDto: CreateAdminDto) {
+    return this.authService.createAdmin(createAdminDto);
   }
 
   @ApiOperation({

@@ -2,9 +2,9 @@ import { ApiProperty } from '@nestjs/swagger';
 import {
   IsIn,
   IsNotEmpty,
+  IsOptional,
   IsPhoneNumber,
   IsString,
-  Max,
 } from 'class-validator';
 import { UserRole } from 'generated/prisma';
 
@@ -22,7 +22,6 @@ export class CreateAuthDto {
   @ApiProperty({ example: 'coder2o2' })
   @IsString()
   @IsNotEmpty()
-  @Max(8)
   password: string;
 
   @ApiProperty({
@@ -31,20 +30,20 @@ export class CreateAuthDto {
   })
   @IsString()
   @IsNotEmpty()
-  @IsIn([UserRole.SUPER_ADMIN, UserRole.VIEWER_ADMIN], {
+  @IsIn([UserRole.SUPER_ADMIN, UserRole.VIEWER_ADMIN, UserRole.ADMIN], {
     message: `You are not allowed to assign this role ❗`,
   })
   role: UserRole;
 
   @ApiProperty({
-    example: 'Avatar URL',
+    example: 'avatar url',
   })
   @IsString()
   @IsNotEmpty()
   avatar: string;
 
-  @ApiProperty({ example: 'region-uuid' })
+  @ApiProperty({ example: 'region_id' })
   @IsString()
-  @IsNotEmpty()
+  @IsOptional()
   regionId: string;
 }

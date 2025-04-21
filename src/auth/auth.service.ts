@@ -16,6 +16,7 @@ import { JwtService } from '@nestjs/jwt';
 import { Request } from 'express';
 import * as DeviceDetector from 'device-detector-js';
 import { CloudinaryService } from 'src/uploads/uploads.service';
+import { CreateAdminDto } from './dto/createAdmin.dto';
 
 totp.options = { digits: 6, step: 1800 };
 
@@ -38,29 +39,27 @@ export class AuthService {
     }
   }
 
-  async createSuperAdmin(createAuthDto: CreateAuthDto) {
+  async createAdmin(createAdminDto: CreateAdminDto) {
     try {
-      const checkPhoneNumber = await this.findUser(createAuthDto.phone);
+      const checkPhoneNumber = await this.findUser(createAdminDto.phone);
       if (checkPhoneNumber)
         throw new ForbiddenException('This account already exits❗');
 
-      const checkRegion = await this.prisma.regions.findFirst({
-        where: { id: createAuthDto.regionId },
-      });
+      if (createAdminDto.role !== UserRoles.SUPER_ADMIN)
+        throw new BadRequestException(
+          'You are not allowed to assign this role ❗',
+        );
 
+      const checkRegion = await this.prisma.regions.findFirst({
+        where: { id: createAdminDto.regionId },
+      });
       if (!checkRegion) throw new NotFoundException('Region not found ❗');
 
-      const publicId = this.cloudinaryService.getPublicId(createAuthDto.avatar);
-
-      const checkImage = await this.cloudinaryService.checkImage(publicId);
-      if (!checkImage)
-        throw new BadRequestException('Image is not available yet ❗');
-
-      const hashPass = bcrypt.hashSync(createAuthDto.password, 10);
+      const hashPass = bcrypt.hashSync(createAdminDto.password, 10);
 
       const newUser = await this.prisma.users.create({
         data: {
-          ...createAuthDto,
+          ...createAdminDto,
           password: hashPass,
           status: 'ACTIVE',
         },

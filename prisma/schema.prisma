@@ -44,9 +44,9 @@ model Users {
   password         String
   role             UserRole
   status           UserStatus         @default(INACTIVE)
-  avatar           String
-  regionId         String
-  region           Regions            @relation(fields: [regionId], references: [id], onDelete: Restrict)
+  avatar           String?
+  regionId         String?
+  region           Regions?            @relation(fields: [regionId], references: [id], onDelete: Restrict)
   createdAt        DateTime           @default(now())
   updatedAt        DateTime           @updatedAt
   Comments         Comments[]

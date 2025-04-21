@@ -48,21 +48,21 @@ export class UserController {
     return this.userService.findOne(id);
   }
 
-  @ApiOperation({ summary: 'Update User By ID' })
+  // @ApiOperation({ summary: 'Update User By ID' })
   // @Roles(UserRoles.ADMIN)
   // @UseGuards(RoleGuard)
   // @UseGuards(AuthGuard)
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateUserDto: UpdateAuthDto) {
-    return this.userService.update(id, updateUserDto);
-  }
+  // @Patch(':id')
+  // update(@Param('id') id: string, @Body() updateUserDto: UpdateAuthDto) {
+  //   return this.userService.update(id, updateUserDto);
+  // }
 
-  @ApiOperation({ summary: 'Delete User By ID' })
+  // @ApiOperation({ summary: 'Delete User By ID' })
   // @Roles(UserRoles.ADMIN)
   // @UseGuards(RoleGuard)
   // @UseGuards(AuthGuard)
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.userService.remove(id);
-  }
+//   @Delete(':id')
+//   remove(@Param('id') id: string) {
+//     return this.userService.remove(id);
+//   }
 }
