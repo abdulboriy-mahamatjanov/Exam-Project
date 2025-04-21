@@ -17,7 +17,7 @@ export class SizesService {
         data: createSizeDto,
       });
 
-      return { NewSizes };
+      return NewSizes;
     } catch (error) {
       throw new BadRequestException(error.message);
     }
@@ -69,7 +69,7 @@ export class SizesService {
       const Size = await this.prisma.sizes.findFirst({ where: { id } });
       if (!Size) throw new NotFoundException('Size not found ❗');
 
-      return { Size };
+      return Size;
     } catch (error) {
       throw new BadRequestException(error.message);
     }
@@ -85,7 +85,7 @@ export class SizesService {
         where: { id },
       });
 
-      return { NewSizes };
+      return NewSizes;
     } catch (error) {
       throw new BadRequestException(error.message);
     }
@@ -96,8 +96,8 @@ export class SizesService {
       const size = await this.findOne(id);
       if (!size) throw new NotFoundException('Size not found ❗');
 
-      await this.prisma.sizes.delete({ where: { id } });
-      return { message: 'Size is successfully deleted ✅' };
+      const deletedSize = await this.prisma.sizes.delete({ where: { id } });
+      return deletedSize;
     } catch (error) {
       throw new BadRequestException(error.message);
     }

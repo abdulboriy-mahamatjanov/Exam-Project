@@ -26,7 +26,7 @@ export class ContactsService {
         data: createContactDto,
       });
 
-      return { NewContacts };
+      return NewContacts;
     } catch (error) {
       throw new BadRequestException(error.message);
     }
@@ -73,9 +73,7 @@ export class ContactsService {
         },
       });
 
-      if (!Contacts.length) return { message: 'No Contacts found' };
-
-      return { Contacts };
+      return Contacts;
     } catch (error) {
       throw new BadRequestException(error.message);
     }
@@ -86,7 +84,7 @@ export class ContactsService {
       const Contact = await this.prisma.contacts.findFirst({ where: { id } });
       if (!Contact) throw new NotFoundException('Contact not found ❗');
 
-      return { Contact };
+      return Contact;
     } catch (error) {
       throw new BadRequestException(error.message);
     }
@@ -102,7 +100,7 @@ export class ContactsService {
         where: { id },
       });
 
-      return { NewContacts };
+      return NewContacts;
     } catch (error) {
       throw new BadRequestException(error.message);
     }
@@ -113,8 +111,11 @@ export class ContactsService {
       const contact = await this.findOne(id);
       if (!contact) throw new NotFoundException('Contact not found ❗');
 
-      await this.prisma.contacts.delete({ where: { id } });
-      return { message: 'Contact is successfully deleted ✅' };
+      const deletedContact = await this.prisma.contacts.delete({
+        where: { id },
+      });
+      
+      return deletedContact;
     } catch (error) {
       throw new BadRequestException(error.message);
     }

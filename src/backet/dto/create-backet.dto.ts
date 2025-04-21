@@ -1,5 +1,11 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsNotEmpty, IsNumber, IsPositive, IsString } from 'class-validator';
+import {
+  IsNotEmpty,
+  IsNumber,
+  IsOptional,
+  IsPositive,
+  IsString,
+} from 'class-validator';
 import { Decimal } from 'generated/prisma/runtime/library';
 
 enum TimeUnit {
@@ -10,17 +16,17 @@ enum TimeUnit {
 export class CreateBacketDto {
   @ApiProperty({ example: 'profession-uuid' })
   @IsString()
-  @IsNotEmpty()
+  @IsOptional()
   professionId: string;
 
   @ApiProperty({ example: 'tool-uuid' })
   @IsString()
-  @IsNotEmpty()
+  @IsOptional()
   toolId: string;
 
   @ApiProperty({ example: 'level-uuid' })
   @IsString()
-  @IsNotEmpty()
+  @IsOptional()
   levelId: string;
 
   @ApiProperty({ example: TimeUnit.DAY })

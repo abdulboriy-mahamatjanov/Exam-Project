@@ -17,7 +17,7 @@ export class CommentsService {
         data: createCommentDto,
       });
 
-      return { NewComments };
+      return NewComments;
     } catch (error) {
       throw new BadRequestException(error.message);
     }
@@ -28,7 +28,7 @@ export class CommentsService {
       const Comments = await this.prisma.comments.findMany();
       if (!Comments.length) return { message: 'No Comments found' };
 
-      return { Comments };
+      return Comments;
     } catch (error) {
       throw new BadRequestException(error.message);
     }
@@ -39,7 +39,7 @@ export class CommentsService {
       const comment = await this.prisma.comments.findFirst({ where: { id } });
       if (!comment) throw new NotFoundException('Comment not found ❗');
 
-      return { comment };
+      return comment;
     } catch (error) {
       throw new BadRequestException(error.message);
     }
@@ -55,7 +55,7 @@ export class CommentsService {
         where: { id },
       });
 
-      return { NewComments };
+      return NewComments;
     } catch (error) {
       throw new BadRequestException(error.message);
     }
@@ -66,8 +66,11 @@ export class CommentsService {
       const comment = await this.findOne(id);
       if (!comment) throw new NotFoundException('Comment not found ❗');
 
-      await this.prisma.comments.delete({ where: { id } });
-      return { message: 'Comment is successfully deleted ✅' };
+      const deletedComment = await this.prisma.comments.delete({
+        where: { id },
+      });
+
+      return deletedComment;
     } catch (error) {
       throw new BadRequestException(error.message);
     }

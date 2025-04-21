@@ -17,7 +17,7 @@ export class BrandsService {
         data: createBrandDto,
       });
 
-      return { NewBrands };
+      return NewBrands;
     } catch (error) {
       throw new BadRequestException(error.message);
     }
@@ -69,7 +69,7 @@ export class BrandsService {
       const Brands = await this.prisma.brands.findFirst({ where: { id } });
       if (!Brands) throw new NotFoundException('Brands not found ❗');
 
-      return { Brands };
+      return Brands;
     } catch (error) {
       throw new BadRequestException(error.message);
     }
@@ -85,7 +85,7 @@ export class BrandsService {
         where: { id },
       });
 
-      return { NewBrands };
+      return NewBrands;
     } catch (error) {
       throw new BadRequestException(error.message);
     }
@@ -96,8 +96,8 @@ export class BrandsService {
       const brands = await this.findOne(id);
       if (!brands) throw new NotFoundException('Brands not found ❗');
 
-      await this.prisma.brands.delete({ where: { id } });
-      return { message: 'Brand is successfully deleted ✅' };
+      const deletedBrand = await this.prisma.brands.delete({ where: { id } });
+      return deletedBrand;
     } catch (error) {
       throw new BadRequestException(error.message);
     }

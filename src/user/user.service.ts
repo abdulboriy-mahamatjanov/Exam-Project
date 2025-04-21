@@ -112,9 +112,6 @@ export class UserService {
 
       return { newUser };
     } catch (error) {
-      if (error instanceof HttpException) {
-        throw error;
-      }
       throw new BadRequestException(error.message);
     }
   }
@@ -131,8 +128,8 @@ export class UserService {
         await this.cloudinaryService.deleteImage(publicId);
       }
 
-      await this.prisma.users.delete({ where: { id } });
-      return { message: 'User is successfully deleted ✅' };
+      const deletedUser = await this.prisma.users.delete({ where: { id } });
+      return deletedUser;
     } catch (error) {
       throw new BadRequestException(error.message);
     }

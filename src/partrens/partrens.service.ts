@@ -29,7 +29,7 @@ export class PartrensService {
         data: createPartrenDto,
       });
 
-      return { NewPartners };
+      return NewPartners;
     } catch (error) {
       throw new BadRequestException(error.message);
     }
@@ -77,9 +77,8 @@ export class PartrensService {
 
         orderBy: { [orders]: order },
       });
-      if (!Partners.length) return { message: 'No Partners found' };
 
-      return { Partners };
+      return Partners;
     } catch (error) {
       throw new BadRequestException(error.message);
     }
@@ -90,7 +89,7 @@ export class PartrensService {
       const Partner = await this.prisma.partners.findFirst({ where: { id } });
       if (!Partner) throw new NotFoundException('Partner not found ❗');
 
-      return { Partner };
+      return Partner;
     } catch (error) {
       throw new BadRequestException(error.message);
     }
@@ -101,9 +100,7 @@ export class PartrensService {
       const partner = await this.findOne(id);
       if (!partner) throw new NotFoundException('Partner not found ❗');
 
-      const oldPubliceId = this.cloudinaryService.getPublicId(
-        partner.Partner.images,
-      );
+      const oldPubliceId = this.cloudinaryService.getPublicId(partner.images);
       let newPublicId: string | null = null;
 
       if (updatePartrenDto.images) {
@@ -123,7 +120,7 @@ export class PartrensService {
         where: { id },
       });
 
-      return { NewPartners };
+      return NewPartners;
     } catch (error) {
       throw new BadRequestException(error.message);
     }
@@ -134,17 +131,15 @@ export class PartrensService {
       const partner = await this.findOne(id);
       if (!partner) throw new NotFoundException('Partner not found ❗');
 
-      const publicId = this.cloudinaryService.getPublicId(
-        partner.Partner.images,
-      );
-      
+      const publicId = this.cloudinaryService.getPublicId(partner.images);
+
       const checkImage = await this.cloudinaryService.checkImage(publicId);
       if (checkImage) {
         await this.cloudinaryService.deleteImage(publicId);
       }
 
-      await this.prisma.partners.delete({ where: { id } });
-      return { message: 'Partner is successfully deleted ✅' };
+      const delPartners = await this.prisma.partners.delete({ where: { id } });
+      return delPartners;
     } catch (error) {
       throw new BadRequestException(error.message);
     }

@@ -1,20 +1,20 @@
 import { ApiProperty, PartialType } from '@nestjs/swagger';
 import { CreateBrandDto } from './create-brand.dto';
-import { IsNotEmpty, IsString } from 'class-validator';
+import { IsNotEmpty, IsOptional, IsString } from 'class-validator';
 
 export class UpdateBrandDto extends PartialType(CreateBrandDto) {
   @ApiProperty({ example: 'Proskit' })
   @IsString()
-  @IsNotEmpty()
+  @IsOptional()
   nameUz?: string;
 
   @ApiProperty({ example: 'Проскит' })
   @IsString()
-  @IsNotEmpty()
+  @IsOptional()
   nameRu?: string;
 
   @ApiProperty({ example: 'Proskit' })
   @IsString()
-  @IsNotEmpty()
+  @IsOptional()
   nameEn?: string;
 }

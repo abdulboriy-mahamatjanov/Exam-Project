@@ -331,9 +331,11 @@ export class ProfessionsService {
         await this.cloudinary.deleteImage(professionImage);
       }
 
-      await this.prisma.professions.delete({ where: { id } });
+      const Delprofession = await this.prisma.professions.delete({
+        where: { id },
+      });
 
-      return { message: 'Profession is sucessfully deleted ✅' };
+      return Delprofession;
     } catch (error) {
       throw new BadRequestException(error.message);
     }

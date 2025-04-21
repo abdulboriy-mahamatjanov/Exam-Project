@@ -80,7 +80,7 @@ export class OrdersService {
         });
       }
 
-      return { NewOrders };
+      return NewOrders;
     } catch (error) {
       throw new BadRequestException(error.message);
     }
@@ -259,7 +259,7 @@ export class OrdersService {
         });
       }
 
-      return { updatedOrder };
+      return updatedOrder;
     } catch (error) {
       throw new BadRequestException(error.message);
     }
@@ -270,8 +270,8 @@ export class OrdersService {
       const Order = await this.prisma.orders.findFirst({ where: { id } });
       if (!Order) throw new NotFoundException('Order not found ❗');
 
-      await this.prisma.orders.delete({ where: { id } });
-      return { message: 'Order is successfully deleted ✅' };
+      const deletedOrder = await this.prisma.orders.delete({ where: { id } });
+      return deletedOrder;
     } catch (error) {
       throw new BadRequestException(error.message);
     }

@@ -110,8 +110,8 @@ export class RegionService {
   async remove(id: string) {
     try {
       await this.findRegion(id);
-      await this.prisma.regions.delete({ where: { id } });
-      return { message: 'Region is successfully deleted ✅' };
+      const deletedOrder = await this.prisma.regions.delete({ where: { id } });
+      return deletedOrder;
     } catch (error) {
       throw new BadRequestException(error.message);
     }

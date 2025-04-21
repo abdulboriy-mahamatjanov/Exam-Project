@@ -6,7 +6,6 @@ import {
 import { CreateBacketDto } from './dto/create-backet.dto';
 import { UpdateBacketDto } from './dto/update-backet.dto';
 import { PrismaService } from 'src/prisma/prisma.service';
-import { error } from 'console';
 import { Request } from 'express';
 
 @Injectable()
@@ -44,7 +43,7 @@ export class BacketService {
         },
       });
 
-      return { NewBackets };
+      return NewBackets;
     } catch (error) {
       throw new BadRequestException(error.message);
     }
@@ -71,13 +70,12 @@ export class BacketService {
               descriptionUz: true,
               descriptionRu: true,
               descriptionEn: false,
-              
             },
           },
         },
       });
 
-      return { Backets };
+      return Backets;
     } catch (error) {
       throw new BadRequestException(error.message);
     }
@@ -122,7 +120,7 @@ export class BacketService {
         where: { id },
       });
 
-      return { NewBackets };
+      return NewBackets;
     } catch (error) {
       throw new BadRequestException(error.message);
     }
@@ -133,8 +131,8 @@ export class BacketService {
       let Backet = await this.prisma.backet.findFirst({ where: { id } });
       if (!Backet) throw new NotFoundException('Backet not found ❗');
 
-      await this.prisma.backet.delete({ where: { id } });
-      return { message: 'Backet is successfully deleted ✅' };
+      const deletedBacket = await this.prisma.backet.delete({ where: { id } });
+      return deletedBacket;
     } catch (error) {
       throw new BadRequestException(error.message);
     }

@@ -172,7 +172,7 @@ export class MasterService {
       });
       if (!Master) throw new NotFoundException('Master not found ❗');
 
-      return { Master };
+      return Master;
     } catch (error) {
       throw new BadRequestException(error.message);
     }
@@ -224,7 +224,7 @@ export class MasterService {
         });
       }
 
-      return { updatedMaster };
+      return updatedMaster;
     } catch (error) {
       throw new BadRequestException(error.message);
     }
@@ -235,9 +235,9 @@ export class MasterService {
       const findMaster = await this.findOne(id);
       if (!findMaster) throw new NotFoundException('Master not found ❗');
 
-      let masterAvatar = this.cloudinary.getPublicId(findMaster.Master.avatar);
+      let masterAvatar = this.cloudinary.getPublicId(findMaster.avatar);
       let masterPassportImage = this.cloudinary.getPublicId(
-        findMaster.Master.passportImage,
+        findMaster.passportImage,
       );
 
       await Promise.allSettled([
@@ -245,8 +245,8 @@ export class MasterService {
         this.cloudinary.deleteImage(masterPassportImage),
       ]);
 
-      await this.prisma.masters.delete({ where: { id } });
-      return { message: 'Master is successfully deleted ✅' };
+      const delMasters = await this.prisma.masters.delete({ where: { id } });
+      return delMasters;
     } catch (error) {
       throw new BadRequestException(error.message);
     }

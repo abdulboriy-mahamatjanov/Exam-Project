@@ -17,7 +17,7 @@ export class LevelsService {
         data: createLevelDto,
       });
 
-      return { NewLevels };
+      return NewLevels;
     } catch (error) {
       throw new BadRequestException(error.message);
     }
@@ -117,7 +117,7 @@ export class LevelsService {
       });
       if (!Level) throw new NotFoundException('Level not found ❗');
 
-      return { Level };
+      return Level;
     } catch (error) {
       throw new BadRequestException(error.message);
     }
@@ -133,7 +133,7 @@ export class LevelsService {
         where: { id },
       });
 
-      return { NewLevels };
+      return NewLevels;
     } catch (error) {
       throw new BadRequestException(error.message);
     }
@@ -144,8 +144,8 @@ export class LevelsService {
       const level = await this.findOne(id);
       if (!level) throw new NotFoundException('Level not found ❗');
 
-      await this.prisma.levels.delete({ where: { id } });
-      return { message: 'Level is successfully deleted ✅' };
+      const delLevel = await this.prisma.levels.delete({ where: { id } });
+      return delLevel;
     } catch (error) {
       throw new BadRequestException(error.message);
     }

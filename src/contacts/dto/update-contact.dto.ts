@@ -10,22 +10,22 @@ import {
 export class UpdateContactDto extends PartialType(CreateContactDto) {
   @ApiProperty({ example: 'Abdulloh' })
   @IsString()
-  @IsNotEmpty()
+  @IsOptional()
   name?: string;
 
   @ApiProperty({ example: 'Komilov' })
   @IsString()
-  @IsNotEmpty()
+  @IsOptional()
   surName?: string;
 
   @ApiProperty({ example: '+998931416717' })
   @IsPhoneNumber()
-  @IsNotEmpty()
+  @IsOptional()
   phone?: string;
 
   @ApiProperty({ example: "Toshkent Farg'ona" })
   @IsString()
-  @IsNotEmpty()
+  @IsOptional()
   address?: string;
 
   @ApiProperty({ example: 'Assalomu alaykum, Menga master kerak' })

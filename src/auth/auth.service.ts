@@ -66,7 +66,7 @@ export class AuthService {
         },
       });
 
-      return { newUser };
+      return newUser;
     } catch (error) {
       throw new BadRequestException(error.message);
     }
@@ -161,7 +161,7 @@ export class AuthService {
         });
       }
 
-      return { message: 'Your account verified successfully ✅' };
+      return { message: 'Your account verified successfully' };
     } catch (error) {
       throw new BadRequestException(error.message);
     }
@@ -180,7 +180,7 @@ export class AuthService {
         `${process.env.REGISTER_SECRET_KEY}_${phone}`,
       );
 
-      return { NewOTP };
+      return NewOTP;
     } catch (error) {
       throw new BadRequestException(error.message);
     }
@@ -246,7 +246,7 @@ export class AuthService {
 
       if (!Sessions.length) return { message: 'No Sessios found' };
 
-      return { Sessions };
+      return Sessions;
     } catch (error) {
       throw new BadRequestException(error.message);
     }
@@ -260,7 +260,7 @@ export class AuthService {
       if (!findSession) throw new NotFoundException('Session not found ❗');
 
       await this.prisma.sessions.delete({ where: { id } });
-      return { message: 'Session is successfully deleted ✅' };
+      return;
     } catch (error) {
       throw new BadRequestException(error.message);
     }

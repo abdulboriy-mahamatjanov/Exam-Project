@@ -3,15 +3,14 @@ import axios from 'axios';
 
 @Injectable()
 export class EskizService {
-  // private token = process.env.ESKIZ_TOKEN;
+  private token = process.env.ESKIZ_TOKEN;
   private url = process.env.BASE_URL;
   private email = process.env.ESKIZ_EMAIL;
   private password = process.env.ESKIZ_SECRET;
-  private token: string | null = null;
 
-  // constructor() {
-  //   this.auth();
-  // }
+  constructor() {
+    this.auth();
+  }
 
   async auth() {
     try {

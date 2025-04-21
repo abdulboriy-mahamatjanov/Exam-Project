@@ -29,7 +29,7 @@ export class ShowCasesService {
         data: createShowCaseDto,
       });
 
-      return { newShowCases };
+      return newShowCases;
     } catch (error) {
       throw new BadRequestException(error.message);
     }
@@ -76,9 +76,7 @@ export class ShowCasesService {
         orderBy: { [orders]: order },
       });
 
-      if (!ShowCases.length) return { message: 'No ShowCases found' };
-
-      return { ShowCases };
+      return ShowCases;
     } catch (error) {
       throw new BadRequestException(error.message);
     }
@@ -89,7 +87,7 @@ export class ShowCasesService {
       const ShowCase = await this.prisma.showCases.findFirst({ where: { id } });
       if (!ShowCase) throw new NotFoundException('ShowCase not found ❗');
 
-      return { ShowCase };
+      return ShowCase;
     } catch (error) {
       throw new BadRequestException(error.message);
     }
@@ -100,9 +98,7 @@ export class ShowCasesService {
       const ShowCase = await this.findOne(id);
       if (!ShowCase) throw new NotFoundException('ShowCase not found ❗');
 
-      let oldPublicId = this.cloudinaryService.getPublicId(
-        ShowCase.ShowCase.image,
-      );
+      let oldPublicId = this.cloudinaryService.getPublicId(ShowCase.image);
       let newPublicId: string | null = null;
 
       if (updateShowCaseDto.image) {
@@ -125,7 +121,7 @@ export class ShowCasesService {
         where: { id },
       });
 
-      return { newShowCases };
+      return newShowCases;
     } catch (error) {
       throw new BadRequestException(error.message);
     }
@@ -136,17 +132,17 @@ export class ShowCasesService {
       const ShowCase = await this.findOne(id);
       if (!ShowCase) throw new NotFoundException('ShowCase not found ❗');
 
-      let publicId = this.cloudinaryService.getPublicId(
-        ShowCase.ShowCase.image,
-      );
+      let publicId = this.cloudinaryService.getPublicId(ShowCase.image);
 
       let checkImage = await this.cloudinaryService.checkImage(publicId);
       if (checkImage) {
         await this.cloudinaryService.deleteImage(publicId);
       }
 
-      await this.prisma.showCases.delete({ where: { id } });
-      return { message: 'ShowCase is successfully deleted ✅' };
+      const deletedShowCase = await this.prisma.showCases.delete({
+        where: { id },
+      });
+      return deletedShowCase;
     } catch (error) {
       throw new BadRequestException(error.message);
     }

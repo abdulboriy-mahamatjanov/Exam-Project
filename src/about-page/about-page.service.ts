@@ -35,7 +35,7 @@ export class AboutPageService {
         data: createAboutPageDto,
       });
 
-      return { NewAboutPages };
+      return NewAboutPages;
     } catch (error) {
       throw new BadRequestException(error.message);
     }
@@ -44,9 +44,8 @@ export class AboutPageService {
   async findAll() {
     try {
       const AboutPages = await this.prisma.aboutOurPage.findMany();
-      if (!AboutPages.length) return { message: 'No AboutPages found' };
 
-      return { AboutPages };
+      return AboutPages;
     } catch (error) {
       throw new BadRequestException(error.message);
     }
@@ -60,7 +59,7 @@ export class AboutPageService {
       if (!AboutPage)
         throw new NotFoundException("AboutPage's data not found ❗");
 
-      return { AboutPage };
+      return AboutPage;
     } catch (error) {
       throw new BadRequestException(error.message);
     }
@@ -77,7 +76,7 @@ export class AboutPageService {
         where: { id },
       });
 
-      return { NewAboutPages };
+      return NewAboutPages;
     } catch (error) {
       throw new BadRequestException(error.message);
     }
@@ -89,8 +88,11 @@ export class AboutPageService {
       if (!aboutpage)
         throw new NotFoundException("AboutPage's data not found ❗");
 
-      await this.prisma.aboutOurPage.delete({ where: { id } });
-      return { message: "AboutPage's data deleted successfully ✅" };
+      const deletedPage = await this.prisma.aboutOurPage.delete({
+        where: { id },
+      });
+      
+      return deletedPage;
     } catch (error) {
       throw new BadRequestException(error.message);
     }

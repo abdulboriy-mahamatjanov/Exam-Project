@@ -19,7 +19,7 @@ export class FrequentlyAskedQuestionsService {
         data: createFrequentlyAskedQuestionDto,
       });
 
-      return { NewFAQS };
+      return NewFAQS;
     } catch (error) {
       throw new BadRequestException(error.message);
     }
@@ -57,10 +57,7 @@ export class FrequentlyAskedQuestionsService {
 
       const data = { FAQS, Length: FAQS.length };
 
-      if (!FAQS.length)
-        return { message: 'No Frequently_Asked_Questions found' };
-
-      return { data };
+      return data;
     } catch (error) {
       throw new BadRequestException(error.message);
     }
@@ -72,7 +69,7 @@ export class FrequentlyAskedQuestionsService {
       if (!FAQ)
         throw new NotFoundException('Frequently_Asked_Question not found ❗');
 
-      return { FAQ };
+      return FAQ;
     } catch (error) {
       throw new BadRequestException(error.message);
     }
@@ -92,7 +89,7 @@ export class FrequentlyAskedQuestionsService {
         where: { id },
       });
 
-      return { NewFAQS };
+      return NewFAQS;
     } catch (error) {
       throw new BadRequestException(error.message);
     }
@@ -104,10 +101,8 @@ export class FrequentlyAskedQuestionsService {
       if (!faq)
         throw new NotFoundException('Frequently_Asked_Question not found ❗');
 
-      await this.prisma.fAQ.delete({ where: { id } });
-      return {
-        message: 'Frequently_Asked_Question is successfully deleted ✅',
-      };
+      const deletedFaq = await this.prisma.fAQ.delete({ where: { id } });
+      return deletedFaq;
     } catch (error) {
       throw new BadRequestException(error.message);
     }

@@ -17,7 +17,7 @@ export class CapacityService {
         data: createCapacityDto,
       });
 
-      return { NewCapacities };
+      return NewCapacities;
     } catch (error) {
       throw new BadRequestException(error.message);
     }
@@ -69,7 +69,7 @@ export class CapacityService {
       const Capacity = await this.prisma.capacity.findFirst({ where: { id } });
       if (!Capacity) throw new NotFoundException('Capacity not found ❗');
 
-      return { Capacity };
+      return Capacity;
     } catch (error) {
       throw new BadRequestException(error.message);
     }
@@ -85,7 +85,7 @@ export class CapacityService {
         where: { id },
       });
 
-      return { NewCapacities };
+      return NewCapacities;
     } catch (error) {
       throw new BadRequestException(error.message);
     }
@@ -96,8 +96,10 @@ export class CapacityService {
       const capacity = await this.findOne(id);
       if (!capacity) throw new NotFoundException('Capacity not found ❗');
 
-      await this.prisma.capacity.delete({ where: { id } });
-      return { message: 'Capacity is successfully deleted ✅' };
+      const deletedCapacity = await this.prisma.capacity.delete({
+        where: { id },
+      });
+      return deletedCapacity;
     } catch (error) {
       throw new BadRequestException(error.message);
     }
