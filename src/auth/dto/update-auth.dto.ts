@@ -1,7 +1,7 @@
 import { ApiProperty, PartialType } from '@nestjs/swagger';
 import { CreateAuthDto } from './create-auth.dto';
 import { IsNotEmpty, IsPhoneNumber, IsString } from 'class-validator';
-import { UserRole } from 'generated/prisma';
+import { UserRoles } from './register-user.dto';
 
 export class UpdateAuthDto extends PartialType(CreateAuthDto) {
   @ApiProperty({ example: "Ro'zimuhammad Yusupov" })
@@ -14,10 +14,10 @@ export class UpdateAuthDto extends PartialType(CreateAuthDto) {
   @IsNotEmpty()
   phone?: string;
 
-  @ApiProperty({ enum: UserRole, example: UserRole.SUPER_ADMIN })
+  @ApiProperty({ enum: UserRoles, example: UserRoles.SUPER_ADMIN })
   @IsString()
   @IsNotEmpty()
-  role?: UserRole;
+  role?: UserRoles;
 
   @ApiProperty({
     example:

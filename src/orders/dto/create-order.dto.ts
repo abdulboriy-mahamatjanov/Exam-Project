@@ -9,10 +9,9 @@ import {
   IsString,
   ValidateNested,
 } from 'class-validator';
-import { PaymentType } from 'generated/prisma';
-import { Decimal } from 'generated/prisma/runtime/library';
 import { OrderItemDto } from './create-orderItem.dto';
 import { Type } from 'class-transformer';
+import { Decimal } from '@prisma/client/runtime/library';
 
 export enum OrderStatus {
   PENDING,
@@ -20,6 +19,11 @@ export enum OrderStatus {
   CANCELLED,
   REJECTED,
   ACTIVATED,
+}
+
+export enum PaymentType {
+  CASH = 'CASH',
+  CARD = 'CARD',
 }
 
 export class CreateOrderDto {

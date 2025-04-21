@@ -10,7 +10,6 @@ import {
   Min,
   ValidateNested,
 } from 'class-validator';
-import { UserRole } from 'generated/prisma';
 import { CreateDataCompanyDto } from './datacompany-auth.dto';
 
 export enum UserRoles {
@@ -37,10 +36,10 @@ export class RegisterDto {
   @IsNotEmpty()
   password: string;
 
-  @ApiProperty({ enum: UserRole, example: UserRole.USER_FIZ })
+  @ApiProperty({ enum: UserRoles, example: UserRoles.USER_FIZ })
   @IsString()
   @IsOptional()
-  @IsIn([UserRole.USER_YUR, UserRole.USER_FIZ], {
+  @IsIn([UserRoles.USER_YUR, UserRoles.USER_FIZ], {
     message: `You are not allowed to assign this role ❗`,
   })
   role: UserRoles;

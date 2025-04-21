@@ -31,9 +31,9 @@ export class UserController {
     enum: ['asc', 'desc'],
   })
   @ApiQuery({ name: 'search', required: false, type: String })
-  // @Roles(UserRoles.ADMIN)
-  // @UseGuards(RoleGuard)
-  // @UseGuards(AuthGuard)
+  @Roles(UserRoles.ADMIN)
+  @UseGuards(RoleGuard)
+  @UseGuards(AuthGuard)
   @Get()
   findAll(@Query() query: any) {
     return this.userService.findAll(query);
@@ -48,21 +48,21 @@ export class UserController {
     return this.userService.findOne(id);
   }
 
-  // @ApiOperation({ summary: 'Update User By ID' })
-  // @Roles(UserRoles.ADMIN)
-  // @UseGuards(RoleGuard)
-  // @UseGuards(AuthGuard)
-  // @Patch(':id')
-  // update(@Param('id') id: string, @Body() updateUserDto: UpdateAuthDto) {
-  //   return this.userService.update(id, updateUserDto);
-  // }
+  @ApiOperation({ summary: 'Update User By ID' })
+  @Roles(UserRoles.ADMIN)
+  @UseGuards(RoleGuard)
+  @UseGuards(AuthGuard)
+  @Patch(':id')
+  update(@Param('id') id: string, @Body() updateUserDto: UpdateAuthDto) {
+    return this.userService.update(id, updateUserDto);
+  }
 
-  // @ApiOperation({ summary: 'Delete User By ID' })
-  // @Roles(UserRoles.ADMIN)
-  // @UseGuards(RoleGuard)
-  // @UseGuards(AuthGuard)
-//   @Delete(':id')
-//   remove(@Param('id') id: string) {
-//     return this.userService.remove(id);
-//   }
+  @ApiOperation({ summary: 'Delete User By ID' })
+  @Roles(UserRoles.ADMIN)
+  @UseGuards(RoleGuard)
+  @UseGuards(AuthGuard)
+  @Delete(':id')
+  remove(@Param('id') id: string) {
+    return this.userService.remove(id);
+  }
 }

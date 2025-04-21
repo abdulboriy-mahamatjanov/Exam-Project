@@ -1,11 +1,4 @@
-import {
-  IsIn,
-  IsNotEmpty,
-  IsOptional,
-  IsPhoneNumber,
-  IsString,
-  IsUUID,
-} from 'class-validator';
+import { IsIn, IsNotEmpty, IsPhoneNumber, IsString } from 'class-validator';
 import { UserRoles } from './register-user.dto';
 import { ApiProperty } from '@nestjs/swagger';
 

@@ -1,4 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
+import { Decimal } from '@prisma/client/runtime/library';
 import {
   IsNotEmpty,
   IsNumber,
@@ -6,7 +7,6 @@ import {
   IsString,
   Min,
 } from 'class-validator';
-import { Decimal } from 'generated/prisma/runtime/library';
 
 export class CreateProfessionLevelDto {
   @ApiProperty({ example: 'level-uuid' })

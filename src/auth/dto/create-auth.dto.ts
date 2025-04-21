@@ -6,7 +6,7 @@ import {
   IsPhoneNumber,
   IsString,
 } from 'class-validator';
-import { UserRole } from 'generated/prisma';
+import { UserRoles } from './register-user.dto';
 
 export class CreateAuthDto {
   @ApiProperty({ example: 'Alisher Sharipov' })
@@ -25,15 +25,15 @@ export class CreateAuthDto {
   password: string;
 
   @ApiProperty({
-    enum: UserRole,
-    example: UserRole.SUPER_ADMIN,
+    enum: UserRoles,
+    example: UserRoles.SUPER_ADMIN,
   })
   @IsString()
   @IsNotEmpty()
-  @IsIn([UserRole.SUPER_ADMIN, UserRole.VIEWER_ADMIN, UserRole.ADMIN], {
+  @IsIn([UserRoles.SUPER_ADMIN, UserRoles.VIEWER_ADMIN, UserRoles.ADMIN], {
     message: `You are not allowed to assign this role ❗`,
   })
-  role: UserRole;
+  role: UserRoles;
 
   @ApiProperty({
     example: 'avatar url',

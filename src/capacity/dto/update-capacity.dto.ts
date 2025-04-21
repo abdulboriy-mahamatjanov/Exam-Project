@@ -1,6 +1,6 @@
 import { ApiProperty, PartialType } from '@nestjs/swagger';
 import { CreateCapacityDto } from './create-capacity.dto';
-import { IsNotEmpty, IsOptional, IsString } from 'class-validator';
+import { IsOptional, IsString } from 'class-validator';
 
 export class UpdateCapacityDto extends PartialType(CreateCapacityDto) {
   @ApiProperty({ example: '500 Volt' })

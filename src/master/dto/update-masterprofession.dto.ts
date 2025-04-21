@@ -7,7 +7,7 @@ import {
   IsString,
   Min,
 } from 'class-validator';
-import { Decimal } from 'generated/prisma/runtime/library';
+import { Decimal } from '@prisma/client/runtime/library';
 
 export class UpdateMasterprofessionDto extends PartialType(
   CreateMasterprofessionDto,

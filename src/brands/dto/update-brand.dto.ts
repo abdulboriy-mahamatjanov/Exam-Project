@@ -1,6 +1,6 @@
 import { ApiProperty, PartialType } from '@nestjs/swagger';
 import { CreateBrandDto } from './create-brand.dto';
-import { IsNotEmpty, IsOptional, IsString } from 'class-validator';
+import { IsOptional, IsString } from 'class-validator';
 
 export class UpdateBrandDto extends PartialType(CreateBrandDto) {
   @ApiProperty({ example: 'Proskit' })
