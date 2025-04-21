@@ -15,4 +15,4 @@ RUN npx prisma generate
 
 EXPOSE 3000
 
-CMD [ "npm", "run", "start:mingrate:prod" ]
+CMD [ "npm", "run", "start:migrate:prod" ]
