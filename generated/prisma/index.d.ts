@@ -133,6 +133,11 @@ export type Orders = $Result.DefaultSelection<Prisma.$OrdersPayload>
  * 
  */
 export type OrderItems = $Result.DefaultSelection<Prisma.$OrderItemsPayload>
+/**
+ * Model OrderMaters
+ * 
+ */
+export type OrderMaters = $Result.DefaultSelection<Prisma.$OrderMatersPayload>
 
 /**
  * Enums
@@ -580,6 +585,16 @@ export class PrismaClient<
     * ```
     */
   get orderItems(): Prisma.OrderItemsDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.orderMaters`: Exposes CRUD operations for the **OrderMaters** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more OrderMaters
+    * const orderMaters = await prisma.orderMaters.findMany()
+    * ```
+    */
+  get orderMaters(): Prisma.OrderMatersDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -1043,7 +1058,8 @@ export namespace Prisma {
     ProfessionTools: 'ProfessionTools',
     Backet: 'Backet',
     Orders: 'Orders',
-    OrderItems: 'OrderItems'
+    OrderItems: 'OrderItems',
+    OrderMaters: 'OrderMaters'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -1062,7 +1078,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "regions" | "users" | "sessions" | "contacts" | "dataAboutCompany" | "showCases" | "fAQ" | "aboutOurPage" | "partners" | "comments" | "stars" | "levels" | "capacity" | "sizes" | "brands" | "masters" | "professions" | "masterProfessions" | "professionLevels" | "tools" | "professionTools" | "backet" | "orders" | "orderItems"
+      modelProps: "regions" | "users" | "sessions" | "contacts" | "dataAboutCompany" | "showCases" | "fAQ" | "aboutOurPage" | "partners" | "comments" | "stars" | "levels" | "capacity" | "sizes" | "brands" | "masters" | "professions" | "masterProfessions" | "professionLevels" | "tools" | "professionTools" | "backet" | "orders" | "orderItems" | "orderMaters"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -2842,6 +2858,80 @@ export namespace Prisma {
           }
         }
       }
+      OrderMaters: {
+        payload: Prisma.$OrderMatersPayload<ExtArgs>
+        fields: Prisma.OrderMatersFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.OrderMatersFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OrderMatersPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.OrderMatersFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OrderMatersPayload>
+          }
+          findFirst: {
+            args: Prisma.OrderMatersFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OrderMatersPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.OrderMatersFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OrderMatersPayload>
+          }
+          findMany: {
+            args: Prisma.OrderMatersFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OrderMatersPayload>[]
+          }
+          create: {
+            args: Prisma.OrderMatersCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OrderMatersPayload>
+          }
+          createMany: {
+            args: Prisma.OrderMatersCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.OrderMatersCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OrderMatersPayload>[]
+          }
+          delete: {
+            args: Prisma.OrderMatersDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OrderMatersPayload>
+          }
+          update: {
+            args: Prisma.OrderMatersUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OrderMatersPayload>
+          }
+          deleteMany: {
+            args: Prisma.OrderMatersDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.OrderMatersUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.OrderMatersUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OrderMatersPayload>[]
+          }
+          upsert: {
+            args: Prisma.OrderMatersUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OrderMatersPayload>
+          }
+          aggregate: {
+            args: Prisma.OrderMatersAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateOrderMaters>
+          }
+          groupBy: {
+            args: Prisma.OrderMatersGroupByArgs<ExtArgs>
+            result: $Utils.Optional<OrderMatersGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.OrderMatersCountArgs<ExtArgs>
+            result: $Utils.Optional<OrderMatersCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -2950,6 +3040,7 @@ export namespace Prisma {
     backet?: BacketOmit
     orders?: OrdersOmit
     orderItems?: OrderItemsOmit
+    orderMaters?: OrderMatersOmit
   }
 
   /* Types for Logging */
@@ -3316,10 +3407,12 @@ export namespace Prisma {
 
   export type MastersCountOutputType = {
     MasterProfessions: number
+    OrderMaters: number
   }
 
   export type MastersCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     MasterProfessions?: boolean | MastersCountOutputTypeCountMasterProfessionsArgs
+    OrderMaters?: boolean | MastersCountOutputTypeCountOrderMatersArgs
   }
 
   // Custom InputTypes
@@ -3338,6 +3431,13 @@ export namespace Prisma {
    */
   export type MastersCountOutputTypeCountMasterProfessionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: MasterProfessionsWhereInput
+  }
+
+  /**
+   * MastersCountOutputType without action
+   */
+  export type MastersCountOutputTypeCountOrderMatersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: OrderMatersWhereInput
   }
 
 
@@ -3463,10 +3563,12 @@ export namespace Prisma {
 
   export type OrdersCountOutputType = {
     OrderItems: number
+    OrderMaters: number
   }
 
   export type OrdersCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     OrderItems?: boolean | OrdersCountOutputTypeCountOrderItemsArgs
+    OrderMaters?: boolean | OrdersCountOutputTypeCountOrderMatersArgs
   }
 
   // Custom InputTypes
@@ -3485,6 +3587,13 @@ export namespace Prisma {
    */
   export type OrdersCountOutputTypeCountOrderItemsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: OrderItemsWhereInput
+  }
+
+  /**
+   * OrdersCountOutputType without action
+   */
+  export type OrdersCountOutputTypeCountOrderMatersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: OrderMatersWhereInput
   }
 
 
@@ -19859,6 +19968,7 @@ export namespace Prisma {
     passportImage?: boolean
     about?: boolean
     MasterProfessions?: boolean | Masters$MasterProfessionsArgs<ExtArgs>
+    OrderMaters?: boolean | Masters$OrderMatersArgs<ExtArgs>
     _count?: boolean | MastersCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["masters"]>
 
@@ -19898,6 +20008,7 @@ export namespace Prisma {
   export type MastersOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "fullName" | "phone" | "status" | "birthYear" | "avatar" | "passportImage" | "about", ExtArgs["result"]["masters"]>
   export type MastersInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     MasterProfessions?: boolean | Masters$MasterProfessionsArgs<ExtArgs>
+    OrderMaters?: boolean | Masters$OrderMatersArgs<ExtArgs>
     _count?: boolean | MastersCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type MastersIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -19907,6 +20018,7 @@ export namespace Prisma {
     name: "Masters"
     objects: {
       MasterProfessions: Prisma.$MasterProfessionsPayload<ExtArgs>[]
+      OrderMaters: Prisma.$OrderMatersPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -20312,6 +20424,7 @@ export namespace Prisma {
   export interface Prisma__MastersClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     MasterProfessions<T extends Masters$MasterProfessionsArgs<ExtArgs> = {}>(args?: Subset<T, Masters$MasterProfessionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MasterProfessionsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    OrderMaters<T extends Masters$OrderMatersArgs<ExtArgs> = {}>(args?: Subset<T, Masters$OrderMatersArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$OrderMatersPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -20758,6 +20871,30 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: MasterProfessionsScalarFieldEnum | MasterProfessionsScalarFieldEnum[]
+  }
+
+  /**
+   * Masters.OrderMaters
+   */
+  export type Masters$OrderMatersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the OrderMaters
+     */
+    select?: OrderMatersSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the OrderMaters
+     */
+    omit?: OrderMatersOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OrderMatersInclude<ExtArgs> | null
+    where?: OrderMatersWhereInput
+    orderBy?: OrderMatersOrderByWithRelationInput | OrderMatersOrderByWithRelationInput[]
+    cursor?: OrderMatersWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: OrderMatersScalarFieldEnum | OrderMatersScalarFieldEnum[]
   }
 
   /**
@@ -28097,6 +28234,7 @@ export namespace Prisma {
     updatedAt?: boolean
     deliveryComment?: boolean | Orders$deliveryCommentArgs<ExtArgs>
     OrderItems?: boolean | Orders$OrderItemsArgs<ExtArgs>
+    OrderMaters?: boolean | Orders$OrderMatersArgs<ExtArgs>
     _count?: boolean | OrdersCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["orders"]>
 
@@ -28151,6 +28289,7 @@ export namespace Prisma {
   export type OrdersInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     deliveryComment?: boolean | Orders$deliveryCommentArgs<ExtArgs>
     OrderItems?: boolean | Orders$OrderItemsArgs<ExtArgs>
+    OrderMaters?: boolean | Orders$OrderMatersArgs<ExtArgs>
     _count?: boolean | OrdersCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type OrdersIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -28165,6 +28304,7 @@ export namespace Prisma {
     objects: {
       deliveryComment: Prisma.$CommentsPayload<ExtArgs> | null
       OrderItems: Prisma.$OrderItemsPayload<ExtArgs>[]
+      OrderMaters: Prisma.$OrderMatersPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -28575,6 +28715,7 @@ export namespace Prisma {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     deliveryComment<T extends Orders$deliveryCommentArgs<ExtArgs> = {}>(args?: Subset<T, Orders$deliveryCommentArgs<ExtArgs>>): Prisma__CommentsClient<$Result.GetResult<Prisma.$CommentsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     OrderItems<T extends Orders$OrderItemsArgs<ExtArgs> = {}>(args?: Subset<T, Orders$OrderItemsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$OrderItemsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    OrderMaters<T extends Orders$OrderMatersArgs<ExtArgs> = {}>(args?: Subset<T, Orders$OrderMatersArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$OrderMatersPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -29052,6 +29193,30 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: OrderItemsScalarFieldEnum | OrderItemsScalarFieldEnum[]
+  }
+
+  /**
+   * Orders.OrderMaters
+   */
+  export type Orders$OrderMatersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the OrderMaters
+     */
+    select?: OrderMatersSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the OrderMaters
+     */
+    omit?: OrderMatersOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OrderMatersInclude<ExtArgs> | null
+    where?: OrderMatersWhereInput
+    orderBy?: OrderMatersOrderByWithRelationInput | OrderMatersOrderByWithRelationInput[]
+    cursor?: OrderMatersWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: OrderMatersScalarFieldEnum | OrderMatersScalarFieldEnum[]
   }
 
   /**
@@ -30250,6 +30415,1046 @@ export namespace Prisma {
 
 
   /**
+   * Model OrderMaters
+   */
+
+  export type AggregateOrderMaters = {
+    _count: OrderMatersCountAggregateOutputType | null
+    _min: OrderMatersMinAggregateOutputType | null
+    _max: OrderMatersMaxAggregateOutputType | null
+  }
+
+  export type OrderMatersMinAggregateOutputType = {
+    id: string | null
+    orderId: string | null
+    masterId: string | null
+  }
+
+  export type OrderMatersMaxAggregateOutputType = {
+    id: string | null
+    orderId: string | null
+    masterId: string | null
+  }
+
+  export type OrderMatersCountAggregateOutputType = {
+    id: number
+    orderId: number
+    masterId: number
+    _all: number
+  }
+
+
+  export type OrderMatersMinAggregateInputType = {
+    id?: true
+    orderId?: true
+    masterId?: true
+  }
+
+  export type OrderMatersMaxAggregateInputType = {
+    id?: true
+    orderId?: true
+    masterId?: true
+  }
+
+  export type OrderMatersCountAggregateInputType = {
+    id?: true
+    orderId?: true
+    masterId?: true
+    _all?: true
+  }
+
+  export type OrderMatersAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which OrderMaters to aggregate.
+     */
+    where?: OrderMatersWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of OrderMaters to fetch.
+     */
+    orderBy?: OrderMatersOrderByWithRelationInput | OrderMatersOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: OrderMatersWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` OrderMaters from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` OrderMaters.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned OrderMaters
+    **/
+    _count?: true | OrderMatersCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: OrderMatersMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: OrderMatersMaxAggregateInputType
+  }
+
+  export type GetOrderMatersAggregateType<T extends OrderMatersAggregateArgs> = {
+        [P in keyof T & keyof AggregateOrderMaters]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateOrderMaters[P]>
+      : GetScalarType<T[P], AggregateOrderMaters[P]>
+  }
+
+
+
+
+  export type OrderMatersGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: OrderMatersWhereInput
+    orderBy?: OrderMatersOrderByWithAggregationInput | OrderMatersOrderByWithAggregationInput[]
+    by: OrderMatersScalarFieldEnum[] | OrderMatersScalarFieldEnum
+    having?: OrderMatersScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: OrderMatersCountAggregateInputType | true
+    _min?: OrderMatersMinAggregateInputType
+    _max?: OrderMatersMaxAggregateInputType
+  }
+
+  export type OrderMatersGroupByOutputType = {
+    id: string
+    orderId: string
+    masterId: string
+    _count: OrderMatersCountAggregateOutputType | null
+    _min: OrderMatersMinAggregateOutputType | null
+    _max: OrderMatersMaxAggregateOutputType | null
+  }
+
+  type GetOrderMatersGroupByPayload<T extends OrderMatersGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<OrderMatersGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof OrderMatersGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], OrderMatersGroupByOutputType[P]>
+            : GetScalarType<T[P], OrderMatersGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type OrderMatersSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    orderId?: boolean
+    masterId?: boolean
+    order?: boolean | OrdersDefaultArgs<ExtArgs>
+    master?: boolean | MastersDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["orderMaters"]>
+
+  export type OrderMatersSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    orderId?: boolean
+    masterId?: boolean
+    order?: boolean | OrdersDefaultArgs<ExtArgs>
+    master?: boolean | MastersDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["orderMaters"]>
+
+  export type OrderMatersSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    orderId?: boolean
+    masterId?: boolean
+    order?: boolean | OrdersDefaultArgs<ExtArgs>
+    master?: boolean | MastersDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["orderMaters"]>
+
+  export type OrderMatersSelectScalar = {
+    id?: boolean
+    orderId?: boolean
+    masterId?: boolean
+  }
+
+  export type OrderMatersOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "orderId" | "masterId", ExtArgs["result"]["orderMaters"]>
+  export type OrderMatersInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    order?: boolean | OrdersDefaultArgs<ExtArgs>
+    master?: boolean | MastersDefaultArgs<ExtArgs>
+  }
+  export type OrderMatersIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    order?: boolean | OrdersDefaultArgs<ExtArgs>
+    master?: boolean | MastersDefaultArgs<ExtArgs>
+  }
+  export type OrderMatersIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    order?: boolean | OrdersDefaultArgs<ExtArgs>
+    master?: boolean | MastersDefaultArgs<ExtArgs>
+  }
+
+  export type $OrderMatersPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "OrderMaters"
+    objects: {
+      order: Prisma.$OrdersPayload<ExtArgs>
+      master: Prisma.$MastersPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      orderId: string
+      masterId: string
+    }, ExtArgs["result"]["orderMaters"]>
+    composites: {}
+  }
+
+  type OrderMatersGetPayload<S extends boolean | null | undefined | OrderMatersDefaultArgs> = $Result.GetResult<Prisma.$OrderMatersPayload, S>
+
+  type OrderMatersCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<OrderMatersFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: OrderMatersCountAggregateInputType | true
+    }
+
+  export interface OrderMatersDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['OrderMaters'], meta: { name: 'OrderMaters' } }
+    /**
+     * Find zero or one OrderMaters that matches the filter.
+     * @param {OrderMatersFindUniqueArgs} args - Arguments to find a OrderMaters
+     * @example
+     * // Get one OrderMaters
+     * const orderMaters = await prisma.orderMaters.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends OrderMatersFindUniqueArgs>(args: SelectSubset<T, OrderMatersFindUniqueArgs<ExtArgs>>): Prisma__OrderMatersClient<$Result.GetResult<Prisma.$OrderMatersPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one OrderMaters that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {OrderMatersFindUniqueOrThrowArgs} args - Arguments to find a OrderMaters
+     * @example
+     * // Get one OrderMaters
+     * const orderMaters = await prisma.orderMaters.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends OrderMatersFindUniqueOrThrowArgs>(args: SelectSubset<T, OrderMatersFindUniqueOrThrowArgs<ExtArgs>>): Prisma__OrderMatersClient<$Result.GetResult<Prisma.$OrderMatersPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first OrderMaters that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {OrderMatersFindFirstArgs} args - Arguments to find a OrderMaters
+     * @example
+     * // Get one OrderMaters
+     * const orderMaters = await prisma.orderMaters.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends OrderMatersFindFirstArgs>(args?: SelectSubset<T, OrderMatersFindFirstArgs<ExtArgs>>): Prisma__OrderMatersClient<$Result.GetResult<Prisma.$OrderMatersPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first OrderMaters that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {OrderMatersFindFirstOrThrowArgs} args - Arguments to find a OrderMaters
+     * @example
+     * // Get one OrderMaters
+     * const orderMaters = await prisma.orderMaters.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends OrderMatersFindFirstOrThrowArgs>(args?: SelectSubset<T, OrderMatersFindFirstOrThrowArgs<ExtArgs>>): Prisma__OrderMatersClient<$Result.GetResult<Prisma.$OrderMatersPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more OrderMaters that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {OrderMatersFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all OrderMaters
+     * const orderMaters = await prisma.orderMaters.findMany()
+     * 
+     * // Get first 10 OrderMaters
+     * const orderMaters = await prisma.orderMaters.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const orderMatersWithIdOnly = await prisma.orderMaters.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends OrderMatersFindManyArgs>(args?: SelectSubset<T, OrderMatersFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$OrderMatersPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a OrderMaters.
+     * @param {OrderMatersCreateArgs} args - Arguments to create a OrderMaters.
+     * @example
+     * // Create one OrderMaters
+     * const OrderMaters = await prisma.orderMaters.create({
+     *   data: {
+     *     // ... data to create a OrderMaters
+     *   }
+     * })
+     * 
+     */
+    create<T extends OrderMatersCreateArgs>(args: SelectSubset<T, OrderMatersCreateArgs<ExtArgs>>): Prisma__OrderMatersClient<$Result.GetResult<Prisma.$OrderMatersPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many OrderMaters.
+     * @param {OrderMatersCreateManyArgs} args - Arguments to create many OrderMaters.
+     * @example
+     * // Create many OrderMaters
+     * const orderMaters = await prisma.orderMaters.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends OrderMatersCreateManyArgs>(args?: SelectSubset<T, OrderMatersCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many OrderMaters and returns the data saved in the database.
+     * @param {OrderMatersCreateManyAndReturnArgs} args - Arguments to create many OrderMaters.
+     * @example
+     * // Create many OrderMaters
+     * const orderMaters = await prisma.orderMaters.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many OrderMaters and only return the `id`
+     * const orderMatersWithIdOnly = await prisma.orderMaters.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends OrderMatersCreateManyAndReturnArgs>(args?: SelectSubset<T, OrderMatersCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$OrderMatersPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a OrderMaters.
+     * @param {OrderMatersDeleteArgs} args - Arguments to delete one OrderMaters.
+     * @example
+     * // Delete one OrderMaters
+     * const OrderMaters = await prisma.orderMaters.delete({
+     *   where: {
+     *     // ... filter to delete one OrderMaters
+     *   }
+     * })
+     * 
+     */
+    delete<T extends OrderMatersDeleteArgs>(args: SelectSubset<T, OrderMatersDeleteArgs<ExtArgs>>): Prisma__OrderMatersClient<$Result.GetResult<Prisma.$OrderMatersPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one OrderMaters.
+     * @param {OrderMatersUpdateArgs} args - Arguments to update one OrderMaters.
+     * @example
+     * // Update one OrderMaters
+     * const orderMaters = await prisma.orderMaters.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends OrderMatersUpdateArgs>(args: SelectSubset<T, OrderMatersUpdateArgs<ExtArgs>>): Prisma__OrderMatersClient<$Result.GetResult<Prisma.$OrderMatersPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more OrderMaters.
+     * @param {OrderMatersDeleteManyArgs} args - Arguments to filter OrderMaters to delete.
+     * @example
+     * // Delete a few OrderMaters
+     * const { count } = await prisma.orderMaters.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends OrderMatersDeleteManyArgs>(args?: SelectSubset<T, OrderMatersDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more OrderMaters.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {OrderMatersUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many OrderMaters
+     * const orderMaters = await prisma.orderMaters.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends OrderMatersUpdateManyArgs>(args: SelectSubset<T, OrderMatersUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more OrderMaters and returns the data updated in the database.
+     * @param {OrderMatersUpdateManyAndReturnArgs} args - Arguments to update many OrderMaters.
+     * @example
+     * // Update many OrderMaters
+     * const orderMaters = await prisma.orderMaters.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more OrderMaters and only return the `id`
+     * const orderMatersWithIdOnly = await prisma.orderMaters.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends OrderMatersUpdateManyAndReturnArgs>(args: SelectSubset<T, OrderMatersUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$OrderMatersPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one OrderMaters.
+     * @param {OrderMatersUpsertArgs} args - Arguments to update or create a OrderMaters.
+     * @example
+     * // Update or create a OrderMaters
+     * const orderMaters = await prisma.orderMaters.upsert({
+     *   create: {
+     *     // ... data to create a OrderMaters
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the OrderMaters we want to update
+     *   }
+     * })
+     */
+    upsert<T extends OrderMatersUpsertArgs>(args: SelectSubset<T, OrderMatersUpsertArgs<ExtArgs>>): Prisma__OrderMatersClient<$Result.GetResult<Prisma.$OrderMatersPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of OrderMaters.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {OrderMatersCountArgs} args - Arguments to filter OrderMaters to count.
+     * @example
+     * // Count the number of OrderMaters
+     * const count = await prisma.orderMaters.count({
+     *   where: {
+     *     // ... the filter for the OrderMaters we want to count
+     *   }
+     * })
+    **/
+    count<T extends OrderMatersCountArgs>(
+      args?: Subset<T, OrderMatersCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], OrderMatersCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a OrderMaters.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {OrderMatersAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends OrderMatersAggregateArgs>(args: Subset<T, OrderMatersAggregateArgs>): Prisma.PrismaPromise<GetOrderMatersAggregateType<T>>
+
+    /**
+     * Group by OrderMaters.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {OrderMatersGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends OrderMatersGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: OrderMatersGroupByArgs['orderBy'] }
+        : { orderBy?: OrderMatersGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, OrderMatersGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetOrderMatersGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the OrderMaters model
+   */
+  readonly fields: OrderMatersFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for OrderMaters.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__OrderMatersClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    order<T extends OrdersDefaultArgs<ExtArgs> = {}>(args?: Subset<T, OrdersDefaultArgs<ExtArgs>>): Prisma__OrdersClient<$Result.GetResult<Prisma.$OrdersPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    master<T extends MastersDefaultArgs<ExtArgs> = {}>(args?: Subset<T, MastersDefaultArgs<ExtArgs>>): Prisma__MastersClient<$Result.GetResult<Prisma.$MastersPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the OrderMaters model
+   */
+  interface OrderMatersFieldRefs {
+    readonly id: FieldRef<"OrderMaters", 'String'>
+    readonly orderId: FieldRef<"OrderMaters", 'String'>
+    readonly masterId: FieldRef<"OrderMaters", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * OrderMaters findUnique
+   */
+  export type OrderMatersFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the OrderMaters
+     */
+    select?: OrderMatersSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the OrderMaters
+     */
+    omit?: OrderMatersOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OrderMatersInclude<ExtArgs> | null
+    /**
+     * Filter, which OrderMaters to fetch.
+     */
+    where: OrderMatersWhereUniqueInput
+  }
+
+  /**
+   * OrderMaters findUniqueOrThrow
+   */
+  export type OrderMatersFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the OrderMaters
+     */
+    select?: OrderMatersSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the OrderMaters
+     */
+    omit?: OrderMatersOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OrderMatersInclude<ExtArgs> | null
+    /**
+     * Filter, which OrderMaters to fetch.
+     */
+    where: OrderMatersWhereUniqueInput
+  }
+
+  /**
+   * OrderMaters findFirst
+   */
+  export type OrderMatersFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the OrderMaters
+     */
+    select?: OrderMatersSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the OrderMaters
+     */
+    omit?: OrderMatersOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OrderMatersInclude<ExtArgs> | null
+    /**
+     * Filter, which OrderMaters to fetch.
+     */
+    where?: OrderMatersWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of OrderMaters to fetch.
+     */
+    orderBy?: OrderMatersOrderByWithRelationInput | OrderMatersOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for OrderMaters.
+     */
+    cursor?: OrderMatersWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` OrderMaters from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` OrderMaters.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of OrderMaters.
+     */
+    distinct?: OrderMatersScalarFieldEnum | OrderMatersScalarFieldEnum[]
+  }
+
+  /**
+   * OrderMaters findFirstOrThrow
+   */
+  export type OrderMatersFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the OrderMaters
+     */
+    select?: OrderMatersSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the OrderMaters
+     */
+    omit?: OrderMatersOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OrderMatersInclude<ExtArgs> | null
+    /**
+     * Filter, which OrderMaters to fetch.
+     */
+    where?: OrderMatersWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of OrderMaters to fetch.
+     */
+    orderBy?: OrderMatersOrderByWithRelationInput | OrderMatersOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for OrderMaters.
+     */
+    cursor?: OrderMatersWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` OrderMaters from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` OrderMaters.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of OrderMaters.
+     */
+    distinct?: OrderMatersScalarFieldEnum | OrderMatersScalarFieldEnum[]
+  }
+
+  /**
+   * OrderMaters findMany
+   */
+  export type OrderMatersFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the OrderMaters
+     */
+    select?: OrderMatersSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the OrderMaters
+     */
+    omit?: OrderMatersOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OrderMatersInclude<ExtArgs> | null
+    /**
+     * Filter, which OrderMaters to fetch.
+     */
+    where?: OrderMatersWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of OrderMaters to fetch.
+     */
+    orderBy?: OrderMatersOrderByWithRelationInput | OrderMatersOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing OrderMaters.
+     */
+    cursor?: OrderMatersWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` OrderMaters from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` OrderMaters.
+     */
+    skip?: number
+    distinct?: OrderMatersScalarFieldEnum | OrderMatersScalarFieldEnum[]
+  }
+
+  /**
+   * OrderMaters create
+   */
+  export type OrderMatersCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the OrderMaters
+     */
+    select?: OrderMatersSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the OrderMaters
+     */
+    omit?: OrderMatersOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OrderMatersInclude<ExtArgs> | null
+    /**
+     * The data needed to create a OrderMaters.
+     */
+    data: XOR<OrderMatersCreateInput, OrderMatersUncheckedCreateInput>
+  }
+
+  /**
+   * OrderMaters createMany
+   */
+  export type OrderMatersCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many OrderMaters.
+     */
+    data: OrderMatersCreateManyInput | OrderMatersCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * OrderMaters createManyAndReturn
+   */
+  export type OrderMatersCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the OrderMaters
+     */
+    select?: OrderMatersSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the OrderMaters
+     */
+    omit?: OrderMatersOmit<ExtArgs> | null
+    /**
+     * The data used to create many OrderMaters.
+     */
+    data: OrderMatersCreateManyInput | OrderMatersCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OrderMatersIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * OrderMaters update
+   */
+  export type OrderMatersUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the OrderMaters
+     */
+    select?: OrderMatersSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the OrderMaters
+     */
+    omit?: OrderMatersOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OrderMatersInclude<ExtArgs> | null
+    /**
+     * The data needed to update a OrderMaters.
+     */
+    data: XOR<OrderMatersUpdateInput, OrderMatersUncheckedUpdateInput>
+    /**
+     * Choose, which OrderMaters to update.
+     */
+    where: OrderMatersWhereUniqueInput
+  }
+
+  /**
+   * OrderMaters updateMany
+   */
+  export type OrderMatersUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update OrderMaters.
+     */
+    data: XOR<OrderMatersUpdateManyMutationInput, OrderMatersUncheckedUpdateManyInput>
+    /**
+     * Filter which OrderMaters to update
+     */
+    where?: OrderMatersWhereInput
+    /**
+     * Limit how many OrderMaters to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * OrderMaters updateManyAndReturn
+   */
+  export type OrderMatersUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the OrderMaters
+     */
+    select?: OrderMatersSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the OrderMaters
+     */
+    omit?: OrderMatersOmit<ExtArgs> | null
+    /**
+     * The data used to update OrderMaters.
+     */
+    data: XOR<OrderMatersUpdateManyMutationInput, OrderMatersUncheckedUpdateManyInput>
+    /**
+     * Filter which OrderMaters to update
+     */
+    where?: OrderMatersWhereInput
+    /**
+     * Limit how many OrderMaters to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OrderMatersIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * OrderMaters upsert
+   */
+  export type OrderMatersUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the OrderMaters
+     */
+    select?: OrderMatersSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the OrderMaters
+     */
+    omit?: OrderMatersOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OrderMatersInclude<ExtArgs> | null
+    /**
+     * The filter to search for the OrderMaters to update in case it exists.
+     */
+    where: OrderMatersWhereUniqueInput
+    /**
+     * In case the OrderMaters found by the `where` argument doesn't exist, create a new OrderMaters with this data.
+     */
+    create: XOR<OrderMatersCreateInput, OrderMatersUncheckedCreateInput>
+    /**
+     * In case the OrderMaters was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<OrderMatersUpdateInput, OrderMatersUncheckedUpdateInput>
+  }
+
+  /**
+   * OrderMaters delete
+   */
+  export type OrderMatersDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the OrderMaters
+     */
+    select?: OrderMatersSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the OrderMaters
+     */
+    omit?: OrderMatersOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OrderMatersInclude<ExtArgs> | null
+    /**
+     * Filter which OrderMaters to delete.
+     */
+    where: OrderMatersWhereUniqueInput
+  }
+
+  /**
+   * OrderMaters deleteMany
+   */
+  export type OrderMatersDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which OrderMaters to delete
+     */
+    where?: OrderMatersWhereInput
+    /**
+     * Limit how many OrderMaters to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * OrderMaters without action
+   */
+  export type OrderMatersDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the OrderMaters
+     */
+    select?: OrderMatersSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the OrderMaters
+     */
+    omit?: OrderMatersOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OrderMatersInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -30585,6 +31790,15 @@ export namespace Prisma {
   };
 
   export type OrderItemsScalarFieldEnum = (typeof OrderItemsScalarFieldEnum)[keyof typeof OrderItemsScalarFieldEnum]
+
+
+  export const OrderMatersScalarFieldEnum: {
+    id: 'id',
+    orderId: 'orderId',
+    masterId: 'masterId'
+  };
+
+  export type OrderMatersScalarFieldEnum = (typeof OrderMatersScalarFieldEnum)[keyof typeof OrderMatersScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -31786,6 +33000,7 @@ export namespace Prisma {
     passportImage?: StringFilter<"Masters"> | string
     about?: StringFilter<"Masters"> | string
     MasterProfessions?: MasterProfessionsListRelationFilter
+    OrderMaters?: OrderMatersListRelationFilter
   }
 
   export type MastersOrderByWithRelationInput = {
@@ -31798,6 +33013,7 @@ export namespace Prisma {
     passportImage?: SortOrder
     about?: SortOrder
     MasterProfessions?: MasterProfessionsOrderByRelationAggregateInput
+    OrderMaters?: OrderMatersOrderByRelationAggregateInput
   }
 
   export type MastersWhereUniqueInput = Prisma.AtLeast<{
@@ -31813,6 +33029,7 @@ export namespace Prisma {
     passportImage?: StringFilter<"Masters"> | string
     about?: StringFilter<"Masters"> | string
     MasterProfessions?: MasterProfessionsListRelationFilter
+    OrderMaters?: OrderMatersListRelationFilter
   }, "id" | "phone">
 
   export type MastersOrderByWithAggregationInput = {
@@ -32349,6 +33566,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"Orders"> | Date | string
     deliveryComment?: XOR<CommentsNullableScalarRelationFilter, CommentsWhereInput> | null
     OrderItems?: OrderItemsListRelationFilter
+    OrderMaters?: OrderMatersListRelationFilter
   }
 
   export type OrdersOrderByWithRelationInput = {
@@ -32366,6 +33584,7 @@ export namespace Prisma {
     updatedAt?: SortOrder
     deliveryComment?: CommentsOrderByWithRelationInput
     OrderItems?: OrderItemsOrderByRelationAggregateInput
+    OrderMaters?: OrderMatersOrderByRelationAggregateInput
   }
 
   export type OrdersWhereUniqueInput = Prisma.AtLeast<{
@@ -32386,6 +33605,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"Orders"> | Date | string
     deliveryComment?: XOR<CommentsNullableScalarRelationFilter, CommentsWhereInput> | null
     OrderItems?: OrderItemsListRelationFilter
+    OrderMaters?: OrderMatersListRelationFilter
   }, "id">
 
   export type OrdersOrderByWithAggregationInput = {
@@ -32510,6 +33730,54 @@ export namespace Prisma {
     workingTime?: IntWithAggregatesFilter<"OrderItems"> | number
     price?: DecimalWithAggregatesFilter<"OrderItems"> | Decimal | DecimalJsLike | number | string
     count?: IntWithAggregatesFilter<"OrderItems"> | number
+  }
+
+  export type OrderMatersWhereInput = {
+    AND?: OrderMatersWhereInput | OrderMatersWhereInput[]
+    OR?: OrderMatersWhereInput[]
+    NOT?: OrderMatersWhereInput | OrderMatersWhereInput[]
+    id?: StringFilter<"OrderMaters"> | string
+    orderId?: StringFilter<"OrderMaters"> | string
+    masterId?: StringFilter<"OrderMaters"> | string
+    order?: XOR<OrdersScalarRelationFilter, OrdersWhereInput>
+    master?: XOR<MastersScalarRelationFilter, MastersWhereInput>
+  }
+
+  export type OrderMatersOrderByWithRelationInput = {
+    id?: SortOrder
+    orderId?: SortOrder
+    masterId?: SortOrder
+    order?: OrdersOrderByWithRelationInput
+    master?: MastersOrderByWithRelationInput
+  }
+
+  export type OrderMatersWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: OrderMatersWhereInput | OrderMatersWhereInput[]
+    OR?: OrderMatersWhereInput[]
+    NOT?: OrderMatersWhereInput | OrderMatersWhereInput[]
+    orderId?: StringFilter<"OrderMaters"> | string
+    masterId?: StringFilter<"OrderMaters"> | string
+    order?: XOR<OrdersScalarRelationFilter, OrdersWhereInput>
+    master?: XOR<MastersScalarRelationFilter, MastersWhereInput>
+  }, "id">
+
+  export type OrderMatersOrderByWithAggregationInput = {
+    id?: SortOrder
+    orderId?: SortOrder
+    masterId?: SortOrder
+    _count?: OrderMatersCountOrderByAggregateInput
+    _max?: OrderMatersMaxOrderByAggregateInput
+    _min?: OrderMatersMinOrderByAggregateInput
+  }
+
+  export type OrderMatersScalarWhereWithAggregatesInput = {
+    AND?: OrderMatersScalarWhereWithAggregatesInput | OrderMatersScalarWhereWithAggregatesInput[]
+    OR?: OrderMatersScalarWhereWithAggregatesInput[]
+    NOT?: OrderMatersScalarWhereWithAggregatesInput | OrderMatersScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"OrderMaters"> | string
+    orderId?: StringWithAggregatesFilter<"OrderMaters"> | string
+    masterId?: StringWithAggregatesFilter<"OrderMaters"> | string
   }
 
   export type RegionsCreateInput = {
@@ -33592,6 +34860,7 @@ export namespace Prisma {
     passportImage: string
     about: string
     MasterProfessions?: MasterProfessionsCreateNestedManyWithoutMasterInput
+    OrderMaters?: OrderMatersCreateNestedManyWithoutMasterInput
   }
 
   export type MastersUncheckedCreateInput = {
@@ -33604,6 +34873,7 @@ export namespace Prisma {
     passportImage: string
     about: string
     MasterProfessions?: MasterProfessionsUncheckedCreateNestedManyWithoutMasterInput
+    OrderMaters?: OrderMatersUncheckedCreateNestedManyWithoutMasterInput
   }
 
   export type MastersUpdateInput = {
@@ -33616,6 +34886,7 @@ export namespace Prisma {
     passportImage?: StringFieldUpdateOperationsInput | string
     about?: StringFieldUpdateOperationsInput | string
     MasterProfessions?: MasterProfessionsUpdateManyWithoutMasterNestedInput
+    OrderMaters?: OrderMatersUpdateManyWithoutMasterNestedInput
   }
 
   export type MastersUncheckedUpdateInput = {
@@ -33628,6 +34899,7 @@ export namespace Prisma {
     passportImage?: StringFieldUpdateOperationsInput | string
     about?: StringFieldUpdateOperationsInput | string
     MasterProfessions?: MasterProfessionsUncheckedUpdateManyWithoutMasterNestedInput
+    OrderMaters?: OrderMatersUncheckedUpdateManyWithoutMasterNestedInput
   }
 
   export type MastersCreateManyInput = {
@@ -34171,6 +35443,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     deliveryComment?: CommentsCreateNestedOneWithoutOrdersInput
     OrderItems?: OrderItemsCreateNestedManyWithoutOrderInput
+    OrderMaters?: OrderMatersCreateNestedManyWithoutOrderInput
   }
 
   export type OrdersUncheckedCreateInput = {
@@ -34187,6 +35460,7 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     OrderItems?: OrderItemsUncheckedCreateNestedManyWithoutOrderInput
+    OrderMaters?: OrderMatersUncheckedCreateNestedManyWithoutOrderInput
   }
 
   export type OrdersUpdateInput = {
@@ -34203,6 +35477,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deliveryComment?: CommentsUpdateOneWithoutOrdersNestedInput
     OrderItems?: OrderItemsUpdateManyWithoutOrderNestedInput
+    OrderMaters?: OrderMatersUpdateManyWithoutOrderNestedInput
   }
 
   export type OrdersUncheckedUpdateInput = {
@@ -34219,6 +35494,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     OrderItems?: OrderItemsUncheckedUpdateManyWithoutOrderNestedInput
+    OrderMaters?: OrderMatersUncheckedUpdateManyWithoutOrderNestedInput
   }
 
   export type OrdersCreateManyInput = {
@@ -34343,6 +35619,46 @@ export namespace Prisma {
     workingTime?: IntFieldUpdateOperationsInput | number
     price?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     count?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type OrderMatersCreateInput = {
+    id?: string
+    order: OrdersCreateNestedOneWithoutOrderMatersInput
+    master: MastersCreateNestedOneWithoutOrderMatersInput
+  }
+
+  export type OrderMatersUncheckedCreateInput = {
+    id?: string
+    orderId: string
+    masterId: string
+  }
+
+  export type OrderMatersUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    order?: OrdersUpdateOneRequiredWithoutOrderMatersNestedInput
+    master?: MastersUpdateOneRequiredWithoutOrderMatersNestedInput
+  }
+
+  export type OrderMatersUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    orderId?: StringFieldUpdateOperationsInput | string
+    masterId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type OrderMatersCreateManyInput = {
+    id?: string
+    orderId: string
+    masterId: string
+  }
+
+  export type OrderMatersUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type OrderMatersUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    orderId?: StringFieldUpdateOperationsInput | string
+    masterId?: StringFieldUpdateOperationsInput | string
   }
 
   export type StringFilter<$PrismaModel = never> = {
@@ -35081,6 +36397,16 @@ export namespace Prisma {
     not?: NestedIntFilter<$PrismaModel> | number
   }
 
+  export type OrderMatersListRelationFilter = {
+    every?: OrderMatersWhereInput
+    some?: OrderMatersWhereInput
+    none?: OrderMatersWhereInput
+  }
+
+  export type OrderMatersOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
   export type MastersCountOrderByAggregateInput = {
     id?: SortOrder
     fullName?: SortOrder
@@ -35687,6 +37013,24 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedEnumOrderTimeUnitFilter<$PrismaModel>
     _max?: NestedEnumOrderTimeUnitFilter<$PrismaModel>
+  }
+
+  export type OrderMatersCountOrderByAggregateInput = {
+    id?: SortOrder
+    orderId?: SortOrder
+    masterId?: SortOrder
+  }
+
+  export type OrderMatersMaxOrderByAggregateInput = {
+    id?: SortOrder
+    orderId?: SortOrder
+    masterId?: SortOrder
+  }
+
+  export type OrderMatersMinOrderByAggregateInput = {
+    id?: SortOrder
+    orderId?: SortOrder
+    masterId?: SortOrder
   }
 
   export type UsersCreateNestedManyWithoutRegionInput = {
@@ -36322,11 +37666,25 @@ export namespace Prisma {
     connect?: MasterProfessionsWhereUniqueInput | MasterProfessionsWhereUniqueInput[]
   }
 
+  export type OrderMatersCreateNestedManyWithoutMasterInput = {
+    create?: XOR<OrderMatersCreateWithoutMasterInput, OrderMatersUncheckedCreateWithoutMasterInput> | OrderMatersCreateWithoutMasterInput[] | OrderMatersUncheckedCreateWithoutMasterInput[]
+    connectOrCreate?: OrderMatersCreateOrConnectWithoutMasterInput | OrderMatersCreateOrConnectWithoutMasterInput[]
+    createMany?: OrderMatersCreateManyMasterInputEnvelope
+    connect?: OrderMatersWhereUniqueInput | OrderMatersWhereUniqueInput[]
+  }
+
   export type MasterProfessionsUncheckedCreateNestedManyWithoutMasterInput = {
     create?: XOR<MasterProfessionsCreateWithoutMasterInput, MasterProfessionsUncheckedCreateWithoutMasterInput> | MasterProfessionsCreateWithoutMasterInput[] | MasterProfessionsUncheckedCreateWithoutMasterInput[]
     connectOrCreate?: MasterProfessionsCreateOrConnectWithoutMasterInput | MasterProfessionsCreateOrConnectWithoutMasterInput[]
     createMany?: MasterProfessionsCreateManyMasterInputEnvelope
     connect?: MasterProfessionsWhereUniqueInput | MasterProfessionsWhereUniqueInput[]
+  }
+
+  export type OrderMatersUncheckedCreateNestedManyWithoutMasterInput = {
+    create?: XOR<OrderMatersCreateWithoutMasterInput, OrderMatersUncheckedCreateWithoutMasterInput> | OrderMatersCreateWithoutMasterInput[] | OrderMatersUncheckedCreateWithoutMasterInput[]
+    connectOrCreate?: OrderMatersCreateOrConnectWithoutMasterInput | OrderMatersCreateOrConnectWithoutMasterInput[]
+    createMany?: OrderMatersCreateManyMasterInputEnvelope
+    connect?: OrderMatersWhereUniqueInput | OrderMatersWhereUniqueInput[]
   }
 
   export type BoolFieldUpdateOperationsInput = {
@@ -36355,6 +37713,20 @@ export namespace Prisma {
     deleteMany?: MasterProfessionsScalarWhereInput | MasterProfessionsScalarWhereInput[]
   }
 
+  export type OrderMatersUpdateManyWithoutMasterNestedInput = {
+    create?: XOR<OrderMatersCreateWithoutMasterInput, OrderMatersUncheckedCreateWithoutMasterInput> | OrderMatersCreateWithoutMasterInput[] | OrderMatersUncheckedCreateWithoutMasterInput[]
+    connectOrCreate?: OrderMatersCreateOrConnectWithoutMasterInput | OrderMatersCreateOrConnectWithoutMasterInput[]
+    upsert?: OrderMatersUpsertWithWhereUniqueWithoutMasterInput | OrderMatersUpsertWithWhereUniqueWithoutMasterInput[]
+    createMany?: OrderMatersCreateManyMasterInputEnvelope
+    set?: OrderMatersWhereUniqueInput | OrderMatersWhereUniqueInput[]
+    disconnect?: OrderMatersWhereUniqueInput | OrderMatersWhereUniqueInput[]
+    delete?: OrderMatersWhereUniqueInput | OrderMatersWhereUniqueInput[]
+    connect?: OrderMatersWhereUniqueInput | OrderMatersWhereUniqueInput[]
+    update?: OrderMatersUpdateWithWhereUniqueWithoutMasterInput | OrderMatersUpdateWithWhereUniqueWithoutMasterInput[]
+    updateMany?: OrderMatersUpdateManyWithWhereWithoutMasterInput | OrderMatersUpdateManyWithWhereWithoutMasterInput[]
+    deleteMany?: OrderMatersScalarWhereInput | OrderMatersScalarWhereInput[]
+  }
+
   export type MasterProfessionsUncheckedUpdateManyWithoutMasterNestedInput = {
     create?: XOR<MasterProfessionsCreateWithoutMasterInput, MasterProfessionsUncheckedCreateWithoutMasterInput> | MasterProfessionsCreateWithoutMasterInput[] | MasterProfessionsUncheckedCreateWithoutMasterInput[]
     connectOrCreate?: MasterProfessionsCreateOrConnectWithoutMasterInput | MasterProfessionsCreateOrConnectWithoutMasterInput[]
@@ -36367,6 +37739,20 @@ export namespace Prisma {
     update?: MasterProfessionsUpdateWithWhereUniqueWithoutMasterInput | MasterProfessionsUpdateWithWhereUniqueWithoutMasterInput[]
     updateMany?: MasterProfessionsUpdateManyWithWhereWithoutMasterInput | MasterProfessionsUpdateManyWithWhereWithoutMasterInput[]
     deleteMany?: MasterProfessionsScalarWhereInput | MasterProfessionsScalarWhereInput[]
+  }
+
+  export type OrderMatersUncheckedUpdateManyWithoutMasterNestedInput = {
+    create?: XOR<OrderMatersCreateWithoutMasterInput, OrderMatersUncheckedCreateWithoutMasterInput> | OrderMatersCreateWithoutMasterInput[] | OrderMatersUncheckedCreateWithoutMasterInput[]
+    connectOrCreate?: OrderMatersCreateOrConnectWithoutMasterInput | OrderMatersCreateOrConnectWithoutMasterInput[]
+    upsert?: OrderMatersUpsertWithWhereUniqueWithoutMasterInput | OrderMatersUpsertWithWhereUniqueWithoutMasterInput[]
+    createMany?: OrderMatersCreateManyMasterInputEnvelope
+    set?: OrderMatersWhereUniqueInput | OrderMatersWhereUniqueInput[]
+    disconnect?: OrderMatersWhereUniqueInput | OrderMatersWhereUniqueInput[]
+    delete?: OrderMatersWhereUniqueInput | OrderMatersWhereUniqueInput[]
+    connect?: OrderMatersWhereUniqueInput | OrderMatersWhereUniqueInput[]
+    update?: OrderMatersUpdateWithWhereUniqueWithoutMasterInput | OrderMatersUpdateWithWhereUniqueWithoutMasterInput[]
+    updateMany?: OrderMatersUpdateManyWithWhereWithoutMasterInput | OrderMatersUpdateManyWithWhereWithoutMasterInput[]
+    deleteMany?: OrderMatersScalarWhereInput | OrderMatersScalarWhereInput[]
   }
 
   export type MasterProfessionsCreateNestedManyWithoutProfessionInput = {
@@ -36926,11 +38312,25 @@ export namespace Prisma {
     connect?: OrderItemsWhereUniqueInput | OrderItemsWhereUniqueInput[]
   }
 
+  export type OrderMatersCreateNestedManyWithoutOrderInput = {
+    create?: XOR<OrderMatersCreateWithoutOrderInput, OrderMatersUncheckedCreateWithoutOrderInput> | OrderMatersCreateWithoutOrderInput[] | OrderMatersUncheckedCreateWithoutOrderInput[]
+    connectOrCreate?: OrderMatersCreateOrConnectWithoutOrderInput | OrderMatersCreateOrConnectWithoutOrderInput[]
+    createMany?: OrderMatersCreateManyOrderInputEnvelope
+    connect?: OrderMatersWhereUniqueInput | OrderMatersWhereUniqueInput[]
+  }
+
   export type OrderItemsUncheckedCreateNestedManyWithoutOrderInput = {
     create?: XOR<OrderItemsCreateWithoutOrderInput, OrderItemsUncheckedCreateWithoutOrderInput> | OrderItemsCreateWithoutOrderInput[] | OrderItemsUncheckedCreateWithoutOrderInput[]
     connectOrCreate?: OrderItemsCreateOrConnectWithoutOrderInput | OrderItemsCreateOrConnectWithoutOrderInput[]
     createMany?: OrderItemsCreateManyOrderInputEnvelope
     connect?: OrderItemsWhereUniqueInput | OrderItemsWhereUniqueInput[]
+  }
+
+  export type OrderMatersUncheckedCreateNestedManyWithoutOrderInput = {
+    create?: XOR<OrderMatersCreateWithoutOrderInput, OrderMatersUncheckedCreateWithoutOrderInput> | OrderMatersCreateWithoutOrderInput[] | OrderMatersUncheckedCreateWithoutOrderInput[]
+    connectOrCreate?: OrderMatersCreateOrConnectWithoutOrderInput | OrderMatersCreateOrConnectWithoutOrderInput[]
+    createMany?: OrderMatersCreateManyOrderInputEnvelope
+    connect?: OrderMatersWhereUniqueInput | OrderMatersWhereUniqueInput[]
   }
 
   export type EnumPaymentTypeFieldUpdateOperationsInput = {
@@ -36965,6 +38365,20 @@ export namespace Prisma {
     deleteMany?: OrderItemsScalarWhereInput | OrderItemsScalarWhereInput[]
   }
 
+  export type OrderMatersUpdateManyWithoutOrderNestedInput = {
+    create?: XOR<OrderMatersCreateWithoutOrderInput, OrderMatersUncheckedCreateWithoutOrderInput> | OrderMatersCreateWithoutOrderInput[] | OrderMatersUncheckedCreateWithoutOrderInput[]
+    connectOrCreate?: OrderMatersCreateOrConnectWithoutOrderInput | OrderMatersCreateOrConnectWithoutOrderInput[]
+    upsert?: OrderMatersUpsertWithWhereUniqueWithoutOrderInput | OrderMatersUpsertWithWhereUniqueWithoutOrderInput[]
+    createMany?: OrderMatersCreateManyOrderInputEnvelope
+    set?: OrderMatersWhereUniqueInput | OrderMatersWhereUniqueInput[]
+    disconnect?: OrderMatersWhereUniqueInput | OrderMatersWhereUniqueInput[]
+    delete?: OrderMatersWhereUniqueInput | OrderMatersWhereUniqueInput[]
+    connect?: OrderMatersWhereUniqueInput | OrderMatersWhereUniqueInput[]
+    update?: OrderMatersUpdateWithWhereUniqueWithoutOrderInput | OrderMatersUpdateWithWhereUniqueWithoutOrderInput[]
+    updateMany?: OrderMatersUpdateManyWithWhereWithoutOrderInput | OrderMatersUpdateManyWithWhereWithoutOrderInput[]
+    deleteMany?: OrderMatersScalarWhereInput | OrderMatersScalarWhereInput[]
+  }
+
   export type NullableStringFieldUpdateOperationsInput = {
     set?: string | null
   }
@@ -36981,6 +38395,20 @@ export namespace Prisma {
     update?: OrderItemsUpdateWithWhereUniqueWithoutOrderInput | OrderItemsUpdateWithWhereUniqueWithoutOrderInput[]
     updateMany?: OrderItemsUpdateManyWithWhereWithoutOrderInput | OrderItemsUpdateManyWithWhereWithoutOrderInput[]
     deleteMany?: OrderItemsScalarWhereInput | OrderItemsScalarWhereInput[]
+  }
+
+  export type OrderMatersUncheckedUpdateManyWithoutOrderNestedInput = {
+    create?: XOR<OrderMatersCreateWithoutOrderInput, OrderMatersUncheckedCreateWithoutOrderInput> | OrderMatersCreateWithoutOrderInput[] | OrderMatersUncheckedCreateWithoutOrderInput[]
+    connectOrCreate?: OrderMatersCreateOrConnectWithoutOrderInput | OrderMatersCreateOrConnectWithoutOrderInput[]
+    upsert?: OrderMatersUpsertWithWhereUniqueWithoutOrderInput | OrderMatersUpsertWithWhereUniqueWithoutOrderInput[]
+    createMany?: OrderMatersCreateManyOrderInputEnvelope
+    set?: OrderMatersWhereUniqueInput | OrderMatersWhereUniqueInput[]
+    disconnect?: OrderMatersWhereUniqueInput | OrderMatersWhereUniqueInput[]
+    delete?: OrderMatersWhereUniqueInput | OrderMatersWhereUniqueInput[]
+    connect?: OrderMatersWhereUniqueInput | OrderMatersWhereUniqueInput[]
+    update?: OrderMatersUpdateWithWhereUniqueWithoutOrderInput | OrderMatersUpdateWithWhereUniqueWithoutOrderInput[]
+    updateMany?: OrderMatersUpdateManyWithWhereWithoutOrderInput | OrderMatersUpdateManyWithWhereWithoutOrderInput[]
+    deleteMany?: OrderMatersScalarWhereInput | OrderMatersScalarWhereInput[]
   }
 
   export type OrdersCreateNestedOneWithoutOrderItemsInput = {
@@ -37041,6 +38469,34 @@ export namespace Prisma {
     upsert?: LevelsUpsertWithoutOrderItemsInput
     connect?: LevelsWhereUniqueInput
     update?: XOR<XOR<LevelsUpdateToOneWithWhereWithoutOrderItemsInput, LevelsUpdateWithoutOrderItemsInput>, LevelsUncheckedUpdateWithoutOrderItemsInput>
+  }
+
+  export type OrdersCreateNestedOneWithoutOrderMatersInput = {
+    create?: XOR<OrdersCreateWithoutOrderMatersInput, OrdersUncheckedCreateWithoutOrderMatersInput>
+    connectOrCreate?: OrdersCreateOrConnectWithoutOrderMatersInput
+    connect?: OrdersWhereUniqueInput
+  }
+
+  export type MastersCreateNestedOneWithoutOrderMatersInput = {
+    create?: XOR<MastersCreateWithoutOrderMatersInput, MastersUncheckedCreateWithoutOrderMatersInput>
+    connectOrCreate?: MastersCreateOrConnectWithoutOrderMatersInput
+    connect?: MastersWhereUniqueInput
+  }
+
+  export type OrdersUpdateOneRequiredWithoutOrderMatersNestedInput = {
+    create?: XOR<OrdersCreateWithoutOrderMatersInput, OrdersUncheckedCreateWithoutOrderMatersInput>
+    connectOrCreate?: OrdersCreateOrConnectWithoutOrderMatersInput
+    upsert?: OrdersUpsertWithoutOrderMatersInput
+    connect?: OrdersWhereUniqueInput
+    update?: XOR<XOR<OrdersUpdateToOneWithWhereWithoutOrderMatersInput, OrdersUpdateWithoutOrderMatersInput>, OrdersUncheckedUpdateWithoutOrderMatersInput>
+  }
+
+  export type MastersUpdateOneRequiredWithoutOrderMatersNestedInput = {
+    create?: XOR<MastersCreateWithoutOrderMatersInput, MastersUncheckedCreateWithoutOrderMatersInput>
+    connectOrCreate?: MastersCreateOrConnectWithoutOrderMatersInput
+    upsert?: MastersUpsertWithoutOrderMatersInput
+    connect?: MastersWhereUniqueInput
+    update?: XOR<XOR<MastersUpdateToOneWithWhereWithoutOrderMatersInput, MastersUpdateWithoutOrderMatersInput>, MastersUncheckedUpdateWithoutOrderMatersInput>
   }
 
   export type NestedStringFilter<$PrismaModel = never> = {
@@ -37932,6 +39388,7 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     OrderItems?: OrderItemsCreateNestedManyWithoutOrderInput
+    OrderMaters?: OrderMatersCreateNestedManyWithoutOrderInput
   }
 
   export type OrdersUncheckedCreateWithoutDeliveryCommentInput = {
@@ -37947,6 +39404,7 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     OrderItems?: OrderItemsUncheckedCreateNestedManyWithoutOrderInput
+    OrderMaters?: OrderMatersUncheckedCreateNestedManyWithoutOrderInput
   }
 
   export type OrdersCreateOrConnectWithoutDeliveryCommentInput = {
@@ -38526,6 +39984,26 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type OrderMatersCreateWithoutMasterInput = {
+    id?: string
+    order: OrdersCreateNestedOneWithoutOrderMatersInput
+  }
+
+  export type OrderMatersUncheckedCreateWithoutMasterInput = {
+    id?: string
+    orderId: string
+  }
+
+  export type OrderMatersCreateOrConnectWithoutMasterInput = {
+    where: OrderMatersWhereUniqueInput
+    create: XOR<OrderMatersCreateWithoutMasterInput, OrderMatersUncheckedCreateWithoutMasterInput>
+  }
+
+  export type OrderMatersCreateManyMasterInputEnvelope = {
+    data: OrderMatersCreateManyMasterInput | OrderMatersCreateManyMasterInput[]
+    skipDuplicates?: boolean
+  }
+
   export type MasterProfessionsUpsertWithWhereUniqueWithoutMasterInput = {
     where: MasterProfessionsWhereUniqueInput
     update: XOR<MasterProfessionsUpdateWithoutMasterInput, MasterProfessionsUncheckedUpdateWithoutMasterInput>
@@ -38540,6 +40018,31 @@ export namespace Prisma {
   export type MasterProfessionsUpdateManyWithWhereWithoutMasterInput = {
     where: MasterProfessionsScalarWhereInput
     data: XOR<MasterProfessionsUpdateManyMutationInput, MasterProfessionsUncheckedUpdateManyWithoutMasterInput>
+  }
+
+  export type OrderMatersUpsertWithWhereUniqueWithoutMasterInput = {
+    where: OrderMatersWhereUniqueInput
+    update: XOR<OrderMatersUpdateWithoutMasterInput, OrderMatersUncheckedUpdateWithoutMasterInput>
+    create: XOR<OrderMatersCreateWithoutMasterInput, OrderMatersUncheckedCreateWithoutMasterInput>
+  }
+
+  export type OrderMatersUpdateWithWhereUniqueWithoutMasterInput = {
+    where: OrderMatersWhereUniqueInput
+    data: XOR<OrderMatersUpdateWithoutMasterInput, OrderMatersUncheckedUpdateWithoutMasterInput>
+  }
+
+  export type OrderMatersUpdateManyWithWhereWithoutMasterInput = {
+    where: OrderMatersScalarWhereInput
+    data: XOR<OrderMatersUpdateManyMutationInput, OrderMatersUncheckedUpdateManyWithoutMasterInput>
+  }
+
+  export type OrderMatersScalarWhereInput = {
+    AND?: OrderMatersScalarWhereInput | OrderMatersScalarWhereInput[]
+    OR?: OrderMatersScalarWhereInput[]
+    NOT?: OrderMatersScalarWhereInput | OrderMatersScalarWhereInput[]
+    id?: StringFilter<"OrderMaters"> | string
+    orderId?: StringFilter<"OrderMaters"> | string
+    masterId?: StringFilter<"OrderMaters"> | string
   }
 
   export type MasterProfessionsCreateWithoutProfessionInput = {
@@ -38842,6 +40345,7 @@ export namespace Prisma {
     avatar: string
     passportImage: string
     about: string
+    OrderMaters?: OrderMatersCreateNestedManyWithoutMasterInput
   }
 
   export type MastersUncheckedCreateWithoutMasterProfessionsInput = {
@@ -38853,6 +40357,7 @@ export namespace Prisma {
     avatar: string
     passportImage: string
     about: string
+    OrderMaters?: OrderMatersUncheckedCreateNestedManyWithoutMasterInput
   }
 
   export type MastersCreateOrConnectWithoutMasterProfessionsInput = {
@@ -38952,6 +40457,7 @@ export namespace Prisma {
     avatar?: StringFieldUpdateOperationsInput | string
     passportImage?: StringFieldUpdateOperationsInput | string
     about?: StringFieldUpdateOperationsInput | string
+    OrderMaters?: OrderMatersUpdateManyWithoutMasterNestedInput
   }
 
   export type MastersUncheckedUpdateWithoutMasterProfessionsInput = {
@@ -38963,6 +40469,7 @@ export namespace Prisma {
     avatar?: StringFieldUpdateOperationsInput | string
     passportImage?: StringFieldUpdateOperationsInput | string
     about?: StringFieldUpdateOperationsInput | string
+    OrderMaters?: OrderMatersUncheckedUpdateManyWithoutMasterNestedInput
   }
 
   export type ProfessionsCreateWithoutProfessionLevelsInput = {
@@ -39928,6 +41435,26 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type OrderMatersCreateWithoutOrderInput = {
+    id?: string
+    master: MastersCreateNestedOneWithoutOrderMatersInput
+  }
+
+  export type OrderMatersUncheckedCreateWithoutOrderInput = {
+    id?: string
+    masterId: string
+  }
+
+  export type OrderMatersCreateOrConnectWithoutOrderInput = {
+    where: OrderMatersWhereUniqueInput
+    create: XOR<OrderMatersCreateWithoutOrderInput, OrderMatersUncheckedCreateWithoutOrderInput>
+  }
+
+  export type OrderMatersCreateManyOrderInputEnvelope = {
+    data: OrderMatersCreateManyOrderInput | OrderMatersCreateManyOrderInput[]
+    skipDuplicates?: boolean
+  }
+
   export type CommentsUpsertWithoutOrdersInput = {
     update: XOR<CommentsUpdateWithoutOrdersInput, CommentsUncheckedUpdateWithoutOrdersInput>
     create: XOR<CommentsCreateWithoutOrdersInput, CommentsUncheckedCreateWithoutOrdersInput>
@@ -39971,6 +41498,22 @@ export namespace Prisma {
     data: XOR<OrderItemsUpdateManyMutationInput, OrderItemsUncheckedUpdateManyWithoutOrderInput>
   }
 
+  export type OrderMatersUpsertWithWhereUniqueWithoutOrderInput = {
+    where: OrderMatersWhereUniqueInput
+    update: XOR<OrderMatersUpdateWithoutOrderInput, OrderMatersUncheckedUpdateWithoutOrderInput>
+    create: XOR<OrderMatersCreateWithoutOrderInput, OrderMatersUncheckedCreateWithoutOrderInput>
+  }
+
+  export type OrderMatersUpdateWithWhereUniqueWithoutOrderInput = {
+    where: OrderMatersWhereUniqueInput
+    data: XOR<OrderMatersUpdateWithoutOrderInput, OrderMatersUncheckedUpdateWithoutOrderInput>
+  }
+
+  export type OrderMatersUpdateManyWithWhereWithoutOrderInput = {
+    where: OrderMatersScalarWhereInput
+    data: XOR<OrderMatersUpdateManyMutationInput, OrderMatersUncheckedUpdateManyWithoutOrderInput>
+  }
+
   export type OrdersCreateWithoutOrderItemsInput = {
     id?: string
     address: string
@@ -39984,6 +41527,7 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     deliveryComment?: CommentsCreateNestedOneWithoutOrdersInput
+    OrderMaters?: OrderMatersCreateNestedManyWithoutOrderInput
   }
 
   export type OrdersUncheckedCreateWithoutOrderItemsInput = {
@@ -39999,6 +41543,7 @@ export namespace Prisma {
     deliveryCommentId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    OrderMaters?: OrderMatersUncheckedCreateNestedManyWithoutOrderInput
   }
 
   export type OrdersCreateOrConnectWithoutOrderItemsInput = {
@@ -40139,6 +41684,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deliveryComment?: CommentsUpdateOneWithoutOrdersNestedInput
+    OrderMaters?: OrderMatersUpdateManyWithoutOrderNestedInput
   }
 
   export type OrdersUncheckedUpdateWithoutOrderItemsInput = {
@@ -40154,6 +41700,7 @@ export namespace Prisma {
     deliveryCommentId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    OrderMaters?: OrderMatersUncheckedUpdateManyWithoutOrderNestedInput
   }
 
   export type ProfessionsUpsertWithoutOrderItemsInput = {
@@ -40281,6 +41828,150 @@ export namespace Prisma {
     MasterProfessions?: MasterProfessionsUncheckedUpdateManyWithoutLevelNestedInput
     Backet?: BacketUncheckedUpdateManyWithoutLevelNestedInput
     ProfessionLevels?: ProfessionLevelsUncheckedUpdateManyWithoutLevelNestedInput
+  }
+
+  export type OrdersCreateWithoutOrderMatersInput = {
+    id?: string
+    address: string
+    latitude: string
+    longitude: string
+    date?: Date | string
+    totalPrice: Decimal | DecimalJsLike | number | string
+    paymentType: $Enums.PaymentType
+    withDelivery: boolean
+    status: $Enums.OrderStatus
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    deliveryComment?: CommentsCreateNestedOneWithoutOrdersInput
+    OrderItems?: OrderItemsCreateNestedManyWithoutOrderInput
+  }
+
+  export type OrdersUncheckedCreateWithoutOrderMatersInput = {
+    id?: string
+    address: string
+    latitude: string
+    longitude: string
+    date?: Date | string
+    totalPrice: Decimal | DecimalJsLike | number | string
+    paymentType: $Enums.PaymentType
+    withDelivery: boolean
+    status: $Enums.OrderStatus
+    deliveryCommentId?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    OrderItems?: OrderItemsUncheckedCreateNestedManyWithoutOrderInput
+  }
+
+  export type OrdersCreateOrConnectWithoutOrderMatersInput = {
+    where: OrdersWhereUniqueInput
+    create: XOR<OrdersCreateWithoutOrderMatersInput, OrdersUncheckedCreateWithoutOrderMatersInput>
+  }
+
+  export type MastersCreateWithoutOrderMatersInput = {
+    id?: string
+    fullName: string
+    phone: string
+    status: boolean
+    birthYear: number
+    avatar: string
+    passportImage: string
+    about: string
+    MasterProfessions?: MasterProfessionsCreateNestedManyWithoutMasterInput
+  }
+
+  export type MastersUncheckedCreateWithoutOrderMatersInput = {
+    id?: string
+    fullName: string
+    phone: string
+    status: boolean
+    birthYear: number
+    avatar: string
+    passportImage: string
+    about: string
+    MasterProfessions?: MasterProfessionsUncheckedCreateNestedManyWithoutMasterInput
+  }
+
+  export type MastersCreateOrConnectWithoutOrderMatersInput = {
+    where: MastersWhereUniqueInput
+    create: XOR<MastersCreateWithoutOrderMatersInput, MastersUncheckedCreateWithoutOrderMatersInput>
+  }
+
+  export type OrdersUpsertWithoutOrderMatersInput = {
+    update: XOR<OrdersUpdateWithoutOrderMatersInput, OrdersUncheckedUpdateWithoutOrderMatersInput>
+    create: XOR<OrdersCreateWithoutOrderMatersInput, OrdersUncheckedCreateWithoutOrderMatersInput>
+    where?: OrdersWhereInput
+  }
+
+  export type OrdersUpdateToOneWithWhereWithoutOrderMatersInput = {
+    where?: OrdersWhereInput
+    data: XOR<OrdersUpdateWithoutOrderMatersInput, OrdersUncheckedUpdateWithoutOrderMatersInput>
+  }
+
+  export type OrdersUpdateWithoutOrderMatersInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    address?: StringFieldUpdateOperationsInput | string
+    latitude?: StringFieldUpdateOperationsInput | string
+    longitude?: StringFieldUpdateOperationsInput | string
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    totalPrice?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    paymentType?: EnumPaymentTypeFieldUpdateOperationsInput | $Enums.PaymentType
+    withDelivery?: BoolFieldUpdateOperationsInput | boolean
+    status?: EnumOrderStatusFieldUpdateOperationsInput | $Enums.OrderStatus
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    deliveryComment?: CommentsUpdateOneWithoutOrdersNestedInput
+    OrderItems?: OrderItemsUpdateManyWithoutOrderNestedInput
+  }
+
+  export type OrdersUncheckedUpdateWithoutOrderMatersInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    address?: StringFieldUpdateOperationsInput | string
+    latitude?: StringFieldUpdateOperationsInput | string
+    longitude?: StringFieldUpdateOperationsInput | string
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    totalPrice?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    paymentType?: EnumPaymentTypeFieldUpdateOperationsInput | $Enums.PaymentType
+    withDelivery?: BoolFieldUpdateOperationsInput | boolean
+    status?: EnumOrderStatusFieldUpdateOperationsInput | $Enums.OrderStatus
+    deliveryCommentId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    OrderItems?: OrderItemsUncheckedUpdateManyWithoutOrderNestedInput
+  }
+
+  export type MastersUpsertWithoutOrderMatersInput = {
+    update: XOR<MastersUpdateWithoutOrderMatersInput, MastersUncheckedUpdateWithoutOrderMatersInput>
+    create: XOR<MastersCreateWithoutOrderMatersInput, MastersUncheckedCreateWithoutOrderMatersInput>
+    where?: MastersWhereInput
+  }
+
+  export type MastersUpdateToOneWithWhereWithoutOrderMatersInput = {
+    where?: MastersWhereInput
+    data: XOR<MastersUpdateWithoutOrderMatersInput, MastersUncheckedUpdateWithoutOrderMatersInput>
+  }
+
+  export type MastersUpdateWithoutOrderMatersInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    fullName?: StringFieldUpdateOperationsInput | string
+    phone?: StringFieldUpdateOperationsInput | string
+    status?: BoolFieldUpdateOperationsInput | boolean
+    birthYear?: IntFieldUpdateOperationsInput | number
+    avatar?: StringFieldUpdateOperationsInput | string
+    passportImage?: StringFieldUpdateOperationsInput | string
+    about?: StringFieldUpdateOperationsInput | string
+    MasterProfessions?: MasterProfessionsUpdateManyWithoutMasterNestedInput
+  }
+
+  export type MastersUncheckedUpdateWithoutOrderMatersInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    fullName?: StringFieldUpdateOperationsInput | string
+    phone?: StringFieldUpdateOperationsInput | string
+    status?: BoolFieldUpdateOperationsInput | boolean
+    birthYear?: IntFieldUpdateOperationsInput | number
+    avatar?: StringFieldUpdateOperationsInput | string
+    passportImage?: StringFieldUpdateOperationsInput | string
+    about?: StringFieldUpdateOperationsInput | string
+    MasterProfessions?: MasterProfessionsUncheckedUpdateManyWithoutMasterNestedInput
   }
 
   export type UsersCreateManyRegionInput = {
@@ -40520,6 +42211,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     OrderItems?: OrderItemsUpdateManyWithoutOrderNestedInput
+    OrderMaters?: OrderMatersUpdateManyWithoutOrderNestedInput
   }
 
   export type OrdersUncheckedUpdateWithoutDeliveryCommentInput = {
@@ -40535,6 +42227,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     OrderItems?: OrderItemsUncheckedUpdateManyWithoutOrderNestedInput
+    OrderMaters?: OrderMatersUncheckedUpdateManyWithoutOrderNestedInput
   }
 
   export type OrdersUncheckedUpdateManyWithoutDeliveryCommentInput = {
@@ -40971,6 +42664,11 @@ export namespace Prisma {
     experience: number
   }
 
+  export type OrderMatersCreateManyMasterInput = {
+    id?: string
+    orderId: string
+  }
+
   export type MasterProfessionsUpdateWithoutMasterInput = {
     id?: StringFieldUpdateOperationsInput | string
     minWorkingHours?: IntFieldUpdateOperationsInput | number
@@ -40999,6 +42697,21 @@ export namespace Prisma {
     priceHourly?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     priceDaily?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     experience?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type OrderMatersUpdateWithoutMasterInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    order?: OrdersUpdateOneRequiredWithoutOrderMatersNestedInput
+  }
+
+  export type OrderMatersUncheckedUpdateWithoutMasterInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    orderId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type OrderMatersUncheckedUpdateManyWithoutMasterInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    orderId?: StringFieldUpdateOperationsInput | string
   }
 
   export type MasterProfessionsCreateManyProfessionInput = {
@@ -41308,6 +43021,11 @@ export namespace Prisma {
     count: number
   }
 
+  export type OrderMatersCreateManyOrderInput = {
+    id?: string
+    masterId: string
+  }
+
   export type OrderItemsUpdateWithoutOrderInput = {
     id?: StringFieldUpdateOperationsInput | string
     timeUnit?: EnumOrderTimeUnitFieldUpdateOperationsInput | $Enums.OrderTimeUnit
@@ -41339,6 +43057,21 @@ export namespace Prisma {
     workingTime?: IntFieldUpdateOperationsInput | number
     price?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     count?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type OrderMatersUpdateWithoutOrderInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    master?: MastersUpdateOneRequiredWithoutOrderMatersNestedInput
+  }
+
+  export type OrderMatersUncheckedUpdateWithoutOrderInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    masterId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type OrderMatersUncheckedUpdateManyWithoutOrderInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    masterId?: StringFieldUpdateOperationsInput | string
   }
 
 

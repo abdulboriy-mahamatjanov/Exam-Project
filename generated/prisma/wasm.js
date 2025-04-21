@@ -369,6 +369,12 @@ exports.Prisma.OrderItemsScalarFieldEnum = {
   count: 'count'
 };
 
+exports.Prisma.OrderMatersScalarFieldEnum = {
+  id: 'id',
+  orderId: 'orderId',
+  masterId: 'masterId'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -452,7 +458,8 @@ exports.Prisma.ModelName = {
   ProfessionTools: 'ProfessionTools',
   Backet: 'Backet',
   Orders: 'Orders',
-  OrderItems: 'OrderItems'
+  OrderItems: 'OrderItems',
+  OrderMaters: 'OrderMaters'
 };
 
 /**

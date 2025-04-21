@@ -19,6 +19,7 @@ export enum OrderStatus {
   DELIVERED,
   CANCELLED,
   REJECTED,
+  ACTIVATED,
 }
 
 export class CreateOrderDto {

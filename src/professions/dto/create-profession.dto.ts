@@ -1,5 +1,4 @@
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
-import { Type } from 'class-transformer';
 import {
   IsArray,
   IsBoolean,
@@ -8,6 +7,8 @@ import {
   IsString,
   ValidateNested,
 } from 'class-validator';
+import { CreateProfessionLevelDto } from './create-profession-level.dto';
+import { Type } from 'class-transformer';
 
 export class CreateProfessionDto {
   @ApiProperty({ example: 'Elektrik' })
@@ -36,6 +37,12 @@ export class CreateProfessionDto {
   @IsString()
   @IsNotEmpty()
   avatar: string;
+
+  @ApiPropertyOptional({ type: [CreateProfessionLevelDto] })
+  @Type(() => CreateProfessionLevelDto)
+  @IsArray()
+  @ValidateNested({ each: true })
+  professionLevels: CreateProfessionLevelDto[];
 
   @ApiProperty({ example: ['first-tool-uuid', 'second-tool-uuid'] })
   @IsArray()

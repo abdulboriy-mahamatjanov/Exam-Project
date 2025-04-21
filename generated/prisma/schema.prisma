@@ -200,6 +200,7 @@ model Masters {
   passportImage     String
   about             String
   MasterProfessions MasterProfessions[]
+  OrderMaters       OrderMaters[]
 }
 
 model Professions {
@@ -219,7 +220,7 @@ model Professions {
 model MasterProfessions {
   id              String      @id @default(uuid())
   professionId    String
-  profession      Professions @relation(fields: [professionId], references: [id])
+  profession      Professions @relation(fields: [professionId], references: [id], onDelete: Cascade)
   minWorkingHours Int
   levelId         String
   level           Levels      @relation(fields: [levelId], references: [id])
@@ -233,7 +234,7 @@ model MasterProfessions {
 model ProfessionLevels {
   id              String      @id @default(uuid())
   professionId    String
-  profession      Professions @relation(fields: [professionId], references: [id])
+  profession      Professions @relation(fields: [professionId], references: [id], onDelete: Cascade)
   levelId         String
   level           Levels      @relation(fields: [levelId], references: [id])
   minWorkingHours Int
@@ -270,7 +271,7 @@ model Tools {
 model ProfessionTools {
   id           String      @id @default(uuid())
   professionId String
-  professions  Professions @relation(fields: [professionId], references: [id], onDelete: Restrict)
+  professions  Professions @relation(fields: [professionId], references: [id], onDelete: Cascade)
   toolId       String
   tools        Tools       @relation(fields: [toolId], references: [id])
 }
@@ -285,7 +286,7 @@ model Backet {
   ownerId      String
   owner        Users       @relation(fields: [ownerId], references: [id], onDelete: Cascade)
   professionId String
-  profession   Professions @relation(fields: [professionId], references: [id], onDelete: Restrict)
+  profession   Professions @relation(fields: [professionId], references: [id], onDelete: Cascade)
   toolId       String
   tools        Tools       @relation(fields: [toolId], references: [id], onDelete: Restrict)
   count        Int
@@ -310,20 +311,21 @@ enum OrderStatus {
 }
 
 model Orders {
-  id                String       @id @default(uuid())
+  id                String        @id @default(uuid())
   address           String
   latitude          String
   longitude         String
-  date              DateTime     @default(now())
+  date              DateTime      @default(now())
   totalPrice        Decimal
   paymentType       PaymentType
   withDelivery      Boolean
   status            OrderStatus
   deliveryCommentId String?
-  deliveryComment   Comments?    @relation(fields: [deliveryCommentId], references: [id], onDelete: SetNull)
-  createdAt         DateTime     @default(now())
-  updatedAt         DateTime     @updatedAt
+  deliveryComment   Comments?     @relation(fields: [deliveryCommentId], references: [id], onDelete: SetNull)
+  createdAt         DateTime      @default(now())
+  updatedAt         DateTime      @updatedAt
   OrderItems        OrderItems[]
+  OrderMaters       OrderMaters[]
 }
 
 enum OrderTimeUnit {
@@ -336,7 +338,7 @@ model OrderItems {
   orderId      String
   order        Orders        @relation(fields: [orderId], references: [id], onDelete: Cascade)
   professionId String
-  profession   Professions   @relation(fields: [professionId], references: [id], onDelete: Restrict)
+  profession   Professions   @relation(fields: [professionId], references: [id], onDelete: Cascade)
   toolId       String
   tool         Tools         @relation(fields: [toolId], references: [id])
   levelId      String
@@ -345,4 +347,12 @@ model OrderItems {
   workingTime  Int
   price        Decimal
   count        Int
+}
+
+model OrderMaters {
+  id       String  @id @default(uuid())
+  orderId  String
+  order    Orders  @relation(fields: [orderId], references: [id])
+  masterId String
+  master   Masters @relation(fields: [masterId], references: [id])
 }

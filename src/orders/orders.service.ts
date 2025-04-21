@@ -122,6 +122,35 @@ export class OrdersService {
               },
             },
           },
+
+          OrderMaters: {
+            select: {
+              id: true,
+              master: {
+                select: {
+                  id: true,
+                  fullName: true,
+                  phone: true,
+                  birthYear: true,
+                  avatar: true,
+                  passportImage: true,
+                  about: true,
+                  status: true,
+                  MasterProfessions: {
+                    select: {
+                      id: true,
+                      minWorkingHours: true,
+                      priceDaily: true,
+                      priceHourly: true,
+                      experience: true,
+                      level: true,
+                      profession: true,
+                    },
+                  },
+                },
+              },
+            },
+          },
         },
       });
 
@@ -133,7 +162,72 @@ export class OrdersService {
 
   async findOne(id: string) {
     try {
-      const Order = await this.prisma.orders.findFirst({ where: { id } });
+      const Order = await this.prisma.orders.findUnique({
+        where: { id },
+        include: {
+          OrderItems: {
+            select: {
+              id: true,
+              timeUnit: true,
+              price: true,
+              workingTime: true,
+              count: true,
+              profession: true,
+              level: true,
+              tool: {
+                select: {
+                  id: true,
+                  code: true,
+                  nameUz: true,
+                  nameRu: true,
+                  nameEn: true,
+                  descriptionUz: true,
+                  descriptionRu: true,
+                  descriptionEn: true,
+                  price: true,
+                  quantity: true,
+                  image: true,
+                  isAvailable: true,
+                  createdAt: true,
+                  updatedAt: true,
+                  brand: true,
+                  capacity: true,
+                  size: true,
+                },
+              },
+            },
+          },
+
+          OrderMaters: {
+            select: {
+              id: true,
+              master: {
+                select: {
+                  id: true,
+                  fullName: true,
+                  phone: true,
+                  birthYear: true,
+                  avatar: true,
+                  passportImage: true,
+                  about: true,
+                  status: true,
+                  MasterProfessions: {
+                    select: {
+                      id: true,
+                      minWorkingHours: true,
+                      priceDaily: true,
+                      priceHourly: true,
+                      experience: true,
+                      level: true,
+                      profession: true,
+                    },
+                  },
+                },
+              },
+            },
+          },
+        },
+      });
       if (!Order) throw new NotFoundException('Order not found ❗');
 
       return Order;
@@ -144,8 +238,28 @@ export class OrdersService {
 
   async update(id: string, updateOrderDto: UpdateOrderDto) {
     try {
+      const { masters, ...orderData } = updateOrderDto;
+
       const Order = await this.prisma.orders.findFirst({ where: { id } });
       if (!Order) throw new NotFoundException('Order not found ❗');
+
+      const updatedOrder = await this.prisma.orders.update({
+        data: { ...orderData, status: 'ACTIVATED' },
+        where: { id },
+      });
+
+      await this.prisma.orderMaters.deleteMany({ where: { orderId: id } });
+
+      if (masters && masters.length > 0) {
+        await this.prisma.orderMaters.createMany({
+          data: masters.map((masterId: string) => ({
+            orderId: id,
+            masterId,
+          })),
+        });
+      }
+
+      return { updatedOrder };
     } catch (error) {
       throw new BadRequestException(error.message);
     }

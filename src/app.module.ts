@@ -19,9 +19,9 @@ import { SizesModule } from './sizes/sizes.module';
 import { CommentsModule } from './comments/comments.module';
 import { MasterModule } from './master/master.module';
 import { ProfessionsModule } from './professions/professions.module';
-import { ProfessionLevelsModule } from './profession-levels/profession-levels.module';
 import { ToolsModule } from './tools/tools.module';
 import { OrdersModule } from './orders/orders.module';
+import { BacketModule } from './backet/backet.module';
 
 @Module({
   imports: [
@@ -53,9 +53,9 @@ import { OrdersModule } from './orders/orders.module';
     CommentsModule,
     MasterModule,
     ProfessionsModule,
-    ProfessionLevelsModule,
     ToolsModule,
     OrdersModule,
+    BacketModule,
   ],
   controllers: [],
   providers: [],

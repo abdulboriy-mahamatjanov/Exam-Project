@@ -1,6 +1,6 @@
 import { ApiProperty, PartialType } from '@nestjs/swagger';
 import { CreateProfessionDto } from './create-profession.dto';
-import { IsBoolean, IsOptional, IsString } from 'class-validator';
+import { IsArray, IsBoolean, IsOptional, IsString } from 'class-validator';
 
 export class UpdateProfessionDto extends PartialType(CreateProfessionDto) {
   @ApiProperty({ example: 'Santexnik' })
@@ -29,4 +29,9 @@ export class UpdateProfessionDto extends PartialType(CreateProfessionDto) {
   @IsString()
   @IsOptional()
   avatar?: string;
+
+  @ApiProperty({ example: ['first-tool-uuid', 'second-tool-uuid'] })
+  @IsArray()
+  @IsString({ each: true })
+  toolProfessions: string[];
 }

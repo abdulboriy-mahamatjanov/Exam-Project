@@ -11,10 +11,10 @@ CREATE TYPE "timeEnum" AS ENUM ('DAY', 'HOUR');
 CREATE TYPE "PaymentType" AS ENUM ('CARD', 'CASH');
 
 -- CreateEnum
-CREATE TYPE "OrderStatus" AS ENUM ('PENDING', 'ACTIVATED', 'REJECTED');
+CREATE TYPE "OrderStatus" AS ENUM ('PENDING', 'ACTIVATED', 'REJECTED', 'DELIVERED');
 
 -- CreateEnum
-CREATE TYPE "OrderItemMeasure" AS ENUM ('DAY', 'HOUR');
+CREATE TYPE "OrderTimeUnit" AS ENUM ('DAY', 'HOUR');
 
 -- CreateTable
 CREATE TABLE "Regions" (
@@ -78,6 +78,7 @@ CREATE TABLE "DataAboutCompany" (
     "bankCode" TEXT NOT NULL,
     "Oked" TEXT NOT NULL,
     "address" TEXT NOT NULL,
+    "userId" TEXT NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
 
@@ -309,11 +310,10 @@ CREATE TABLE "Backet" (
 -- CreateTable
 CREATE TABLE "Orders" (
     "id" TEXT NOT NULL,
-    "ownerId" TEXT NOT NULL,
     "address" TEXT NOT NULL,
     "latitude" TEXT NOT NULL,
     "longitude" TEXT NOT NULL,
-    "date" TIMESTAMP(3) NOT NULL,
+    "date" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "totalPrice" DECIMAL(65,30) NOT NULL,
     "paymentType" "PaymentType" NOT NULL,
     "withDelivery" BOOLEAN NOT NULL,
@@ -332,12 +332,21 @@ CREATE TABLE "OrderItems" (
     "professionId" TEXT NOT NULL,
     "toolId" TEXT NOT NULL,
     "levelId" TEXT NOT NULL,
-    "measure" "OrderItemMeasure" NOT NULL,
+    "timeUnit" "OrderTimeUnit" NOT NULL,
     "workingTime" INTEGER NOT NULL,
     "price" DECIMAL(65,30) NOT NULL,
     "count" INTEGER NOT NULL,
 
     CONSTRAINT "OrderItems_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
+CREATE TABLE "OrderMaters" (
+    "id" TEXT NOT NULL,
+    "orderId" TEXT NOT NULL,
+    "masterId" TEXT NOT NULL,
+
+    CONSTRAINT "OrderMaters_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateIndex
@@ -365,10 +374,13 @@ ALTER TABLE "Users" ADD CONSTRAINT "Users_regionId_fkey" FOREIGN KEY ("regionId"
 ALTER TABLE "Sessions" ADD CONSTRAINT "Sessions_userId_fkey" FOREIGN KEY ("userId") REFERENCES "Users"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
+ALTER TABLE "DataAboutCompany" ADD CONSTRAINT "DataAboutCompany_userId_fkey" FOREIGN KEY ("userId") REFERENCES "Users"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
 ALTER TABLE "Comments" ADD CONSTRAINT "Comments_userId_fkey" FOREIGN KEY ("userId") REFERENCES "Users"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "MasterProfessions" ADD CONSTRAINT "MasterProfessions_professionId_fkey" FOREIGN KEY ("professionId") REFERENCES "Professions"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "MasterProfessions" ADD CONSTRAINT "MasterProfessions_professionId_fkey" FOREIGN KEY ("professionId") REFERENCES "Professions"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE "MasterProfessions" ADD CONSTRAINT "MasterProfessions_levelId_fkey" FOREIGN KEY ("levelId") REFERENCES "Levels"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
@@ -377,7 +389,7 @@ ALTER TABLE "MasterProfessions" ADD CONSTRAINT "MasterProfessions_levelId_fkey" 
 ALTER TABLE "MasterProfessions" ADD CONSTRAINT "MasterProfessions_masterId_fkey" FOREIGN KEY ("masterId") REFERENCES "Masters"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "ProfessionLevels" ADD CONSTRAINT "ProfessionLevels_professionId_fkey" FOREIGN KEY ("professionId") REFERENCES "Professions"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "ProfessionLevels" ADD CONSTRAINT "ProfessionLevels_professionId_fkey" FOREIGN KEY ("professionId") REFERENCES "Professions"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE "ProfessionLevels" ADD CONSTRAINT "ProfessionLevels_levelId_fkey" FOREIGN KEY ("levelId") REFERENCES "Levels"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
@@ -392,7 +404,7 @@ ALTER TABLE "Tools" ADD CONSTRAINT "Tools_capacityId_fkey" FOREIGN KEY ("capacit
 ALTER TABLE "Tools" ADD CONSTRAINT "Tools_sizeId_fkey" FOREIGN KEY ("sizeId") REFERENCES "Sizes"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "ProfessionTools" ADD CONSTRAINT "ProfessionTools_professionId_fkey" FOREIGN KEY ("professionId") REFERENCES "Professions"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "ProfessionTools" ADD CONSTRAINT "ProfessionTools_professionId_fkey" FOREIGN KEY ("professionId") REFERENCES "Professions"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE "ProfessionTools" ADD CONSTRAINT "ProfessionTools_toolId_fkey" FOREIGN KEY ("toolId") REFERENCES "Tools"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
@@ -401,7 +413,7 @@ ALTER TABLE "ProfessionTools" ADD CONSTRAINT "ProfessionTools_toolId_fkey" FOREI
 ALTER TABLE "Backet" ADD CONSTRAINT "Backet_ownerId_fkey" FOREIGN KEY ("ownerId") REFERENCES "Users"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "Backet" ADD CONSTRAINT "Backet_professionId_fkey" FOREIGN KEY ("professionId") REFERENCES "Professions"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "Backet" ADD CONSTRAINT "Backet_professionId_fkey" FOREIGN KEY ("professionId") REFERENCES "Professions"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE "Backet" ADD CONSTRAINT "Backet_toolId_fkey" FOREIGN KEY ("toolId") REFERENCES "Tools"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
@@ -416,10 +428,16 @@ ALTER TABLE "Orders" ADD CONSTRAINT "Orders_deliveryCommentId_fkey" FOREIGN KEY 
 ALTER TABLE "OrderItems" ADD CONSTRAINT "OrderItems_orderId_fkey" FOREIGN KEY ("orderId") REFERENCES "Orders"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "OrderItems" ADD CONSTRAINT "OrderItems_professionId_fkey" FOREIGN KEY ("professionId") REFERENCES "Professions"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "OrderItems" ADD CONSTRAINT "OrderItems_professionId_fkey" FOREIGN KEY ("professionId") REFERENCES "Professions"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE "OrderItems" ADD CONSTRAINT "OrderItems_toolId_fkey" FOREIGN KEY ("toolId") REFERENCES "Tools"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE "OrderItems" ADD CONSTRAINT "OrderItems_levelId_fkey" FOREIGN KEY ("levelId") REFERENCES "Levels"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "OrderMaters" ADD CONSTRAINT "OrderMaters_orderId_fkey" FOREIGN KEY ("orderId") REFERENCES "Orders"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "OrderMaters" ADD CONSTRAINT "OrderMaters_masterId_fkey" FOREIGN KEY ("masterId") REFERENCES "Masters"("id") ON DELETE RESTRICT ON UPDATE CASCADE;

@@ -17,7 +17,8 @@ export class ProfessionsService {
 
   async create(createProfessionDto: CreateProfessionDto) {
     try {
-      const { toolProfessions, ...professionData } = createProfessionDto;
+      const { professionLevels, toolProfessions, ...professionData } =
+        createProfessionDto;
 
       let professionImage = this.cloudinary.getPublicId(
         createProfessionDto.avatar,
@@ -38,8 +39,8 @@ export class ProfessionsService {
       });
 
       const checkTools = finTools.map((tool) => tool.id);
-      const invalidTools = toolProfessions.filter((id) =>
-        !checkTools.includes(id),
+      const invalidTools = toolProfessions.filter(
+        (id) => !checkTools.includes(id),
       );
 
       if (invalidTools.length > 0) {
@@ -48,6 +49,7 @@ export class ProfessionsService {
 
       const newprofession = await this.prisma.professions.create({
         data: professionData,
+        include: { ProfessionLevels: true, ProfessionTools: true },
       });
 
       if (toolProfessions && toolProfessions.length > 0) {
@@ -58,6 +60,20 @@ export class ProfessionsService {
 
         await this.prisma.professionTools.createMany({
           data: toolProfessionsData,
+        });
+      }
+
+      if (professionLevels && professionLevels.length > 0) {
+        const professionLevelsData = professionLevels.map((val) => ({
+          professionId: newprofession.id,
+          levelId: val.levelId,
+          minWorkingHours: val.minWorkingHours,
+          priceHourly: val.priceHourly,
+          priceDaily: val.priceDaily,
+        }));
+
+        await this.prisma.professionLevels.createMany({
+          data: professionLevelsData,
         });
       }
 
@@ -118,7 +134,28 @@ export class ProfessionsService {
           ProfessionTools: {
             select: {
               id: true,
-              tools: true,
+              professions: true,
+              tools: {
+                select: {
+                  id: true,
+                  code: true,
+                  nameUz: true,
+                  nameRu: true,
+                  nameEn: true,
+                  descriptionUz: true,
+                  descriptionRu: true,
+                  descriptionEn: true,
+                  price: true,
+                  quantity: true,
+                  image: true,
+                  isAvailable: true,
+                  createdAt: true,
+                  updatedAt: true,
+                  brand: true,
+                  capacity: true,
+                  size: true,
+                },
+              },
             },
           },
         },
@@ -153,7 +190,28 @@ export class ProfessionsService {
           ProfessionTools: {
             select: {
               id: true,
-              tools: true,
+              professions: true,
+              tools: {
+                select: {
+                  id: true,
+                  code: true,
+                  nameUz: true,
+                  nameRu: true,
+                  nameEn: true,
+                  descriptionUz: true,
+                  descriptionRu: true,
+                  descriptionEn: true,
+                  price: true,
+                  quantity: true,
+                  image: true,
+                  isAvailable: true,
+                  createdAt: true,
+                  updatedAt: true,
+                  brand: true,
+                  capacity: true,
+                  size: true,
+                },
+              },
             },
           },
         },
@@ -169,30 +227,93 @@ export class ProfessionsService {
 
   async update(id: string, updateProfessionDto: UpdateProfessionDto) {
     try {
-      let finProf = await this.prisma.professions.findFirst({ where: { id } });
-      if (!finProf) throw new NotFoundException('Profession not found ❗');
+      const { professionLevels, toolProfessions, ...professionData } =
+        updateProfessionDto;
 
-      let oldProfessionImage = this.cloudinary.getPublicId(finProf.avatar);
+      const existingProfession = await this.prisma.professions.findFirst({
+        where: { id },
+      });
+      if (!existingProfession)
+        throw new NotFoundException('Profession not found ❗');
+
+      const oldProfessionImage = this.cloudinary.getPublicId(
+        existingProfession.avatar,
+      );
 
       if (updateProfessionDto.avatar) {
-        let NewProfessionImage =
-          this.cloudinary.getPublicId(oldProfessionImage);
-
-        const checkImage = await this.cloudinary.checkImage(oldProfessionImage);
-        if (!checkImage)
+        const isImageAvailable =
+          await this.cloudinary.checkImage(oldProfessionImage);
+        if (!isImageAvailable)
           throw new BadRequestException('Image is not available yet❗');
 
-        if (NewProfessionImage !== oldProfessionImage) {
-          await this.cloudinary.deleteImage(oldProfessionImage);
-        }
+        await this.cloudinary.deleteImage(oldProfessionImage);
+      }
 
-        const NewProfessions = await this.prisma.professions.update({
-          data: updateProfessionDto,
-          where: { id },
+      const updatedProfession = await this.prisma.professions.update({
+        where: { id },
+        data: professionData,
+        include: {
+          ProfessionLevels: true,
+          ProfessionTools: {
+            select: {
+              id: true,
+              professions: true,
+              tools: {
+                select: {
+                  id: true,
+                  code: true,
+                  nameUz: true,
+                  nameRu: true,
+                  nameEn: true,
+                  descriptionUz: true,
+                  descriptionRu: true,
+                  descriptionEn: true,
+                  price: true,
+                  quantity: true,
+                  image: true,
+                  isAvailable: true,
+                  createdAt: true,
+                  updatedAt: true,
+                  brand: true,
+                  capacity: true,
+                  size: true,
+                },
+              },
+            },
+          },
+        },
+      });
+
+      if (professionLevels?.length) {
+        await this.prisma.professionLevels.deleteMany({
+          where: { professionId: id },
         });
 
-        return NewProfessions;
+        await this.prisma.professionLevels.createMany({
+          data: professionLevels.map((val) => ({
+            professionId: updatedProfession.id,
+            levelId: val.levelId,
+            minWorkingHours: val.minWorkingHours,
+            priceHourly: val.priceHourly,
+            priceDaily: val.priceDaily,
+          })),
+        });
       }
+
+      if (toolProfessions?.length) {
+        await this.prisma.professionTools.deleteMany({
+          where: { professionId: id },
+        });
+
+        await this.prisma.professionTools.createMany({
+          data: toolProfessions.map((val) => ({
+            professionId: updatedProfession.id,
+            toolId: val,
+          })),
+        });
+      }
+
+      return updatedProfession;
     } catch (error) {
       throw new BadRequestException(error.message);
     }
@@ -209,6 +330,7 @@ export class ProfessionsService {
       if (checkProfImage) {
         await this.cloudinary.deleteImage(professionImage);
       }
+
       await this.prisma.professions.delete({ where: { id } });
 
       return { message: 'Profession is sucessfully deleted ✅' };
