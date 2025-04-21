@@ -331,12 +331,10 @@ exports.Prisma.ProfessionToolsScalarFieldEnum = {
 
 exports.Prisma.BacketScalarFieldEnum = {
   id: 'id',
-  ownerId: 'ownerId',
   professionId: 'professionId',
   toolId: 'toolId',
   count: 'count',
   timeUnit: 'timeUnit',
-  measure: 'measure',
   workingTime: 'workingTime',
   totalPrice: 'totalPrice',
   levelId: 'levelId'

@@ -3166,14 +3166,12 @@ export namespace Prisma {
    */
 
   export type UsersCountOutputType = {
-    Backet: number
     Comments: number
     Sessions: number
     DataAboutCompany: number
   }
 
   export type UsersCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    Backet?: boolean | UsersCountOutputTypeCountBacketArgs
     Comments?: boolean | UsersCountOutputTypeCountCommentsArgs
     Sessions?: boolean | UsersCountOutputTypeCountSessionsArgs
     DataAboutCompany?: boolean | UsersCountOutputTypeCountDataAboutCompanyArgs
@@ -3188,13 +3186,6 @@ export namespace Prisma {
      * Select specific fields to fetch from the UsersCountOutputType
      */
     select?: UsersCountOutputTypeSelect<ExtArgs> | null
-  }
-
-  /**
-   * UsersCountOutputType without action
-   */
-  export type UsersCountOutputTypeCountBacketArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: BacketWhereInput
   }
 
   /**
@@ -4889,7 +4880,6 @@ export namespace Prisma {
     createdAt?: boolean
     updatedAt?: boolean
     region?: boolean | RegionsDefaultArgs<ExtArgs>
-    Backet?: boolean | Users$BacketArgs<ExtArgs>
     Comments?: boolean | Users$CommentsArgs<ExtArgs>
     Sessions?: boolean | Users$SessionsArgs<ExtArgs>
     DataAboutCompany?: boolean | Users$DataAboutCompanyArgs<ExtArgs>
@@ -4940,7 +4930,6 @@ export namespace Prisma {
   export type UsersOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "fullName" | "phone" | "password" | "role" | "status" | "avatar" | "regionId" | "createdAt" | "updatedAt", ExtArgs["result"]["users"]>
   export type UsersInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     region?: boolean | RegionsDefaultArgs<ExtArgs>
-    Backet?: boolean | Users$BacketArgs<ExtArgs>
     Comments?: boolean | Users$CommentsArgs<ExtArgs>
     Sessions?: boolean | Users$SessionsArgs<ExtArgs>
     DataAboutCompany?: boolean | Users$DataAboutCompanyArgs<ExtArgs>
@@ -4957,7 +4946,6 @@ export namespace Prisma {
     name: "Users"
     objects: {
       region: Prisma.$RegionsPayload<ExtArgs>
-      Backet: Prisma.$BacketPayload<ExtArgs>[]
       Comments: Prisma.$CommentsPayload<ExtArgs>[]
       Sessions: Prisma.$SessionsPayload<ExtArgs>[]
       DataAboutCompany: Prisma.$DataAboutCompanyPayload<ExtArgs>[]
@@ -5368,7 +5356,6 @@ export namespace Prisma {
   export interface Prisma__UsersClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     region<T extends RegionsDefaultArgs<ExtArgs> = {}>(args?: Subset<T, RegionsDefaultArgs<ExtArgs>>): Prisma__RegionsClient<$Result.GetResult<Prisma.$RegionsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    Backet<T extends Users$BacketArgs<ExtArgs> = {}>(args?: Subset<T, Users$BacketArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BacketPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     Comments<T extends Users$CommentsArgs<ExtArgs> = {}>(args?: Subset<T, Users$CommentsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CommentsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     Sessions<T extends Users$SessionsArgs<ExtArgs> = {}>(args?: Subset<T, Users$SessionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SessionsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     DataAboutCompany<T extends Users$DataAboutCompanyArgs<ExtArgs> = {}>(args?: Subset<T, Users$DataAboutCompanyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DataAboutCompanyPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
@@ -5804,30 +5791,6 @@ export namespace Prisma {
      * Limit how many Users to delete.
      */
     limit?: number
-  }
-
-  /**
-   * Users.Backet
-   */
-  export type Users$BacketArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Backet
-     */
-    select?: BacketSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Backet
-     */
-    omit?: BacketOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: BacketInclude<ExtArgs> | null
-    where?: BacketWhereInput
-    orderBy?: BacketOrderByWithRelationInput | BacketOrderByWithRelationInput[]
-    cursor?: BacketWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: BacketScalarFieldEnum | BacketScalarFieldEnum[]
   }
 
   /**
@@ -26799,26 +26762,22 @@ export namespace Prisma {
 
   export type BacketAvgAggregateOutputType = {
     count: number | null
-    measure: number | null
     workingTime: number | null
     totalPrice: Decimal | null
   }
 
   export type BacketSumAggregateOutputType = {
     count: number | null
-    measure: number | null
     workingTime: number | null
     totalPrice: Decimal | null
   }
 
   export type BacketMinAggregateOutputType = {
     id: string | null
-    ownerId: string | null
     professionId: string | null
     toolId: string | null
     count: number | null
     timeUnit: $Enums.timeEnum | null
-    measure: number | null
     workingTime: number | null
     totalPrice: Decimal | null
     levelId: string | null
@@ -26826,12 +26785,10 @@ export namespace Prisma {
 
   export type BacketMaxAggregateOutputType = {
     id: string | null
-    ownerId: string | null
     professionId: string | null
     toolId: string | null
     count: number | null
     timeUnit: $Enums.timeEnum | null
-    measure: number | null
     workingTime: number | null
     totalPrice: Decimal | null
     levelId: string | null
@@ -26839,12 +26796,10 @@ export namespace Prisma {
 
   export type BacketCountAggregateOutputType = {
     id: number
-    ownerId: number
     professionId: number
     toolId: number
     count: number
     timeUnit: number
-    measure: number
     workingTime: number
     totalPrice: number
     levelId: number
@@ -26854,26 +26809,22 @@ export namespace Prisma {
 
   export type BacketAvgAggregateInputType = {
     count?: true
-    measure?: true
     workingTime?: true
     totalPrice?: true
   }
 
   export type BacketSumAggregateInputType = {
     count?: true
-    measure?: true
     workingTime?: true
     totalPrice?: true
   }
 
   export type BacketMinAggregateInputType = {
     id?: true
-    ownerId?: true
     professionId?: true
     toolId?: true
     count?: true
     timeUnit?: true
-    measure?: true
     workingTime?: true
     totalPrice?: true
     levelId?: true
@@ -26881,12 +26832,10 @@ export namespace Prisma {
 
   export type BacketMaxAggregateInputType = {
     id?: true
-    ownerId?: true
     professionId?: true
     toolId?: true
     count?: true
     timeUnit?: true
-    measure?: true
     workingTime?: true
     totalPrice?: true
     levelId?: true
@@ -26894,12 +26843,10 @@ export namespace Prisma {
 
   export type BacketCountAggregateInputType = {
     id?: true
-    ownerId?: true
     professionId?: true
     toolId?: true
     count?: true
     timeUnit?: true
-    measure?: true
     workingTime?: true
     totalPrice?: true
     levelId?: true
@@ -26994,12 +26941,10 @@ export namespace Prisma {
 
   export type BacketGroupByOutputType = {
     id: string
-    ownerId: string
     professionId: string
     toolId: string
     count: number
     timeUnit: $Enums.timeEnum
-    measure: number
     workingTime: number
     totalPrice: Decimal
     levelId: string
@@ -27026,16 +26971,13 @@ export namespace Prisma {
 
   export type BacketSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    ownerId?: boolean
     professionId?: boolean
     toolId?: boolean
     count?: boolean
     timeUnit?: boolean
-    measure?: boolean
     workingTime?: boolean
     totalPrice?: boolean
     levelId?: boolean
-    owner?: boolean | UsersDefaultArgs<ExtArgs>
     profession?: boolean | ProfessionsDefaultArgs<ExtArgs>
     tools?: boolean | ToolsDefaultArgs<ExtArgs>
     level?: boolean | LevelsDefaultArgs<ExtArgs>
@@ -27043,16 +26985,13 @@ export namespace Prisma {
 
   export type BacketSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    ownerId?: boolean
     professionId?: boolean
     toolId?: boolean
     count?: boolean
     timeUnit?: boolean
-    measure?: boolean
     workingTime?: boolean
     totalPrice?: boolean
     levelId?: boolean
-    owner?: boolean | UsersDefaultArgs<ExtArgs>
     profession?: boolean | ProfessionsDefaultArgs<ExtArgs>
     tools?: boolean | ToolsDefaultArgs<ExtArgs>
     level?: boolean | LevelsDefaultArgs<ExtArgs>
@@ -27060,16 +26999,13 @@ export namespace Prisma {
 
   export type BacketSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    ownerId?: boolean
     professionId?: boolean
     toolId?: boolean
     count?: boolean
     timeUnit?: boolean
-    measure?: boolean
     workingTime?: boolean
     totalPrice?: boolean
     levelId?: boolean
-    owner?: boolean | UsersDefaultArgs<ExtArgs>
     profession?: boolean | ProfessionsDefaultArgs<ExtArgs>
     tools?: boolean | ToolsDefaultArgs<ExtArgs>
     level?: boolean | LevelsDefaultArgs<ExtArgs>
@@ -27077,32 +27013,27 @@ export namespace Prisma {
 
   export type BacketSelectScalar = {
     id?: boolean
-    ownerId?: boolean
     professionId?: boolean
     toolId?: boolean
     count?: boolean
     timeUnit?: boolean
-    measure?: boolean
     workingTime?: boolean
     totalPrice?: boolean
     levelId?: boolean
   }
 
-  export type BacketOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "ownerId" | "professionId" | "toolId" | "count" | "timeUnit" | "measure" | "workingTime" | "totalPrice" | "levelId", ExtArgs["result"]["backet"]>
+  export type BacketOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "professionId" | "toolId" | "count" | "timeUnit" | "workingTime" | "totalPrice" | "levelId", ExtArgs["result"]["backet"]>
   export type BacketInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    owner?: boolean | UsersDefaultArgs<ExtArgs>
     profession?: boolean | ProfessionsDefaultArgs<ExtArgs>
     tools?: boolean | ToolsDefaultArgs<ExtArgs>
     level?: boolean | LevelsDefaultArgs<ExtArgs>
   }
   export type BacketIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    owner?: boolean | UsersDefaultArgs<ExtArgs>
     profession?: boolean | ProfessionsDefaultArgs<ExtArgs>
     tools?: boolean | ToolsDefaultArgs<ExtArgs>
     level?: boolean | LevelsDefaultArgs<ExtArgs>
   }
   export type BacketIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    owner?: boolean | UsersDefaultArgs<ExtArgs>
     profession?: boolean | ProfessionsDefaultArgs<ExtArgs>
     tools?: boolean | ToolsDefaultArgs<ExtArgs>
     level?: boolean | LevelsDefaultArgs<ExtArgs>
@@ -27111,19 +27042,16 @@ export namespace Prisma {
   export type $BacketPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Backet"
     objects: {
-      owner: Prisma.$UsersPayload<ExtArgs>
       profession: Prisma.$ProfessionsPayload<ExtArgs>
       tools: Prisma.$ToolsPayload<ExtArgs>
       level: Prisma.$LevelsPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
-      ownerId: string
       professionId: string
       toolId: string
       count: number
       timeUnit: $Enums.timeEnum
-      measure: number
       workingTime: number
       totalPrice: Prisma.Decimal
       levelId: string
@@ -27521,7 +27449,6 @@ export namespace Prisma {
    */
   export interface Prisma__BacketClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    owner<T extends UsersDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UsersDefaultArgs<ExtArgs>>): Prisma__UsersClient<$Result.GetResult<Prisma.$UsersPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     profession<T extends ProfessionsDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ProfessionsDefaultArgs<ExtArgs>>): Prisma__ProfessionsClient<$Result.GetResult<Prisma.$ProfessionsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     tools<T extends ToolsDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ToolsDefaultArgs<ExtArgs>>): Prisma__ToolsClient<$Result.GetResult<Prisma.$ToolsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     level<T extends LevelsDefaultArgs<ExtArgs> = {}>(args?: Subset<T, LevelsDefaultArgs<ExtArgs>>): Prisma__LevelsClient<$Result.GetResult<Prisma.$LevelsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
@@ -27555,12 +27482,10 @@ export namespace Prisma {
    */
   interface BacketFieldRefs {
     readonly id: FieldRef<"Backet", 'String'>
-    readonly ownerId: FieldRef<"Backet", 'String'>
     readonly professionId: FieldRef<"Backet", 'String'>
     readonly toolId: FieldRef<"Backet", 'String'>
     readonly count: FieldRef<"Backet", 'Int'>
     readonly timeUnit: FieldRef<"Backet", 'timeEnum'>
-    readonly measure: FieldRef<"Backet", 'Int'>
     readonly workingTime: FieldRef<"Backet", 'Int'>
     readonly totalPrice: FieldRef<"Backet", 'Decimal'>
     readonly levelId: FieldRef<"Backet", 'String'>
@@ -31745,12 +31670,10 @@ export namespace Prisma {
 
   export const BacketScalarFieldEnum: {
     id: 'id',
-    ownerId: 'ownerId',
     professionId: 'professionId',
     toolId: 'toolId',
     count: 'count',
     timeUnit: 'timeUnit',
-    measure: 'measure',
     workingTime: 'workingTime',
     totalPrice: 'totalPrice',
     levelId: 'levelId'
@@ -32099,7 +32022,6 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"Users"> | Date | string
     updatedAt?: DateTimeFilter<"Users"> | Date | string
     region?: XOR<RegionsScalarRelationFilter, RegionsWhereInput>
-    Backet?: BacketListRelationFilter
     Comments?: CommentsListRelationFilter
     Sessions?: SessionsListRelationFilter
     DataAboutCompany?: DataAboutCompanyListRelationFilter
@@ -32117,7 +32039,6 @@ export namespace Prisma {
     createdAt?: SortOrder
     updatedAt?: SortOrder
     region?: RegionsOrderByWithRelationInput
-    Backet?: BacketOrderByRelationAggregateInput
     Comments?: CommentsOrderByRelationAggregateInput
     Sessions?: SessionsOrderByRelationAggregateInput
     DataAboutCompany?: DataAboutCompanyOrderByRelationAggregateInput
@@ -32138,7 +32059,6 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"Users"> | Date | string
     updatedAt?: DateTimeFilter<"Users"> | Date | string
     region?: XOR<RegionsScalarRelationFilter, RegionsWhereInput>
-    Backet?: BacketListRelationFilter
     Comments?: CommentsListRelationFilter
     Sessions?: SessionsListRelationFilter
     DataAboutCompany?: DataAboutCompanyListRelationFilter
@@ -33462,16 +33382,13 @@ export namespace Prisma {
     OR?: BacketWhereInput[]
     NOT?: BacketWhereInput | BacketWhereInput[]
     id?: StringFilter<"Backet"> | string
-    ownerId?: StringFilter<"Backet"> | string
     professionId?: StringFilter<"Backet"> | string
     toolId?: StringFilter<"Backet"> | string
     count?: IntFilter<"Backet"> | number
     timeUnit?: EnumtimeEnumFilter<"Backet"> | $Enums.timeEnum
-    measure?: IntFilter<"Backet"> | number
     workingTime?: IntFilter<"Backet"> | number
     totalPrice?: DecimalFilter<"Backet"> | Decimal | DecimalJsLike | number | string
     levelId?: StringFilter<"Backet"> | string
-    owner?: XOR<UsersScalarRelationFilter, UsersWhereInput>
     profession?: XOR<ProfessionsScalarRelationFilter, ProfessionsWhereInput>
     tools?: XOR<ToolsScalarRelationFilter, ToolsWhereInput>
     level?: XOR<LevelsScalarRelationFilter, LevelsWhereInput>
@@ -33479,16 +33396,13 @@ export namespace Prisma {
 
   export type BacketOrderByWithRelationInput = {
     id?: SortOrder
-    ownerId?: SortOrder
     professionId?: SortOrder
     toolId?: SortOrder
     count?: SortOrder
     timeUnit?: SortOrder
-    measure?: SortOrder
     workingTime?: SortOrder
     totalPrice?: SortOrder
     levelId?: SortOrder
-    owner?: UsersOrderByWithRelationInput
     profession?: ProfessionsOrderByWithRelationInput
     tools?: ToolsOrderByWithRelationInput
     level?: LevelsOrderByWithRelationInput
@@ -33499,16 +33413,13 @@ export namespace Prisma {
     AND?: BacketWhereInput | BacketWhereInput[]
     OR?: BacketWhereInput[]
     NOT?: BacketWhereInput | BacketWhereInput[]
-    ownerId?: StringFilter<"Backet"> | string
     professionId?: StringFilter<"Backet"> | string
     toolId?: StringFilter<"Backet"> | string
     count?: IntFilter<"Backet"> | number
     timeUnit?: EnumtimeEnumFilter<"Backet"> | $Enums.timeEnum
-    measure?: IntFilter<"Backet"> | number
     workingTime?: IntFilter<"Backet"> | number
     totalPrice?: DecimalFilter<"Backet"> | Decimal | DecimalJsLike | number | string
     levelId?: StringFilter<"Backet"> | string
-    owner?: XOR<UsersScalarRelationFilter, UsersWhereInput>
     profession?: XOR<ProfessionsScalarRelationFilter, ProfessionsWhereInput>
     tools?: XOR<ToolsScalarRelationFilter, ToolsWhereInput>
     level?: XOR<LevelsScalarRelationFilter, LevelsWhereInput>
@@ -33516,12 +33427,10 @@ export namespace Prisma {
 
   export type BacketOrderByWithAggregationInput = {
     id?: SortOrder
-    ownerId?: SortOrder
     professionId?: SortOrder
     toolId?: SortOrder
     count?: SortOrder
     timeUnit?: SortOrder
-    measure?: SortOrder
     workingTime?: SortOrder
     totalPrice?: SortOrder
     levelId?: SortOrder
@@ -33537,12 +33446,10 @@ export namespace Prisma {
     OR?: BacketScalarWhereWithAggregatesInput[]
     NOT?: BacketScalarWhereWithAggregatesInput | BacketScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"Backet"> | string
-    ownerId?: StringWithAggregatesFilter<"Backet"> | string
     professionId?: StringWithAggregatesFilter<"Backet"> | string
     toolId?: StringWithAggregatesFilter<"Backet"> | string
     count?: IntWithAggregatesFilter<"Backet"> | number
     timeUnit?: EnumtimeEnumWithAggregatesFilter<"Backet"> | $Enums.timeEnum
-    measure?: IntWithAggregatesFilter<"Backet"> | number
     workingTime?: IntWithAggregatesFilter<"Backet"> | number
     totalPrice?: DecimalWithAggregatesFilter<"Backet"> | Decimal | DecimalJsLike | number | string
     levelId?: StringWithAggregatesFilter<"Backet"> | string
@@ -33858,7 +33765,6 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     region: RegionsCreateNestedOneWithoutUsersInput
-    Backet?: BacketCreateNestedManyWithoutOwnerInput
     Comments?: CommentsCreateNestedManyWithoutUserInput
     Sessions?: SessionsCreateNestedManyWithoutUserInput
     DataAboutCompany?: DataAboutCompanyCreateNestedManyWithoutUserInput
@@ -33875,7 +33781,6 @@ export namespace Prisma {
     regionId: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    Backet?: BacketUncheckedCreateNestedManyWithoutOwnerInput
     Comments?: CommentsUncheckedCreateNestedManyWithoutUserInput
     Sessions?: SessionsUncheckedCreateNestedManyWithoutUserInput
     DataAboutCompany?: DataAboutCompanyUncheckedCreateNestedManyWithoutUserInput
@@ -33892,7 +33797,6 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     region?: RegionsUpdateOneRequiredWithoutUsersNestedInput
-    Backet?: BacketUpdateManyWithoutOwnerNestedInput
     Comments?: CommentsUpdateManyWithoutUserNestedInput
     Sessions?: SessionsUpdateManyWithoutUserNestedInput
     DataAboutCompany?: DataAboutCompanyUpdateManyWithoutUserNestedInput
@@ -33909,7 +33813,6 @@ export namespace Prisma {
     regionId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    Backet?: BacketUncheckedUpdateManyWithoutOwnerNestedInput
     Comments?: CommentsUncheckedUpdateManyWithoutUserNestedInput
     Sessions?: SessionsUncheckedUpdateManyWithoutUserNestedInput
     DataAboutCompany?: DataAboutCompanyUncheckedUpdateManyWithoutUserNestedInput
@@ -35346,10 +35249,8 @@ export namespace Prisma {
     id?: string
     count: number
     timeUnit: $Enums.timeEnum
-    measure: number
     workingTime: number
     totalPrice: Decimal | DecimalJsLike | number | string
-    owner: UsersCreateNestedOneWithoutBacketInput
     profession: ProfessionsCreateNestedOneWithoutBacketInput
     tools: ToolsCreateNestedOneWithoutBacketInput
     level: LevelsCreateNestedOneWithoutBacketInput
@@ -35357,12 +35258,10 @@ export namespace Prisma {
 
   export type BacketUncheckedCreateInput = {
     id?: string
-    ownerId: string
     professionId: string
     toolId: string
     count: number
     timeUnit: $Enums.timeEnum
-    measure: number
     workingTime: number
     totalPrice: Decimal | DecimalJsLike | number | string
     levelId: string
@@ -35372,10 +35271,8 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     count?: IntFieldUpdateOperationsInput | number
     timeUnit?: EnumtimeEnumFieldUpdateOperationsInput | $Enums.timeEnum
-    measure?: IntFieldUpdateOperationsInput | number
     workingTime?: IntFieldUpdateOperationsInput | number
     totalPrice?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
-    owner?: UsersUpdateOneRequiredWithoutBacketNestedInput
     profession?: ProfessionsUpdateOneRequiredWithoutBacketNestedInput
     tools?: ToolsUpdateOneRequiredWithoutBacketNestedInput
     level?: LevelsUpdateOneRequiredWithoutBacketNestedInput
@@ -35383,12 +35280,10 @@ export namespace Prisma {
 
   export type BacketUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    ownerId?: StringFieldUpdateOperationsInput | string
     professionId?: StringFieldUpdateOperationsInput | string
     toolId?: StringFieldUpdateOperationsInput | string
     count?: IntFieldUpdateOperationsInput | number
     timeUnit?: EnumtimeEnumFieldUpdateOperationsInput | $Enums.timeEnum
-    measure?: IntFieldUpdateOperationsInput | number
     workingTime?: IntFieldUpdateOperationsInput | number
     totalPrice?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     levelId?: StringFieldUpdateOperationsInput | string
@@ -35396,12 +35291,10 @@ export namespace Prisma {
 
   export type BacketCreateManyInput = {
     id?: string
-    ownerId: string
     professionId: string
     toolId: string
     count: number
     timeUnit: $Enums.timeEnum
-    measure: number
     workingTime: number
     totalPrice: Decimal | DecimalJsLike | number | string
     levelId: string
@@ -35411,19 +35304,16 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     count?: IntFieldUpdateOperationsInput | number
     timeUnit?: EnumtimeEnumFieldUpdateOperationsInput | $Enums.timeEnum
-    measure?: IntFieldUpdateOperationsInput | number
     workingTime?: IntFieldUpdateOperationsInput | number
     totalPrice?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
   }
 
   export type BacketUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
-    ownerId?: StringFieldUpdateOperationsInput | string
     professionId?: StringFieldUpdateOperationsInput | string
     toolId?: StringFieldUpdateOperationsInput | string
     count?: IntFieldUpdateOperationsInput | number
     timeUnit?: EnumtimeEnumFieldUpdateOperationsInput | $Enums.timeEnum
-    measure?: IntFieldUpdateOperationsInput | number
     workingTime?: IntFieldUpdateOperationsInput | number
     totalPrice?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     levelId?: StringFieldUpdateOperationsInput | string
@@ -35775,12 +35665,6 @@ export namespace Prisma {
     isNot?: RegionsWhereInput
   }
 
-  export type BacketListRelationFilter = {
-    every?: BacketWhereInput
-    some?: BacketWhereInput
-    none?: BacketWhereInput
-  }
-
   export type CommentsListRelationFilter = {
     every?: CommentsWhereInput
     some?: CommentsWhereInput
@@ -35797,10 +35681,6 @@ export namespace Prisma {
     every?: DataAboutCompanyWhereInput
     some?: DataAboutCompanyWhereInput
     none?: DataAboutCompanyWhereInput
-  }
-
-  export type BacketOrderByRelationAggregateInput = {
-    _count?: SortOrder
   }
 
   export type CommentsOrderByRelationAggregateInput = {
@@ -36239,6 +36119,12 @@ export namespace Prisma {
     none?: MasterProfessionsWhereInput
   }
 
+  export type BacketListRelationFilter = {
+    every?: BacketWhereInput
+    some?: BacketWhereInput
+    none?: BacketWhereInput
+  }
+
   export type OrderItemsListRelationFilter = {
     every?: OrderItemsWhereInput
     some?: OrderItemsWhereInput
@@ -36252,6 +36138,10 @@ export namespace Prisma {
   }
 
   export type MasterProfessionsOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type BacketOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -36754,12 +36644,10 @@ export namespace Prisma {
 
   export type BacketCountOrderByAggregateInput = {
     id?: SortOrder
-    ownerId?: SortOrder
     professionId?: SortOrder
     toolId?: SortOrder
     count?: SortOrder
     timeUnit?: SortOrder
-    measure?: SortOrder
     workingTime?: SortOrder
     totalPrice?: SortOrder
     levelId?: SortOrder
@@ -36767,19 +36655,16 @@ export namespace Prisma {
 
   export type BacketAvgOrderByAggregateInput = {
     count?: SortOrder
-    measure?: SortOrder
     workingTime?: SortOrder
     totalPrice?: SortOrder
   }
 
   export type BacketMaxOrderByAggregateInput = {
     id?: SortOrder
-    ownerId?: SortOrder
     professionId?: SortOrder
     toolId?: SortOrder
     count?: SortOrder
     timeUnit?: SortOrder
-    measure?: SortOrder
     workingTime?: SortOrder
     totalPrice?: SortOrder
     levelId?: SortOrder
@@ -36787,12 +36672,10 @@ export namespace Prisma {
 
   export type BacketMinOrderByAggregateInput = {
     id?: SortOrder
-    ownerId?: SortOrder
     professionId?: SortOrder
     toolId?: SortOrder
     count?: SortOrder
     timeUnit?: SortOrder
-    measure?: SortOrder
     workingTime?: SortOrder
     totalPrice?: SortOrder
     levelId?: SortOrder
@@ -36800,7 +36683,6 @@ export namespace Prisma {
 
   export type BacketSumOrderByAggregateInput = {
     count?: SortOrder
-    measure?: SortOrder
     workingTime?: SortOrder
     totalPrice?: SortOrder
   }
@@ -37089,13 +36971,6 @@ export namespace Prisma {
     connect?: RegionsWhereUniqueInput
   }
 
-  export type BacketCreateNestedManyWithoutOwnerInput = {
-    create?: XOR<BacketCreateWithoutOwnerInput, BacketUncheckedCreateWithoutOwnerInput> | BacketCreateWithoutOwnerInput[] | BacketUncheckedCreateWithoutOwnerInput[]
-    connectOrCreate?: BacketCreateOrConnectWithoutOwnerInput | BacketCreateOrConnectWithoutOwnerInput[]
-    createMany?: BacketCreateManyOwnerInputEnvelope
-    connect?: BacketWhereUniqueInput | BacketWhereUniqueInput[]
-  }
-
   export type CommentsCreateNestedManyWithoutUserInput = {
     create?: XOR<CommentsCreateWithoutUserInput, CommentsUncheckedCreateWithoutUserInput> | CommentsCreateWithoutUserInput[] | CommentsUncheckedCreateWithoutUserInput[]
     connectOrCreate?: CommentsCreateOrConnectWithoutUserInput | CommentsCreateOrConnectWithoutUserInput[]
@@ -37115,13 +36990,6 @@ export namespace Prisma {
     connectOrCreate?: DataAboutCompanyCreateOrConnectWithoutUserInput | DataAboutCompanyCreateOrConnectWithoutUserInput[]
     createMany?: DataAboutCompanyCreateManyUserInputEnvelope
     connect?: DataAboutCompanyWhereUniqueInput | DataAboutCompanyWhereUniqueInput[]
-  }
-
-  export type BacketUncheckedCreateNestedManyWithoutOwnerInput = {
-    create?: XOR<BacketCreateWithoutOwnerInput, BacketUncheckedCreateWithoutOwnerInput> | BacketCreateWithoutOwnerInput[] | BacketUncheckedCreateWithoutOwnerInput[]
-    connectOrCreate?: BacketCreateOrConnectWithoutOwnerInput | BacketCreateOrConnectWithoutOwnerInput[]
-    createMany?: BacketCreateManyOwnerInputEnvelope
-    connect?: BacketWhereUniqueInput | BacketWhereUniqueInput[]
   }
 
   export type CommentsUncheckedCreateNestedManyWithoutUserInput = {
@@ -37159,20 +37027,6 @@ export namespace Prisma {
     upsert?: RegionsUpsertWithoutUsersInput
     connect?: RegionsWhereUniqueInput
     update?: XOR<XOR<RegionsUpdateToOneWithWhereWithoutUsersInput, RegionsUpdateWithoutUsersInput>, RegionsUncheckedUpdateWithoutUsersInput>
-  }
-
-  export type BacketUpdateManyWithoutOwnerNestedInput = {
-    create?: XOR<BacketCreateWithoutOwnerInput, BacketUncheckedCreateWithoutOwnerInput> | BacketCreateWithoutOwnerInput[] | BacketUncheckedCreateWithoutOwnerInput[]
-    connectOrCreate?: BacketCreateOrConnectWithoutOwnerInput | BacketCreateOrConnectWithoutOwnerInput[]
-    upsert?: BacketUpsertWithWhereUniqueWithoutOwnerInput | BacketUpsertWithWhereUniqueWithoutOwnerInput[]
-    createMany?: BacketCreateManyOwnerInputEnvelope
-    set?: BacketWhereUniqueInput | BacketWhereUniqueInput[]
-    disconnect?: BacketWhereUniqueInput | BacketWhereUniqueInput[]
-    delete?: BacketWhereUniqueInput | BacketWhereUniqueInput[]
-    connect?: BacketWhereUniqueInput | BacketWhereUniqueInput[]
-    update?: BacketUpdateWithWhereUniqueWithoutOwnerInput | BacketUpdateWithWhereUniqueWithoutOwnerInput[]
-    updateMany?: BacketUpdateManyWithWhereWithoutOwnerInput | BacketUpdateManyWithWhereWithoutOwnerInput[]
-    deleteMany?: BacketScalarWhereInput | BacketScalarWhereInput[]
   }
 
   export type CommentsUpdateManyWithoutUserNestedInput = {
@@ -37215,20 +37069,6 @@ export namespace Prisma {
     update?: DataAboutCompanyUpdateWithWhereUniqueWithoutUserInput | DataAboutCompanyUpdateWithWhereUniqueWithoutUserInput[]
     updateMany?: DataAboutCompanyUpdateManyWithWhereWithoutUserInput | DataAboutCompanyUpdateManyWithWhereWithoutUserInput[]
     deleteMany?: DataAboutCompanyScalarWhereInput | DataAboutCompanyScalarWhereInput[]
-  }
-
-  export type BacketUncheckedUpdateManyWithoutOwnerNestedInput = {
-    create?: XOR<BacketCreateWithoutOwnerInput, BacketUncheckedCreateWithoutOwnerInput> | BacketCreateWithoutOwnerInput[] | BacketUncheckedCreateWithoutOwnerInput[]
-    connectOrCreate?: BacketCreateOrConnectWithoutOwnerInput | BacketCreateOrConnectWithoutOwnerInput[]
-    upsert?: BacketUpsertWithWhereUniqueWithoutOwnerInput | BacketUpsertWithWhereUniqueWithoutOwnerInput[]
-    createMany?: BacketCreateManyOwnerInputEnvelope
-    set?: BacketWhereUniqueInput | BacketWhereUniqueInput[]
-    disconnect?: BacketWhereUniqueInput | BacketWhereUniqueInput[]
-    delete?: BacketWhereUniqueInput | BacketWhereUniqueInput[]
-    connect?: BacketWhereUniqueInput | BacketWhereUniqueInput[]
-    update?: BacketUpdateWithWhereUniqueWithoutOwnerInput | BacketUpdateWithWhereUniqueWithoutOwnerInput[]
-    updateMany?: BacketUpdateManyWithWhereWithoutOwnerInput | BacketUpdateManyWithWhereWithoutOwnerInput[]
-    deleteMany?: BacketScalarWhereInput | BacketScalarWhereInput[]
   }
 
   export type CommentsUncheckedUpdateManyWithoutUserNestedInput = {
@@ -38239,12 +38079,6 @@ export namespace Prisma {
     update?: XOR<XOR<ToolsUpdateToOneWithWhereWithoutProfessionToolsInput, ToolsUpdateWithoutProfessionToolsInput>, ToolsUncheckedUpdateWithoutProfessionToolsInput>
   }
 
-  export type UsersCreateNestedOneWithoutBacketInput = {
-    create?: XOR<UsersCreateWithoutBacketInput, UsersUncheckedCreateWithoutBacketInput>
-    connectOrCreate?: UsersCreateOrConnectWithoutBacketInput
-    connect?: UsersWhereUniqueInput
-  }
-
   export type ProfessionsCreateNestedOneWithoutBacketInput = {
     create?: XOR<ProfessionsCreateWithoutBacketInput, ProfessionsUncheckedCreateWithoutBacketInput>
     connectOrCreate?: ProfessionsCreateOrConnectWithoutBacketInput
@@ -38265,14 +38099,6 @@ export namespace Prisma {
 
   export type EnumtimeEnumFieldUpdateOperationsInput = {
     set?: $Enums.timeEnum
-  }
-
-  export type UsersUpdateOneRequiredWithoutBacketNestedInput = {
-    create?: XOR<UsersCreateWithoutBacketInput, UsersUncheckedCreateWithoutBacketInput>
-    connectOrCreate?: UsersCreateOrConnectWithoutBacketInput
-    upsert?: UsersUpsertWithoutBacketInput
-    connect?: UsersWhereUniqueInput
-    update?: XOR<XOR<UsersUpdateToOneWithWhereWithoutBacketInput, UsersUpdateWithoutBacketInput>, UsersUncheckedUpdateWithoutBacketInput>
   }
 
   export type ProfessionsUpdateOneRequiredWithoutBacketNestedInput = {
@@ -38826,7 +38652,6 @@ export namespace Prisma {
     avatar: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    Backet?: BacketCreateNestedManyWithoutOwnerInput
     Comments?: CommentsCreateNestedManyWithoutUserInput
     Sessions?: SessionsCreateNestedManyWithoutUserInput
     DataAboutCompany?: DataAboutCompanyCreateNestedManyWithoutUserInput
@@ -38842,7 +38667,6 @@ export namespace Prisma {
     avatar: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    Backet?: BacketUncheckedCreateNestedManyWithoutOwnerInput
     Comments?: CommentsUncheckedCreateNestedManyWithoutUserInput
     Sessions?: SessionsUncheckedCreateNestedManyWithoutUserInput
     DataAboutCompany?: DataAboutCompanyUncheckedCreateNestedManyWithoutUserInput
@@ -38911,40 +38735,6 @@ export namespace Prisma {
   export type RegionsCreateOrConnectWithoutUsersInput = {
     where: RegionsWhereUniqueInput
     create: XOR<RegionsCreateWithoutUsersInput, RegionsUncheckedCreateWithoutUsersInput>
-  }
-
-  export type BacketCreateWithoutOwnerInput = {
-    id?: string
-    count: number
-    timeUnit: $Enums.timeEnum
-    measure: number
-    workingTime: number
-    totalPrice: Decimal | DecimalJsLike | number | string
-    profession: ProfessionsCreateNestedOneWithoutBacketInput
-    tools: ToolsCreateNestedOneWithoutBacketInput
-    level: LevelsCreateNestedOneWithoutBacketInput
-  }
-
-  export type BacketUncheckedCreateWithoutOwnerInput = {
-    id?: string
-    professionId: string
-    toolId: string
-    count: number
-    timeUnit: $Enums.timeEnum
-    measure: number
-    workingTime: number
-    totalPrice: Decimal | DecimalJsLike | number | string
-    levelId: string
-  }
-
-  export type BacketCreateOrConnectWithoutOwnerInput = {
-    where: BacketWhereUniqueInput
-    create: XOR<BacketCreateWithoutOwnerInput, BacketUncheckedCreateWithoutOwnerInput>
-  }
-
-  export type BacketCreateManyOwnerInputEnvelope = {
-    data: BacketCreateManyOwnerInput | BacketCreateManyOwnerInput[]
-    skipDuplicates?: boolean
   }
 
   export type CommentsCreateWithoutUserInput = {
@@ -39060,38 +38850,6 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type BacketUpsertWithWhereUniqueWithoutOwnerInput = {
-    where: BacketWhereUniqueInput
-    update: XOR<BacketUpdateWithoutOwnerInput, BacketUncheckedUpdateWithoutOwnerInput>
-    create: XOR<BacketCreateWithoutOwnerInput, BacketUncheckedCreateWithoutOwnerInput>
-  }
-
-  export type BacketUpdateWithWhereUniqueWithoutOwnerInput = {
-    where: BacketWhereUniqueInput
-    data: XOR<BacketUpdateWithoutOwnerInput, BacketUncheckedUpdateWithoutOwnerInput>
-  }
-
-  export type BacketUpdateManyWithWhereWithoutOwnerInput = {
-    where: BacketScalarWhereInput
-    data: XOR<BacketUpdateManyMutationInput, BacketUncheckedUpdateManyWithoutOwnerInput>
-  }
-
-  export type BacketScalarWhereInput = {
-    AND?: BacketScalarWhereInput | BacketScalarWhereInput[]
-    OR?: BacketScalarWhereInput[]
-    NOT?: BacketScalarWhereInput | BacketScalarWhereInput[]
-    id?: StringFilter<"Backet"> | string
-    ownerId?: StringFilter<"Backet"> | string
-    professionId?: StringFilter<"Backet"> | string
-    toolId?: StringFilter<"Backet"> | string
-    count?: IntFilter<"Backet"> | number
-    timeUnit?: EnumtimeEnumFilter<"Backet"> | $Enums.timeEnum
-    measure?: IntFilter<"Backet"> | number
-    workingTime?: IntFilter<"Backet"> | number
-    totalPrice?: DecimalFilter<"Backet"> | Decimal | DecimalJsLike | number | string
-    levelId?: StringFilter<"Backet"> | string
-  }
-
   export type CommentsUpsertWithWhereUniqueWithoutUserInput = {
     where: CommentsWhereUniqueInput
     update: XOR<CommentsUpdateWithoutUserInput, CommentsUncheckedUpdateWithoutUserInput>
@@ -39189,7 +38947,6 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     region: RegionsCreateNestedOneWithoutUsersInput
-    Backet?: BacketCreateNestedManyWithoutOwnerInput
     Comments?: CommentsCreateNestedManyWithoutUserInput
     DataAboutCompany?: DataAboutCompanyCreateNestedManyWithoutUserInput
   }
@@ -39205,7 +38962,6 @@ export namespace Prisma {
     regionId: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    Backet?: BacketUncheckedCreateNestedManyWithoutOwnerInput
     Comments?: CommentsUncheckedCreateNestedManyWithoutUserInput
     DataAboutCompany?: DataAboutCompanyUncheckedCreateNestedManyWithoutUserInput
   }
@@ -39237,7 +38993,6 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     region?: RegionsUpdateOneRequiredWithoutUsersNestedInput
-    Backet?: BacketUpdateManyWithoutOwnerNestedInput
     Comments?: CommentsUpdateManyWithoutUserNestedInput
     DataAboutCompany?: DataAboutCompanyUpdateManyWithoutUserNestedInput
   }
@@ -39253,7 +39008,6 @@ export namespace Prisma {
     regionId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    Backet?: BacketUncheckedUpdateManyWithoutOwnerNestedInput
     Comments?: CommentsUncheckedUpdateManyWithoutUserNestedInput
     DataAboutCompany?: DataAboutCompanyUncheckedUpdateManyWithoutUserNestedInput
   }
@@ -39269,7 +39023,6 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     region: RegionsCreateNestedOneWithoutUsersInput
-    Backet?: BacketCreateNestedManyWithoutOwnerInput
     Comments?: CommentsCreateNestedManyWithoutUserInput
     Sessions?: SessionsCreateNestedManyWithoutUserInput
   }
@@ -39285,7 +39038,6 @@ export namespace Prisma {
     regionId: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    Backet?: BacketUncheckedCreateNestedManyWithoutOwnerInput
     Comments?: CommentsUncheckedCreateNestedManyWithoutUserInput
     Sessions?: SessionsUncheckedCreateNestedManyWithoutUserInput
   }
@@ -39317,7 +39069,6 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     region?: RegionsUpdateOneRequiredWithoutUsersNestedInput
-    Backet?: BacketUpdateManyWithoutOwnerNestedInput
     Comments?: CommentsUpdateManyWithoutUserNestedInput
     Sessions?: SessionsUpdateManyWithoutUserNestedInput
   }
@@ -39333,7 +39084,6 @@ export namespace Prisma {
     regionId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    Backet?: BacketUncheckedUpdateManyWithoutOwnerNestedInput
     Comments?: CommentsUncheckedUpdateManyWithoutUserNestedInput
     Sessions?: SessionsUncheckedUpdateManyWithoutUserNestedInput
   }
@@ -39349,7 +39099,6 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     region: RegionsCreateNestedOneWithoutUsersInput
-    Backet?: BacketCreateNestedManyWithoutOwnerInput
     Sessions?: SessionsCreateNestedManyWithoutUserInput
     DataAboutCompany?: DataAboutCompanyCreateNestedManyWithoutUserInput
   }
@@ -39365,7 +39114,6 @@ export namespace Prisma {
     regionId: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    Backet?: BacketUncheckedCreateNestedManyWithoutOwnerInput
     Sessions?: SessionsUncheckedCreateNestedManyWithoutUserInput
     DataAboutCompany?: DataAboutCompanyUncheckedCreateNestedManyWithoutUserInput
   }
@@ -39439,7 +39187,6 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     region?: RegionsUpdateOneRequiredWithoutUsersNestedInput
-    Backet?: BacketUpdateManyWithoutOwnerNestedInput
     Sessions?: SessionsUpdateManyWithoutUserNestedInput
     DataAboutCompany?: DataAboutCompanyUpdateManyWithoutUserNestedInput
   }
@@ -39455,7 +39202,6 @@ export namespace Prisma {
     regionId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    Backet?: BacketUncheckedUpdateManyWithoutOwnerNestedInput
     Sessions?: SessionsUncheckedUpdateManyWithoutUserNestedInput
     DataAboutCompany?: DataAboutCompanyUncheckedUpdateManyWithoutUserNestedInput
   }
@@ -39528,22 +39274,18 @@ export namespace Prisma {
     id?: string
     count: number
     timeUnit: $Enums.timeEnum
-    measure: number
     workingTime: number
     totalPrice: Decimal | DecimalJsLike | number | string
-    owner: UsersCreateNestedOneWithoutBacketInput
     profession: ProfessionsCreateNestedOneWithoutBacketInput
     tools: ToolsCreateNestedOneWithoutBacketInput
   }
 
   export type BacketUncheckedCreateWithoutLevelInput = {
     id?: string
-    ownerId: string
     professionId: string
     toolId: string
     count: number
     timeUnit: $Enums.timeEnum
-    measure: number
     workingTime: number
     totalPrice: Decimal | DecimalJsLike | number | string
   }
@@ -39660,6 +39402,20 @@ export namespace Prisma {
   export type BacketUpdateManyWithWhereWithoutLevelInput = {
     where: BacketScalarWhereInput
     data: XOR<BacketUpdateManyMutationInput, BacketUncheckedUpdateManyWithoutLevelInput>
+  }
+
+  export type BacketScalarWhereInput = {
+    AND?: BacketScalarWhereInput | BacketScalarWhereInput[]
+    OR?: BacketScalarWhereInput[]
+    NOT?: BacketScalarWhereInput | BacketScalarWhereInput[]
+    id?: StringFilter<"Backet"> | string
+    professionId?: StringFilter<"Backet"> | string
+    toolId?: StringFilter<"Backet"> | string
+    count?: IntFilter<"Backet"> | number
+    timeUnit?: EnumtimeEnumFilter<"Backet"> | $Enums.timeEnum
+    workingTime?: IntFilter<"Backet"> | number
+    totalPrice?: DecimalFilter<"Backet"> | Decimal | DecimalJsLike | number | string
+    levelId?: StringFilter<"Backet"> | string
   }
 
   export type OrderItemsUpsertWithWhereUniqueWithoutLevelInput = {
@@ -40079,21 +39835,17 @@ export namespace Prisma {
     id?: string
     count: number
     timeUnit: $Enums.timeEnum
-    measure: number
     workingTime: number
     totalPrice: Decimal | DecimalJsLike | number | string
-    owner: UsersCreateNestedOneWithoutBacketInput
     tools: ToolsCreateNestedOneWithoutBacketInput
     level: LevelsCreateNestedOneWithoutBacketInput
   }
 
   export type BacketUncheckedCreateWithoutProfessionInput = {
     id?: string
-    ownerId: string
     toolId: string
     count: number
     timeUnit: $Enums.timeEnum
-    measure: number
     workingTime: number
     totalPrice: Decimal | DecimalJsLike | number | string
     levelId: string
@@ -40677,21 +40429,17 @@ export namespace Prisma {
     id?: string
     count: number
     timeUnit: $Enums.timeEnum
-    measure: number
     workingTime: number
     totalPrice: Decimal | DecimalJsLike | number | string
-    owner: UsersCreateNestedOneWithoutBacketInput
     profession: ProfessionsCreateNestedOneWithoutBacketInput
     level: LevelsCreateNestedOneWithoutBacketInput
   }
 
   export type BacketUncheckedCreateWithoutToolsInput = {
     id?: string
-    ownerId: string
     professionId: string
     count: number
     timeUnit: $Enums.timeEnum
-    measure: number
     workingTime: number
     totalPrice: Decimal | DecimalJsLike | number | string
     levelId: string
@@ -41066,43 +40814,6 @@ export namespace Prisma {
     OrderItems?: OrderItemsUncheckedUpdateManyWithoutToolNestedInput
   }
 
-  export type UsersCreateWithoutBacketInput = {
-    id?: string
-    fullName: string
-    phone: string
-    password: string
-    role: $Enums.UserRole
-    status?: $Enums.UserStatus
-    avatar: string
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    region: RegionsCreateNestedOneWithoutUsersInput
-    Comments?: CommentsCreateNestedManyWithoutUserInput
-    Sessions?: SessionsCreateNestedManyWithoutUserInput
-    DataAboutCompany?: DataAboutCompanyCreateNestedManyWithoutUserInput
-  }
-
-  export type UsersUncheckedCreateWithoutBacketInput = {
-    id?: string
-    fullName: string
-    phone: string
-    password: string
-    role: $Enums.UserRole
-    status?: $Enums.UserStatus
-    avatar: string
-    regionId: string
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    Comments?: CommentsUncheckedCreateNestedManyWithoutUserInput
-    Sessions?: SessionsUncheckedCreateNestedManyWithoutUserInput
-    DataAboutCompany?: DataAboutCompanyUncheckedCreateNestedManyWithoutUserInput
-  }
-
-  export type UsersCreateOrConnectWithoutBacketInput = {
-    where: UsersWhereUniqueInput
-    create: XOR<UsersCreateWithoutBacketInput, UsersUncheckedCreateWithoutBacketInput>
-  }
-
   export type ProfessionsCreateWithoutBacketInput = {
     id?: string
     nameUz: string
@@ -41210,49 +40921,6 @@ export namespace Prisma {
   export type LevelsCreateOrConnectWithoutBacketInput = {
     where: LevelsWhereUniqueInput
     create: XOR<LevelsCreateWithoutBacketInput, LevelsUncheckedCreateWithoutBacketInput>
-  }
-
-  export type UsersUpsertWithoutBacketInput = {
-    update: XOR<UsersUpdateWithoutBacketInput, UsersUncheckedUpdateWithoutBacketInput>
-    create: XOR<UsersCreateWithoutBacketInput, UsersUncheckedCreateWithoutBacketInput>
-    where?: UsersWhereInput
-  }
-
-  export type UsersUpdateToOneWithWhereWithoutBacketInput = {
-    where?: UsersWhereInput
-    data: XOR<UsersUpdateWithoutBacketInput, UsersUncheckedUpdateWithoutBacketInput>
-  }
-
-  export type UsersUpdateWithoutBacketInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    fullName?: StringFieldUpdateOperationsInput | string
-    phone?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
-    role?: EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
-    status?: EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
-    avatar?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    region?: RegionsUpdateOneRequiredWithoutUsersNestedInput
-    Comments?: CommentsUpdateManyWithoutUserNestedInput
-    Sessions?: SessionsUpdateManyWithoutUserNestedInput
-    DataAboutCompany?: DataAboutCompanyUpdateManyWithoutUserNestedInput
-  }
-
-  export type UsersUncheckedUpdateWithoutBacketInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    fullName?: StringFieldUpdateOperationsInput | string
-    phone?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
-    role?: EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
-    status?: EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
-    avatar?: StringFieldUpdateOperationsInput | string
-    regionId?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    Comments?: CommentsUncheckedUpdateManyWithoutUserNestedInput
-    Sessions?: SessionsUncheckedUpdateManyWithoutUserNestedInput
-    DataAboutCompany?: DataAboutCompanyUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type ProfessionsUpsertWithoutBacketInput = {
@@ -41996,7 +41664,6 @@ export namespace Prisma {
     avatar?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    Backet?: BacketUpdateManyWithoutOwnerNestedInput
     Comments?: CommentsUpdateManyWithoutUserNestedInput
     Sessions?: SessionsUpdateManyWithoutUserNestedInput
     DataAboutCompany?: DataAboutCompanyUpdateManyWithoutUserNestedInput
@@ -42012,7 +41679,6 @@ export namespace Prisma {
     avatar?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    Backet?: BacketUncheckedUpdateManyWithoutOwnerNestedInput
     Comments?: CommentsUncheckedUpdateManyWithoutUserNestedInput
     Sessions?: SessionsUncheckedUpdateManyWithoutUserNestedInput
     DataAboutCompany?: DataAboutCompanyUncheckedUpdateManyWithoutUserNestedInput
@@ -42028,18 +41694,6 @@ export namespace Prisma {
     avatar?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type BacketCreateManyOwnerInput = {
-    id?: string
-    professionId: string
-    toolId: string
-    count: number
-    timeUnit: $Enums.timeEnum
-    measure: number
-    workingTime: number
-    totalPrice: Decimal | DecimalJsLike | number | string
-    levelId: string
   }
 
   export type CommentsCreateManyUserInput = {
@@ -42066,42 +41720,6 @@ export namespace Prisma {
     address: string
     createdAt?: Date | string
     updatedAt?: Date | string
-  }
-
-  export type BacketUpdateWithoutOwnerInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    count?: IntFieldUpdateOperationsInput | number
-    timeUnit?: EnumtimeEnumFieldUpdateOperationsInput | $Enums.timeEnum
-    measure?: IntFieldUpdateOperationsInput | number
-    workingTime?: IntFieldUpdateOperationsInput | number
-    totalPrice?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
-    profession?: ProfessionsUpdateOneRequiredWithoutBacketNestedInput
-    tools?: ToolsUpdateOneRequiredWithoutBacketNestedInput
-    level?: LevelsUpdateOneRequiredWithoutBacketNestedInput
-  }
-
-  export type BacketUncheckedUpdateWithoutOwnerInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    professionId?: StringFieldUpdateOperationsInput | string
-    toolId?: StringFieldUpdateOperationsInput | string
-    count?: IntFieldUpdateOperationsInput | number
-    timeUnit?: EnumtimeEnumFieldUpdateOperationsInput | $Enums.timeEnum
-    measure?: IntFieldUpdateOperationsInput | number
-    workingTime?: IntFieldUpdateOperationsInput | number
-    totalPrice?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
-    levelId?: StringFieldUpdateOperationsInput | string
-  }
-
-  export type BacketUncheckedUpdateManyWithoutOwnerInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    professionId?: StringFieldUpdateOperationsInput | string
-    toolId?: StringFieldUpdateOperationsInput | string
-    count?: IntFieldUpdateOperationsInput | number
-    timeUnit?: EnumtimeEnumFieldUpdateOperationsInput | $Enums.timeEnum
-    measure?: IntFieldUpdateOperationsInput | number
-    workingTime?: IntFieldUpdateOperationsInput | number
-    totalPrice?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
-    levelId?: StringFieldUpdateOperationsInput | string
   }
 
   export type CommentsUpdateWithoutUserInput = {
@@ -42256,12 +41874,10 @@ export namespace Prisma {
 
   export type BacketCreateManyLevelInput = {
     id?: string
-    ownerId: string
     professionId: string
     toolId: string
     count: number
     timeUnit: $Enums.timeEnum
-    measure: number
     workingTime: number
     totalPrice: Decimal | DecimalJsLike | number | string
   }
@@ -42319,34 +41935,28 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     count?: IntFieldUpdateOperationsInput | number
     timeUnit?: EnumtimeEnumFieldUpdateOperationsInput | $Enums.timeEnum
-    measure?: IntFieldUpdateOperationsInput | number
     workingTime?: IntFieldUpdateOperationsInput | number
     totalPrice?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
-    owner?: UsersUpdateOneRequiredWithoutBacketNestedInput
     profession?: ProfessionsUpdateOneRequiredWithoutBacketNestedInput
     tools?: ToolsUpdateOneRequiredWithoutBacketNestedInput
   }
 
   export type BacketUncheckedUpdateWithoutLevelInput = {
     id?: StringFieldUpdateOperationsInput | string
-    ownerId?: StringFieldUpdateOperationsInput | string
     professionId?: StringFieldUpdateOperationsInput | string
     toolId?: StringFieldUpdateOperationsInput | string
     count?: IntFieldUpdateOperationsInput | number
     timeUnit?: EnumtimeEnumFieldUpdateOperationsInput | $Enums.timeEnum
-    measure?: IntFieldUpdateOperationsInput | number
     workingTime?: IntFieldUpdateOperationsInput | number
     totalPrice?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
   }
 
   export type BacketUncheckedUpdateManyWithoutLevelInput = {
     id?: StringFieldUpdateOperationsInput | string
-    ownerId?: StringFieldUpdateOperationsInput | string
     professionId?: StringFieldUpdateOperationsInput | string
     toolId?: StringFieldUpdateOperationsInput | string
     count?: IntFieldUpdateOperationsInput | number
     timeUnit?: EnumtimeEnumFieldUpdateOperationsInput | $Enums.timeEnum
-    measure?: IntFieldUpdateOperationsInput | number
     workingTime?: IntFieldUpdateOperationsInput | number
     totalPrice?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
   }
@@ -42726,11 +42336,9 @@ export namespace Prisma {
 
   export type BacketCreateManyProfessionInput = {
     id?: string
-    ownerId: string
     toolId: string
     count: number
     timeUnit: $Enums.timeEnum
-    measure: number
     workingTime: number
     totalPrice: Decimal | DecimalJsLike | number | string
     levelId: string
@@ -42794,21 +42402,17 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     count?: IntFieldUpdateOperationsInput | number
     timeUnit?: EnumtimeEnumFieldUpdateOperationsInput | $Enums.timeEnum
-    measure?: IntFieldUpdateOperationsInput | number
     workingTime?: IntFieldUpdateOperationsInput | number
     totalPrice?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
-    owner?: UsersUpdateOneRequiredWithoutBacketNestedInput
     tools?: ToolsUpdateOneRequiredWithoutBacketNestedInput
     level?: LevelsUpdateOneRequiredWithoutBacketNestedInput
   }
 
   export type BacketUncheckedUpdateWithoutProfessionInput = {
     id?: StringFieldUpdateOperationsInput | string
-    ownerId?: StringFieldUpdateOperationsInput | string
     toolId?: StringFieldUpdateOperationsInput | string
     count?: IntFieldUpdateOperationsInput | number
     timeUnit?: EnumtimeEnumFieldUpdateOperationsInput | $Enums.timeEnum
-    measure?: IntFieldUpdateOperationsInput | number
     workingTime?: IntFieldUpdateOperationsInput | number
     totalPrice?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     levelId?: StringFieldUpdateOperationsInput | string
@@ -42816,11 +42420,9 @@ export namespace Prisma {
 
   export type BacketUncheckedUpdateManyWithoutProfessionInput = {
     id?: StringFieldUpdateOperationsInput | string
-    ownerId?: StringFieldUpdateOperationsInput | string
     toolId?: StringFieldUpdateOperationsInput | string
     count?: IntFieldUpdateOperationsInput | number
     timeUnit?: EnumtimeEnumFieldUpdateOperationsInput | $Enums.timeEnum
-    measure?: IntFieldUpdateOperationsInput | number
     workingTime?: IntFieldUpdateOperationsInput | number
     totalPrice?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     levelId?: StringFieldUpdateOperationsInput | string
@@ -42900,11 +42502,9 @@ export namespace Prisma {
 
   export type BacketCreateManyToolsInput = {
     id?: string
-    ownerId: string
     professionId: string
     count: number
     timeUnit: $Enums.timeEnum
-    measure: number
     workingTime: number
     totalPrice: Decimal | DecimalJsLike | number | string
     levelId: string
@@ -42930,21 +42530,17 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     count?: IntFieldUpdateOperationsInput | number
     timeUnit?: EnumtimeEnumFieldUpdateOperationsInput | $Enums.timeEnum
-    measure?: IntFieldUpdateOperationsInput | number
     workingTime?: IntFieldUpdateOperationsInput | number
     totalPrice?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
-    owner?: UsersUpdateOneRequiredWithoutBacketNestedInput
     profession?: ProfessionsUpdateOneRequiredWithoutBacketNestedInput
     level?: LevelsUpdateOneRequiredWithoutBacketNestedInput
   }
 
   export type BacketUncheckedUpdateWithoutToolsInput = {
     id?: StringFieldUpdateOperationsInput | string
-    ownerId?: StringFieldUpdateOperationsInput | string
     professionId?: StringFieldUpdateOperationsInput | string
     count?: IntFieldUpdateOperationsInput | number
     timeUnit?: EnumtimeEnumFieldUpdateOperationsInput | $Enums.timeEnum
-    measure?: IntFieldUpdateOperationsInput | number
     workingTime?: IntFieldUpdateOperationsInput | number
     totalPrice?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     levelId?: StringFieldUpdateOperationsInput | string
@@ -42952,11 +42548,9 @@ export namespace Prisma {
 
   export type BacketUncheckedUpdateManyWithoutToolsInput = {
     id?: StringFieldUpdateOperationsInput | string
-    ownerId?: StringFieldUpdateOperationsInput | string
     professionId?: StringFieldUpdateOperationsInput | string
     count?: IntFieldUpdateOperationsInput | number
     timeUnit?: EnumtimeEnumFieldUpdateOperationsInput | $Enums.timeEnum
-    measure?: IntFieldUpdateOperationsInput | number
     workingTime?: IntFieldUpdateOperationsInput | number
     totalPrice?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     levelId?: StringFieldUpdateOperationsInput | string
